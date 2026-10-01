@@ -1,0 +1,22 @@
+[
+  {
+    "version": "18.3b",
+    "releaseDate": "2026-09-24",
+    "title": {"ar": "باتش 18.3b", "en": "Patch 18.3b", "ja": "パッチ 18.3b"},
+    "summary": {
+      "ar": "تحديث سريع بعد 18.3: نيرف لـ Kha'Zix، نيرف لتضحية Blackthorn السحرية، وتعطيل أوجمنت Dark Ritual.",
+      "en": "A B-patch on 18.3: Kha'Zix nerfed, AP Blackthorn sacrifice nerfed, and Dark Ritual disabled.",
+      "ja": "18.3のBパッチ。Kha'Zixナーフ、APブラックソーン生け贄ナーフ、Dark Ritual無効化。"
+    },
+    "highlights": {
+      "ar": "التغييرات الكبيرة: نيرف Kha'Zix، نيرف تضحية Blackthorn الـ AP، وتعطيل Dark Ritual.",
+      "en": "Headline changes: nerfed Kha'Zix, nerfed AP Blackthorn sacrifice, disabled Dark Ritual.",
+      "ja": "Kha'Zixナーف、APブラックソーン生け贄ナーフ、Dark Ritual無効。"
+    },
+    "changes": [
+      {"type": "nerf", "category": "champion", "name": {"ar": "Kha'Zix", "en": "Kha'Zix", "ja": "Kha'Zix"}, "detail": {"ar": "اتنقّل لتحت بعد ما البوردات المعتمدة عليه طلعت أقوى من اللازم في 18.3.", "en": "Brought down after Rival boards overperformed coming out of 18.3.", "ja": "18.3後に強すぎたライバル構成を抑制。"}},
+      {"type": "nerf", "category": "trait", "name": {"ar": "Blackthorn", "en": "Blackthorn", "ja": "ブラックソーン"}, "detail": {"ar": "تضحية الـ AP اتنيرفت.", "en": "AP sacrifice value was reduced.", "ja": "AP生け贄のリターンを低下。"}},
+      {"type": "adjust", "category": "augment", "name": {"ar": "Dark Ritual", "en": "Dark Ritual", "ja": "Dark Ritual"}, "detail": {"ar": "الأوجمنت متعطّل في الباتش الحالي.", "en": "This augment is disabled on the current patch.", "ja": "このオーグメントは現在無効。"}}
+    ]
+  }
+]
