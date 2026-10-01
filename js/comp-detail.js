@@ -1,1 +1,20 @@
-import{setupLanguage,t,lang,localize}from'./i18n.js';import{detail}from'./ui.js';const slug=new URLSearchParams(location.search).get('slug');let comp,patch;function meta(name,value){let el=document.querySelector('meta[name="'+name+'"]');if(!el){el=document.createElement('meta');el.name=name;document.head.appendChild(el)}el.content=value}function render(){if(!comp)return;const root=document.querySelector('#comp-detail')||document.querySelector('#comp-root');if(!root)return;const title=localize(comp.name)+' — MokaTroy TFT';const description=(comp.summary&&localize(comp.summary))||'TFT Set 18 composition guide.';document.title=title;meta('description',description);root.innerHTML=detail(comp,patch)}Promise.all([fetch('data/comps.json').then(r=>r.json()),fetch('data/patches.json').then(r=>r.json())]).then(([xs,ps])=>{patch=ps[0];comp=xs.find(x=>x.slug===slug);const root=document.querySelector('#comp-detail')||document.querySelector('#comp-root');if(!comp){if(root)root.innerHTML='<p class="empty">'+t('notFound')+'</p>';return}render()});setupLanguage(render);
+import{setupLanguage,t,lang,localize}from'./i18n.js';import{detail}from'./ui.js';
+const slug=new URLSearchParams(location.search).get('slug');
+let comp,patch;
+function render(){
+  const root=document.querySelector('#comp-detail')||document.querySelector('#comp-root');
+  if(!root)return;
+  if(!comp){root.innerHTML='<p class="empty">'+(t('notFound')||'Not found')+'</p>';return;}
+  document.title=(localize(comp.name)||comp.slug)+' — MokaTroy TFT';
+  root.innerHTML=detail(comp,patch);
+}
+Promise.all([
+  fetch('data/v2_comps.json').then(r=>r.ok?r.json():fetch('data/comps.json').then(r=>r.json())),
+  fetch('data/patches.json').then(r=>r.json())
+]).then(([xs,ps])=>{
+  patch=ps[0];
+  const list=Array.isArray(xs)?xs:(xs.comps||[]);
+  comp=list.find(x=>x.slug===slug);
+  render();
+});
+setupLanguage(render);
