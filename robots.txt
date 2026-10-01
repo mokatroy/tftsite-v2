@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tftsite.mokatroymonk.workers.dev/sitemap.xml
