@@ -1,0 +1,639 @@
+[
+  {
+    "name": "Unrivaled Kha'Zix",
+    "ar": "Unrivaled Kha'Zix",
+    "ja": "アンライバルド・カ＝ジックス",
+    "style": {
+      "ar": "ريرول 3 كوست · مشروط",
+      "en": "3-Cost Reroll · Conditional",
+      "ja": "3コストリロール · 条件付き"
+    },
+    "augments": [
+      "Rivals",
+      "Heroic Grab Bag+",
+      "Heroic Grab Bag++",
+      "Swordsmith",
+      "Big Grab Bag",
+      "Golden Gamble+",
+      "Small Grab Bag",
+      "Salvage Bin+"
+    ],
+    "note": {
+      "ar": "التشكيلة مشروطة بوجود Kha'Zix مبكر وأيتمز مناسبة. ترتيب الخصائص التي يكتسبها مع الإقصاءات مهم.",
+      "en": "Conditional on an early Kha'Zix with suitable items. The order of traits gained through takedowns matters.",
+      "ja": "早期のKha'Zixと適切なアイテムが条件。キルによるトレイト獲得順が重要です。"
+    },
+    "title": {
+      "ar": "Unrivaled Kha'Zix",
+      "en": "Unrivaled Kha'Zix",
+      "ja": "アンライバルド・カ＝ジックス"
+    },
+    "slug": "unrivaled-khazix",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "العبها فقط لو حصلت على Kha'Zix مبكرًا ومعه أيتمز مناسبة. استخدم فرونت لاين مطوّر لكسب وقت.",
+          "en": "Only consider this with an early Kha'Zix and suitable items. Use upgraded frontline to buy time.",
+          "ja": "早期にKha'Zixと適切なアイテムが揃った場合に検討。強化した前衛で時間を稼ぎます。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "لو عندك أزواج مهمة على لفل 6، ممكن تعمل رول بسيط؛ وإلا حافظ على الاقتصاد واتجه إلى لفل 7.",
+          "en": "If you have key pairs at level 6, roll a little; otherwise preserve economy toward level 7.",
+          "ja": "レベル6で重要なペアがあれば少しロールし、なければ経済を維持してレベル7を目指します。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "اعمل Slow Roll على لفل 7 لتطوير وحدات الـ3 كوست المستهدفة. حاول تفعيل خصائص Kha'Zix بالتتابع مع الإقصاءات.",
+          "en": "Slow roll at level 7 for your target 3-cost upgrades. Sequence Kha'Zix's gained traits through takedowns.",
+          "ja": "レベル7でスローロールし、狙う3コストを強化。Kha'Zixのキルによるトレイト獲得順を意識します。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Amumu",
+        "Shen",
+        "Fiddlesticks",
+        "Akali",
+        "Varus",
+        "Rengar",
+        "Kennen",
+        "Kha'Zix"
+      ],
+      "items": [
+        {
+          "unit": "Kha'Zix",
+          "items": [
+            "Edge of Night",
+            "Hand of Justice",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Rengar",
+          "items": [
+            "Titan's Resolve",
+            "Guinsoo's Rageblade",
+            "Edge of Night"
+          ]
+        }
+      ],
+      "priority": [
+        "Edge of Night",
+        "Titan's Resolve",
+        "Guinsoo's Rageblade",
+        "Hand of Justice"
+      ],
+      "early": [
+        "Kha'Zix",
+        "Rengar",
+        "Hecarim",
+        "LeBlanc"
+      ],
+      "flex": [
+        "Add a frontline tank; later add 5-cost units after 3-star core."
+      ],
+      "position": "Keep Kha'Zix and Rengar protected until they can reach targets; adjust their sides to the enemy carry. Use a durable upgraded frontline.",
+      "alt": "Item alternatives include Hand of Justice, Rabadon's Deathcap, Jeweled Gauntlet, or suitable defensive items based on components.",
+      "ar": {
+        "position": "احمِ خازكس ورينجار لحد ما يوصلوا للأهداف، وغيّر الجهة حسب مكان كاري الخصم. استخدم فرونت لاين مطوّر ومتين.",
+        "flex": "زوّد تانك فرونت لاين مناسب، وبعد ما تكمل وحدات الـ3 نجوم أضف وحدات 5 كوست.",
+        "alt": "بدائل الأيتمز تشمل Hand of Justice وRabadon's Deathcap وJeweled Gauntlet، أو أيتمز دفاعية مناسبة للمكونات."
+      },
+      "en": {
+        "position": "Protect Kha'Zix and Rengar until they reach targets; swap their sides to match the enemy carry. Use a durable upgraded frontline.",
+        "flex": "Add a suitable frontline tank; after completing the 3-star core, add 5-cost units.",
+        "alt": "Alternatives include Hand of Justice, Rabadon's Deathcap, Jeweled Gauntlet, or suitable defensive items based on components."
+      },
+      "ja": {
+        "position": "Kha'ZixとRengarが敵に届くまで守り、相手キャリーの位置に合わせて左右を調整。強化した前衛で時間を稼ぎます。",
+        "flex": "適切な前衛タンクを追加し、主力の3スター完成後は5コストを加えます。",
+        "alt": "Hand of Justice、Rabadon's Deathcap、Jeweled Gauntletや、素材に応じた防御アイテムが代替候補です。"
+      }
+    },
+    "requiredAugment": "Unrivaled"
+  },
+  {
+    "name": "Ravager Elise",
+    "ar": "Ravager Elise",
+    "ja": "ラヴェジャー・エリス",
+    "style": {
+      "ar": "ريرول 2 كوست · متوسط",
+      "en": "2-Cost Reroll · Medium",
+      "ja": "2コストリロール · 中級"
+    },
+    "augments": [
+      "Coven Trait Augment (Loot to AP)",
+      "Coven Trait Augment",
+      "Worth the Wait II",
+      "Cooking Pot",
+      "Heroic Grab Bag+",
+      "Solo Plate",
+      "Staffsmith",
+      "Expedition"
+    ],
+    "note": {
+      "ar": "قوية جدًا مع Ravager Emblem. من غيره تقدر تلعب 4 Vanguard مع Coven وتكمّل الخانات الأخيرة حسب المتاح. Elise تقدر تستخدم Gargoyle Stoneplate بدل Archangel's Staff لبناء دفاعي.",
+      "en": "Very strong with Ravager Emblem. Without it, use 4 Vanguard with Coven and flex the remaining slots. Elise can use Gargoyle Stoneplate instead of Archangel's Staff for a more defensive build.",
+      "ja": "Ravagerの紋章が非常に有効。ない場合はCovenとVanguard 4を軸に残りを調整。防御寄りならEliseにArchangel's Staffの代わりにGargoyle Stoneplateを装備できます。"
+    },
+    "title": {
+      "ar": "Ravager Elise",
+      "en": "Ravager Elise",
+      "ja": "ラヴェジャー・エリス"
+    },
+    "slug": "ravager-elise",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "ابدأ حول Coven واجمع Essence. الفوز المبكر أفضل من الخسارة المتعمدة؛ ما تجبرش Lose Streak.",
+          "en": "Open around Coven and gather Essence. Winning early is better than forcing a loss streak.",
+          "ja": "Covenを軸に始めてEssenceを集めます。無理に連敗するより序盤に勝つ方が有効です。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "ارفع لفل 6 ودوّر على Elise نجمتين ووحدات Coven وRavager إضافية. مع أيتمز AD ابحث عن Murkwolf، ومع AP ابحث عن Diana.",
+          "en": "Level to 6 and roll for 2-star Elise, Coven units, and another Ravager. With AD items look for Murkwolf; with AP look for Diana.",
+          "ja": "レベル6に上げ、2スターElise、Coven、追加のRavagerを狙います。ADアイテムならMurkwolf、APならDianaを探します。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "أنهِ تطوير Elise إلى 3 نجوم، ثم ارفع المستوى وأضف Vanguard أو Coven أو وحدات Lunar/5 كوست حسب المتاح.",
+          "en": "Finish 3-star Elise, then level up and add Vanguard, Coven, or Lunar/5-cost units as available.",
+          "ja": "Eliseを3スターにしてからレベルを上げ、状況に応じてVanguard、Coven、Lunarや5コストを追加します。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Sentinel",
+        "Hecarim",
+        "Elise",
+        "Diana",
+        "Morgana",
+        "Murkwolf",
+        "Brambleback",
+        "Camille"
+      ],
+      "items": [
+        {
+          "unit": "Elise",
+          "items": [
+            "Ravager Emblem",
+            "Guinsoo's Rageblade",
+            "Archangel's Staff"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "items": [
+            "Jeweled Gauntlet",
+            "Striker's Flail",
+            "Hand of Justice"
+          ]
+        },
+        {
+          "unit": "Morgana",
+          "items": [
+            "Void Staff",
+            "Morellonomicon"
+          ]
+        }
+      ],
+      "priority": [
+        "Guinsoo's Rageblade",
+        "Titan's Resolve",
+        "Negatron Cloak",
+        "Chain Vest"
+      ],
+      "early": [
+        "Coven units",
+        "Elise"
+      ],
+      "flex": [
+        "Without Ravager Emblem, use 4 Vanguard with Coven and flex remaining slots.",
+        "Murkwolf for AD items; Diana for AP items."
+      ],
+      "position": "Place Elise where she can survive and build stacks; position frontline to buy time. Adjust against enemy targeting.",
+      "alt": "Without Ravager Emblem, pivot to 4 Vanguard plus Coven. Elise can use Gargoyle Stoneplate instead of Archangel's Staff for a defensive build.",
+      "ar": {
+        "position": "حط Elise في مكان يساعدها تعيش وتجمع الستاك، وخلي الفرونت لاين يكسبها وقت. عدّل التمركز حسب استهداف الخصم.",
+        "flex": "من غير Ravager Emblem العب 4 Vanguard مع Coven واملأ الخانات حسب المتاح. Murkwolf مع أيتمز AD وDiana مع AP.",
+        "alt": "من غير Ravager Emblem حوّل إلى 4 Vanguard مع Coven. تقدر تستخدم Elise أيتم Gargoyle Stoneplate بدل Archangel's Staff لبناء دفاعي."
+      },
+      "en": {
+        "position": "Place Elise where she can survive and build stacks; use the frontline to buy time. Adjust against enemy targeting.",
+        "flex": "Without Ravager Emblem, use 4 Vanguard with Coven and flex remaining slots. Murkwolf fits AD items; Diana fits AP.",
+        "alt": "Without Ravager Emblem, pivot to 4 Vanguard plus Coven. Elise can use Gargoyle Stoneplate instead of Archangel's Staff for a defensive build."
+      },
+      "ja": {
+        "position": "Eliseが生存してスタックを重ねられる位置に配置し、前衛で時間を稼ぎます。敵の狙いに応じて調整。",
+        "flex": "Ravagerの紋章がなければCoven＋Vanguard 4を軸に調整。ADならMurkwolf、APならDiana。",
+        "alt": "紋章がなければCoven＋Vanguard 4へ。防御寄りのEliseにはArchangel's Staffの代わりにGargoyle Stoneplateも使用可能。"
+      }
+    }
+  },
+  {
+    "name": "Veigar Consuming Flora",
+    "ar": "Veigar Consuming Flora",
+    "ja": "ヴェイガー・コンスーミングフローラ",
+    "style": {
+      "ar": "ريرول 1 كوست · سهل",
+      "en": "1-Cost Reroll · Easy",
+      "ja": "1コストリロール · 初級"
+    },
+    "augments": [
+      "Living Forge",
+      "Forged in Strength",
+      "Portable Forge",
+      "Latent Forge",
+      "Flora Fatalis",
+      "Missed Connections",
+      "Pandora's Bench",
+      "Deadlier Caps"
+    ],
+    "note": {
+      "ar": "ركز على Veigar من البداية، واستفد من أوجمنتس الـForge أو Flora Fatalis لو ظهرت.",
+      "en": "Prioritize Veigar early; Forge or Flora Fatalis augments are relevant options.",
+      "ja": "序盤からVeigarを優先し、Forge系やFlora Fatalisのオーグメントを活用。"
+    },
+    "title": {
+      "ar": "Veigar Consuming Flora",
+      "en": "Veigar Consuming Flora",
+      "ja": "ヴェイガー・コンスーミングフローラ"
+    },
+    "slug": "veigar-consuming-flora",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "العب حول Veigar بس لو عندك ترقيات بدري عشان يقدر يكبر ويجمع الستاك. خلي أولوية الأيتمز ليه.",
+          "en": "Only play around this opener with early upgrades so Veigar can snowball and gain stacks. Prioritize Veigar items.",
+          "ja": "序盤に強化が揃っている場合のみ、この構成を狙いましょう。Veigarのスタックを伸ばすため、アイテムを優先します。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "لو قربت من Veigar 3 نجوم (7 نسخ أو أكتر)، فكّر تلف لحد ما تكمله. لو لسه بعيد (3–4 نسخ)، اعمل Slow Roll فوق 50 دهب.",
+          "en": "If you are close to Veigar 3 (7+ copies), consider rolling until you hit 3-star. If far (3–4 copies), slow roll above 50 gold.",
+          "ja": "Veigarが7体以上いて3スターに近いなら、完成までロールを検討。3〜4体で遠い場合は50ゴールド以上を維持してスローロールします。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "بعد ما تكمّل Veigar 3 نجوم، ارفع المستوى عشان تزود Sprykin أو Blackthorn أو Brawler.",
+          "en": "Once you finish 3-star Veigar, push levels for more Sprykin, Blackthorn, or Brawlers.",
+          "ja": "Veigarを3スターにしたらレベルを上げ、Sprykin・Blackthorn・Brawlerを追加します。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Rek'Sai",
+        "Sett",
+        "Rammus",
+        "Gnar",
+        "Veigar",
+        "Fiddlesticks",
+        "Teemo",
+        "Kobuko"
+      ],
+      "items": [
+        {
+          "unit": "Veigar",
+          "items": [
+            "Flora Fatalis Emblem",
+            "Blue Buff",
+            "Jeweled Gauntlet"
+          ]
+        },
+        {
+          "unit": "Rek'Sai",
+          "items": [
+            "Warmog's Armor",
+            "Gargoyle Stoneplate",
+            "Gargoyle Stoneplate"
+          ]
+        },
+        {
+          "unit": "Teemo",
+          "items": [
+            "Jeweled Gauntlet",
+            "Morellonomicon",
+            "Void Staff"
+          ]
+        }
+      ],
+      "priority": [
+        "Tear of the Goddess",
+        "Needlessly Large Rod",
+        "Sparring Gloves",
+        "Gargoyle Stoneplate"
+      ],
+      "early": [
+        "Veigar",
+        "Rek'Sai"
+      ],
+      "flex": [
+        "After 3-star Veigar, level up for more Sprykin, Blackthorn, or Brawlers."
+      ],
+      "position": "Keep Veigar in the backline and protect him; put Rek'Sai and other durable units in front. Sacrifice a 3-star unit to maximize Blackthorn stats when appropriate.",
+      "alt": "Dawncore and Luden's are strong options. This line depends on the Flora Fatalis augment; do not commit without it.",
+      "ar": {
+        "position": "خلي Veigar في الخلف واحميه، وحط Rek'Sai والوحدات المتينة في الأمام. ضحّي بوحدة 3 نجوم لتعظيم إحصائيات Blackthorn عند الحاجة.",
+        "flex": "بعد ما تكمل Veigar 3 نجوم، ارفع المستوى وزوّد Sprykin أو Blackthorn أو Brawler.",
+        "alt": "Dawncore وLuden's خيارات مناسبة. التشكيلة معتمدة على Augment Flora Fatalis؛ ما تلتزمش بيها من غيره."
+      },
+      "en": {
+        "position": "Keep Veigar in the backline and protect him; put Rek'Sai and durable units in front. Sacrifice a 3-star unit to maximize Blackthorn stats when appropriate.",
+        "flex": "After 3-star Veigar, level up for more Sprykin, Blackthorn, or Brawlers.",
+        "alt": "Dawncore and Luden's are strong options. This line depends on the Flora Fatalis augment; do not commit without it."
+      },
+      "ja": {
+        "position": "Veigarを後衛で守り、Rek'Saiなど耐久力のあるユニットを前衛に配置。必要に応じて3スターを生け贄にしBlackthornの能力を最大化します。",
+        "flex": "Veigarの3スター完成後はレベルを上げ、Sprykin、Blackthorn、Brawlerを追加。",
+        "alt": "DawncoreとLuden'sも有力。Flora Fatalisオーグメントが前提なので、提示される前に決め打ちしないでください。"
+      }
+    },
+    "requiredAugment": "Consuming Flora"
+  },
+  {
+    "name": "Fae Tristana",
+    "ar": "Fae Tristana",
+    "ja": "フェイ・トリスターナ",
+    "style": {
+      "ar": "ريرول 3 كوست · متوسط",
+      "en": "3-Cost Reroll · Medium",
+      "ja": "3コストリロール · 中級"
+    },
+    "augments": [
+      "URF",
+      "Urfs Grab Bag",
+      "Branching Out",
+      "Branching Out+",
+      "Spreading Roots",
+      "Spreading Roots+",
+      "Heroic Grab Bag++",
+      "Swordsmith"
+    ],
+    "note": {
+      "ar": "ما تلعبهاش من غير Fae Emblem. الوصول إلى 4 Fae بدري مهم. لو مش لاقي Rammus، ممكن Vi تكون التانك الأساسي. غالبًا اختار Primal Execute بدل Item Primal، إلا لو متقدم جدًا أو عامل ون ستريك.",
+      "en": "Do not play without Fae Emblem. Reaching 4 Fae early is important. Vi can be the main tank if you cannot find Rammus. Prefer Execute Primal over Item Primal unless far ahead or win-streaking.",
+      "ja": "Faeの紋章なしではプレイしないでください。早期にFae 4を揃えることが重要です。Rammusが見つからなければViをメインタンクにできます。大きく先行または連勝中でない限り、Item PrimalよりExecute Primalを優先します。"
+    },
+    "title": {
+      "ar": "Fae Tristana",
+      "en": "Fae Tristana",
+      "ja": "フェイ・トリスターナ"
+    },
+    "slug": "fae-tristana",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "العب على ون ستريك مع حامل Rageblade مطوّر، وابدأ تفعيل Fae بدري؛ الوصول إلى 7 Fae بسرعة مهم للاقتصاد.",
+          "en": "Play for a win streak with an upgraded Rageblade holder and start stacking Fae early; reaching 7 Fae quickly is important for economy.",
+          "ja": "強化したRageblade持ちで連勝を狙い、早めにFaeを重ねます。早期にFae 7へ到達することが経済面で重要です。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "حط الأيتمز على Tristana بمجرد ما تلاقيها. Sprykin أهم من Hunter. لو Primal ظهر بدري وإنت متقدم، ممكن تختار أيتمز.",
+          "en": "Itemize Tristana as soon as you find her. Sprykin matters more than Hunter. If you hit Primal early while ahead, items can be considered.",
+          "ja": "Tristanaを見つけたらすぐアイテムを装備。HunterよりSprykinを優先します。大きく先行して早期にPrimalを引いた場合はアイテムも検討できます。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "ارفع لفل 7 واعمل Slow Roll فوق 50 دهب لتطوير Tristana وRammus إلى 3 نجوم. استخدم مكافآت Fae لرفع المستوى، وادّي Sivir الأيتمز الفيزيائية الزيادة.",
+          "en": "Level to 7 and slow roll above 50 gold for 3-star Tristana and Rammus. Use Fae cash-outs to level and give leftover AD items to Sivir.",
+          "ja": "レベル7に上げ、50ゴールド以上でスローロールしてTristanaとRammusを3スターにします。Faeの換金でレベルを上げ、余ったADアイテムはSivirへ。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Rammus",
+        "Vi",
+        "Rakan",
+        "Lillia",
+        "Rengar",
+        "Sivir",
+        "Tristana"
+      ],
+      "items": [
+        {
+          "unit": "Rammus",
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmog's Armor"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "items": [
+            "Guinsoo's Rageblade",
+            "Hextech Gunblade",
+            "Giant Slayer"
+          ]
+        },
+        {
+          "unit": "Sivir",
+          "items": [
+            "Fae Emblem",
+            "Last Whisper",
+            "Red Buff"
+          ]
+        },
+        {
+          "unit": "Rengar",
+          "items": [
+            "Edge of Night"
+          ]
+        }
+      ],
+      "priority": [
+        "Guinsoo's Rageblade",
+        "Hextech Gunblade",
+        "B.F. Sword",
+        "Recurve Bow"
+      ],
+      "early": [
+        "Fae units",
+        "Rageblade holder"
+      ],
+      "flex": [
+        "Vi can tank if Rammus is missing. Flex Ashe, Kobuko, Rengar, or Xayah."
+      ],
+      "position": "Rammus anchors the frontline. Put Rengar on the side where he can access the enemy backline; keep Tristana and Sivir protected in the back.",
+      "alt": "Only play with Fae Emblem. Prefer Execute Primal over Item Primal unless far ahead or win-streaking.",
+      "ar": {
+        "position": "Rammus يكون أساس الفرونت. حط Rengar في الجهة اللي توصله للباك لاين، وخلي Tristana وSivir محميين في الخلف.",
+        "flex": "Vi تقدر تكون التانك لو Rammus مش موجود. الخانات المرنة: Ashe أو Kobuko أو Rengar أو Xayah.",
+        "alt": "العبها فقط مع Fae Emblem. اختار Execute Primal بدل Item Primal إلا لو متقدم جدًا أو عامل ون ستريك."
+      },
+      "en": {
+        "position": "Rammus anchors the frontline. Put Rengar on the side where he can access the enemy backline; keep Tristana and Sivir protected in the back.",
+        "flex": "Vi can tank if Rammus is missing. Flex Ashe, Kobuko, Rengar, or Xayah.",
+        "alt": "Only play with Fae Emblem. Prefer Execute Primal over Item Primal unless far ahead or win-streaking."
+      },
+      "ja": {
+        "position": "Rammusを前衛の軸に。Rengarは敵後衛へ届く側、TristanaとSivirは後衛で守ります。",
+        "flex": "RammusがいなければViをタンクに。Ashe、Kobuko、Rengar、Xayahをフレックス枠にできます。",
+        "alt": "Faeの紋章が必須。大きく先行または連勝中でない限り、Item PrimalよりExecute Primalを優先。"
+      }
+    },
+    "requiredAugment": "Fae Emblem"
+  },
+  {
+    "name": "Lunarwood Kha'zix",
+    "ar": "Lunarwood Kha'zix",
+    "ja": "ルナウッド・カ＝ジックス",
+    "style": {
+      "ar": "ريرول 3 كوست · متوسط",
+      "en": "3-Cost Reroll · Medium",
+      "ja": "3コストリロール · 中級"
+    },
+    "augments": [
+      "Champ Delivery",
+      "Pandora's Bench",
+      "Flowing Tears",
+      "Advanced Loan+",
+      "Heroic Grab Bag++",
+      "Legion of Threes",
+      "Lucky Gloves+",
+      "Prismatic Ticket"
+    ],
+    "note": {
+      "ar": "العبها مع Kha'Zix مبكر وأيتمز مناسبة.",
+      "en": "Play with an early Kha'Zix and suitable items.",
+      "ja": "早期Kha'Zixと適切なアイテムが条件です。"
+    },
+    "title": {
+      "ar": "Lunarwood Kha'zix",
+      "en": "Lunarwood Kha'zix",
+      "ja": "ルナウッド・カ＝ジックス"
+    },
+    "slug": "lunarwood-khazix",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "العبها فقط مع Kha'Zix مبكر ومعه أيتمز.",
+          "en": "Only play with an early Kha'Zix and items.",
+          "ja": "早期Kha'Zixとアイテムがある場合のみ。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "لو عندك أزواج مهمة على 6 رول بسيط، وإلا اصعد 7.",
+          "en": "If you have key pairs at 6, roll a little; otherwise econ toward 7.",
+          "ja": "6で重要なペアがあれば少しロール、なければ7へ。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "على 7 Slow Roll للـ3 نجوم في Kha'Zix وHecarim وDiana.",
+          "en": "At 7, slow roll for Kha'Zix, Hecarim and Diana 3.",
+          "ja": "7でKha'Zix、Hecarim、Dianaの3スターを狙います。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Diana",
+        "Hecarim",
+        "Kha'Zix",
+        "Ezreal",
+        "Alune",
+        "Soraka",
+        "Fiddlesticks",
+        "Ornn"
+      ],
+      "items": [
+        {
+          "unit": "Kha'Zix",
+          "items": [
+            "Hand of Justice",
+            "Hand of Justice",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Hecarim",
+          "items": [
+            "Warmog's Armor",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "items": [
+            "Jeweled Gauntlet",
+            "Hand of Justice",
+            "Ionic Spark"
+          ]
+        },
+        {
+          "unit": "Ezreal",
+          "items": [
+            "Red Buff",
+            "Spear of Shojin",
+            "Deathblade"
+          ]
+        }
+      ],
+      "priority": [
+        "Hand of Justice",
+        "Jeweled Gauntlet",
+        "Gargoyle Stoneplate",
+        "Warmog's Armor"
+      ],
+      "early": [
+        "Kha'Zix",
+        "Ornn",
+        "Alistar",
+        "LeBlanc"
+      ],
+      "flex": [
+        "Before Alune, use a third Executioner such as Lux or Ivern."
+      ],
+      "position": "Kha'Zix and Hecarim take the front/side access lanes; keep Ezreal, Alune and Soraka in the back.",
+      "alt": "Double Hand of Justice is a strong Kha'Zix setup; Deathcap or Jeweled Gauntlet can replace one.",
+      "ar": {
+        "position": "Kha'Zix وHecarim في الأمام/الجنب، وخلي Ezreal وAlune وSoraka في الخلف.",
+        "flex": "قبل Alune استخدم Executioner ثالث مثل Lux أو Ivern.",
+        "alt": "Double Hand of Justice قوي على Kha'Zix، ويمكن استبدال واحدة بـDeathcap أو JG."
+      },
+      "en": {
+        "position": "Kha'Zix and Hecarim take the front/side access lanes; keep Ezreal, Alune and Soraka in the back.",
+        "flex": "Before Alune, use a third Executioner such as Lux or Ivern.",
+        "alt": "Double Hand of Justice is a strong Kha'Zix setup; Deathcap or Jeweled Gauntlet can replace one."
+      },
+      "ja": {
+        "position": "Kha'ZixとHecarimは前方/サイド、Ezreal、Alune、Sorakaは後衛へ。",
+        "flex": "Alune前はLuxやIvernなど3体目のExecutionerを使用可能。",
+        "alt": "HoJ 2枚は有力。素材に応じてDeathcapやJeweled Gauntletへ。"
+      }
+    }
+  }
+]

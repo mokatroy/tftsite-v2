@@ -1,0 +1,2621 @@
+{
+  "set": "18",
+  "name": "Enchanted Wilds",
+  "updated": "2026-09-26",
+  "champions": [
+    {
+      "name": {
+        "en": "Akali",
+        "ar": "Akali",
+        "ja": "Akali"
+      },
+      "cost": 1,
+      "image": "/assets/champions/akali.png",
+      "traits": [
+        {
+          "name": "Inferno",
+          "special": false
+        },
+        {
+          "name": "Adaptor",
+          "special": false
+        },
+        {
+          "name": "Ravager",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Kunai Strike",
+        "en": "Throw a volley of kunai at the target, dealing 155/235/370 physical damage. If the target is Burning, deal an additional 35/52/80 damage. If the ability kills, cast it again.",
+        "ar": "ترمي وابلًا من الشوريكن على الهدف، مسببةً 155/235/370 ضررًا جسديًا. إذا كان الهدف محترقًا، تسبب 35/52/80 ضررًا إضافيًا. وإذا قتلت القدرة الهدف، تُلقى مرة أخرى."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Edge of Night",
+          "image": "assets/items/edgeofnight.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Camille",
+        "ar": "Camille",
+        "ja": "Camille"
+      },
+      "cost": 1,
+      "image": "assets/champions/camille.png",
+      "traits": [
+        {
+          "name": "Coven",
+          "special": false
+        },
+        {
+          "name": "Ravager",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Defensive Sweep",
+        "en": "Slice the target for 170/255/435 physical damage and gain a 60 Shield for 2 seconds.",
+        "ar": "تضرب الهدف مسببةً 170/255/435 ضررًا جسديًا، وتحصل على درع بقوة 60 لمدة ثانيتين."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Edge of Night",
+          "image": "assets/items/edgeofnight.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Cinderling",
+        "ar": "Cinderling",
+        "ja": "Cinderling"
+      },
+      "cost": 1,
+      "image": "assets/champions/cinderling.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Hunter",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Razor Leaves",
+        "ar": "بيرمي 5 أوراق حادة على الهدف، بتعمل ضرر فيزيائي 310 / 465 / 700% من الـAD زائد 30 / 45 / 70 قوة سحرية، وبتحط عليه ضعف وحريق لمدة 4 ثواني. كل كاست بياخد 22% أتاك ديمدج زيادة.",
+        "en": "Summons five razor leaves at the target, dealing 310/465/700% AD + 30/45/70 AP physical damage total and applying Wound and Burn for 4 seconds. Each cast, Cinderling gains 22% Attack Damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Guinsoo's Rageblade",
+          "image": "assets/items/guinsoosrageblade.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Karma",
+        "ar": "Karma",
+        "ja": "Karma"
+      },
+      "cost": 1,
+      "image": "assets/champions/karma.png",
+      "traits": [
+        {
+          "name": "Blossom",
+          "special": false
+        },
+        {
+          "name": "Spellweaver",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Karmic Bond",
+        "ar": "بتربط الهدف وتعمل 280 / 420 / 630 قوة سحرية ضرر سحري خلال ثانية ونص، وبعدين بتفرقع وتضرب كل اللي حواليها بـ125 / 185 / 300 وتبطّئهم 30% لمدة ثانيتين.",
+        "en": "Tethers the target for 280/420/630 AP magic damage over 1.5 seconds, then bursts for 125/185/300 AP magic damage to all enemies in a 1-hex radius and Slows them 30% for 2 seconds."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Red Buff",
+          "image": "assets/items/redbuff.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Kobuko",
+        "ar": "Kobuko",
+        "ja": "Kobuko"
+      },
+      "cost": 1,
+      "image": "assets/champions/kobuko.png",
+      "traits": [
+        {
+          "name": "Sprykin",
+          "special": false
+        },
+        {
+          "name": "Brawler",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Dance of Life",
+        "en": "Restore 314/364/509 Health over 2 seconds. The next attack is replaced with a bash that deals 140/175/220 magic damage.",
+        "ar": "يستعيد 314/364/509 من الصحة على مدار ثانيتين. ويتحول هجومه التالي إلى ضربة قوية تسبب 140/175/220 ضررًا سحريًا."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Leona",
+        "ar": "Leona",
+        "ja": "Leona"
+      },
+      "cost": 1,
+      "image": "assets/champions/leona.png",
+      "traits": [
+        {
+          "name": "Solar",
+          "special": false
+        },
+        {
+          "name": "Defender",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Shield Bash",
+        "en": "Passive: Start combat with 60/70/80 bonus Armor and Magic Resist that decays over 12 seconds. Active: Bash the current target, dealing 60/108/162 magic damage and Stunning them for 1.5 seconds.",
+        "ar": "سلبي: تبدأ القتال مع 60/70/80 درعًا ومقاومة سحرية إضافية تتناقص على مدار 12 ثانية. نشط: تضرب الهدف الحالي مسببةً 60/108/162 ضررًا سحريًا وتصيبه بالذهول لمدة 1.5 ثانية."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Ornn",
+        "ar": "Ornn",
+        "ja": "Ornn"
+      },
+      "cost": 1,
+      "image": "assets/champions/ornn.png",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "special": false
+        },
+        {
+          "name": "Defender",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Bellows Breath",
+        "ar": "بياخد درع 400 / 460 / 550 قوة سحرية لمدة 4 ثواني وبيعمل ضرر سحري 200 / 300 / 450 في شكل مخروط قدامه. الضرر اللي بيمتصه بيتحول لمكافأة Artifact بعد فترة.",
+        "en": "Gains a 400/460/550 AP Shield for 4 seconds and deals 200/300/450 AP magic damage in a cone. Blocked damage is stored and eventually converts into an Artifact Anvil."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Pebbles",
+        "ar": "Pebbles",
+        "ja": "Pebbles"
+      },
+      "cost": 1,
+      "image": "assets/champions/pebbles.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Invoker",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Azure Laser",
+        "ar": "بيطلق ليزر مستمر على الهدف، كل ثانية بيعمل 160 / 240 / 360 قوة سحرية ضرر ويقلل مقاومته السحرية بمقدار 3. كل ما يفضل يكاست أكتر بياخد مانا زيادة.",
+        "en": "Channels a laser on the target, dealing 160/240/360 AP magic damage each second and reducing their Magic Resist by 3. Gains bonus Mana Regen the longer he channels."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Rakan",
+        "ar": "Rakan",
+        "ja": "Rakan"
+      },
+      "cost": 1,
+      "image": "assets/champions/rakan.png",
+      "traits": [
+        {
+          "name": "Fae",
+          "special": false
+        },
+        {
+          "name": "Juggernaut",
+          "special": false
+        },
+        {
+          "name": "Vanguard",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Entrancing Dance",
+        "ar": "بياخد درع 270 / 320 / 415 قوة سحرية لمدة 4 ثواني، وبعدين بيدّي أعلى حليف في الضرر قوة سحرية زيادة وسرعة هجوم بتقل تدريجيًا لمدة 4 ثواني.",
+        "en": "Gains a 270/320/415 AP Shield for 4 seconds, then grants the ally who dealt the most damage this combat bonus Ability Power and decaying Attack Speed for 4 seconds."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Rek'Sai",
+        "ar": "Rek'Sai",
+        "ja": "Rek'Sai"
+      },
+      "cost": 1,
+      "image": "assets/champions/reksai.png",
+      "traits": [
+        {
+          "name": "Blackthorn",
+          "special": false
+        },
+        {
+          "name": "Brawler",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Uproot",
+        "ar": "باسيف: بتتعالج 10 / 14 / 20 صحة كل ثانية، وبتتضاعف 3 مرات لمدة 3 ثواني بعد الكاست. أكتيف: بتنط من تحت الأرض وتصعق اللي جنبها ثانية وتعمل ضرر سحري 70 / 105 / 160.",
+        "en": "Passive: heals 10/14/20 Health per second, tripled for 3 seconds after casting. Active: lunges out of the ground, Stunning adjacent enemies for 1 second and dealing 70/105/160 AP magic damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Titan's Resolve",
+          "image": "assets/items/titansresolve.png"
+        },
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Sterak's Gage",
+          "image": "assets/items/steraksgage.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Varus",
+        "ar": "Varus",
+        "ja": "Varus"
+      },
+      "cost": 1,
+      "image": "assets/champions/varus.png",
+      "traits": [
+        {
+          "name": "Inferno",
+          "special": false
+        },
+        {
+          "name": "Rapidfire",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Piercing Arrow",
+        "ar": "بيشحن وبعدين يرمي سهم في خط مستقيم يخترق أكبر عدد أعداء، بيعمل ضرر فيزيائي 415 / 625 / 1000% من الـAD زائد 30 / 45 / 70 قوة سحرية، وبيقل 40% مع كل عدو بيخترقه.",
+        "en": "Winds up, then fires an arrow through the most enemies in line, dealing 415/625/1000% AD + 30/45/70 AP physical damage, reduced 40% for each enemy it passes through."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Veigar",
+        "ar": "Veigar",
+        "ja": "Veigar"
+      },
+      "cost": 1,
+      "image": "assets/champions/veigar.png",
+      "traits": [
+        {
+          "name": "Blackthorn",
+          "special": false
+        },
+        {
+          "name": "Sprykin",
+          "special": false
+        },
+        {
+          "name": "Spellweaver",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Primordial Burst",
+        "en": "Launch a giant blast at the target that deals 175/265/395 magic damage, increased to 265/400/595 if they are below 30% maximum Health. If they die, permanently gain 1.5% Ability Power.",
+        "ar": "يطلق انفجارًا قويًا على الهدف يسبب 175/265/395 ضررًا سحريًا، ويرتفع إلى 265/400/595 إذا كانت صحة الهدف أقل من 30% من صحته القصوى. إذا مات الهدف، يحصل فيجار بشكل دائم على 1.5% من قوة القدرة."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Xayah",
+        "ar": "Xayah",
+        "ja": "Xayah"
+      },
+      "cost": 1,
+      "image": "assets/champions/xayah.png",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "special": false
+        },
+        {
+          "name": "Fae",
+          "special": false
+        },
+        {
+          "name": "Rapidfire",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Deadly Plumage",
+        "ar": "بتاخد 50% سرعة هجوم لأول 5 هجمات جاية، وبتتحول لريش بيعمل ضرر فيزيائي 68 / 102 / 155% من الـAD ويقلل الدرع.",
+        "en": "Gains 50% Attack Speed for the next 5 attacks. These attacks are replaced with feathers dealing 68/102/155% AD physical damage and reducing Armor."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Guinsoo's Rageblade",
+          "image": "assets/items/guinsoosrageblade.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Yorick",
+        "ar": "Yorick",
+        "ja": "Yorick"
+      },
+      "cost": 1,
+      "image": "assets/champions/yorick.png",
+      "traits": [
+        {
+          "name": "Blossom",
+          "special": false
+        },
+        {
+          "name": "Juggernaut",
+          "special": false
+        },
+        {
+          "name": "Summoner",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Last Rites",
+        "ar": "باسيف: لما يموت بيطلعله روح (Spirit Walker) بتجبر الأعداء يهاجموها. أكتيف: بيتعالج وبيضرب الهدف ضرر فيزيائي 150 / 225 / 340.",
+        "en": "Passive: on death, spawns a Spirit Walker that taunts enemies. Active: restores Health and strikes the target, dealing 150/225/340 AP physical damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Alistar",
+        "ar": "Alistar",
+        "ja": "Alistar"
+      },
+      "cost": 2,
+      "image": "assets/champions/alistar.png",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "special": false
+        },
+        {
+          "name": "Brawler",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Triumphant Roar",
+        "ar": "بيزأر وبيمسح التأثيرات السيئة ويعالج أضعف حليفين بـ230 / 300 / 400 قوة سحرية، وبعدين يضرب الهدف بـ180 / 270 / 420 ضرر سحري ويصعقه ثانية ونص.",
+        "en": "Roars, cleansing disables and healing the two lowest-Health allies for 230/300/400 AP, then slams the target for 180/270/420 AP magic damage and Stuns them for 1.5 seconds."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Caitlyn",
+        "ar": "Caitlyn",
+        "ja": "Caitlyn"
+      },
+      "cost": 2,
+      "image": "assets/champions/caitlyn.png",
+      "traits": [
+        {
+          "name": "Coven",
+          "special": false
+        },
+        {
+          "name": "Hunter",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Headshot",
+        "ar": "باسيف: كل 3 هجمات، الهجوم التالت بيتحول لطلقة رأس بتعمل ضرر فيزيائي 190 / 285 / 470% من الـAD زائد 20 / 30 / 45 قوة سحرية.",
+        "en": "Passive: every third attack is replaced with a Headshot dealing 190/285/470% AD + 20/30/45 AP physical damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Guinsoo's Rageblade",
+          "image": "assets/items/guinsoosrageblade.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Elise",
+        "ar": "Elise",
+        "ja": "Elise"
+      },
+      "cost": 2,
+      "image": "assets/champions/elise.png",
+      "traits": [
+        {
+          "name": "Coven",
+          "special": false
+        },
+        {
+          "name": "Vanguard",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Spider Queen",
+        "en": "Transform into a spider and gain 375 maximum Health. Attacks in Spider Form deal 35/50/80 bonus magic damage and heal for 55/90/170. Subsequent casts grant 175% decaying Attack Speed for 4 seconds.",
+        "ar": "تتحول إلى عنكبوت وتكتسب 375 صحة قصوى. تسبب هجماتها في هيئة العنكبوت 35/50/80 ضررًا سحريًا إضافيًا وتستعيد 55/90/170 صحة. تمنح الإلقاءات التالية 175% سرعة هجوم تتناقص تدريجيًا لمدة 4 ثوانٍ."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Gromp",
+        "ar": "Gromp",
+        "ja": "Gromp"
+      },
+      "cost": 2,
+      "image": "assets/champions/gromp.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Adaptor",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Belchy Bubble",
+        "ar": "Adaptor سحري: بيرمي فقاعة بتفرقع بضرر سحري 225 / 340 / 535، وبعدين بتعمل ضرر مستمر 175 / 265 / 410 على مدار ثواني حوالين المنطقة. Adaptor فيزيائي: بيبطّئ الهدف بطء شديد بدل كده.",
+        "en": "Adaptor (AP): throws a bubble that explodes for 225/340/535 AP magic damage, then deals 175/265/410 AP magic damage over time in a small radius. Adaptor (AD): heavily Slows the target instead."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Kayle",
+        "ar": "Kayle",
+        "ja": "Kayle"
+      },
+      "cost": 2,
+      "image": "assets/champions/kayle.png",
+      "traits": [
+        {
+          "name": "Solar",
+          "special": false
+        },
+        {
+          "name": "Rapidfire",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Solar Judgement",
+        "en": "Passive: Kayle ascends based on her star level, gaining stacking bonuses. Attacks deal bonus magic damage; later ascensions add Shred, waves that damage other units, and infinite range.",
+        "ar": "سلبي: ترتقي كايل بحسب مستوى النجوم، وتكتسب مكافآت متراكمة. تسبب الهجمات ضررًا سحريًا إضافيًا؛ وتضيف الارتقاءات اللاحقة تقليلًا للمقاومة، وموجات تصيب وحدات أخرى، ومدى هجوم غير محدود."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "LeBlanc",
+        "ar": "LeBlanc",
+        "ja": "LeBlanc"
+      },
+      "cost": 2,
+      "image": "assets/champions/leblanc.png",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "special": false
+        },
+        {
+          "name": "Spellweaver",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Mirror Image",
+        "ar": "باسيف: بعد كل فايت، فيه احتمال إنها تنسخ حليف موجود في البورد. أكتيف: بترمي صورة مرآة بتعمل ضرر سحري 260 / 390 / 615 على الهدف و100 / 150 / 230 على اللي حواليه.",
+        "en": "Passive: after combat, has a chance to duplicate an ally on the board. Active: launches a mirror image dealing 260/390/615 AP magic damage to the target and 100/150/230 AP to nearby enemies."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Murkwolf",
+        "ar": "Murkwolf",
+        "ja": "Murkwolf"
+      },
+      "cost": 2,
+      "image": "assets/champions/murkwolf.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Ravager",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Rending Claws",
+        "en": "Leap to the lowest-Health enemy within range and deal physical damage. The next attacks deal bonus physical damage.",
+        "ar": "يقفز إلى العدو ذي أقل صحة ضمن المدى ويسبب له ضررًا جسديًا. وتسبب الهجمات التالية ضررًا جسديًا إضافيًا."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Titan's Resolve",
+          "image": "assets/items/titansresolve.png"
+        },
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Sterak's Gage",
+          "image": "assets/items/steraksgage.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Scuttlecrab",
+        "ar": "Scuttlecrab",
+        "ja": "Scuttlecrab"
+      },
+      "cost": 2,
+      "image": "assets/champions/scuttlecrab.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Juggernaut",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Can You Dig It?",
+        "ar": "باسيف: الهجمات بتتحول لرقصة بتضرب كل اللي حواليه ضرر فيزيائي. أكتيف: بيتحفر تحت الأرض، بياخد مقاومة زيادة ويتعالج 325 / 400 / 675 قوة سحرية على مدار المدة.",
+        "en": "Passive: attacks are replaced by a dance dealing physical damage to all adjacent enemies. Active: burrows underground, gaining Durability and healing 325/400/675 AP over the duration."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Sejuani",
+        "ar": "Sejuani",
+        "ja": "Sejuani"
+      },
+      "cost": 2,
+      "image": "assets/champions/sejuani.png",
+      "traits": [
+        {
+          "name": "Solar",
+          "special": false
+        },
+        {
+          "name": "Juggernaut",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Sun's Wrath",
+        "ar": "بتاخد درع لمدة 4 ثواني، وبعدين بتعمل ضرر سحري 90 / 135 / 205 في شكل مخروط، وضربة تانية 120 / 180 / 270 في خط مستقيم.",
+        "en": "Gains a Shield for 4 seconds, then cleaves for 90/135/205 AP magic damage in a cone and strikes for 120/180/270 AP magic damage in a line."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Shen",
+        "ar": "Shen",
+        "ja": "Shen"
+      },
+      "cost": 2,
+      "image": "assets/champions/shen.png",
+      "traits": [
+        {
+          "name": "Inferno",
+          "special": false
+        },
+        {
+          "name": "Defender",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Ki Barrier",
+        "ar": "بيدّي نفسه ولحليف جريح جنبه درع لمدة 4 ثواني، وبعدين الاتنين بياخدوا سرعة هجوم وضرر سحري إضافي 35 / 55 / 80 في أول 3 هجمات جاية.",
+        "en": "Grants a Shield to himself and a nearby damaged ally for 4 seconds. Both then gain Attack Speed and deal 35/55/80 AP bonus magic damage on their next 3 attacks."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Teemo",
+        "ar": "Teemo",
+        "ja": "Teemo"
+      },
+      "cost": 2,
+      "image": "assets/champions/teemo.png",
+      "traits": [
+        {
+          "name": "Sprykin",
+          "special": false
+        },
+        {
+          "name": "Invoker",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Fungus Among Us",
+        "en": "Throw 2 clusters of mushrooms that deal 60/90/135 magic damage to the 3 nearest enemies, then hurl a giant mushroom at the target for 135/200/310 magic damage. Each cast has a chance to forage an extra mushroom.",
+        "ar": "يرمي مجموعتين من الفطر تسببان 60/90/135 ضررًا سحريًا لأقرب 3 أعداء، ثم يرمي فطرًا ضخمًا على الهدف يسبب 135/200/310 ضررًا سحريًا. لكل إلقاء فرصة للعثور على فطر إضافي."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Blue Buff",
+          "image": "assets/items/bluebuff.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Warwick",
+        "ar": "Warwick",
+        "ja": "Warwick"
+      },
+      "cost": 2,
+      "image": "assets/champions/warwick.png",
+      "traits": [
+        {
+          "name": "Blackthorn",
+          "special": false
+        },
+        {
+          "name": "Ravager",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Jaws of The Beast",
+        "ar": "بيعض الهدف بضرر فيزيائي 230 / 345 / 535% من الـAD ويتعالج بـ25% من الضرر اللي عمله، وياخد 20% سرعة هجوم لباقي الفايت.",
+        "en": "Bites the target, dealing 230/345/535% AD physical damage and healing for 25% of the damage dealt. Gains 20% Attack Speed for the rest of combat."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Titan's Resolve",
+          "image": "assets/items/titansresolve.png"
+        },
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Sterak's Gage",
+          "image": "assets/items/steraksgage.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Yunara",
+        "ar": "Yunara",
+        "ja": "Yunara"
+      },
+      "cost": 2,
+      "image": "assets/champions/yunara.png",
+      "traits": [
+        {
+          "name": "Blossom",
+          "special": false
+        },
+        {
+          "name": "Executioner",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Cultivation of Spirit",
+        "ar": "بتندفع وبعدين ترمي كرة على الهدف بضرر فيزيائي 160 / 240 / 370% من الـAD، وبتتقسم على 2 من الأعداء القريبين بـ35% من نفس الضرر.",
+        "en": "Dashes, then launches an orb at the target dealing 160/240/370% AD physical damage, which splits and hits 2 nearby enemies for 35% of that damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Azir",
+        "ar": "Azir",
+        "ja": "Azir"
+      },
+      "cost": 3,
+      "image": "assets/champions/azir.png",
+      "traits": [
+        {
+          "name": "Blackthorn",
+          "special": false
+        },
+        {
+          "name": "Executioner",
+          "special": false
+        },
+        {
+          "name": "Summoner",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Arise!",
+        "ar": "بياخد 150% سرعة هجوم ويستدعي جنديين لأول 6 هجمات جاية، وكل هجوم بيتحول لأمر بيعمل ضرر سحري 46 / 69 / 110 لكل جندي.",
+        "en": "Gains 150% Attack Speed and summons 2 soldiers for the next 6 attacks. These attacks are replaced by commands, each dealing 46/69/110 AP magic damage per soldier."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Cassiopeia",
+        "ar": "Cassiopeia",
+        "ja": "Cassiopeia"
+      },
+      "cost": 3,
+      "image": "assets/champions/cassiopeia.png",
+      "traits": [
+        {
+          "name": "Coven",
+          "special": false
+        },
+        {
+          "name": "Spellweaver",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Noxious Blast",
+        "en": "Poison the target and the nearest non-poisoned enemy, dealing 425/640/1020 magic damage over 15 seconds. Poisons stack.",
+        "ar": "يسمم الهدف وأقرب عدو غير مسموم، مسببًا 425/640/1020 ضررًا سحريًا على مدار 15 ثانية. ويمكن أن تتراكم تأثيرات السم."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Diana",
+        "ar": "Diana",
+        "ja": "Diana"
+      },
+      "cost": 3,
+      "image": "assets/champions/diana.png",
+      "traits": [
+        {
+          "name": "Lunar",
+          "special": false
+        },
+        {
+          "name": "Ravager",
+          "special": false
+        },
+        {
+          "name": "Vanguard",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Pale Barrier",
+        "ar": "بتاخد درع لمدة ثانيتين وترمي 6 كرات قمرية على الأعداء القريبين، كل واحدة بتعمل ضرر سحري 75 / 115 / 180.",
+        "en": "Gains a Shield for 2 seconds and sends 6 moonlight orbs among nearby enemies, each dealing 75/115/180 AP magic damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Titan's Resolve",
+          "image": "assets/items/titansresolve.png"
+        },
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Sterak's Gage",
+          "image": "assets/items/steraksgage.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Fiddlesticks",
+        "ar": "Fiddlesticks",
+        "ja": "Fiddlesticks"
+      },
+      "cost": 3,
+      "image": "assets/champions/fiddlesticks.png",
+      "traits": [
+        {
+          "name": "Flora Fatalis",
+          "special": true
+        },
+        {
+          "name": "Defender",
+          "special": false
+        },
+        {
+          "name": "Spellweaver",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Harvest",
+        "ar": "بيقلل المقاومة السحرية لأقرب 3 أعداء، وبعدين بيمتص حياتهم على مدار ثانيتين، بيتعالج بـ410 / 485 / 850 قوة سحرية ويعمل ضرر سحري 70 / 105 / 170 لكل واحد فيهم.",
+        "en": "Reduces the Magic Resist of the 3 nearest enemies, then drains life from them over 2 seconds, healing 410/485/850 AP and dealing 70/105/170 AP magic damage to each."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Hecarim",
+        "ar": "Hecarim",
+        "ja": "Hecarim"
+      },
+      "cost": 3,
+      "image": "assets/champions/hecarim.png",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "special": false
+        },
+        {
+          "name": "Vanguard",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Spirit of Dread",
+        "ar": "بياخد مقاومة إضافية ويتعالج 375 / 475 / 685 قوة سحرية على مدار 3 ثواني، وبعدين بيطلق فرسان روحانيين على أقرب 3 أعداء بضرر سحري 80 / 120 / 195 وبيصعقهم.",
+        "en": "Gains bonus resistances and heals 375/475/685 AP Health over 3 seconds, then launches spectral riders at the 3 nearest enemies dealing 80/120/195 AP magic damage and Stunning them."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Kha'Zix",
+        "ar": "Kha'Zix",
+        "ja": "Kha'Zix"
+      },
+      "cost": 3,
+      "image": "assets/champions/khazix.png",
+      "traits": [
+        {
+          "name": "Rival",
+          "special": true
+        }
+      ],
+      "ability": {
+        "name": "Taste Their Fear",
+        "ar": "بيقفز على أبعد عدو في المدى ويعمل ضرر سحري 285 / 400 / 580. لو العدو ده لوحده من غير حلفاء جنبه، الضرر بيبقى 310 / 445 / 660 وبياخد مانا زيادة.",
+        "en": "Leaps to the farthest enemy within range and deals 285/400/580 AP magic damage. If that enemy has no adjacent allies, deals 310/445/660 AP damage instead and gains mana."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Edge of Night",
+          "image": "assets/items/edgeofnight.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Kog'Maw",
+        "ar": "Kog'Maw",
+        "ja": "Kog'Maw"
+      },
+      "cost": 3,
+      "image": "assets/champions/kogmaw.png",
+      "traits": [
+        {
+          "name": "Caustic",
+          "special": true
+        },
+        {
+          "name": "Invoker",
+          "special": false
+        },
+        {
+          "name": "Adaptor",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Raining Artillery",
+        "ar": "Adaptor فيزيائي: بيرمي حمض على الهدف وأقرب عدو تاني بضرر فيزيائي 145 / 220 / 375% من الـAD زائد 20 / 30 / 50 قوة سحرية، وبيزيد 40% ضد الأعداء تحت نص صحتهم. Adaptor سحري: الضرر بيتحول لضرر مستمر على فترة.",
+        "en": "Adaptor (AD): fires acid at the target and the nearest enemy, dealing 145/220/375% AD + 20/30/50 AP physical damage, increased 40% against enemies below 50% Health. Adaptor (AP): the damage becomes a damage-over-time effect."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Guinsoo's Rageblade",
+          "image": "assets/items/guinsoosrageblade.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Krug",
+        "ar": "Krug",
+        "ja": "Krug"
+      },
+      "cost": 3,
+      "image": "assets/champions/krug.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Brawler",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Rock and Roll",
+        "ar": "باسيف: لما يموت بينقسم لـ2 Kruglette بيجبروا الأعداء يهاجموهم. أكتيف: بياخد صحة قصوى زيادة وبعدين يتدحرج على الهدف بضرر فيزيائي 135 / 200 / 335% من الـAD زائد نسبة من صحته القصوى.",
+        "en": "Passive: on death, splits into two Kruglettes that taunt enemies. Active: gains bonus max Health, then rolls into the target dealing 135/200/335% AD physical damage plus a percentage of their max Health."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Master Yi",
+        "ar": "Master Yi",
+        "ja": "Master Yi"
+      },
+      "cost": 3,
+      "image": "assets/champions/masteryi.png",
+      "traits": [
+        {
+          "name": "Blossom",
+          "special": false
+        },
+        {
+          "name": "Adaptor",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Wuju Style",
+        "en": "Passive: Every third attack is a Double Strike. On takedown, gain a burst of movement speed. Adaptor: Double Strikes grant stacking Attack Speed or deal bonus damage and heal, depending on the chosen form.",
+        "ar": "سلبي: كل هجوم ثالث يصبح ضربة مزدوجة. عند الإطاحة بعدو، يحصل على دفعة من سرعة الحركة. مع صفة المتكيف، تمنح الضربات المزدوجة سرعة هجوم متراكمة أو تسبب ضررًا إضافيًا وتستعيد الصحة، حسب الشكل المختار."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Titan's Resolve",
+          "image": "assets/items/titansresolve.png"
+        },
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Sterak's Gage",
+          "image": "assets/items/steraksgage.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Rammus",
+        "ar": "Rammus",
+        "ja": "Rammus"
+      },
+      "cost": 3,
+      "image": "assets/champions/rammus.png",
+      "traits": [
+        {
+          "name": "Sprykin",
+          "special": false
+        },
+        {
+          "name": "Defender",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Defensive Ball Curl",
+        "en": "Taunt enemies. For 4 seconds, gain a 350/450/550 Shield and 60 Armor and Magic Resist. When the Shield breaks, deal 50/75/120 physical damage to enemies within 2 hexes.",
+        "ar": "يسخر من الأعداء. لمدة 4 ثوانٍ، يحصل على درع بقوة 350/450/550 و60 درعًا ومقاومة سحرية. عند تحطم الدرع، يسبب 50/75/120 ضررًا جسديًا للأعداء ضمن خليتين."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Mama Beak",
+        "ar": "Mama Beak",
+        "ja": "ママビーク"
+      },
+      "cost": 3,
+      "image": "/assets/champions/mamabeak.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Summoner",
+          "special": false
+        },
+        {
+          "name": "Rapidfire",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Flock Friends",
+        "en": "Summon 4 untargetable Tiny Beaks nearby for 5 seconds. Whenever Mama Beak attacks, Tiny Beaks attack the same enemy, dealing 22/33/48 physical damage.",
+        "ar": "تستدعي 4 فراخ صغيرة لا يمكن استهدافها بالقرب منها لمدة 5 ثوانٍ. كلما هاجمت ماما بيك، تهاجم الفراخ العدو نفسه، مسببةً 22/33/48 ضررًا جسديًا."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Rengar",
+        "ar": "Rengar",
+        "ja": "Rengar"
+      },
+      "cost": 3,
+      "image": "assets/champions/rengar.png",
+      "traits": [
+        {
+          "name": "Rival",
+          "special": true
+        }
+      ],
+      "ability": {
+        "name": "Savagery",
+        "ar": "بيقفز على أضعف عدو نسبيًا في المدى ويطعنه بضرر فيزيائي 255 / 385 / 615% من الـAD، وبعدين يتعالج على حسب نسبة صحته الناقصة.",
+        "en": "Jumps to the lowest-Health-percent enemy within range and stabs them, dealing 255/385/615% AD physical damage, then heals based on their missing Health."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Edge of Night",
+          "image": "assets/items/edgeofnight.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Tristana",
+        "ar": "Tristana",
+        "ja": "Tristana"
+      },
+      "cost": 3,
+      "image": "assets/champions/tristana.png",
+      "traits": [
+        {
+          "name": "Fae",
+          "special": false
+        },
+        {
+          "name": "Sprykin",
+          "special": false
+        },
+        {
+          "name": "Hunter",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Explosive Charge",
+        "ar": "بتحط شحنة متفجرة على الهدف لمدة 4 ثواني وتاخد مدى لا نهائي وسرعة هجوم زيادة. لما الوقت يخلص، الشحنة بتفرقع بضرر فيزيائي 160 / 240 / 385% من الـAD موزّع على الأعداء القريبين.",
+        "en": "Attaches an explosive charge to the target for 4 seconds, gaining infinite range and Attack Speed. When it expires, it explodes for 160/240/385% AD physical damage split among nearby enemies."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Guinsoo's Rageblade",
+          "image": "assets/items/guinsoosrageblade.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Vi",
+        "ar": "Vi",
+        "ja": "Vi"
+      },
+      "cost": 3,
+      "image": "assets/champions/vi.png",
+      "traits": [
+        {
+          "name": "Primal",
+          "special": false
+        },
+        {
+          "name": "Juggernaut",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Furious Fists",
+        "ar": "باسيف: بتتعالج بنسبة من صحتها القصوى في كل هجوم. أكتيف: بتتعالج 200 / 265 / 360 قوة سحرية، وبعدين تاخد سرعة هجوم عالية جدًا ومقاومة زيادة وتبقى Unstoppable لمدة 3 ثواني.",
+        "en": "Passive: heals a percentage of max Health on attack. Active: heals 200/265/360 AP Health, then gains massive Attack Speed, Durability, and becomes Unstoppable for 3 seconds."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Titan's Resolve",
+          "image": "assets/items/titansresolve.png"
+        },
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Sterak's Gage",
+          "image": "assets/items/steraksgage.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Ahri",
+        "ar": "Ahri",
+        "ja": "Ahri"
+      },
+      "cost": 4,
+      "image": "assets/champions/ahri.png",
+      "traits": [
+        {
+          "name": "Blossom",
+          "special": false
+        },
+        {
+          "name": "Spellweaver",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Spirit Bomb",
+        "ar": "بترمي قنبلة روحية على أكثر منطقة فيها أعداء في المدى، بضرر سحري 455 / 685 / 3500 في نطاق 3 مربعات، وبيقل الضرر كل ما بعدنا عن المركز.",
+        "en": "Launches a spirit bomb at the spot with the most surrounding enemies within range, dealing 455/685/3500 AP magic damage in a 3-hex radius, reduced the further from the center."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Amumu",
+        "ar": "Amumu",
+        "ja": "Amumu"
+      },
+      "cost": 4,
+      "image": "assets/champions/amumu.png",
+      "traits": [
+        {
+          "name": "Inferno",
+          "special": false
+        },
+        {
+          "name": "Juggernaut",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Tantrum",
+        "ar": "باسيف: بيتعالج ويعمل ضرر سحري لكل اللي حواليه كل ثانية. أكتيف: بيعمل ضرر سحري 100 / 150 / 2000 لكل اللي في نطاق مربعين ويصعقهم لمدة 1 / 1 / 6 ثانية.",
+        "en": "Passive: heals and deals magic damage to nearby enemies every second. Active: deals 100/150/2000 AP magic damage to enemies within 2 hexes and Stuns them for 1/1/6 seconds."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Ancient Sentinel",
+        "ar": "Ancient Sentinel",
+        "ja": "Ancient Sentinel"
+      },
+      "cost": 4,
+      "image": "assets/champions/sentinel.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Vanguard",
+          "special": false
+        },
+        {
+          "name": "Invoker",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Azure Shockwave",
+        "en": "Gains a large Shield for 4 seconds, then slams the ground toward the most enemies, knocking them up and dealing 100/150/3500 AP magic damage plus a Mana Reave effect.",
+        "ar": "بياخد درع كبير لمدة 4 ثواني، وبعدين يضرب الأرض في اتجاه أكبر عدد أعداء، بيرفعهم في الهوا ويعمل ضرر سحري 100 / 150 / 3500 مع تأثير بيزوّد تكلفة المانا عليهم."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Aphelios",
+        "ar": "Aphelios",
+        "ja": "Aphelios"
+      },
+      "cost": 4,
+      "image": "assets/champions/aphelios.png",
+      "traits": [
+        {
+          "name": "Lunar",
+          "special": false
+        },
+        {
+          "name": "Rapidfire",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Moonlight's Onslaught",
+        "ar": "بيضرب الهدف 5 مرات على مدار ثانيتين، كل ضربة بضرر فيزيائي 70 / 105 / 850% من الـAD، وبعدين ينهي بانفجار بضرر فيزيائي 450 / 675 / 5000% من الـAD زائد 40 / 60 / 225 قوة سحرية موزّع على الأعداء القريبين.",
+        "en": "Swipes the target 5 times over 2 seconds, each dealing 70/105/850% AD physical damage, then fires a final blast dealing 450/675/5000% AD + 40/60/225 AP physical damage split among nearby enemies."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Brambleback",
+        "ar": "Brambleback",
+        "ja": "Brambleback"
+      },
+      "cost": 4,
+      "image": "assets/champions/brambleback.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Ravager",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Crimson Fury",
+        "en": "Passive: When the target dies, leap at the next target, dealing 155/235/1000 physical damage. Active: Gain 80/80/300% Attack Damage for 8 seconds. During this time, ignore 45/45/90% Armor. Red Buff: Attacks Burn enemies and heal Brambleback for 4% of max Health.",
+        "ar": "سلبي: عند موت الهدف، يقفز إلى الهدف التالي ويسبب 155/235/1000 ضررًا جسديًا. نشط: يكتسب 80/80/300% من ضرر الهجوم لمدة 8 ثوانٍ، ويتجاهل خلالها 45/45/90% من درع العدو. مع التعزيز الأحمر، تحرق هجماته الأعداء وتستعيد له 4% من صحته القصوى."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Ezreal",
+        "ar": "Ezreal",
+        "ja": "Ezreal"
+      },
+      "cost": 4,
+      "image": "assets/champions/ezreal.png",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "special": false
+        },
+        {
+          "name": "Executioner",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Forest's Flurry",
+        "ar": "بيبعد فجأة عن الهدف بضرر فيزيائي 250 / 375 / 1200% من الـAD وياخد سرعة هجوم زيادة. كل رابع كاست بيطلق انفجار نافذ بضرر فيزيائي 385 / 580 / 2500% من الـAD في خط عبر أكبر تجمع أعداء.",
+        "en": "Blinks away from the target, dealing 250/375/1200% AD physical damage and gaining Attack Speed. Every 4th cast fires a piercing blast dealing 385/580/2500% AD physical damage through the largest group of enemies."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Lillia",
+        "ar": "Lillia",
+        "ja": "Lillia"
+      },
+      "cost": 4,
+      "image": "assets/champions/lillia.png",
+      "traits": [
+        {
+          "name": "Fae",
+          "special": false
+        },
+        {
+          "name": "Defender",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Lilting Lullaby",
+        "en": "Restore 300/400/800 Health and send 4 butterflies at nearby enemies. Enemies hit take 90/135/2000 magic damage and are put to Sleep for 1.5 seconds.",
+        "ar": "تستعيد 300/400/800 صحة، ثم ترسل 4 فراشات نحو الأعداء القريبين. يتلقى الأعداء المصابون 90/135/2000 ضررًا سحريًا ويدخلون في سبات لمدة 1.5 ثانية."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        },
+        {
+          "name": "Protector's Vow",
+          "image": "assets/items/protectorsvow.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Malphite",
+        "ar": "Malphite",
+        "ja": "Malphite"
+      },
+      "cost": 4,
+      "image": "assets/champions/malphite.png",
+      "traits": [
+        {
+          "name": "Blackthorn",
+          "special": false
+        },
+        {
+          "name": "Monolith",
+          "special": true
+        }
+      ],
+      "ability": {
+        "name": "Petrified Bark",
+        "ar": "بياخد درع كبير لمدة 4 ثواني ويتحول لحجر. لما الدرع يخلص، بيطلق موجة صدمة ضرر سحري زائد جزء من درعه ومقاومته السحرية على الأعداء القريبين.",
+        "en": "Gains a large Shield for 4 seconds and becomes petrified. When the Shield breaks, unleashes a shockwave dealing magic damage plus a portion of his Armor and Magic Resist to nearby enemies."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Morgana",
+        "ar": "Morgana",
+        "ja": "Morgana"
+      },
+      "cost": 4,
+      "image": "assets/champions/morgana.png",
+      "traits": [
+        {
+          "name": "Coven",
+          "special": false
+        },
+        {
+          "name": "Invoker",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Withering Curse",
+        "ar": "باسيف: بتاخد Omnivamp (علاج من الضرر اللي بتعمله). أكتيف: بترمي انفجار ظلامي على 3 أعداء قريبين بضرر سحري وتلعنهم، وبعدين تفتح منطقة ضرر مستمر؛ الأعداء الملعونين بياخدوا ضرر إضافي مع كل لعنة.",
+        "en": "Passive: gains Omnivamp. Active: fires a dark blast at 3 nearby enemies dealing magic damage and cursing them, then spawns a withering zone that deals damage over time; cursed enemies take extra damage per curse stack."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Nidalee",
+        "ar": "Nidalee",
+        "ja": "Nidalee"
+      },
+      "cost": 4,
+      "image": "assets/champions/nidalee.png",
+      "traits": [
+        {
+          "name": "Primal",
+          "special": false
+        },
+        {
+          "name": "Adaptor",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Javelin Toss",
+        "ar": "Adaptor سحري: بتاخد سرعة هجوم لـ3 هجمات بتتحول لرماح بضرر سحري 170 / 255 / 2000، والهجوم التالت بيستهدف أبعد عدو معاه أقل عناصر بضرر 330 / 500. Adaptor فيزيائي: بتتحول لنمرة قريبة المدى بضرر فيزيائي 210 / 315 لكل ضربة.",
+        "en": "Adaptor (AP): gains Attack Speed for 3 attacks that become javelins dealing 170/255/2000 AP magic damage; the third targets the furthest enemy with the fewest items for 330/500 AP damage. Adaptor (AD): transforms into a melee cougar dealing 210/315 AD physical damage per swipe."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Hand of Justice",
+          "image": "assets/items/handofjustice.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Sett",
+        "ar": "Sett",
+        "ja": "Sett"
+      },
+      "cost": 4,
+      "image": "assets/champions/sett.png",
+      "traits": [
+        {
+          "name": "Blossom",
+          "special": false
+        },
+        {
+          "name": "Brawler",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Haymaker",
+        "ar": "باسيف: بياخد مانا أول مرة تقل صحته عن 40% في كل فايت. أكتيف: بيشحن ويتعالج بكمية كبيرة، وبعدين يضرب بضرر فيزيائي 150 / 225 / 5000% من الـAD زائد نسبة من صحته القصوى في شكل مخروط واسع.",
+        "en": "Passive: gains mana the first time he drops below 40% Health each combat. Active: winds up, healing a large amount, then deals 150/225/5000% AD + a portion of max Health physical damage in a large cone."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        },
+        {
+          "name": "Crownguard",
+          "image": "assets/items/crownguard.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Sentinel",
+        "ar": "Sentinel",
+        "ja": "Sentinel"
+      },
+      "cost": 4,
+      "image": "assets/champions/sentinel.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Vanguard",
+          "special": false
+        },
+        {
+          "name": "Invoker",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Azure Shockwave",
+        "ar": "بياخد درع كبير لمدة 4 ثواني، وبعدين يضرب الأرض في اتجاه أكبر عدد أعداء، بيرفعهم في الهوا ويعمل ضرر سحري 100 / 150 / 3500 مع تأثير بيزوّد تكلفة المانا عليهم.",
+        "en": "Gains a large Shield for 4 seconds, then slams the ground toward the most enemies, knocking them up and dealing 100/150/3500 AP magic damage plus a Mana Reave effect."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Sivir",
+        "ar": "Sivir",
+        "ja": "Sivir"
+      },
+      "cost": 4,
+      "image": "assets/champions/sivir.png",
+      "traits": [
+        {
+          "name": "Primal",
+          "special": false
+        },
+        {
+          "name": "Hunter",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Boomerang Blade",
+        "ar": "بترمي نصل بيعمل ضرر فيزيائي 190 / 285 / 1050% من الـAD زائد 15 / 20 / 100 قوة سحرية على الهدف، وبيرتد بين الأعداء القريبين لحد 8 مرات، وبياخد ارتدادات إضافية لو قتل حد.",
+        "en": "Throws a crossblade dealing 190/285/1050% AD + 15/20/100 AP physical damage to the target, which bounces between nearby enemies up to 8 times, gaining extra bounces on kill."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Deathblade",
+          "image": "assets/items/deathblade.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Soraka",
+        "ar": "Soraka",
+        "ja": "Soraka"
+      },
+      "cost": 4,
+      "image": "assets/champions/soraka.png",
+      "traits": [
+        {
+          "name": "Flora Fatalis",
+          "special": true
+        },
+        {
+          "name": "Executioner",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Starcall",
+        "ar": "بتنزّل نجمة بضرر سحري 225 / 335 / 1000. لو النجمة ضربت نفس الهدف قبل كده، بتنزّل 3 نجوم إضافية كل واحدة بضرر 100 / 150 / 1000.",
+        "en": "Calls down a star dealing 225/335/1000 AP magic damage. If a star has already hit that target before, calls 3 more stars dealing 100/150/1000 AP each."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Zyra",
+        "ar": "Zyra",
+        "ja": "Zyra"
+      },
+      "cost": 4,
+      "image": "assets/champions/zyra.png",
+      "traits": [
+        {
+          "name": "Thornmaiden",
+          "special": true
+        },
+        {
+          "name": "Summoner",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Rampant Growth",
+        "ar": "بتنبت 2 / 2 / 4 نباتات بتهاجم أقرب عدو 10 مرات، كل هجوم بضرر سحري 35 / 53 / 225.",
+        "en": "Spawns 2/2/4 plants that attack the nearest enemy 10 times, each attack dealing 35/53/225 AP magic damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Alune",
+        "ar": "Alune",
+        "ja": "Alune"
+      },
+      "cost": 5,
+      "image": "assets/champions/alune.png",
+      "traits": [
+        {
+          "name": "Attuned",
+          "special": true
+        },
+        {
+          "name": "Lunar",
+          "special": false
+        },
+        {
+          "name": "Spellweaver",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Moonfall",
+        "ar": "بترمي 9 شظايا قمرية موزّعة على أقرب 3 أعداء، كل واحدة بضرر سحري 55 / 83 / 500. لو القمر مكتمل، بدل كده بتنزّله كله دفعة واحدة بضرر ضخم 2350 / 3600 / 7500 موزّع على كل الأعداء.",
+        "en": "Rains 9 moonshards split among the 3 nearest enemies, each dealing 55/83/500 AP magic damage. If the moon is full, instead crashes it down for a massive 2350/3600/7500 AP magic damage split among all enemies."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Ashe",
+        "ar": "Ashe",
+        "ja": "Ashe"
+      },
+      "cost": 5,
+      "image": "assets/champions/ashe.png",
+      "traits": [
+        {
+          "name": "Blossom",
+          "special": false
+        },
+        {
+          "name": "Hunter",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Spirit Rift",
+        "ar": "بترمي سهم في خط بيخترق أكبر عدد أعداء بضرر فيزيائي 465 / 700 / 1000% من الـAD (بيقل مع كل عدو)، وبيسيب أثر بيعمل ضرر مستمر ويبطّئ اللي جواه.",
+        "en": "Fires an arrow through the most enemies in a line, dealing 465/700/1000% AD physical damage (reduced per enemy hit), leaving a trail that deals damage over time and Slows enemies inside it."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        },
+        {
+          "name": "Giant Slayer",
+          "image": "assets/items/giantslayer.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Draven",
+        "ar": "Draven",
+        "ja": "Draven"
+      },
+      "cost": 5,
+      "image": "assets/champions/draven.png",
+      "traits": [
+        {
+          "name": "Bounty Seeker",
+          "special": true
+        }
+      ],
+      "ability": {
+        "name": "Whirling Death",
+        "ar": "باسيف: هجماته بتحط نزيف بيعمل ضرر فيزيائي على مدار 12 ثانية. أكتيف: بيرمي فأسين ضخمين على أكتر عدو نازف، بياخد النزيف كضرر فوري، وبعدين الفؤوس بترجعله وتعمل ضرر تاني في طريق العودة.",
+        "en": "Passive: attacks apply a bleed that deals physical damage over 12 seconds. Active: throws two giant axes at the most-bleeding enemy, consuming their bleed for instant damage, then the axes return dealing more damage on the way back."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Deathblade",
+          "image": "assets/items/deathblade.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Elder Dragon",
+        "ar": "Elder Dragon",
+        "ja": "Elder Dragon"
+      },
+      "cost": 5,
+      "image": "assets/champions/elderdragon.png",
+      "traits": [
+        {
+          "name": "Riftbeast",
+          "special": false
+        },
+        {
+          "name": "Apex Predator",
+          "special": true
+        }
+      ],
+      "ability": {
+        "name": "Heat Without Equal",
+        "en": "Passive: attacks splash to adjacent enemies. Active: becomes invulnerable in the air, then on landing Stuns all enemies, gains Omnivamp, and Ignites them; immediately follows with Flame Breath — a line of fire dealing 285/435/7000% AD + 20/30/200 AP physical damage, executing enemies below 12% Health.",
+        "ar": "باسيف: هجماته بترش ضرر على اللي حوالين الهدف. أكتيف: بيطير ويبقى محصّن، وأول ما ينزل بيصعق كل الأعداء، ياخد Omnivamp ويشعلهم، وعلى طول بيكمل بنَفَس اللهب — خط نار بضرر فيزيائي 285 / 435 / 7000% من الـAD زائد 20 / 30 / 200 قوة سحرية، وبينهي أي عدو تحت 12% من صحته فورًا."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Gnar",
+        "ar": "Gnar",
+        "ja": "Gnar"
+      },
+      "cost": 5,
+      "image": "assets/champions/gnar.png",
+      "traits": [
+        {
+          "name": "Elderwood",
+          "special": false
+        },
+        {
+          "name": "Sprykin",
+          "special": false
+        },
+        {
+          "name": "Brawler",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Rage Gene",
+        "ar": "باسيف: بيجمع غضب مع الوقت ومع كل هجمة. أكتيف: بيتحول لـMega Gnar وبيقفز على أكبر تجمع أعداء، بيعمل ضرر فيزيائي ويقلل مقاومتهم ويصعقهم. وبعدين بيكمل بـGrab n' Throw، بيرمي عدو على التانيين بضرر فيزيائي ضخم.",
+        "en": "Passive: builds Rage over time and on attack. Active: transforms into Mega Gnar, leaping into the largest group of enemies, dealing physical damage, reducing their resistances, and Stunning them. Follows up with Grab n' Throw, hurling an enemy into others for massive physical damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Guinsoo's Rageblade",
+          "image": "assets/items/guinsoosrageblade.png"
+        },
+        {
+          "name": "Infinity Edge",
+          "image": "assets/items/infinityedge.png"
+        },
+        {
+          "name": "Last Whisper",
+          "image": "assets/items/lastwhisper.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Ivern",
+        "ar": "Ivern",
+        "ja": "Ivern"
+      },
+      "cost": 5,
+      "image": "assets/champions/ivern.png",
+      "traits": [
+        {
+          "name": "Greenfather",
+          "special": true
+        }
+      ],
+      "ability": {
+        "name": "Triggerseed",
+        "ar": "بيدّي درع وزيادة ضرر لعدد من الحلفاء لمدة 6 ثواني، وبعدين يعمل ضرر سحري على اللي جنبهم من الأعداء. بعد 6 مرات كاست، بيدّي الحلفاء دول سرعة هجوم متراكمة كمان.",
+        "en": "Grants a Shield and Damage Amp to several allies for 6 seconds, then deals magic damage to enemies adjacent to them. After 6 casts, also grants those allies stacking Attack Speed."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Kennen",
+        "ar": "Kennen",
+        "ja": "Kennen"
+      },
+      "cost": 5,
+      "image": "assets/champions/kennen.png",
+      "traits": [
+        {
+          "name": "Inferno",
+          "special": false
+        },
+        {
+          "name": "Executioner",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Firestorm",
+        "ar": "بيشحن (وبياخد قوة سحرية زيادة عن كل عدو مشتعل)، بياخد درع، وبيندفع خلال الأعداء بضرر سحري، وبعدين يطلق عاصفة نارية بضرر إجمالي 475 / 715 / 5000 موزّع على كل اللي اتضربوا.",
+        "en": "Charges up (gaining Ability Power per Burning enemy), gains a Shield, rushes through enemies dealing magic damage, then unleashes a firestorm dealing a total of 475/715/5000 AP magic damage split among all enemies hit."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Guardbreaker",
+          "image": "assets/items/guardbreaker.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Lux",
+        "ar": "Lux",
+        "ja": "Lux"
+      },
+      "cost": 5,
+      "image": "assets/champions/lux.png",
+      "traits": [
+        {
+          "name": "Avatar",
+          "special": true
+        }
+      ],
+      "ability": {
+        "name": "Final Spark",
+        "en": "Passive: On cast, all allies that share a trait with Lux gain 3 Mana. Active: Fire a laser toward the largest group of enemies, dealing 375/565/6500 magic damage, reduced by 25/25/10% for each enemy hit. Her chosen Avatar aspect adds a unique effect.",
+        "ar": "سلبي: عند إلقاء القدرة، يحصل الحلفاء الذين يشاركون لوكس إحدى الصفات على 3 مانا. نشط: تطلق شعاعًا نحو أكبر تجمع للأعداء، مسببًا 375/565/6500 ضررًا سحريًا، ويقل الضرر بنسبة 25/25/10% لكل عدو يصيبه. يضيف جانب الأفاتار المختار تأثيرًا فريدًا."
+      },
+      "specialNote": "Avatar: her chosen aspect can become one of the compatible origins and counts twice for that origin.",
+      "bestItems": [
+        {
+          "name": "Spear of Shojin",
+          "image": "assets/items/spearofshojin.png"
+        },
+        {
+          "name": "Jeweled Gauntlet",
+          "image": "assets/items/jeweledgauntlet.png"
+        },
+        {
+          "name": "Rabadon's Deathcap",
+          "image": "assets/items/rabadonsdeathcap.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Maokai",
+        "ar": "Maokai",
+        "ja": "Maokai"
+      },
+      "cost": 5,
+      "image": "assets/champions/maokai.png",
+      "traits": [
+        {
+          "name": "Old Growth",
+          "special": true
+        },
+        {
+          "name": "Juggernaut",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Sow the Seeds",
+        "ar": "باسيف: بعد ما يمتص كمية ضرر معينة، بذرة بتنط على عدو قريب بضرر سحري؛ وبذور أكتر بتظهر لما يموت. أكتيف: بيعمل ضرر سحري على الهدف ويتعالج بنسبة من صحته الناقصة.",
+        "en": "Passive: after blocking a set amount of damage, a sapling jumps to a nearby enemy dealing magic damage; more saplings spawn on death. Active: deals magic damage to the target and restores Health equal to a portion of their missing Health."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Taric",
+        "ar": "Taric",
+        "ja": "Taric"
+      },
+      "cost": 5,
+      "image": "assets/champions/taric.png",
+      "traits": [
+        {
+          "name": "Emerald Aspect",
+          "special": true
+        },
+        {
+          "name": "Vanguard",
+          "special": false
+        }
+      ],
+      "ability": {
+        "name": "Emerald Radiance",
+        "ar": "باسيف: أول مرة تاريك أو حليفه المرتبط بيه تقل صحتهم عن 50%، الاتنين بيطلقوا طاقة بتدّي درع 75 / 150 قوة سحرية للحلفاء القريبين. أكتيف: بيتعالج بـ275 / 450 قوة سحرية ويقوّي أول هجومين جايين ليه ولحليفه بضرر سحري إضافي.",
+        "en": "Passive: the first time Taric or his paired ally drops below 50% Health, both unleash energy granting nearby allies a 75/150 AP Shield. Active: heals himself for 275/450 AP and empowers his and his paired ally's next 2 attacks with bonus magic damage."
+      },
+      "specialNote": null,
+      "bestItems": [
+        {
+          "name": "Gargoyle Stoneplate",
+          "image": "assets/items/gargoylestoneplate.png"
+        },
+        {
+          "name": "Steadfast Heart",
+          "image": "assets/items/steadfastheart.png"
+        },
+        {
+          "name": "Dragon's Claw",
+          "image": "assets/items/dragonsclaw.png"
+        }
+      ]
+    }
+  ]
+}
