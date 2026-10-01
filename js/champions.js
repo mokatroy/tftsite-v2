@@ -12,7 +12,8 @@ function render(){
   });
   grid.innerHTML=list.map(c=>{
     const traits=(c.traits||[]).map(t=>`<span class="unit-chip">${t.name||t}</span>`).join('');
-    return `<article class="comp-card" style="min-height:auto"><div class="card-top"><span class="tier a">${c.cost||'?'}c</span></div><h3>${c.name?.en||''}</h3><div class="unit-list">${traits}</div></article>`;
+    const photo=c.image?`<img class="champ-photo" src="${c.image}" alt="${c.name?.en||''}" style="width:100%;border-radius:8px;margin:10px 0">`:'';
+    return `<article class="comp-card" style="min-height:auto"><div class="card-top"><span class="tier a">${c.cost||'?'}c</span></div>${photo}<h3>${c.name?.en||''}</h3><div class="unit-list">${traits}</div></article>`;
   }).join('')||'<p class="empty">—</p>';
 }
 if(search) search.addEventListener('input',e=>{query=e.target.value;render()});

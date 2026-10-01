@@ -1,11 +1,11 @@
-import {setupLanguage} from './i18n.js';
+import {setupLanguage,lang} from './i18n.js';
 const board=document.querySelector('#tier-board');
 const search=document.querySelector('#tier-search');
 const tiers=[
-  {tier:'S', items:['Infinity Edge','Spear of Shojin','Guinsoo\'s Rageblade','Hand of Justice']},
-  {tier:'A', items:['Bloodthirster','Titan\'s Resolve','Jeweled Gauntlet','Rabadon\'s Deathcap','Gargoyle Stoneplate']},
-  {tier:'B', items:['Dragon\'s Claw','Bramble Vest','Sunfire Cape','Morellonomicon','Last Whisper']},
-  {tier:'C', items:['Negatron Cloak','Recurve Bow','Tear of the Goddess']}
+  {tier:'S', items:['Infinity Edge','Spear of Shojin','Guinsoo\'s Rageblade','Hand of Justice','Bloodthirster']},
+  {tier:'A', items:['Titan\'s Resolve','Jeweled Gauntlet','Rabadon\'s Deathcap','Gargoyle Stoneplate','Dragon\'s Claw','Last Whisper']},
+  {tier:'B', items:['Bramble Vest','Sunfire Cape','Morellonomicon','Crownguard','Steadfast Heart','Giant Slayer']},
+  {tier:'C', items:['Negatron Cloak','Recurve Bow','Tear of the Goddess','Chain Vest']}
 ];
 function render(){
   if(!board) return;
