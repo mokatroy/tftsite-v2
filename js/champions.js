@@ -1,5 +1,5 @@
 import {setupLanguage,localize,t,lang} from './i18n.js';
-import {champImg,itemChip} from './ui.js';
+import {champImg,itemChip,traitChip} from './ui.js';
 
 const grid = document.querySelector('#champ-grid');
 const search = document.querySelector('#champ-search');
@@ -37,7 +37,7 @@ function render(){
     const enName = c.name?.en || '';
     const name = localize(c.name) || enName;
     const img = champImg(enName || name);
-    const traits = (c.traits||[]).map(tr=>`<span class="unit-chip trait">${tr.name||tr}</span>`).join('');
+    const traits = (c.traits||[]).map(tr=>traitChip(tr)).join('');
     const abilityName = c.ability?.name || '';
     const abilityText = localize(c.ability) || c.ability?.en || c.ability?.ar || '';
     const items = (c.bestItems||[]).slice(0,3).map(it=>{
