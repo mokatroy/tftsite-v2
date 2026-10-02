@@ -1,0 +1,18 @@
+/* Trait icons */
+.unit-chip.trait.has-img{display:inline-flex;align-items:center;gap:6px;padding-inline-start:6px}
+.unit-chip.trait.has-img img{width:18px;height:18px;object-fit:contain;border-radius:3px;flex-shrink:0}
+.trait-entry.has-icon{display:inline-flex;align-items:center;gap:8px}
+.trait-icon{width:28px;height:28px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 0 4px rgba(233,185,100,.25))}
+
+/* Augment icons */
+.augment-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+.augment-icon{width:40px;height:40px;object-fit:contain;border-radius:8px;background:rgba(0,0,0,.25);padding:2px}
+.augment-card{min-width:200px;max-width:280px;flex:1 1 220px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(6,9,18,.55)}
+.augment-card h3{margin:0 0 6px;font:800 14px Outfit,Cairo,sans-serif}
+.augment-card p{margin:0;font:500 12px Outfit,Cairo,sans-serif;color:var(--muted);line-height:1.45}
+.augment-card.rarity-silver{border-color:rgba(180,190,210,.35)}
+.augment-card.rarity-gold{border-color:rgba(233,185,100,.45)}
+.augment-card.rarity-prismatic{border-color:rgba(180,120,255,.5)}
+.augment-tier-head.rarity-silver{background:linear-gradient(90deg,#9aa3b5,#c5cbd6);color:#17131c}
+.augment-tier-head.rarity-gold{background:var(--gold);color:#17131c}
+.augment-tier-head.rarity-prismatic{background:linear-gradient(90deg,#a78bfa,#e879f9);color:#17131c}
