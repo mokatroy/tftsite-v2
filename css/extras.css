@@ -1,0 +1,14 @@
+/* Item icons */
+.item-chip.has-img{padding:3px 8px 3px 3px}
+.item-chip.has-img img{width:22px;height:22px;border-radius:4px;object-fit:cover;background:#0d111c}
+.tier-entry.item-entry{flex-direction:row;align-items:center;gap:8px;min-width:140px}
+.tier-entry .item-icon{width:32px;height:32px;border-radius:6px;object-fit:cover;background:#0d111c;flex-shrink:0}
+.tier-entry .item-text{display:flex;flex-direction:column;gap:2px}
+
+/* Situational stronger */
+.situational-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.situational-card .style-line{color:var(--muted);font-size:12px;margin:0}
+.req-aug{display:inline-block;margin-inline-start:6px;padding:3px 8px;border-radius:99px;background:rgba(155,118,242,.15);color:var(--purple);font:700 10px Outfit}
+.sit-item-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.sit-unit{font:700 12px Outfit;min-width:80px;color:var(--gold)}
+.situational-card .unit-list{margin-top:10px;padding-top:0}
