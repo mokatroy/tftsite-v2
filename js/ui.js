@@ -10,7 +10,54 @@ export function champImg(name){
   return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_${key}/tft18_${key}_square.png`;
 }
 
-/** Cost border color */
+/** Map common TFT / LoL item names to DDragon item IDs */
+const ITEM_IDS = {
+  'infinity edge': '3031',
+  "guinsoo's rageblade": '3124',
+  'spear of shojin': '3161',
+  'bloodthirster': '3072',
+  "rabadon's deathcap": '3089',
+  'last whisper': '3035',
+  'edge of night': '3814',
+  'bramble vest': '3076',
+  'morellonomicon': '3165',
+  "warmog's armor": '3083',
+  'void staff': '3135',
+  "giant's belt": '1011',
+  'recurve bow': '1043',
+  'tear of the goddess': '3070',
+  'chain vest': '1031',
+  'negatron cloak': '1057',
+  'needlessly large rod': '1058',
+  'bf sword': '1038',
+  "b.f. sword": '1038',
+  'sparring gloves': '2140',
+  'quicksilver': '3140',
+  'ionic spark': '3115',
+  'sunfire cape': '3068',
+  'archangel staff': '3003',
+  'blue buff': '3004',
+  'red buff': '1044',
+  'gargoyle stoneplate': '3193',
+  "dragon's claw": '3026',
+  'giant slayer': '3031',
+  'hand of justice': '3190',
+  "titan's resolve": '3748',
+  'jeweled gauntlet': '3134',
+  'steadfast heart': '3105',
+  'crownguard': '3102',
+  'deathblade': '3031',
+  'guardian angel': '3026'
+};
+
+export function itemImg(name){
+  if(!name) return '';
+  const key = String(name).toLowerCase().trim();
+  const id = ITEM_IDS[key];
+  if(id) return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/item/${id}.png`;
+  return '';
+}
+
 function costClass(cost){
   const c = Number(cost)||1;
   return `cost-${Math.min(5,Math.max(1,c))}`;
@@ -34,8 +81,12 @@ export function traitChip(tr){
   return `<span class="unit-chip trait">${name}${count}</span>`;
 }
 
-export function itemChip(it){
+export function itemChip(it, withImg=true){
   const name = typeof it === 'string' ? it : (it.en || it.ar || it.name || '');
+  const img = withImg ? itemImg(name) : '';
+  if(img){
+    return `<span class="item-chip has-img" title="${name}"><img src="${img}" alt="${name}" loading="lazy" onerror="this.parentElement.classList.remove('has-img');this.remove()"><span>${name}</span></span>`;
+  }
   return `<span class="item-chip">${name}</span>`;
 }
 
@@ -63,7 +114,7 @@ export function detail(comp,patch){
   const units = (comp.units||[]).map(u=>unitChip(u,true)).join('');
   const early = (comp.earlyUnits||[]).map(u=>unitChip(u,true)).join('');
   const traits = (comp.traits||[]).map(traitChip).join('');
-  const items = (comp.items||[]).map(itemChip).join('');
+  const items = (comp.items||[]).map(it=>itemChip(it,true)).join('');
 
   const stagesHtml = (comp.stages||[]).map(s=>{
     const txt = localize(s.text)||'';
@@ -115,10 +166,18 @@ export function patchPage(p){
   if(!p) return `<p class="empty">—</p>`;
   const title=localize(p.title);
   const summary=localize(p.summary);
+  const highlights=localize(p.highlights)||'';
   const changes=(p.changes||[]).map(ch=>{
     const n=localize(ch.name);
     const d=localize(ch.detail);
-    return `<article class="patch-change ${ch.type||''}"><h3>${n}</h3><p>${d}</p></article>`;
+    const cat=ch.category?`<span class="patch-cat">${ch.category}</span>`:'';
+    return `<article class="patch-change ${ch.type||''}"><div class="patch-change-head">${cat}<h3>${n}</h3></div><p>${d}</p></article>`;
   }).join('');
-  return `<div class="patch-hero"><p class="patch-release">${p.releaseDate||''}</p><h1>${title}</h1><p>${summary}</p></div><div class="patch-list">${changes}</div>`;
+  return `<div class="patch-hero">
+    <p class="patch-release">${p.releaseDate||''} · Set 18 Enchanted Wilds</p>
+    <h1>${title}</h1>
+    <p>${summary}</p>
+    ${highlights?`<p class="patch-highlights">${highlights}</p>`:''}
+  </div>
+  <div class="patch-list">${changes}</div>`;
 }
