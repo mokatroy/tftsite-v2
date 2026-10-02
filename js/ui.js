@@ -4,33 +4,23 @@ import {traitImg} from './icons.js';
 /** Name → CDragon character folder when display name differs */
 const CHAMP_ALIAS = {
   "kog'maw": 'kogmaw',
-  "kogmaw": 'kogmaw',
-  "reksai": 'reksai',
+  'kogmaw': 'kogmaw',
   "rek'sai": 'reksai',
-  "khazix": 'khazix',
+  'reksai': 'reksai',
   "kha'zix": 'khazix',
-  "cho'gath": 'chogath',
-  "vel'koz": 'velkoz',
-  "kai'sa": 'kaisa',
-  "bel'veth": 'belveth',
-  "jarvan iv": 'jarvaniv',
-  "lee sin": 'leesin',
-  "master yi": 'masteryi',
-  "miss fortune": 'missfortune',
-  "twisted fate": 'twistedfate',
-  "xin zhao": 'xinzhao',
-  "aurelionsol": 'aurelionsol',
-  "elder dragon": 'elderdragon',
-  "mama beak": 'raptor',
-  "mamabeak": 'raptor',
-  "pebbles": 'sentry',
-  "scuttlecrab": 'scuttlecrab',
-  "cinderling": 'cinderling',
-  "brambleback": 'brambleback',
-  "murkwolf": 'murkwolf',
-  "gromp": 'gromp',
-  "krug": 'krug',
-  "sentinel": 'sentry',
+  'khazix': 'khazix',
+  'elder dragon': 'elderdragon',
+  'mama beak': 'raptor',
+  'mamabeak': 'raptor',
+  'pebbles': 'sentry',
+  'scuttlecrab': 'scuttlecrab',
+  'cinderling': 'cinderling',
+  'brambleback': 'brambleback',
+  'murkwolf': 'murkwolf',
+  'gromp': 'gromp',
+  'krug': 'krug',
+  'sentinel': 'sentry',
+  'master yi': 'masteryi',
 };
 
 const CHAMP_HUD_ONLY = new Set(['sentry','raptor','cinderling','brambleback','murkwolf','gromp','krug','scuttlecrab']);
@@ -48,29 +38,13 @@ export function champImg(name){
 
 export function itemImg(name){
   if(!name) return '';
-  const n = String(name).toLowerCase().trim()
-    .replace(/['']/g,'').replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
+  let n = String(name).toLowerCase().trim().replace(/['']/g,'').replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
   const aliases = {
-    'handofjustice': 'unstableconcoction',
-    'hoj': 'unstableconcoction',
-    'infinityedge': 'infinityedge',
-    'guinsoosrageblade': 'guinsoosrageblade',
-    'bloodthirster': 'bloodthirster',
-    'lastwhisper': 'lastwhisper',
-    'titansresolve': 'titansresolve',
-    'warmogsarmor': 'warmogsarmor',
-    'gargoylestoneplate': 'gargoylestoneplate',
-    'sunfirecape': 'sunfirecape',
-    'bluebuff': 'bluebuff',
-    'jeweledgauntlet': 'jeweledgauntlet',
-    'rabadonsdeathcap': 'rabadonsdeathcap',
-    'spearofshojin': 'spearofshojin',
-    'archangelstaff': 'archangelsstaff',
-    'morellonomicon': 'morellonomicon',
-    'redbuff': 'redbuff',
+    handofjustice: 'unstableconcoction',
+    hoj: 'unstableconcoction',
   };
-  const key = aliases[n] || n;
-  return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/${key}.png`;
+  n = aliases[n] || n;
+  return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/${n}.png`;
 }
 
 function costClass(cost){
@@ -84,14 +58,23 @@ function costClass(cost){
 
 export function unitChip(u, withImg=true){
   const name = typeof u === 'string' ? u : (u.name?.en || (typeof u.name === 'string' ? u.name : '') || u.en || u.ar || '');
-  const cost = u.cost;
-  const img = withImg ? (u.image?.startsWith('http') ? u.image : champImg(name)) : '';
+  const cost = u && u.cost;
+  const img = withImg ? (u && u.image && String(u.image).startsWith('http') ? u.image : champImg(name)) : '';
   const label = name;
   const attr = `data-unit="${String(label).replace(/"/g,'"')}"`;
   if(withImg && img){
     return `<span class="unit-chip has-img ${costClass(cost)}" ${attr}><img src="${img}" alt="${label}" loading="lazy" onerror="this.style.display='none'"><span>${label}</span></span>`;
   }
   return `<span class="unit-chip ${costClass(cost)}" ${attr}>${label}</span>`;
+}
+
+export function traitChip(tr){
+  const raw = typeof tr === 'string' ? tr : (tr.name?.en || tr.name || '');
+  const name = typeof tr === 'string' ? tr : (localize(tr.name) || tr.name?.en || '');
+  const count = tr && tr.count != null ? tr.count : '';
+  const img = traitImg(raw);
+  const attr = `data-trait="${String(raw).replace(/"/g,'"')}"`;
+  return `<span class="trait-chip" ${attr}>${img?`<img src="${img}" alt="" width="18" height="18">`:''}<span>${name}${count!==''?` ${count}`:''}</span></span>`;
 }
 
 export function itemChip(it, withImg=true){
@@ -104,15 +87,6 @@ export function itemChip(it, withImg=true){
   return `<span class="item-chip" ${attr}>${name}</span>`;
 }
 
-export function traitChip(tr){
-  const raw = typeof tr === 'string' ? tr : (tr.name?.en || tr.name || '');
-  const name = typeof tr === 'string' ? tr : (localize(tr.name) || tr.name?.en || '');
-  const count = tr.count != null ? tr.count : '';
-  const img = traitImg(raw);
-  const attr = `data-trait="${String(raw).replace(/"/g,'"')}"`;
-  return `<span class="trait-chip" ${attr}>${img?`<img src="${img}" alt="" width="18" height="18">`:''}<span>${name}${count!==''?` ${count}`:''}</span></span>`;
-}
-
 function unitName(u){
   return (typeof u === 'string' ? u : (u.name?.en || (typeof u.name === 'string' ? u.name : '') || u.en || u.ar || '')).toString();
 }
@@ -120,16 +94,16 @@ function unitName(u){
 const BACKLINE_HINTS = new Set(['aphelios','ashe','sivir','caitlyn','tristana','draven','xayah','ahri','morgana','alune','veigar','soraka','zyra','azir','cassiopeia','leblanc','nidalee','kogmaw','varus','ezreal','kennen','lux','karma','teemo','masteryi','yunara']);
 
 function isFrontline(u){
-  const name = unitName(u).toLowerCase();
-  if(BACKLINE_HINTS.has(name.replace(/['\s]/g,''))) return false;
-  if(u.role === 'front' || u.frontline) return true;
-  if(u.role === 'back' || u.carry) return false;
-  const cost = Number(u.cost)||0;
-  return cost <= 3 || name.includes('sentinel') || name.includes('maokai') || name.includes('amumu') || name.includes('taric') || name.includes('ivern') || name.includes('ornn') || name.includes('alistar') || name.includes('hecarim') || name.includes('vi') || name.includes('rakan') || name.includes('sejuani') || name.includes('yorick') || name.includes('rammus') || name.includes('fiddlesticks') || name.includes('krug') || name.includes('scuttle') || name.includes('bramble');
+  const name = unitName(u).toLowerCase().replace(/['\s]/g,'');
+  if(BACKLINE_HINTS.has(name)) return false;
+  if(u && (u.role === 'front' || u.frontline)) return true;
+  if(u && (u.role === 'back' || u.carry)) return false;
+  const cost = Number(u && u.cost)||0;
+  return cost <= 3 || /sentinel|maokai|amumu|taric|ivern|ornn|alistar|hecarim|vi|rakan|sejuani|yorick|rammus|fiddlesticks|krug|scuttle|bramble/.test(name);
 }
 
 export function renderBoard(comp){
-  const units = comp.units || [];
+  const units = (comp && comp.units) || [];
   if(!units.length) return '';
   const front = units.filter(isFrontline);
   const back = units.filter(u=>!isFrontline(u));
@@ -204,34 +178,25 @@ export function detail(comp,patch){
   `;
 }
 
-export function champCard(c){
-  const name = localize(c.name) || c.id || '';
-  const cost = c.cost || 1;
-  const traits = (c.traits||[]).map(tr=>traitChip(typeof tr==='string'?tr:{name:{en:tr}})).join('');
-  const items = (c.recommendedItems||c.items||[]).slice(0,3).map(it=>itemChip(it,true)).join('');
-  const img = champImg(name);
-  return `<article class="champ-card c${cost}">
-    <div class="champ-head">
-      ${img?`<img class="champ-avatar" src="${img}" alt="${name}" loading="lazy" onerror="this.style.display='none'">`:''}
-      <div><span class="cost-badge">$${cost}</span><h3>${name}</h3></div>
-    </div>
-    <div class="unit-list">${traits}</div>
-    ${items?`<div class="item-list bis-row">${items}</div>`:''}
-  </article>`;
-}
-
-export function patchCard(p){
+export function patchPage(p){
+  if(!p) return `<p class="empty">${t('notFound')}</p>`;
   const ver = p.version || '';
   const title = localize(p.title) || ver;
-  const highlights = (p.highlights||[]).map(h=>localize(h)).filter(Boolean).join(' · ');
+  const date = p.date || '';
+  const summary = localize(p.summary) || '';
+  const highlights = (p.highlights||[]).map(h=>localize(h)).filter(Boolean);
   const changes = (p.changes||[]).map(ch=>{
     const who = localize(ch.unit||ch.name) || '';
     const text = localize(ch.text||ch.change) || '';
-    return `<div class="patch-change"><strong>${who}</strong> ${text}</div>`;
+    const type = ch.type || '';
+    return `<div class="patch-change"><strong>${who}</strong>${type?` <span class="patch-type">${type}</span>`:''} ${text}</div>`;
   }).join('');
-  return `<article class="patch-card">
-  <div class="patch-head"><span class="patch-ver">${ver}</span><h3>${title}</h3>
-    ${highlights?`<p class="patch-highlights">${highlights}</p>`:''}
-  </div>
-  <div class="patch-list">${changes}</div></article>`;
+  return `
+  <p class="eyebrow">PATCH NOTES</p>
+  <h1 class="page-title">${title}</h1>
+  <p class="page-subtitle">${ver}${date?` · ${date}`:''}</p>
+  ${summary?`<p class="guide">${summary}</p>`:''}
+  ${highlights.length?`<ul class="guide-list">${highlights.map(h=>`<li>${h}</li>`).join('')}</ul>`:''}
+  <div class="patch-list" style="margin-top:20px">${changes}</div>
+  `;
 }
