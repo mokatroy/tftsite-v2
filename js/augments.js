@@ -1,2 +1,81 @@
-import {lang,setupLanguage} from "./i18n.js";
-const grid=document.querySelector("#augment-grid")||document.querySelector("#augments-board"),search=document.querySelector("#augment-search"),filters=document.querySelector("#augment-filters"),count=document.querySelector("#augment-count");let entries=[],rarity="all";const esc=v=>String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));function render(){if(!grid)return;const q=(search&&search.value||"").trim().toLowerCase();const filtered=entries.filter(a=>(rarity==="all"||a.rarity===rarity)&&(!q||a.name.toLowerCase().includes(q)||a.description.toLowerCase().includes(q)));if(count)count.textContent=`${filtered.length} / ${entries.length}`;grid.innerHTML=filtered.length?filtered.map(a=>`<article class="augment-card rarity-${a.rarity.toLowerCase()}"><div class="augment-card-top"><span class="augment-rarity">${esc(a.rarity)}</span><span class="augment-id">#${a.id.replace('augment-','')}</span></div><h2>${esc(a.name)}</h2><p>${esc(a.description)}</p></article>`).join(""):`<div class="empty">${lang==="ar"?"مفيش نتائج مطابقة للبحث.":lang==="ja"?"一致する結果がありません。":"No matching results."}</div>`}if(search)search.addEventListener("input",render);if(filters)filters.addEventListener("click",e=>{const b=e.target.closest("button[data-rarity]");if(!b)return;rarity=b.dataset.rarity;filters.querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));render()});setupLanguage(render);fetch("data/augments.json").then(r=>{if(!r.ok)throw new Error("load");return r.json()}).then(d=>{entries=d.entries||[];render()}).catch(()=>{if(count)count.textContent="—";if(grid)grid.innerHTML=`<div class="empty">${lang==="ar"?"تعذر تحميل بيانات الأوجمنتس.":lang==="ja"?"オーグメントデータを読み込めませんでした。":"Could not load augment data."}</div>`});
+import {lang,setupLanguage,t} from './i18n.js';
+
+const grid = document.querySelector('#augments-board');
+const search = document.querySelector('#augment-search');
+let entries = [], rarity = 'all';
+
+const esc = v => String(v).replace(/[&<>"']/g, m => ({
+  '&':'&','<':'<','>':'>','"':'"',"'":'&#39;'
+}[m]));
+
+function renderFilters(){
+  let filtersEl = document.querySelector('#augment-filters');
+  if(!filtersEl){
+    const toolbar = document.querySelector('.augment-toolbar');
+    if(toolbar){
+      filtersEl = document.createElement('div');
+      filtersEl.id = 'augment-filters';
+      filtersEl.className = 'filter-pills';
+      toolbar.appendChild(filtersEl);
+    }
+  }
+  if(!filtersEl) return;
+  const rarities = ['all','Silver','Gold','Prismatic'];
+  filtersEl.innerHTML = rarities.map(r=>{
+    const label = r==='all' ? (lang==='ar'?'الكل':lang==='ja'?'すべて':'All') : (t(r.toLowerCase())||r);
+    return `<button class="${rarity===r?'active':''}" data-rarity="${r}">${label}</button>`;
+  }).join('');
+  filtersEl.querySelectorAll('[data-rarity]').forEach(b=>{
+    b.onclick = ()=>{ rarity = b.dataset.rarity; renderFilters(); render(); };
+  });
+}
+
+function render(){
+  if(!grid) return;
+  const q = (search && search.value || '').trim().toLowerCase();
+  const filtered = entries.filter(a=>{
+    const matchR = rarity==='all' || a.rarity===rarity;
+    const matchQ = !q || a.name.toLowerCase().includes(q) || (a.description||'').toLowerCase().includes(q);
+    return matchR && matchQ;
+  });
+
+  // Group by rarity for nicer layout
+  const order = ['Prismatic','Gold','Silver'];
+  const groups = {};
+  filtered.forEach(a=>{
+    groups[a.rarity] = groups[a.rarity] || [];
+    groups[a.rarity].push(a);
+  });
+
+  grid.innerHTML = filtered.length ? order.filter(r=>groups[r]?.length).map(r=>{
+    const list = groups[r];
+    return `<div class="augment-tier">
+      <div class="augment-tier-head rarity-${r.toLowerCase()}">${r} · ${list.length}</div>
+      <div class="augment-tier-body">
+        ${list.map(a=>`
+          <article class="augment-card rarity-${a.rarity.toLowerCase()}">
+            <div class="augment-card-top">
+              <span class="augment-rarity">${esc(a.rarity)}</span>
+            </div>
+            <h3>${esc(a.name)}</h3>
+            <p>${esc(a.description||'')}</p>
+          </article>`).join('')}
+      </div>
+    </div>`;
+  }).join('') : `<div class="empty">${t('notFound')}</div>`;
+}
+
+if(search) search.addEventListener('input', render);
+
+setupLanguage(()=>{ renderFilters(); render(); });
+
+fetch('data/augments.json')
+  .then(r=>{ if(!r.ok) throw new Error('load'); return r.json(); })
+  .then(d=>{
+    entries = d.entries || [];
+    renderFilters();
+    render();
+  })
+  .catch(()=>{
+    if(grid) grid.innerHTML = `<div class="empty">${lang==='ar'?'تعذر تحميل بيانات الأوجمنتس.':'Could not load augment data.'}</div>`;
+  });
