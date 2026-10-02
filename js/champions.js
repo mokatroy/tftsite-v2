@@ -1,5 +1,5 @@
 import {setupLanguage,localize,t,lang} from './i18n.js';
-import {champImg,unitChip} from './ui.js';
+import {champImg,itemChip} from './ui.js';
 
 const grid = document.querySelector('#champ-grid');
 const search = document.querySelector('#champ-search');
@@ -31,26 +31,26 @@ function render(){
     return matchCost && matchQ;
   });
 
-  // sort by cost then name
   list.sort((a,b)=>(a.cost||0)-(b.cost||0) || (a.name?.en||'').localeCompare(b.name?.en||''));
 
   grid.innerHTML = list.length ? list.map(c=>{
-    const name = localize(c.name) || c.name?.en || '';
-    const img = champImg(c.name?.en || name);
+    const enName = c.name?.en || '';
+    const name = localize(c.name) || enName;
+    const img = champImg(enName || name);
     const traits = (c.traits||[]).map(tr=>`<span class="unit-chip trait">${tr.name||tr}</span>`).join('');
     const abilityName = c.ability?.name || '';
     const abilityText = localize(c.ability) || c.ability?.en || c.ability?.ar || '';
     const items = (c.bestItems||[]).slice(0,3).map(it=>{
       const iname = typeof it === 'string' ? it : (it.name||'');
-      return `<span class="item-chip">${iname}</span>`;
+      return itemChip(iname, true);
     }).join('');
 
-    return `<article class="champ-card ${costClass(c.cost)}">
+    return `<article class="champ-card ${costClass(c.cost)}" data-unit="${enName}">
       <div class="champ-card-head">
-        <img class="champ-avatar" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3">
+        <img class="champ-avatar" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3" data-unit="${enName}">
         <div class="champ-meta">
           <span class="cost-badge ${costClass(c.cost)}">${c.cost||'?'}¢</span>
-          <h3>${name}</h3>
+          <h3 data-unit="${enName}">${name}</h3>
           <div class="unit-list">${traits}</div>
         </div>
       </div>
