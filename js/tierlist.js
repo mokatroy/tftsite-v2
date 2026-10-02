@@ -1,9 +1,9 @@
 import {setupLanguage,lang,t} from './i18n.js';
+import {itemImg} from './ui.js';
 
 const board = document.querySelector('#tier-board');
 const search = document.querySelector('#tier-search');
 
-// Set 18 meta-oriented item tiers (patch 18.3b)
 const tiers = [
   {
     tier: 'S',
@@ -62,11 +62,13 @@ function render(){
     if(!items.length && q) return '';
     return `<div class="tier-row tier-${row.tier.toLowerCase()}">
       <div class="tier-label">${row.tier}</div>
-      <div class="tier-items">${items.map(it=>`
-        <span class="tier-entry item-entry">
-          <span class="item-name">${it.name}</span>
-          ${it.note ? `<span class="item-note">${it.note}</span>` : ''}
-        </span>`).join('')}
+      <div class="tier-items">${items.map(it=>{
+        const img = itemImg(it.name);
+        return `<span class="tier-entry item-entry">
+          ${img?`<img class="item-icon" src="${img}" alt="${it.name}" loading="lazy" onerror="this.style.display='none'">`:''}
+          <span class="item-text"><span class="item-name">${it.name}</span>${it.note?`<span class="item-note">${it.note}</span>`:''}</span>
+        </span>`;
+      }).join('')}
       </div>
     </div>`;
   }).join('') || `<p class="empty">${t('notFound')}</p>`;
