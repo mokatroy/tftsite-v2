@@ -11,50 +11,77 @@ export function champImg(name){
   return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_${key}/tft18_${key}_square.png`;
 }
 
-const ITEM_IDS = {
-  'infinity edge': '3031',
-  "guinsoo's rageblade": '3124',
-  'spear of shojin': '3161',
-  'bloodthirster': '3072',
-  "rabadon's deathcap": '3089',
-  'last whisper': '3035',
-  'edge of night': '3814',
-  'bramble vest': '3076',
-  'morellonomicon': '3165',
-  "warmog's armor": '3083',
-  'void staff': '3135',
-  "giant's belt": '1011',
-  'recurve bow': '1043',
-  'tear of the goddess': '3070',
-  'chain vest': '1031',
-  'negatron cloak': '1057',
-  'needlessly large rod': '1058',
-  'bf sword': '1038',
-  "b.f. sword": '1038',
-  'sparring gloves': '2140',
-  'quicksilver': '3140',
-  'ionic spark': '3115',
-  'sunfire cape': '3068',
-  'archangel staff': '3003',
-  'blue buff': '3004',
-  'red buff': '1044',
-  'gargoyle stoneplate': '3193',
-  "dragon's claw": '3026',
-  'giant slayer': '3031',
-  'hand of justice': '3190',
-  "titan's resolve": '3748',
-  'jeweled gauntlet': '3134',
-  'steadfast heart': '3105',
-  'crownguard': '3102',
-  'deathblade': '3031',
-  'guardian angel': '3026'
+/** TFT item icon slug (lowercase filename without extension) under hexcore/ */
+const TFT_ITEM_SLUG = {
+  // components
+  'b.f. sword': 'tft_item_bfsword',
+  'bf sword': 'tft_item_bfsword',
+  'recurve bow': 'tft_item_recurvebow',
+  'needlessly large rod': 'tft_item_needlesslylargerod',
+  'tear of the goddess': 'tft_item_tearofthegoddess',
+  'chain vest': 'tft_item_chainvest',
+  'negatron cloak': 'tft_item_negatroncloak',
+  "giant's belt": 'tft_item_giantsbelt',
+  'sparring gloves': 'tft_item_sparringgloves',
+  'spatula': 'tft_item_spatula',
+  'frying pan': 'tft_item_fryingpan',
+  // completed
+  'deathblade': 'tft_item_deathblade',
+  'giant slayer': 'tft_item_madredsbloodrazor',
+  'hextech gunblade': 'tft_item_hextechgunblade',
+  'spear of shojin': 'tft_item_spearofshojin',
+  'edge of night': 'tft_item_guardianangel',
+  'bloodthirster': 'tft_item_bloodthirster',
+  "sterak's gage": 'tft_item_steraksgage',
+  'infinity edge': 'tft_item_infinityedge',
+  'red buff': 'tft_item_rapidfirecannon',
+  "guinsoo's rageblade": 'tft_item_guinsoosrageblade',
+  'void staff': 'tft_item_voidstaff',
+  "titan's resolve": 'tft_item_titansresolve',
+  "kraken's fury": 'tft_item_krakensfury',
+  "nashor's tooth": 'tft_item_nashorstooth',
+  'last whisper': 'tft_item_lastwhisper',
+  "rabadon's deathcap": 'tft_item_rabadonsdeathcap',
+  "archangel's staff": 'tft_item_archangelsstaff',
+  'crownguard': 'tft_item_crownguard',
+  'ionic spark': 'tft_item_ionicspark',
+  'morellonomicon': 'tft_item_morellonomicon',
+  'jeweled gauntlet': 'tft_item_jeweledgauntlet',
+  'blue buff': 'tft_item_bluebuff',
+  "protector's vow": 'tft_item_protectorsvow',
+  'adaptive helm': 'tft_item_adaptivehelm',
+  'spirit visage': 'tft_item_spiritvisagerr',
+  'hand of justice': 'tft_item_handofjustice',
+  'bramble vest': 'tft_item_bramblevest',
+  'gargoyle stoneplate': 'tft_item_gargoylestoneplate',
+  'sunfire cape': 'tft_item_redbuff',
+  'steadfast heart': 'tft_item_nightharvester',
+  "dragon's claw": 'tft_item_dragonsclaw',
+  'evenshroud': 'tft_item_spectralgauntlet',
+  'quicksilver': 'tft_item_quicksilver',
+  "warmog's armor": 'tft_item_warmogsarmor',
+  "striker's flail": 'tft_item_strikersflail',
+  "thief's gloves": 'tft_item_thiefsgloves',
+  "tactician's crown": 'tft_item_tacticianscrown',
+  "tactician's cape": 'tft_item_tacticianscape',
+  "tactician's shield": 'tft_item_tacticiansshield'
 };
 
 export function itemImg(name){
   if(!name) return '';
   const key = String(name).toLowerCase().trim();
-  const id = ITEM_IDS[key];
-  if(id) return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/item/${id}.png`;
+  const slug = TFT_ITEM_SLUG[key];
+  if(slug){
+    return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/${slug}.png`;
+  }
+  // heuristic for emblems / unknowns
+  const heur = key
+    .replace(/['’]/g,'')
+    .replace(/\s+/g,'')
+    .replace(/[^a-z0-9]/g,'');
+  if(heur){
+    return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_${heur}.png`;
+  }
   return '';
 }
 
@@ -68,7 +95,7 @@ export function unitChip(u, withImg=true){
   const cost = u.cost;
   const img = withImg ? (u.image?.startsWith('http') ? u.image : champImg(name)) : '';
   const label = name;
-  const attr = `data-unit="${String(label).replace(/"/g,'"')}"`;
+  const attr = `data-unit="${String(label).replace(/"/g,'&quot;')}"`;
   if(withImg && img){
     return `<span class="unit-chip has-img ${costClass(cost)}" ${attr}><img src="${img}" alt="${label}" loading="lazy" onerror="this.style.display='none'"><span>${label}</span></span>`;
   }
@@ -89,7 +116,7 @@ export function traitChip(tr){
 export function itemChip(it, withImg=true){
   const name = typeof it === 'string' ? it : (it.en || it.ar || it.name || '');
   const img = withImg ? itemImg(name) : '';
-  const attr = `data-item="${String(name).replace(/"/g,'"')}"`;
+  const attr = `data-item="${String(name).replace(/"/g,'&quot;')}"`;
   if(img){
     return `<span class="item-chip has-img" ${attr}><img src="${img}" alt="${name}" loading="lazy" onerror="this.parentElement.classList.remove('has-img');this.remove()"><span>${name}</span></span>`;
   }
