@@ -1,4 +1,5 @@
 import {t,localize,lang,localePath} from './i18n.js';
+import {traitImg} from './icons.js';
 
 /** Build CommunityDragon square icon URL for a TFT Set 18 unit */
 export function champImg(name){
@@ -75,9 +76,13 @@ export function unitChip(u, withImg=true){
 }
 
 export function traitChip(tr){
-  if(typeof tr === 'string') return `<span class="unit-chip trait">${tr}</span>`;
-  const name = localize(tr.name) || tr.name?.en || '';
-  const count = tr.count ? ` (${tr.count})` : '';
+  const raw = typeof tr === 'string' ? tr : (tr.name?.en || tr.name || '');
+  const name = typeof tr === 'string' ? tr : (localize(tr.name) || tr.name?.en || '');
+  const count = (typeof tr === 'object' && tr.count) ? ` (${tr.count})` : '';
+  const img = traitImg(raw || name);
+  if(img){
+    return `<span class="unit-chip trait has-img"><img src="${img}" alt="" loading="lazy" onerror="this.style.display='none'"><span>${name}${count}</span></span>`;
+  }
   return `<span class="unit-chip trait">${name}${count}</span>`;
 }
 
