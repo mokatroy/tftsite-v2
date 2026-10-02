@@ -10,7 +10,6 @@ export function champImg(name){
   return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_${key}/tft18_${key}_square.png`;
 }
 
-/** Map common TFT / LoL item names to DDragon item IDs */
 const ITEM_IDS = {
   'infinity edge': '3031',
   "guinsoo's rageblade": '3124',
@@ -90,6 +89,140 @@ export function itemChip(it, withImg=true){
   return `<span class="item-chip">${name}</span>`;
 }
 
+/* ---------- TFT Board (hex grid) ---------- */
+
+const FRONTLINE_TRAITS = new Set([
+  'vanguard','juggernaut','brawler','defender','warden','riftbeast','elderwood',
+  'blackthorn','solar','coven','primal'
+]);
+const BACKLINE_HINTS = new Set([
+  'ahri','morgana','draven','ashe','aphelios','sivir','nidalee','caitlyn','varus',
+  'karma','pebbles','lux','alune','kennen','elder dragon','ezreal','tristana',
+  'veigar','elise','teemo','lillia','sivir'
+]);
+
+function unitName(u){
+  return (typeof u === 'string' ? u : (u.name?.en || u.name || '')).toString();
+}
+
+function isFrontline(u){
+  const name = unitName(u).toLowerCase();
+  if(BACKLINE_HINTS.has(name)) return false;
+  if(u.role === 'front' || u.frontline) return true;
+  if(u.role === 'back' || u.carry) return false;
+  const cost = Number(u.cost)||0;
+  // Heuristic: high-cost known carries go back; tanks often mid-cost with tank traits
+  if(cost >= 4 && BACKLINE_HINTS.has(name)) return false;
+  return cost <= 3 || name.includes('sentinel') || name.includes('maokai') || name.includes('amumu')
+    || name.includes('taric') || name.includes('ivern') || name.includes('gnar')
+    || name.includes('alistar') || name.includes('sett') || name.includes('krug')
+    || name.includes('hecarim') || name.includes('rammus') || name.includes('ornn')
+    || name.includes('leona') || name.includes('rek') || name.includes('vi');
+}
+
+/**
+ * Build placement map: row 0 = front (toward enemy), row 3 = back.
+ * Each row has cols 0..6. Even rows are offset visually.
+ * Prefer explicit unit.row / unit.col or comp.board positions.
+ */
+function placeUnits(units, boardData){
+  const grid = {}; // key `${r}-${c}` -> unit
+  const placed = new Set();
+
+  // Explicit board array: [{name, row, col, items?}]
+  if(Array.isArray(boardData)){
+    boardData.forEach(slot=>{
+      const r = Number(slot.row), c = Number(slot.col);
+      if(r>=0 && r<=3 && c>=0 && c<=6){
+        const u = units.find(x=>unitName(x).toLowerCase()===String(slot.name||'').toLowerCase()) || {name:{en:slot.name}, cost:slot.cost, items:slot.items};
+        grid[`${r}-${c}`] = {...u, items: slot.items || u.items};
+        placed.add(unitName(u).toLowerCase());
+      }
+    });
+  }
+
+  // Explicit positions on units
+  units.forEach(u=>{
+    if(u.row != null && u.col != null){
+      grid[`${u.row}-${u.col}`] = u;
+      placed.add(unitName(u).toLowerCase());
+    }
+  });
+
+  const remaining = units.filter(u=>!placed.has(unitName(u).toLowerCase()));
+  const front = remaining.filter(isFrontline);
+  const back = remaining.filter(u=>!isFrontline(u));
+
+  // Preferred front hexes (row0 center-left, row1)
+  const frontSlots = [[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[0,1],[0,5],[1,1],[1,5]];
+  // Preferred back hexes — corners first for carries
+  const backSlots = [[3,0],[3,6],[3,1],[3,5],[2,0],[2,6],[3,2],[3,4],[2,1],[2,5],[3,3],[2,3]];
+
+  function fill(list, slots){
+    let i = 0;
+    for(const u of list){
+      while(i < slots.length && grid[`${slots[i][0]}-${slots[i][1]}`]) i++;
+      if(i >= slots.length) break;
+      const [r,c] = slots[i++];
+      grid[`${r}-${c}`] = u;
+    }
+  }
+  fill(front, frontSlots);
+  fill(back, backSlots);
+  // leftovers anywhere empty
+  const allSlots = [];
+  for(let r=0;r<4;r++) for(let c=0;c<7;c++) allSlots.push([r,c]);
+  fill(remaining.filter(u=>!Object.values(grid).includes(u)), allSlots);
+
+  return grid;
+}
+
+export function renderBoard(comp){
+  const units = comp.units || [];
+  if(!units.length) return '';
+  const grid = placeUnits(units, comp.board || comp.positions);
+
+  const rows = [0,1,2,3].map(r=>{
+    const cells = [];
+    for(let c=0;c<7;c++){
+      const u = grid[`${r}-${c}`];
+      if(u){
+        const name = unitName(u);
+        const img = champImg(name);
+        const cost = u.cost || '';
+        const items = (u.items||[]).slice(0,3).map(it=>{
+          const n = typeof it==='string'?it:(it.name||it.en||'');
+          const ii = itemImg(n);
+          return ii ? `<img class="hex-item" src="${ii}" alt="" title="${n}">` : '';
+        }).join('');
+        cells.push(`<div class="hex filled cost-${Math.min(5,Math.max(1,Number(cost)||1))}" title="${name}">
+          <div class="hex-inner">
+            <img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.25">
+            <span class="hex-name">${name}</span>
+            ${items?`<div class="hex-items">${items}</div>`:''}
+          </div>
+        </div>`);
+      } else {
+        cells.push(`<div class="hex empty"><div class="hex-inner"></div></div>`);
+      }
+    }
+    return `<div class="hex-row ${r%2===1?'offset':''}" data-row="${r}">${cells.join('')}</div>`;
+  }).join('');
+
+  const labelFront = lang==='ar' ? 'فرونت (نحو الخصم)' : lang==='ja' ? 'フロント' : 'Front (toward enemy)';
+  const labelBack = lang==='ar' ? 'باك لاين' : lang==='ja' ? 'バックライン' : 'Backline';
+  const title = lang==='ar' ? 'توزيع البورد' : lang==='ja' ? 'ポジショニング' : 'Positioning';
+
+  return `<section class="detail-section board-section">
+    <h2>${title}</h2>
+    <div class="tft-board">
+      <div class="board-label front-label">${labelFront}</div>
+      <div class="hex-grid">${rows}</div>
+      <div class="board-label back-label">${labelBack}</div>
+    </div>
+  </section>`;
+}
+
 export function compCard(c){
   const name = localize(c.name) || c.slug;
   const summary = localize(c.summary) || '';
@@ -115,6 +248,7 @@ export function detail(comp,patch){
   const early = (comp.earlyUnits||[]).map(u=>unitChip(u,true)).join('');
   const traits = (comp.traits||[]).map(traitChip).join('');
   const items = (comp.items||[]).map(it=>itemChip(it,true)).join('');
+  const boardHtml = renderBoard(comp);
 
   const stagesHtml = (comp.stages||[]).map(s=>{
     const txt = localize(s.text)||'';
@@ -140,6 +274,8 @@ export function detail(comp,patch){
       </div>
     </div>
   </div>
+
+  ${boardHtml}
 
   <div class="detail-grid">
     <section class="detail-section">
