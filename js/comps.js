@@ -34,13 +34,17 @@ Promise.all([
   fetch('data/v2_comps_extra2.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_comps_extra3.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/v2_situational_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/patches.json').then(r=>r.json())
-]).then(([c,extra,extra2,extra3,s,p])=>{
+]).then(([c,extra,extra2,extra3,s,sx,p])=>{
   const base=Array.isArray(c)?c:(c.comps||[]);
   const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[]), ...(Array.isArray(extra3)?extra3:[])];
   const seen=new Set(base.map(x=>x.slug));
   comps=base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug)));
-  situational=Array.isArray(s)?s:[];
+  const sitBase=Array.isArray(s)?s:[];
+  const sitExtra=Array.isArray(sx)?sx:[];
+  const sitSeen=new Set(sitBase.map(x=>x.slug));
+  situational=sitBase.concat(sitExtra.filter(x=>x&&x.slug&&!sitSeen.has(x.slug)));
   if(p[0]) setPatchVersion(p[0].version);
   render();renderSituational();
 });
