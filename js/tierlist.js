@@ -64,7 +64,7 @@ function render(){
       <div class="tier-label">${row.tier}</div>
       <div class="tier-items">${items.map(it=>{
         const img = itemImg(it.name);
-        return `<span class="tier-entry item-entry">
+        return `<span class="tier-entry item-entry" data-item="${it.name}">
           ${img?`<img class="item-icon" src="${img}" alt="${it.name}" loading="lazy" onerror="this.style.display='none'">`:''}
           <span class="item-text"><span class="item-name">${it.name}</span>${it.note?`<span class="item-note">${it.note}</span>`:''}</span>
         </span>`;
