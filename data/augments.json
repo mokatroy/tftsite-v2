@@ -1,1 +1,24 @@
-{"set":"18","patch":"18.3","entries":[{"id":"augment-1","name":"Jeweled Lotus","rarity":"Gold","description":"Your units' abilities can critically strike. Gain 15% Critical Strike Chance."},{"id":"augment-2","name":"Rich Get Richer","rarity":"Silver","description":"Gain 1 interest gold every round. Max interest increased by 2."},{"id":"augment-3","name":"Dark Ritual","rarity":"Prismatic","description":"Disabled on patch 18.3b."},{"id":"augment-4","name":"Pandora's Items","rarity":"Gold","description":"Round start: items on your bench are randomized."},{"id":"augment-5","name":"Trade Sector","rarity":"Silver","description":"Gain a free shop refresh every round."},{"id":"augment-6","name":"Cybernetic Uplink","rarity":"Gold","description":"Your champions holding an item gain 120 Health and restore 2 Mana per second."},{"id":"augment-7","name":"Binary Airdrop","rarity":"Prismatic","description":"Your champions equipped with 2 items temporarily gain a random completed item at the start of combat."},{"id":"augment-8","name":"Component Grab Bag","rarity":"Silver","description":"Gain 3 random item components."},{"id":"augment-9","name":"Item Grab Bag","rarity":"Gold","description":"Gain 1 random completed item."},{"id":"augment-10","name":"Thrill of the Hunt","rarity":"Silver","description":"Your units heal 350 Health on kill."}]}
+{
+  "set": "18",
+  "patch": "18.3b",
+  "entries": [
+    {"id": "augment-1", "name": "Jeweled Lotus", "rarity": "Gold", "description": "Your units' abilities can critically strike. Gain 15% Critical Strike Chance."},
+    {"id": "augment-2", "name": "Rich Get Richer", "rarity": "Silver", "description": "Gain 1 interest gold every round. Max interest increased by 2."},
+    {"id": "augment-3", "name": "Dark Ritual", "rarity": "Prismatic", "description": "Disabled on patch 18.3b."},
+    {"id": "augment-4", "name": "Pandora's Items", "rarity": "Gold", "description": "Round start: items on your bench are randomized."},
+    {"id": "augment-5", "name": "Trade Sector", "rarity": "Silver", "description": "Gain a free shop refresh every round."},
+    {"id": "augment-6", "name": "Cybernetic Uplink", "rarity": "Gold", "description": "Your champions holding an item gain 120 Health and restore 2 Mana per second."},
+    {"id": "augment-7", "name": "Binary Airdrop", "rarity": "Prismatic", "description": "Your champions equipped with 2 items temporarily gain a random completed item at the start of combat."},
+    {"id": "augment-8", "name": "Component Grab Bag", "rarity": "Silver", "description": "Gain 3 random item components."},
+    {"id": "augment-9", "name": "Item Grab Bag", "rarity": "Gold", "description": "Gain 1 random completed item."},
+    {"id": "augment-10", "name": "Thrill of the Hunt", "rarity": "Silver", "description": "Your units heal 350 Health on kill."},
+    {"id": "augment-11", "name": "Portable Forge", "rarity": "Gold", "description": "Choose 1 of 3 Artifacts and gain the item."},
+    {"id": "augment-12", "name": "Last Stand", "rarity": "Silver", "description": "The first time you would be eliminated, instead remain in the game with 1 HP."},
+    {"id": "augment-13", "name": "Hustler", "rarity": "Silver", "description": "You earn 3 additional gold every 4 rounds."},
+    {"id": "augment-14", "name": "Combat Training", "rarity": "Gold", "description": "Your champions gain 5% Attack Damage and Ability Power for each combat they survive."},
+    {"id": "augment-15", "name": "New Recruit", "rarity": "Prismatic", "description": "Gain +1 team size."},
+    {"id": "augment-16", "name": "Radiant Relics", "rarity": "Prismatic", "description": "Choose 1 of 5 Radiant items and gain the item."},
+    {"id": "augment-17", "name": "Built Different", "rarity": "Gold", "description": "Your units with no Traits active gain 250 Health and 30% Attack Speed."},
+    {"id": "augment-18", "name": "Wise Spending", "rarity": "Silver", "description": "Gain 2 gold and a free shop refresh every time you level up."}
+  ]
+}
