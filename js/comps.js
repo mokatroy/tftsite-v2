@@ -29,10 +29,14 @@ function render(){
 }
 Promise.all([
   fetch('data/v2_comps.json').then(r=>r.ok?r.json():fetch('data/comps.json').then(r=>r.json())),
+  fetch('data/v2_comps_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/patches.json').then(r=>r.json())
-]).then(([c,s,p])=>{
-  comps=Array.isArray(c)?c:(c.comps||[]);
+]).then(([c,extra,s,p])=>{
+  const base=Array.isArray(c)?c:(c.comps||[]);
+  const more=Array.isArray(extra)?extra:[];
+  const seen=new Set(base.map(x=>x.slug));
+  comps=base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug)));
   situational=Array.isArray(s)?s:[];
   if(p[0]) setPatchVersion(p[0].version);
   render();renderSituational();
