@@ -30,11 +30,12 @@ function render(){
 Promise.all([
   fetch('data/v2_comps.json').then(r=>r.ok?r.json():fetch('data/comps.json').then(r=>r.json())),
   fetch('data/v2_comps_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/v2_comps_extra2.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/patches.json').then(r=>r.json())
-]).then(([c,extra,s,p])=>{
+]).then(([c,extra,extra2,s,p])=>{
   const base=Array.isArray(c)?c:(c.comps||[]);
-  const more=Array.isArray(extra)?extra:[];
+  const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[])];
   const seen=new Set(base.map(x=>x.slug));
   comps=base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug)));
   situational=Array.isArray(s)?s:[];
