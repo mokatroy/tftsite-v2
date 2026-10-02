@@ -2,21 +2,82 @@
   {
     "version": "18.3b",
     "releaseDate": "2026-09-24",
-    "title": {"ar": "باتش 18.3b", "en": "Patch 18.3b", "ja": "パッチ 18.3b"},
+    "title": {
+      "ar": "باتش 18.3b",
+      "en": "Patch 18.3b",
+      "ja": "パッチ 18.3b"
+    },
     "summary": {
-      "ar": "تحديث سريع بعد 18.3: نيرف لـ Kha'Zix، نيرف لتضحية Blackthorn السحرية، وتعطيل أوجمنت Dark Ritual.",
-      "en": "A B-patch on 18.3: Kha'Zix nerfed, AP Blackthorn sacrifice nerfed, and Dark Ritual disabled.",
-      "ja": "18.3のBパッチ。Kha'Zixナーフ、APブラックソーン生け贄ナーフ、Dark Ritual無効化。"
+      "ar": "تحديث سريع بعد 18.3: نيرف لـ Kha'Zix، نيرف لتضحية Blackthorn السحرية، وتعطيل أوجمنت Dark Ritual ومشاكل Polymorph.",
+      "en": "A B-patch on 18.3: Kha'Zix nerfed, AP Blackthorn sacrifice nerfed, Dark Ritual disabled, and Greater Polymorph temporarily disabled.",
+      "ja": "18.3のBパッチ。Kha'Zixナーフ、APブラックソーン生け贄ナーフ、Dark Ritual無効化、Greater Polymorph一時無効。"
     },
     "highlights": {
-      "ar": "التغييرات الكبيرة: نيرف Kha'Zix، نيرف تضحية Blackthorn الـ AP، وتعطيل Dark Ritual.",
-      "en": "Headline changes: nerfed Kha'Zix, nerfed AP Blackthorn sacrifice, disabled Dark Ritual.",
-      "ja": "Kha'Zixナーف、APブラックソーン生け贄ナーフ、Dark Ritual無効。"
+      "ar": "الهدف: تهدئة البوردات اللي اعتمدت على Kha'Zix و Blackthorn AP بعد ما طلعت أقوى من المتوقع، وإصلاح استغلالات الـ Wisp.",
+      "en": "Goal: tone down Kha'Zix and AP Blackthorn boards that overperformed after 18.3, and close Wisp exploit paths.",
+      "ja": "18.3後に強すぎたKha'ZixとAPブラックソーンを抑制し、Wispの悪用経路を塞ぐ。"
     },
     "changes": [
-      {"type": "nerf", "category": "champion", "name": {"ar": "Kha'Zix", "en": "Kha'Zix", "ja": "Kha'Zix"}, "detail": {"ar": "اتنقّل لتحت بعد ما البوردات المعتمدة عليه طلعت أقوى من اللازم في 18.3.", "en": "Brought down after Rival boards overperformed coming out of 18.3.", "ja": "18.3後に強すぎたライバル構成を抑制。"}},
-      {"type": "nerf", "category": "trait", "name": {"ar": "Blackthorn", "en": "Blackthorn", "ja": "ブラックソーン"}, "detail": {"ar": "تضحية الـ AP اتنيرفت.", "en": "AP sacrifice value was reduced.", "ja": "AP生け贄のリターンを低下。"}},
-      {"type": "adjust", "category": "augment", "name": {"ar": "Dark Ritual", "en": "Dark Ritual", "ja": "Dark Ritual"}, "detail": {"ar": "الأوجمنت متعطّل في الباتش الحالي.", "en": "This augment is disabled on the current patch.", "ja": "このオーグメントは現在無効。"}}
+      {
+        "type": "nerf",
+        "category": "champion",
+        "name": {"ar": "Kha'Zix", "en": "Kha'Zix", "ja": "Kha'Zix"},
+        "detail": {
+          "ar": "ضرر القدرة الأساسي: 285/400/580 → 265/370/535 (AP). الهدف تهدئة بوردات Rival بعد ما طلعت أقوى من اللازم في 18.3.",
+          "en": "Ability base damage: 285/400/580 → 265/370/535 AP. Aimed at Rival boards that overperformed after 18.3.",
+          "ja": "スキル基礎ダメージ 285/400/580 → 265/370/535 AP。18.3後に強すぎたライバル構成の抑制。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "trait",
+        "name": {"ar": "Blackthorn", "en": "Blackthorn", "ja": "ブラックソーン"},
+        "detail": {
+          "ar": "تضحية الـ AP — زيادة الضرر الأساسي: 14% → 12%. تقليل قيمة التضحية السحرية.",
+          "en": "AP Sacrifice base damage amp: 14% → 12%. Reduces the payoff of AP-focused Blackthorn lines.",
+          "ja": "AP生け贄の基礎ダメージ増加 14% → 12%。AP寄りのブラックソーンのリターンを低下。"
+        }
+      },
+      {
+        "type": "adjust",
+        "category": "augment",
+        "name": {"ar": "Dark Ritual", "en": "Dark Ritual", "ja": "Dark Ritual"},
+        "detail": {
+          "ar": "الأوجمنت متعطّل في الباتش الحالي بسبب مشاكل توازن.",
+          "en": "This augment is disabled on the current patch due to balance issues.",
+          "ja": "バランス上の問題により、現在このオーグメントは無効。"
+        }
+      },
+      {
+        "type": "adjust",
+        "category": "wisp",
+        "name": {"ar": "Greater Polymorph", "en": "Greater Polymorph", "ja": "Greater Polymorph"},
+        "detail": {
+          "ar": "تم تعطيل الـ Wisp مؤقتًا حتى 18.4 بعد استغلال سمح بـ 2-star 5-cost بدري جدًا.",
+          "en": "Temporarily disabled until 18.4 after an exploit enabled consistent early two-star 5-costs.",
+          "ja": "早期の2スター5コストを可能にする悪用が確認されたため、18.4まで一時無効。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "system",
+        "name": {"ar": "Combat Augments", "en": "Combat Augments", "ja": "戦闘オーグメント"},
+        "detail": {
+          "ar": "18.3 ركّز على رفع قوة أوجمنتس القتال اللي كانت ضعيفة، مع تهدئة الأسقف العالية لبعض التريتس.",
+          "en": "18.3 also lifted underused combat augments while trimming power ceilings on strong traits.",
+          "ja": "18.3では弱い戦闘オーグメントを強化しつつ、強トレイトの上限も抑制。"
+        }
+      },
+      {
+        "type": "adjust",
+        "category": "meta",
+        "name": {"ar": "Meta snapshot", "en": "Meta snapshot", "ja": "メタ概況"},
+        "detail": {
+          "ar": "بعد الـ B-patch: Dragon 9 و Ahri lines و Primal dual-carry لسه قوية. Kha'Zix بقى مشروط أكتر (Unrivaled / items). ركّز على الاقتصاد والوصول لفل 8–9 نظيف.",
+          "en": "Post B-patch: Dragon 9, Ahri lines, and Primal dual-carry remain strong. Kha'Zix is more conditional (Unrivaled / items). Focus on clean econ and hitting 8–9.",
+          "ja": "Bパッチ後もDragon 9、Ahri系、Primalデュアルキャリーは強い。Kha'Zixは条件付き（Unrivaled / アイテム）。クリーンな経済と8〜9到達を意識。"
+        }
+      }
     ]
   }
 ]
