@@ -53,7 +53,6 @@ function renderDetail(c){
   const style = localize(c.style) || '';
   const note = localize(c.note) || '';
   const unitList = (c.guide?.board || []).map(n=>({name:{en:n}}));
-  // attach items from guide.items onto units for the board
   (c.guide?.items||[]).forEach(block=>{
     const u = unitList.find(x=>x.name.en===block.unit);
     if(u) u.items = block.items;
@@ -124,9 +123,15 @@ function render(){
   }
 }
 
-fetch('data/v2_situational-comps.json')
-  .then(r=>r.ok?r.json():[])
-  .then(xs=>{ list = Array.isArray(xs)?xs:[]; render(); })
-  .catch(()=>{ if(root) root.innerHTML='<p class="empty">—</p>'; });
+Promise.all([
+  fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/v2_situational_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[])
+]).then(([base,extra])=>{
+  const a = Array.isArray(base)?base:[];
+  const b = Array.isArray(extra)?extra:[];
+  const seen = new Set(a.map(x=>x.slug));
+  list = a.concat(b.filter(x=>x&&x.slug&&!seen.has(x.slug)));
+  render();
+}).catch(()=>{ if(root) root.innerHTML='<p class="empty">—</p>'; });
 
 setupLanguage(render);
