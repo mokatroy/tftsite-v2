@@ -54,3 +54,11 @@
 .tip-bis img{width:16px;height:16px;border-radius:3px}
 
 [data-unit],[data-item]{cursor:help}
+
+.tip-avatar.trait{border-radius:8px;width:40px;height:40px;background:rgba(155,118,242,.15)}
+.tip-bp{font:700 11px Outfit;color:var(--gold,#e9b964);margin-top:3px;letter-spacing:.04em}
+.tip-trait-champs{margin-top:10px}
+.tip-trait-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tip-trait-champ{display:inline-flex;align-items:center;gap:4px;padding:3px 6px;border-radius:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font:600 10px Outfit}
+.tip-trait-champ img{width:18px;height:18px;border-radius:4px;object-fit:cover;background:#0d111c}
+[data-trait]{cursor:help}
