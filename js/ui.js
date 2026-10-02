@@ -1,13 +1,35 @@
 import {t,localize,lang,localePath} from './i18n.js';
 import {traitImg} from './icons.js';
 
+/** Name → CDragon character folder when display name differs */
+const CHAMP_ALIAS = {
+  pebbles: 'sentry',
+  'mama beak': 'raptor',
+  mamabeak: 'raptor',
+  'ancient sentinel': 'sentinel',
+  ancientsentinel: 'sentinel',
+  "kog'maw": 'kogmaw',
+  kogmaw: 'kogmaw',
+  "rek'sai": 'reksai',
+  reksai: 'reksai',
+  'master yi': 'masteryi',
+  masteryi: 'masteryi',
+  'elder dragon': 'elderdragon',
+  elderdragon: 'elderdragon'
+};
+
+/** Some units only have a square under /hud/ */
+const CHAMP_HUD_ONLY = new Set(['raptor']);
+
 /** Build CommunityDragon square icon URL for a TFT Set 18 unit */
 export function champImg(name){
   if(!name) return '';
-  const key = String(name).toLowerCase()
-    .replace(/['’]/g,'')
-    .replace(/\s+/g,'')
-    .replace(/[^a-z0-9]/g,'');
+  const raw = String(name).toLowerCase().trim();
+  const compact = raw.replace(/['’]/g,'').replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
+  const key = CHAMP_ALIAS[raw] || CHAMP_ALIAS[compact] || compact;
+  if(CHAMP_HUD_ONLY.has(key)){
+    return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_${key}/hud/tft18_${key}_square.png`;
+  }
   return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_${key}/tft18_${key}_square.png`;
 }
 
@@ -32,6 +54,7 @@ const TFT_ITEM_SLUG = {
   'bloodthirster': 'tft_item_bloodthirster',
   "sterak's gage": 'tft_item_steraksgage',
   'infinity edge': 'tft_item_infinityedge',
+  'hand of justice': 'tft_item_unstableconcoction',
   'red buff': 'tft_item_rapidfirecannon',
   "guinsoo's rageblade": 'tft_item_guinsoosrageblade',
   'void staff': 'tft_item_voidstaff',
@@ -49,7 +72,6 @@ const TFT_ITEM_SLUG = {
   "protector's vow": 'tft_item_protectorsvow',
   'adaptive helm': 'tft_item_adaptivehelm',
   'spirit visage': 'tft_item_spiritvisagerr',
-  'hand of justice': 'tft_item_handofjustice',
   'bramble vest': 'tft_item_bramblevest',
   'gargoyle stoneplate': 'tft_item_gargoylestoneplate',
   'sunfire cape': 'tft_item_redbuff',
