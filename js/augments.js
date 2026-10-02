@@ -1,4 +1,5 @@
 import {lang,setupLanguage,t} from './i18n.js';
+import {augmentImg} from './icons.js';
 
 const grid = document.querySelector('#augments-board');
 const search = document.querySelector('#augment-search');
@@ -39,7 +40,6 @@ function render(){
     return matchR && matchQ;
   });
 
-  // Group by rarity for nicer layout
   const order = ['Prismatic','Gold','Silver'];
   const groups = {};
   filtered.forEach(a=>{
@@ -52,14 +52,18 @@ function render(){
     return `<div class="augment-tier">
       <div class="augment-tier-head rarity-${r.toLowerCase()}">${r} · ${list.length}</div>
       <div class="augment-tier-body">
-        ${list.map(a=>`
+        ${list.map(a=>{
+          const img = augmentImg(a.name);
+          return `
           <article class="augment-card rarity-${a.rarity.toLowerCase()}">
             <div class="augment-card-top">
+              <img class="augment-icon" src="${img}" alt="" loading="lazy" onerror="this.style.display='none'">
               <span class="augment-rarity">${esc(a.rarity)}</span>
             </div>
             <h3>${esc(a.name)}</h3>
             <p>${esc(a.description||'')}</p>
-          </article>`).join('')}
+          </article>`;
+        }).join('')}
       </div>
     </div>`;
   }).join('') : `<div class="empty">${t('notFound')}</div>`;
