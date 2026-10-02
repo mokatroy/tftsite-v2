@@ -1,1 +1,238 @@
-[]
+[
+  {
+    "slug": "lunar-aphelios-nidalee",
+    "tier": "S",
+    "featured": true,
+    "color": "rgba(120,160,220,.4)",
+    "name": {
+      "ar": "Lunar Aphelios Nidalee",
+      "en": "Lunar Aphelios Nidalee",
+      "ja": "ルナー・アフェリオス・ニダリー"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: فاست 8 (متوسط)",
+      "en": "Playstyle: Fast 8 (Medium)",
+      "ja": "プレイスタイル：ファスト8（中級）"
+    },
+    "summary": {
+      "ar": "من أقوى خطوط الـFast 8 — Aphelios + Nidalee مع Lunar وRapidfire وفرونت قوي.",
+      "en": "One of the strongest Fast 8 lines — Aphelios + Nidalee with Lunar, Rapidfire and a solid frontline.",
+      "ja": "最強クラスのファスト8。ApheliosとNidaleeをLunar・Rapidfireで支える。"
+    },
+    "guide": {
+      "ar": "اقتصاد لفوق لفل 8 ورول لـ Aphelios وNidalee و4-costs. Red Buff أو Rageblade على Aphelios، تانك على Amumu/Sentinel. Kog'Maw بيوفر shred مجاني.",
+      "en": "Econ to level 8 and roll for Aphelios, Nidalee and the 4-costs. Red Buff or Rageblade on Aphelios; tank items on Amumu/Sentinel. Kog'Maw provides free shred.",
+      "ja": "レベル8までエコしてAphelios・Nidaleeと4コストをロール。ApheliosにRed BuffかRageblade、Amumu/Sentinelにタンク。"
+    },
+    "traits": [
+      {"name": {"ar": "Lunar", "en": "Lunar"}, "count": 2},
+      {"name": {"ar": "Rapidfire", "en": "Rapidfire"}, "count": 2},
+      {"name": {"ar": "Juggernaut", "en": "Juggernaut"}, "count": 2},
+      {"name": {"ar": "Vanguard", "en": "Vanguard"}, "count": 2},
+      {"name": {"ar": "Primal", "en": "Primal"}, "count": 2},
+      {"name": {"ar": "Adaptor", "en": "Adaptor"}, "count": 2}
+    ],
+    "items": [
+      {"ar": "Red Buff", "en": "Red Buff"},
+      {"ar": "Guinsoo's Rageblade", "en": "Guinsoo's Rageblade"},
+      {"ar": "Last Whisper", "en": "Last Whisper"}
+    ],
+    "units": [
+      {"ar": "Aphelios", "en": "Aphelios"},
+      {"ar": "Nidalee", "en": "Nidalee"},
+      {"ar": "Amumu", "en": "Amumu"},
+      {"ar": "Sentinel", "en": "Sentinel"},
+      {"ar": "Diana", "en": "Diana"},
+      {"ar": "Kog'Maw", "en": "Kog'Maw"},
+      {"ar": "Vi", "en": "Vi"},
+      {"ar": "Varus", "en": "Varus"}
+    ],
+    "earlyUnits": [
+      {"ar": "Cinderling", "en": "Cinderling"},
+      {"ar": "Rakan", "en": "Rakan"},
+      {"ar": "Diana", "en": "Diana"}
+    ],
+    "stages": [
+      {"stage": 2, "text": {"ar": "ون ستريك بـ Rapidfire / AD تيمبو وأيتمز سريعة.", "en": "Win-streak with Rapidfire / AD tempo and early item slams."}},
+      {"stage": 3, "text": {"ar": "اقتصاد وعدّي لفل 8.", "en": "Bank gold and push to level 8."}},
+      {"stage": 4, "text": {"ar": "رول لـ Aphelios وNidalee 2★ وكمّل الفرونت.", "en": "Roll for Aphelios and Nidalee 2★ and finish the frontline."}}
+    ],
+    "sections": []
+  },
+  {
+    "slug": "invoker-ahri",
+    "tier": "A",
+    "featured": true,
+    "color": "rgba(180,120,200,.4)",
+    "name": {
+      "ar": "Invoker Ahri",
+      "en": "Invoker Ahri",
+      "ja": "インヴォーカー・アーリ"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: فاست 8 (متوسط)",
+      "en": "Playstyle: Fast 8 (Medium)",
+      "ja": "プレイスタイル：ファスト8（中級）"
+    },
+    "summary": {
+      "ar": "Ahri + Morgana مع Invoker وRiftbeast — خط AP قوي ومرن.",
+      "en": "Ahri + Morgana with Invoker and Riftbeast — strong flexible AP line.",
+      "ja": "AhriとMorganaをInvoker・Riftbeastで支える柔軟なAPライン。"
+    },
+    "guide": {
+      "ar": "فاست 8 ورول لـ Ahri وMorgana. أيتمز AP (Blue Buff / JG / Deathcap) على Ahri. الفرونت Riftbeast/Vanguard بياخد دروع.",
+      "en": "Fast 8 and roll for Ahri and Morgana. AP items (Blue Buff / JG / Deathcap) on Ahri. Riftbeast/Vanguard frontline takes tank items.",
+      "ja": "ファスト8でAhriとMorganaをロール。AhriにAPアイテム、フロントはRiftbeast/Vanguardにタンク。"
+    },
+    "traits": [
+      {"name": {"ar": "Invoker", "en": "Invoker"}, "count": 3},
+      {"name": {"ar": "Blossom", "en": "Blossom"}, "count": 3},
+      {"name": {"ar": "Riftbeast", "en": "Riftbeast"}, "count": 3},
+      {"name": {"ar": "Spellweaver", "en": "Spellweaver"}, "count": 2},
+      {"name": {"ar": "Vanguard", "en": "Vanguard"}, "count": 2}
+    ],
+    "items": [
+      {"ar": "Blue Buff", "en": "Blue Buff"},
+      {"ar": "Jeweled Gauntlet", "en": "Jeweled Gauntlet"},
+      {"ar": "Rabadon's Deathcap", "en": "Rabadon's Deathcap"}
+    ],
+    "units": [
+      {"ar": "Ahri", "en": "Ahri"},
+      {"ar": "Morgana", "en": "Morgana"},
+      {"ar": "Sett", "en": "Sett"},
+      {"ar": "Sentinel", "en": "Sentinel"},
+      {"ar": "Taric", "en": "Taric"},
+      {"ar": "Krug", "en": "Krug"},
+      {"ar": "Pebbles", "en": "Pebbles"},
+      {"ar": "Karma", "en": "Karma"}
+    ],
+    "earlyUnits": [
+      {"ar": "Pebbles", "en": "Pebbles"},
+      {"ar": "Krug", "en": "Krug"},
+      {"ar": "Karma", "en": "Karma"}
+    ],
+    "stages": [
+      {"stage": 2, "text": {"ar": "Riftbeast بدري + أي كاري تيمبو.", "en": "Early Riftbeasts + any tempo carry."}},
+      {"stage": 3, "text": {"ar": "اقتصاد لفوق لفل 8.", "en": "Econ toward level 8."}},
+      {"stage": 4, "text": {"ar": "رول لـ Ahri وMorgana 2★ وكمّل Invoker.", "en": "Roll for Ahri and Morgana 2★ and finish Invoker."}}
+    ],
+    "sections": []
+  },
+  {
+    "slug": "executioner-khazix",
+    "tier": "A",
+    "featured": true,
+    "color": "rgba(100,160,100,.4)",
+    "name": {
+      "ar": "Executioner Kha'Zix",
+      "en": "Executioner Kha'Zix",
+      "ja": "エクゼキューター・カズィクス"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: سلو رول لفل 7 (متوسط)",
+      "en": "Playstyle: Slow roll level 7 (Medium)",
+      "ja": "プレイスタイル：スローロール7（中級）"
+    },
+    "summary": {
+      "ar": "Kha'Zix ريرول مع Executioner وHecarim — خط قوي لو لقيت الـ3-stars.",
+      "en": "Kha'Zix reroll with Executioner and Hecarim — strong when you hit the 3-stars.",
+      "ja": "Kha'ZixをExecutionerとHecarimで支えるリロール。3スターが鍵。"
+    },
+    "guide": {
+      "ar": "سلو رول على لفل 7 لـ Kha'Zix وHecarim 3★. أيتمز AD/crit على Kha'Zix (IE / HoJ / BT). Diana وEzreal كـflex.",
+      "en": "Slow roll at level 7 for Kha'Zix and Hecarim 3★. AD/crit items on Kha'Zix (IE / HoJ / BT). Diana and Ezreal as flex.",
+      "ja": "レベル7でKha'ZixとHecarimの3スターを狙う。Kha'ZixにAD/クリティカル。"
+    },
+    "traits": [
+      {"name": {"ar": "Executioner", "en": "Executioner"}, "count": 3},
+      {"name": {"ar": "Elderwood", "en": "Elderwood"}, "count": 3},
+      {"name": {"ar": "Defender", "en": "Defender"}, "count": 2},
+      {"name": {"ar": "Ravager", "en": "Ravager"}, "count": 2},
+      {"name": {"ar": "Flora Fatalis", "en": "Flora Fatalis"}, "count": 2}
+    ],
+    "items": [
+      {"ar": "Infinity Edge", "en": "Infinity Edge"},
+      {"ar": "Hand of Justice", "en": "Hand of Justice"},
+      {"ar": "Bloodthirster", "en": "Bloodthirster"}
+    ],
+    "units": [
+      {"ar": "Kha'Zix", "en": "Kha'Zix"},
+      {"ar": "Hecarim", "en": "Hecarim"},
+      {"ar": "Diana", "en": "Diana"},
+      {"ar": "Ezreal", "en": "Ezreal"},
+      {"ar": "Soraka", "en": "Soraka"},
+      {"ar": "Fiddlesticks", "en": "Fiddlesticks"},
+      {"ar": "Ornn", "en": "Ornn"},
+      {"ar": "Aphelios", "en": "Aphelios"}
+    ],
+    "earlyUnits": [
+      {"ar": "Ornn", "en": "Ornn"},
+      {"ar": "Diana", "en": "Diana"},
+      {"ar": "Hecarim", "en": "Hecarim"}
+    ],
+    "stages": [
+      {"stage": 2, "text": {"ar": "فرونت قوي + Kha'Zix لو لقيته.", "en": "Strong frontline + Kha'Zix if found."}},
+      {"stage": 3, "text": {"ar": "لفّ 7 وسلو رول فوق 50 دهب.", "en": "Hit 7 and slow-roll above 50 gold."}},
+      {"stage": 4, "text": {"ar": "كمّل 3★ وزوّد Executioner/Elderwood.", "en": "Finish 3-stars and add Executioner/Elderwood pairs."}}
+    ],
+    "sections": []
+  },
+  {
+    "slug": "juggernaut-ashe",
+    "tier": "A",
+    "featured": false,
+    "color": "rgba(200,140,80,.4)",
+    "name": {
+      "ar": "Juggernaut Ashe",
+      "en": "Juggernaut Ashe",
+      "ja": "ジャガーノート・アッシュ"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: فاست 8–9 (متوسط)",
+      "en": "Playstyle: Fast 8–9 (Medium)",
+      "ja": "プレイスタイル：ファスト8–9（中級）"
+    },
+    "summary": {
+      "ar": "Ashe + Sivir مع 4–6 Juggernaut — خط AD قوي ومرن.",
+      "en": "Ashe + Sivir with 4–6 Juggernaut — strong flexible AD line.",
+      "ja": "AsheとSivirを4–6 Juggernautで支える柔軟なADライン。"
+    },
+    "guide": {
+      "ar": "ابني 4 Juggernaut من النص وبعدين 6 لو قدرت. أيتمز AS/AD على Ashe أو Sivir. الفرونت Maokai/Amumu.",
+      "en": "Build 4 Juggernaut mid-game then hit 6 if possible. AS/AD items on Ashe or Sivir. Frontline Maokai/Amumu.",
+      "ja": "中盤に4 Juggernaut、可能なら6へ。AsheかSivirにAS/AD、フロントはMaokai/Amumu。"
+    },
+    "traits": [
+      {"name": {"ar": "Juggernaut", "en": "Juggernaut"}, "count": 4},
+      {"name": {"ar": "Hunter", "en": "Hunter"}, "count": 2},
+      {"name": {"ar": "Blossom", "en": "Blossom"}, "count": 2},
+      {"name": {"ar": "Vanguard", "en": "Vanguard"}, "count": 2}
+    ],
+    "items": [
+      {"ar": "Guinsoo's Rageblade", "en": "Guinsoo's Rageblade"},
+      {"ar": "Last Whisper", "en": "Last Whisper"},
+      {"ar": "Bloodthirster", "en": "Bloodthirster"}
+    ],
+    "units": [
+      {"ar": "Ashe", "en": "Ashe"},
+      {"ar": "Sivir", "en": "Sivir"},
+      {"ar": "Maokai", "en": "Maokai"},
+      {"ar": "Amumu", "en": "Amumu"},
+      {"ar": "Vi", "en": "Vi"},
+      {"ar": "Sejuani", "en": "Sejuani"},
+      {"ar": "Ivern", "en": "Ivern"},
+      {"ar": "Taric", "en": "Taric"}
+    ],
+    "earlyUnits": [
+      {"ar": "Rakan", "en": "Rakan"},
+      {"ar": "Vi", "en": "Vi"},
+      {"ar": "Sejuani", "en": "Sejuani"}
+    ],
+    "stages": [
+      {"stage": 2, "text": {"ar": "Juggernauts بدري + أي Hunter.", "en": "Early Juggernauts + any Hunter."}},
+      {"stage": 3, "text": {"ar": "اقتصاد لفوق لفل 8.", "en": "Econ toward level 8."}},
+      {"stage": 4, "text": {"ar": "رول لـ Ashe/Sivir 2★ وكمّل 4–6 Juggernaut.", "en": "Roll for Ashe/Sivir 2★ and finish 4–6 Juggernaut."}}
+    ],
+    "sections": []
+  }
+]
