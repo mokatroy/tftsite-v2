@@ -13,7 +13,7 @@
 .sit-unit{font:700 12px Outfit;min-width:80px;color:var(--gold)}
 .situational-card .unit-list{margin-top:10px;padding-top:0}
 
-/* ===== Item Oven (الفرن) ===== */
+/* ===== Item Oven ===== */
 .oven-section{
   margin: 28px 0 36px;
   padding: 22px;
@@ -49,11 +49,13 @@
 }
 .oven-clear-btn:hover{ border-color: var(--gold); color: var(--gold); }
 
+/* Always: slots on visual LEFT, components on visual RIGHT (physical LTR columns) */
 .oven-workspace{
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 20px;
   align-items: start;
+  direction: ltr;
 }
 .oven-left{
   display: flex;
@@ -109,7 +111,6 @@
   color: var(--purple);
   opacity: .8;
 }
-html[dir=rtl] .oven-arrow{ transform: scaleX(-1); }
 
 .oven-result{ min-width: 160px; flex: 1; }
 .oven-result-empty{
