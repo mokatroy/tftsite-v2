@@ -1,5 +1,5 @@
 import {setupLanguage,localize,t,localePath,lang} from './i18n.js';
-import {champImg,unitChip,itemChip} from './ui.js';
+import {champImg,unitChip,itemChip,renderBoard} from './ui.js';
 
 const root = document.querySelector('#situational-root');
 const params = new URLSearchParams(location.search);
@@ -52,7 +52,13 @@ function renderDetail(c){
   const title = localize(c.title) || c.name || c.slug || '';
   const style = localize(c.style) || '';
   const note = localize(c.note) || '';
-  const board = (c.guide?.board || []).map(n=>unitChip({name:{en:n}},true)).join('');
+  const unitList = (c.guide?.board || []).map(n=>({name:{en:n}}));
+  // attach items from guide.items onto units for the board
+  (c.guide?.items||[]).forEach(block=>{
+    const u = unitList.find(x=>x.name.en===block.unit);
+    if(u) u.items = block.items;
+  });
+  const boardChips = unitList.map(u=>unitChip(u,true)).join('');
   const early = (c.guide?.early || []).map(n=>unitChip({name:{en:n}},true)).join('');
   const stages = (c.stages||[]).map(s=>{
     const txt = localize(s.text) || '';
@@ -68,6 +74,7 @@ function renderDetail(c){
   const position = guideText(c.guide, 'position');
   const flex = guideText(c.guide, 'flex');
   const alt = guideText(c.guide, 'alt');
+  const boardHtml = renderBoard({units: unitList});
 
   root.innerHTML = `
     <a class="back-link" href="${localePath('situational.html')}">← ${t('situationalTitle')||'Situational'}</a>
@@ -79,10 +86,12 @@ function renderDetail(c){
       <p class="guide">${note}</p>
     </div>
 
+    ${boardHtml}
+
     <div class="detail-grid">
       <section class="detail-section">
         <h2>${t('units')}</h2>
-        <div class="unit-list large">${board}</div>
+        <div class="unit-list large">${boardChips}</div>
         ${early?`<h3 style="margin-top:16px;font-size:14px;color:var(--muted)">Early</h3><div class="unit-list">${early}</div>`:''}
       </section>
       <section class="detail-section">
@@ -94,7 +103,7 @@ function renderDetail(c){
 
     ${stages?`<section class="detail-section" style="margin-top:16px"><h2>Stages</h2><div class="stages">${stages}</div></section>`:''}
 
-    ${position?`<section class="detail-section" style="margin-top:16px"><h2>Positioning</h2><p class="guide">${position}</p></section>`:''}
+    ${position?`<section class="detail-section" style="margin-top:16px"><h2>Positioning notes</h2><p class="guide">${position}</p></section>`:''}
     ${flex?`<section class="detail-section" style="margin-top:16px"><h2>Flex</h2><p class="guide">${flex}</p></section>`:''}
     ${alt?`<section class="detail-section" style="margin-top:16px"><h2>Alternatives</h2><p class="guide">${alt}</p></section>`:''}
 
