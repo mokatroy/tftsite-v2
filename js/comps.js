@@ -1,4 +1,5 @@
-import {setupLanguage,setPatchVersion,t,localize,localePath} from './i18n.js';import{compCard}from'./ui.js';
+import {setupLanguage,setPatchVersion,t,localize,localePath} from './i18n.js';
+import{compCard}from'./ui.js';
 let comps=[],situational=[],tier='All',query='';
 const root=document.querySelector('#comps-list');
 const situationalRoot=document.querySelector('#situational-list');
@@ -31,11 +32,12 @@ Promise.all([
   fetch('data/v2_comps.json').then(r=>r.ok?r.json():fetch('data/comps.json').then(r=>r.json())),
   fetch('data/v2_comps_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_comps_extra2.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/v2_comps_extra3.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/patches.json').then(r=>r.json())
-]).then(([c,extra,extra2,s,p])=>{
+]).then(([c,extra,extra2,extra3,s,p])=>{
   const base=Array.isArray(c)?c:(c.comps||[]);
-  const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[])];
+  const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[]), ...(Array.isArray(extra3)?extra3:[])];
   const seen=new Set(base.map(x=>x.slug));
   comps=base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug)));
   situational=Array.isArray(s)?s:[];

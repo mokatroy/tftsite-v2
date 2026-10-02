@@ -22,13 +22,15 @@ Promise.all([
   fetch('data/v2_comps.json').then(r=>r.ok?r.json():fetch('data/comps.json').then(r=>r.json())).catch(()=>[]),
   fetch('data/v2_comps_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_comps_extra2.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/v2_comps_extra3.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/patches.json').then(r=>r.json()).catch(()=>[])
-]).then(([base,extra,extra2,ps])=>{
+]).then(([base,extra,extra2,extra3,ps])=>{
   patch=Array.isArray(ps)?ps[0]:ps;
   const list=[
     ...normalizeList(base),
     ...normalizeList(extra),
-    ...normalizeList(extra2)
+    ...normalizeList(extra2),
+    ...normalizeList(extra3)
   ];
   const seen=new Set();
   const merged=[];
