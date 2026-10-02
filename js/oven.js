@@ -17,10 +17,10 @@ const COMPONENTS = [
 
 /**
  * Recipe map: sorted pair key "a|b" -> completed item name
- * Covers standard + spatula/pan emblems for Set 18
+ * Verified against teamfight.lol / Set 18 patch 18.3b
  */
 const RECIPES = {
-  // Sword
+  // ── B.F. Sword ──
   'b.f. sword|b.f. sword': 'Deathblade',
   'b.f. sword|recurve bow': 'Giant Slayer',
   'b.f. sword|needlessly large rod': 'Hextech Gunblade',
@@ -32,7 +32,7 @@ const RECIPES = {
   'b.f. sword|spatula': 'Fae Emblem',
   'b.f. sword|frying pan': 'Hunter Emblem',
 
-  // Bow
+  // ── Recurve Bow ──
   'recurve bow|recurve bow': 'Red Buff',
   'needlessly large rod|recurve bow': "Guinsoo's Rageblade",
   'recurve bow|tear of the goddess': 'Void Staff',
@@ -43,7 +43,7 @@ const RECIPES = {
   'recurve bow|spatula': 'Inferno Emblem',
   'frying pan|recurve bow': 'Rapidfire Emblem',
 
-  // Rod
+  // ── Needlessly Large Rod ──
   'needlessly large rod|needlessly large rod': "Rabadon's Deathcap",
   'needlessly large rod|tear of the goddess': "Archangel's Staff",
   'chain vest|needlessly large rod': 'Crownguard',
@@ -53,42 +53,42 @@ const RECIPES = {
   'needlessly large rod|spatula': 'Blossom Emblem',
   'frying pan|needlessly large rod': 'Spellweaver Emblem',
 
-  // Tear
+  // ── Tear of the Goddess ──
   'tear of the goddess|tear of the goddess': 'Blue Buff',
   'chain vest|tear of the goddess': "Protector's Vow",
   'negatron cloak|tear of the goddess': 'Adaptive Helm',
   "giant's belt|tear of the goddess": 'Spirit Visage',
   'sparring gloves|tear of the goddess': 'Hand of Justice',
-  'spatula|tear of the goddess': 'Combat Academy Emblem',
+  'spatula|tear of the goddess': 'Lunar Emblem',
   'frying pan|tear of the goddess': 'Invoker Emblem',
 
-  // Vest
+  // ── Chain Vest ──
   'chain vest|chain vest': 'Bramble Vest',
   'chain vest|negatron cloak': 'Gargoyle Stoneplate',
   "chain vest|giant's belt": 'Sunfire Cape',
   'chain vest|sparring gloves': 'Steadfast Heart',
-  'chain vest|spatula': 'Blackthorn Emblem',
-  'chain vest|frying pan': 'Warden Emblem',
+  'chain vest|spatula': 'Elderwood Emblem',
+  'chain vest|frying pan': 'Vanguard Emblem',
 
-  // Cloak
+  // ── Negatron Cloak ──
   'negatron cloak|negatron cloak': "Dragon's Claw",
   "giant's belt|negatron cloak": 'Evenshroud',
   'negatron cloak|sparring gloves': 'Quicksilver',
-  'negatron cloak|spatula': 'Lunar Emblem',
+  'negatron cloak|spatula': 'Sprykin Emblem',
   'frying pan|negatron cloak': 'Ravager Emblem',
 
-  // Belt
+  // ── Giant's Belt ──
   "giant's belt|giant's belt": "Warmog's Armor",
   "giant's belt|sparring gloves": "Striker's Flail",
-  "giant's belt|spatula": 'Primal Emblem',
+  "giant's belt|spatula": 'Blackthorn Emblem',
   "frying pan|giant's belt": 'Brawler Emblem',
 
-  // Gloves
+  // ── Sparring Gloves ──
   'sparring gloves|sparring gloves': "Thief's Gloves",
   'spatula|sparring gloves': 'Primal Emblem',
   'frying pan|sparring gloves': 'Executioner Emblem',
 
-  // Spatula / Pan specials
+  // ── Spatula / Frying Pan specials ──
   'spatula|spatula': "Tactician's Crown",
   'frying pan|spatula': "Tactician's Cape",
   'frying pan|frying pan': "Tactician's Shield"
@@ -182,7 +182,6 @@ function pickComponent(name) {
   } else if (!slotB) {
     slotB = name;
   } else {
-    // both full → replace first
     slotA = name;
     slotB = null;
   }
