@@ -65,9 +65,30 @@ function setupMobileNav(){
     btn.setAttribute('aria-expanded','false');
   }));
 }
+function setupMobileTabbar(){
+  if(document.querySelector('.mobile-tabbar')) return;
+  const page=(location.pathname.split('/').pop()||'index.html').split('?')[0];
+  const tabs=[
+    {href:'index.html',key:'navHome',ico:'🏠'},
+    {href:'comps.html',key:'navComps',ico:'🧩'},
+    {href:'items.html',key:'navItems',ico:'⚒️'},
+    {href:'champions.html',key:'navChampions',ico:'👤'},
+    {href:'augments.html',key:'navAugments',ico:'✨'}
+  ];
+  const bar=document.createElement('nav');
+  bar.className='mobile-tabbar';
+  bar.setAttribute('aria-label','Mobile');
+  bar.innerHTML=tabs.map(tab=>{
+    const isComp=page==='comp.html'&&tab.href==='comps.html';
+    const active=page===tab.href || (page===''&&tab.href==='index.html') || isComp ? 'active' : '';
+    return `<a class="${active}" href="${localePath(tab.href)}"><span class="tab-ico">${tab.ico}</span><span>${t(tab.key)}</span></a>`;
+  }).join('');
+  document.body.appendChild(bar);
+}
 export function setupLanguage(onChange){
   applyLanguage();
   setupMobileNav();
+  setupMobileTabbar();
   document.querySelectorAll('.lang-toggle').forEach(b=>b.addEventListener('click',()=>{
     const next=nextLang();
     try{localStorage.setItem('tft_lang',next);}catch(e){}
