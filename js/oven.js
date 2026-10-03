@@ -1,7 +1,6 @@
-import {setupLanguage, lang, t} from './i18n.js';
+import {setupLanguage, lang, t} from './locale.js';
 import {itemImg} from './ui.js';
 
-/** Base components for Set 18 */
 const COMPONENTS = [
   'B.F. Sword',
   'Recurve Bow',
@@ -15,12 +14,7 @@ const COMPONENTS = [
   'Frying Pan'
 ];
 
-/**
- * Recipe map: sorted pair key "a|b" -> completed item name
- * Verified against teamfight.lol / Set 18 patch 18.3b
- */
 const RECIPES = {
-  // ── B.F. Sword ──
   'b.f. sword|b.f. sword': 'Deathblade',
   'b.f. sword|recurve bow': 'Giant Slayer',
   'b.f. sword|needlessly large rod': 'Hextech Gunblade',
@@ -31,8 +25,6 @@ const RECIPES = {
   'b.f. sword|sparring gloves': 'Infinity Edge',
   'b.f. sword|spatula': 'Fae Emblem',
   'b.f. sword|frying pan': 'Hunter Emblem',
-
-  // ── Recurve Bow ──
   'recurve bow|recurve bow': 'Red Buff',
   'needlessly large rod|recurve bow': "Guinsoo's Rageblade",
   'recurve bow|tear of the goddess': 'Void Staff',
@@ -42,8 +34,6 @@ const RECIPES = {
   'recurve bow|sparring gloves': 'Last Whisper',
   'recurve bow|spatula': 'Inferno Emblem',
   'frying pan|recurve bow': 'Rapidfire Emblem',
-
-  // ── Needlessly Large Rod ──
   'needlessly large rod|needlessly large rod': "Rabadon's Deathcap",
   'needlessly large rod|tear of the goddess': "Archangel's Staff",
   'chain vest|needlessly large rod': 'Crownguard',
@@ -52,8 +42,6 @@ const RECIPES = {
   'needlessly large rod|sparring gloves': 'Jeweled Gauntlet',
   'needlessly large rod|spatula': 'Blossom Emblem',
   'frying pan|needlessly large rod': 'Spellweaver Emblem',
-
-  // ── Tear of the Goddess ──
   'tear of the goddess|tear of the goddess': 'Blue Buff',
   'chain vest|tear of the goddess': "Protector's Vow",
   'negatron cloak|tear of the goddess': 'Adaptive Helm',
@@ -61,34 +49,24 @@ const RECIPES = {
   'sparring gloves|tear of the goddess': 'Hand of Justice',
   'spatula|tear of the goddess': 'Lunar Emblem',
   'frying pan|tear of the goddess': 'Invoker Emblem',
-
-  // ── Chain Vest ──
   'chain vest|chain vest': 'Bramble Vest',
   'chain vest|negatron cloak': 'Gargoyle Stoneplate',
   "chain vest|giant's belt": 'Sunfire Cape',
   'chain vest|sparring gloves': 'Steadfast Heart',
   'chain vest|spatula': 'Elderwood Emblem',
   'chain vest|frying pan': 'Vanguard Emblem',
-
-  // ── Negatron Cloak ──
   'negatron cloak|negatron cloak': "Dragon's Claw",
   "giant's belt|negatron cloak": 'Evenshroud',
   'negatron cloak|sparring gloves': 'Quicksilver',
   'negatron cloak|spatula': 'Sprykin Emblem',
   'frying pan|negatron cloak': 'Ravager Emblem',
-
-  // ── Giant's Belt ──
   "giant's belt|giant's belt": "Warmog's Armor",
   "giant's belt|sparring gloves": "Striker's Flail",
   "giant's belt|spatula": 'Blackthorn Emblem',
   "frying pan|giant's belt": 'Brawler Emblem',
-
-  // ── Sparring Gloves ──
   'sparring gloves|sparring gloves': "Thief's Gloves",
   'spatula|sparring gloves': 'Primal Emblem',
   'frying pan|sparring gloves': 'Executioner Emblem',
-
-  // ── Spatula / Frying Pan specials ──
   'spatula|spatula': "Tactician's Crown",
   'frying pan|spatula': "Tactician's Cape",
   'frying pan|frying pan': "Tactician's Shield"
@@ -159,7 +137,6 @@ function componentBtn(name) {
 function renderOven() {
   const root = ovenRoot();
   if (!root) return;
-
   if (slotsEl()) {
     slotsEl().innerHTML = slotHtml(slotA, 0) + `<span class="oven-plus">+</span>` + slotHtml(slotB, 1);
   }
@@ -173,18 +150,11 @@ function renderOven() {
 }
 
 function pickComponent(name) {
-  if (slotA === name) {
-    slotA = null;
-  } else if (slotB === name) {
-    slotB = null;
-  } else if (!slotA) {
-    slotA = name;
-  } else if (!slotB) {
-    slotB = name;
-  } else {
-    slotA = name;
-    slotB = null;
-  }
+  if (slotA === name) slotA = null;
+  else if (slotB === name) slotB = null;
+  else if (!slotA) slotA = name;
+  else if (!slotB) slotB = name;
+  else { slotA = name; slotB = null; }
   renderOven();
 }
 
@@ -204,28 +174,52 @@ function bindOven() {
   const root = ovenRoot();
   if (!root || root.dataset.bound) return;
   root.dataset.bound = '1';
-
   root.addEventListener('click', (e) => {
     const comp = e.target.closest('[data-comp]');
-    if (comp) {
-      pickComponent(comp.dataset.comp);
-      return;
-    }
+    if (comp) { pickComponent(comp.dataset.comp); return; }
     const slot = e.target.closest('.oven-slot');
     if (slot && slot.classList.contains('filled')) {
       clearSlot(Number(slot.dataset.slot));
       return;
     }
-    if (e.target.closest('#oven-clear')) {
-      clearAll();
-    }
+    if (e.target.closest('#oven-clear')) clearAll();
   });
 }
 
+function ensureOvenShell() {
+  const root = ovenRoot();
+  if (!root) return;
+  if (root.querySelector('#oven-slots')) return;
+  root.innerHTML = `
+  <section class="oven-panel">
+    <div class="oven-header">
+      <div>
+        <p class="eyebrow">${t('ovenTitle')||'الفرن'}</p>
+        <h2>${t('ovenSubtitle')||'اختار كومبوننتين وشوف الأيتم'}</h2>
+      </div>
+      <button type="button" class="button ghost" id="oven-clear">${t('ovenClear')||'مسح'}</button>
+    </div>
+    <div class="oven-workspace">
+      <div class="oven-left">
+        <div id="oven-slots" class="oven-slots"></div>
+        <div class="oven-result-wrap">
+          <p class="oven-result-label">${t('ovenResult')||'النتيجة'}</p>
+          <div id="oven-result" class="oven-result"></div>
+        </div>
+      </div>
+      <div class="oven-right">
+        <p class="oven-comp-label">${t('ovenComponents')||'الكومبوننتس'}</p>
+        <div id="oven-components" class="oven-components"></div>
+      </div>
+    </div>
+  </section>`;
+}
+
 function initOven() {
+  ensureOvenShell();
   bindOven();
   renderOven();
-  setupLanguage(renderOven);
+  setupLanguage(() => { ensureOvenShell(); renderOven(); });
 }
 
 if (typeof document !== 'undefined') {
