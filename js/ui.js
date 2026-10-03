@@ -1,4 +1,4 @@
-import {t,localize,lang,localePath} from './i18n.js';
+import {t,localize,lang,localePath} from './locale.js';
 import {traitImg} from './icons.js';
 
 /** Name → CDragon character folder when display name differs */
