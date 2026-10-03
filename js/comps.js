@@ -1,4 +1,4 @@
-import {setupLanguage,setPatchVersion,t,localize,localePath} from './i18n.js';
+import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js';
 import{compCard}from'./ui.js';
 let comps=[],situational=[],tier='All',query='';
 const root=document.querySelector('#comps-list');
