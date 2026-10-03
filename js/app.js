@@ -1,21 +1,32 @@
-import {setupLanguage,localize} from './i18n.js';import{compCard}from'./ui.js';
-const load=path=>fetch(path).then(r=>{if(!r.ok)throw new Error(path);return r.json()});let comps=[];
+import {setupLanguage,localize} from './locale.js';
+import{compCard}from'./ui.js';
+const load=path=>fetch(path).then(r=>{if(!r.ok)throw new Error(path);return r.json()});
+let comps=[];
 async function render(){
   try{
-    const [compData,patches]=await Promise.all([
+    const [compData,extra,extra2,extra3,patches]=await Promise.all([
       load('data/v2_comps.json').catch(()=>load('data/comps.json')),
+      load('data/v2_comps_extra.json').catch(()=>[]),
+      load('data/v2_comps_extra2.json').catch(()=>[]),
+      load('data/v2_comps_extra3.json').catch(()=>[]),
       load('data/patches.json')
     ]);
-    comps=Array.isArray(compData)?compData:(compData.comps||[]);
+    const base=Array.isArray(compData)?compData:(compData.comps||[]);
+    const more=[...(Array.isArray(extra)?extra:[]),...(Array.isArray(extra2)?extra2:[]),...(Array.isArray(extra3)?extra3:[])];
+    const seen=new Set(base.map(x=>x.slug));
+    comps=base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug)));
     const featured=comps.filter(c=>c.featured);
     const list=featured.length?featured:comps.slice(0,6);
-    document.querySelector('#featured-comps').innerHTML=list.map(compCard).join('');
+    const el=document.querySelector('#featured-comps');
+    if(el) el.innerHTML=list.map(compCard).join('');
     const p=patches[0];
-    document.querySelector('#stat-comps').textContent=comps.length;
-    document.querySelector('#stat-patch').textContent=p.version;
-    document.querySelector('#patch-version').textContent=p.version;
-    document.querySelector('#patch-title').textContent=localize(p.title);
-    document.querySelector('#patch-summary').textContent=localize(p.summary);
+    if(p){
+      const sc=document.querySelector('#stat-comps'); if(sc) sc.textContent=comps.length;
+      const sp=document.querySelector('#stat-patch'); if(sp) sp.textContent=p.version;
+      const pv=document.querySelector('#patch-version'); if(pv) pv.textContent=p.version;
+      const pt=document.querySelector('#patch-title'); if(pt) pt.textContent=localize(p.title);
+      const ps=document.querySelector('#patch-summary'); if(ps) ps.textContent=localize(p.summary);
+    }
   }catch(e){console.error(e)}
 }
 setupLanguage(render);render();
