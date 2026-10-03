@@ -1,46 +1,23 @@
-import{setupLanguage,t,lang,localize}from'./i18n.js';
-import{detail}from'./ui.js';
-
-const slug=new URLSearchParams(location.search).get('slug');
-let comp,patch;
-
-function render(){
-  const root=document.querySelector('#comp-detail')||document.querySelector('#comp-root');
-  if(!root)return;
-  if(!comp){root.innerHTML='<p class="empty">'+(t('notFound')||'Not found')+'</p>';return;}
-  document.title=(localize(comp.name)||comp.slug)+' — MokaTroy TFT';
-  root.innerHTML=detail(comp,patch);
-}
-
-function normalizeList(x){
-  if(Array.isArray(x)) return x;
-  if(x && Array.isArray(x.comps)) return x.comps;
-  return [];
-}
-
+import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js';
+import {renderCompDetail} from './ui.js';
+const params=new URLSearchParams(location.search);
+const slug=params.get('slug')||'';
 Promise.all([
-  fetch('data/v2_comps.json').then(r=>r.ok?r.json():fetch('data/comps.json').then(r=>r.json())).catch(()=>[]),
+  fetch('data/v2_comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_comps_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_comps_extra2.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_comps_extra3.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/patches.json').then(r=>r.json()).catch(()=>[])
-]).then(([base,extra,extra2,extra3,ps])=>{
-  patch=Array.isArray(ps)?ps[0]:ps;
-  const list=[
-    ...normalizeList(base),
-    ...normalizeList(extra),
-    ...normalizeList(extra2),
-    ...normalizeList(extra3)
-  ];
-  const seen=new Set();
-  const merged=[];
-  for(const c of list){
-    if(!c||!c.slug||seen.has(c.slug)) continue;
-    seen.add(c.slug);
-    merged.push(c);
+  fetch('data/patches.json').then(r=>r.json())
+]).then(([c,e1,e2,e3,p])=>{
+  const all=[...(Array.isArray(c)?c:c.comps||[]),...(e1||[]),...(e2||[]),...(e3||[])];
+  const comp=all.find(x=>x.slug===slug);
+  if(p[0]) setPatchVersion(p[0].version);
+  const root=document.querySelector('#comp-detail');
+  function draw(){
+    if(!root)return;
+    if(!comp){root.innerHTML=`<p class="empty">${t('notFound')}</p>`;return;}
+    root.innerHTML=renderCompDetail(comp);
   }
-  comp=merged.find(x=>x.slug===slug) || null;
-  render();
+  draw();
+  setupLanguage(draw);
 });
-
-setupLanguage(render);
