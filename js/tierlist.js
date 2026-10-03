@@ -1,4 +1,4 @@
-import {setupLanguage,lang,t} from './i18n.js';
+import {setupLanguage,lang,t} from './locale.js';
 import {itemImg} from './ui.js';
 
 const board = document.querySelector('#tier-board');
