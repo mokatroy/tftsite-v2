@@ -103,6 +103,8 @@ export function renderBoard(comp){
   const positions=(comp.positions && Object.keys(comp.positions).length)?comp.positions:autoPositions(comp);
   const rows=[];
   const builds=[];
+  const frontUnits=[];
+  const backUnits=[];
   for(let r=0;r<4;r++){
     const cells=[];
     let hasUnit=false;
@@ -115,13 +117,28 @@ export function renderBoard(comp){
       const items=(unit.items||[]).slice(0,3);
       const icons=items.map(n=>`<img class="hex-item" src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
       if(items.length) builds.push({name, items, img});
+      const entry={name, img, items, carry:!!unit.carry};
+      if(r<=1) frontUnits.push(entry); else backUnits.push(entry);
       cells.push(`<div class="cell"><div class="hex filled ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div></div><span class="hex-name">${name}</span><div class="hex-items">${icons}</div></div>`);
     }
     if(hasUnit) rows.push(`<div class="hex-row ${r%2===1?'offset':''}">${cells.join('')}</div>`);
   }
   const front=lang==='ar'?'↑ العدو / فرونت لاين':lang==='ja'?'↑ 敵 / フロント':'↑ enemy / frontline';
+  const fl=lang==='ar'?'فرونت لاين':lang==='ja'?'フロント':'Frontline';
+  const bl=lang==='ar'?'باك لاين':lang==='ja'?'バック':'Backline';
+  function lane(list){
+    return list.map(u=>{
+      const icons=(u.items||[]).map(n=>`<img src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
+      return `<div class="bm-unit ${u.carry?'carry':''}"><img class="bm-champ" src="${u.img}" alt="${u.name}" loading="lazy" onerror="this.style.opacity=.3"><span class="bm-name">${u.name}</span><div class="bm-items">${icons}</div></div>`;
+    }).join('');
+  }
+  const mobile=`<div class="board-mobile">
+    <div class="bm-lane"><span class="bm-label">${fl}</span><div class="bm-units">${lane(frontUnits)}</div></div>
+    <div class="bm-lane"><span class="bm-label">${bl}</span><div class="bm-units">${lane(backUnits)}</div></div>
+  </div>`;
+  const desktop=`<div class="board-desktop hex-grid">${rows.join('')}</div>`;
   const buildHtml=builds.map(b=>`<div class="board-build"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img src="${itemImg(n)}" alt="${n}" title="${n}">`).join('')}</div></div>`).join('');
-  return `<div class="tft-board"><div class="board-label">${front}</div><div class="hex-grid">${rows.join('')}</div>${buildHtml?`<div class="board-builds">${buildHtml}</div>`:''}</div>`;
+  return `<div class="tft-board"><div class="board-label">${front}</div>${mobile}${desktop}${buildHtml?`<div class="board-builds">${buildHtml}</div>`:''}</div>`;
 }
 export function detail(comp){
   if(!comp) return `<p class="empty">${t('notFound')}</p>`;
