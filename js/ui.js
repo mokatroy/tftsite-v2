@@ -105,9 +105,11 @@ export function renderBoard(comp){
   const builds=[];
   for(let r=0;r<4;r++){
     const cells=[];
+    let hasUnit=false;
     for(let c=0;c<7;c++){
       const unit=positions[`${r},${c}`];
       if(!unit){ cells.push(`<div class="cell"><div class="hex empty"><div class="hex-inner"></div></div></div>`); continue; }
+      hasUnit=true;
       const name=typeof unit==='string'?unit:(unit.name?.en||unit.name||'');
       const img=champImg(name);
       const items=(unit.items||[]).slice(0,3);
@@ -115,9 +117,9 @@ export function renderBoard(comp){
       if(items.length) builds.push({name, items, img});
       cells.push(`<div class="cell"><div class="hex filled ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div></div><span class="hex-name">${name}</span><div class="hex-items">${icons}</div></div>`);
     }
-    rows.push(`<div class="hex-row ${r%2===1?'offset':''}">${cells.join('')}</div>`);
+    if(hasUnit) rows.push(`<div class="hex-row ${r%2===1?'offset':''}">${cells.join('')}</div>`);
   }
-  const front=lang==='ar'?'↑ العدو / فرونت لاين':lang==='ja'?'↑ 敵 / フロント':'\u2191 enemy / frontline';
+  const front=lang==='ar'?'↑ العدو / فرونت لاين':lang==='ja'?'↑ 敵 / フロント':'↑ enemy / frontline';
   const buildHtml=builds.map(b=>`<div class="board-build"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img src="${itemImg(n)}" alt="${n}" title="${n}">`).join('')}</div></div>`).join('');
   return `<div class="tft-board"><div class="board-label">${front}</div><div class="hex-grid">${rows.join('')}</div>${buildHtml?`<div class="board-builds">${buildHtml}</div>`:''}</div>`;
 }
@@ -134,7 +136,7 @@ export function detail(comp){
   const units=(comp.units||[]).map(u=>unitChip(u,true)).join('');
   const boardTitle=lang==='ar'?'توزيع البورد':lang==='ja'?'配置':'Board';
   return `<a class="back-link" href="${localePath('comps.html')}">${t('back')}</a>
-  <p class="eyebrow">${tier} · ${style}</p>
+  <p class="eyebrow"><span class="tier-badge">${tier}</span> <span class="style-pill">${style}</span></p>
   <h1 class="page-title">${title}</h1>
   <p class="page-subtitle">${note}</p>
   <section class="detail-section"><h2>${t('units')}</h2><div class="unit-row">${units}</div></section>
