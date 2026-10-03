@@ -1,21 +1,33 @@
-import {setupLanguage,localize,t,lang} from './i18n.js';
+import {setupLanguage,localize,t,lang} from './locale.js';
 import {champImg,itemChip,traitChip} from './ui.js';
 
-const grid = document.querySelector('#champ-grid');
+const grid = document.querySelector('#champ-grid') || document.querySelector('#champ-list');
+(function ensureCostFilters(){
+  let el = document.querySelector('#cost-filters');
+  if(!el){
+    const toolbar = document.querySelector('.champ-toolbar');
+    if(toolbar){
+      el = document.createElement('div');
+      el.id = 'cost-filters';
+      el.className = 'filter-pills';
+      toolbar.appendChild(el);
+    }
+  }
+})();
 const search = document.querySelector('#champ-search');
-const costFilters = document.querySelector('#cost-filters');
+const costFilters = () => document.querySelector('#cost-filters');
 let champions = [], query = '', cost = 'all';
 
 function costClass(c){ return `cost-${Math.min(5,Math.max(1,Number(c)||1))}`; }
 
 function renderFilters(){
-  if(!costFilters) return;
+  const cf = costFilters(); if(!cf) return;
   const costs = ['all',1,2,3,4,5];
-  costFilters.innerHTML = costs.map(c=>{
-    const label = c==='all' ? (lang==='ar'?'الكل':lang==='ja'?'すべて':'All') : `${c}¢`;
+  cf.innerHTML = costs.map(c=>{
+    const label = c==='all' ? (lang==='ar'?'الكل':lang==='ja'?'すべて':'All') : `${c}\u00a2`;
     return `<button class="${cost===String(c)?'active':''}" data-cost="${c}">${label}</button>`;
   }).join('');
-  costFilters.querySelectorAll('[data-cost]').forEach(b=>{
+  cf.querySelectorAll('[data-cost]').forEach(b=>{
     b.onclick = ()=>{ cost = b.dataset.cost; render(); renderFilters(); };
   });
 }
@@ -49,7 +61,7 @@ function render(){
       <div class="champ-card-head">
         <img class="champ-avatar" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3" data-unit="${enName}">
         <div class="champ-meta">
-          <span class="cost-badge ${costClass(c.cost)}">${c.cost||'?'}¢</span>
+          <span class="cost-badge ${costClass(c.cost)}">${c.cost||'?'}\u00a2</span>
           <h3 data-unit="${enName}">${name}</h3>
           <div class="unit-list">${traits}</div>
         </div>
