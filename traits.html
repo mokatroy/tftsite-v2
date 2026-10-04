@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>TFT Set 18 Traits | MokaTroy TFT</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/icons-extra.css">
-  <link rel="stylesheet" href="css/tooltip.css">
+  <link rel="stylesheet" href="css/style.css?v=20261004c">
+  <link rel="stylesheet" href="css/mobile.css?v=20261004c">
+  <link rel="stylesheet" href="css/extras.css?v=20261004c">
+  <link rel="stylesheet" href="css/icons-extra.css?v=20261004c">
+  <link rel="stylesheet" href="css/tooltip.css?v=20261004c">
   <meta name="theme-color" content="#0a0d18">
 </head>
 <body class="traits-page">
@@ -26,16 +28,22 @@
     <button class="lang-toggle" type="button" aria-label="Change language">EN</button>
   </header>
   <main class="page-main">
-    <p class="eyebrow">SET 18</p>
+    <p class="eyebrow" data-i18n="traitsEyebrow">SET 18 · PATCH 18.3B</p>
     <h1 class="page-title" data-i18n="traitsTitle">ترتيب التريتس</h1>
-    <p class="page-subtitle" data-i18n="traitsSubtitle">استكشف التريتس وترتيبها في الميتا.</p>
+    <p class="page-subtitle" data-i18n="traitsSubtitle">استكشف التريتس وترتيبها في الميتا الحالية.</p>
     <div class="tier-toolbar">
-      <input id="tier-search" class="tier-search" data-i18n-placeholder="traitsSearch" placeholder="ابحث عن Trait…">
+      <input id="tier-search" class="tier-search" data-i18n-placeholder="traitsSearch" placeholder="ابحث عن تريت…">
     </div>
     <div id="tier-board" class="tier-board"></div>
   </main>
-  <footer><span>© 2026 MokaTroy TFT</span></footer>
-  <script type="module" src="js/traits-tierlist.js"></script>
-  <script type="module" src="js/tooltip.js"></script>
+  <footer>
+    <div class="footer-main">
+      <span>© 2026 MokaTroy TFT</span>
+      <span data-i18n="footer">البيانات تتحدث مع كل باتش</span>
+    </div>
+    <p class="disclaimer" data-i18n="disclaimer">MokaTroy TFT موقع غير رسمي وغير مرتبط بـ Riot Games. Teamfight Tactics وRiot Games علامات تجارية مملوكة لـ Riot Games, Inc.</p>
+  </footer>
+  <script type="module" src="js/traits-tierlist.js?v=20261004c"></script>
+  <script type="module" src="js/tooltip.js?v=20261004c"></script>
 </body>
 </html>

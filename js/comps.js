@@ -28,11 +28,19 @@ function render(){
     filters.querySelectorAll('[data-tier]').forEach(b=>b.onclick=()=>{tier=b.dataset.tier;render()});
   }
 }
+const CDN='https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@14a2ca5/data';
+const loadJson=(local,cdn)=>fetch(local).then(async r=>{
+  if(!r.ok) throw new Error('local');
+  const d=await r.json();
+  if(Array.isArray(d)&&d.length===0) throw new Error('empty');
+  if(typeof d==='string') throw new Error('bad');
+  return d;
+}).catch(()=>fetch(cdn).then(r=>r.json()).catch(()=>[]));
 Promise.all([
-  fetch('data/v2_comps.json').then(r=>r.ok?r.json():fetch('data/comps.json').then(r=>r.json())),
-  fetch('data/v2_comps_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/v2_comps_extra2.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/v2_comps_extra3.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  loadJson('data/v2_comps.json', CDN+'/v2_comps.json').then(d=>Array.isArray(d)?d:(d.comps||[])).catch(()=>[]),
+  loadJson('data/v2_comps_extra.json', CDN+'/v2_comps_extra.json'),
+  loadJson('data/v2_comps_extra2.json', CDN+'/v2_comps_extra2.json'),
+  loadJson('data/v2_comps_extra3.json', CDN+'/v2_comps_extra3.json'),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/patches.json').then(r=>r.json())
