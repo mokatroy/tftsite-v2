@@ -52,8 +52,8 @@ export function compCard(c){
 }
 
 const TANKS = new Set(['sentinel','taric','amumu','alistar','ornn','hecarim','rakan','vi','leona','braum','nautilus','zac','sejuani','malphite','shen','ksante','sett','illaoi','sion','chogath','mundo','tahmkench','galio','poppy','rell','thresh','blitzcrank','gromp','scuttlecrab','yorick','brambleback','kobuko','reksai']);
-const APS = new Set(['veigar','ahri','morgana','alune','azir','cassiopeia','cass','leblanc','brand','karma','seraphine','lulu','syndra','zoe','vex','annie','viktor','neeko','nami','elise','diana','lux','lillia','soraka','fiddlesticks','kennen']);
-const ADS = new Set(['xayah','sivir','aphelios','ashe','draven','caitlyn','tristana','jinx','yunara','nidalee','khazix','warwick','masteryi','ezreal','kindred','samira','gnar','krug','varus','kayle']);
+const APS = new Set(['veigar','ahri','morgana','alune','azir','cassiopeia','cass','leblanc','brand','karma','seraphine','lulu','syndra','zoe','vex','annie','viktor','neeko','nami','elise','diana','lux','lillia','soraka','fiddlesticks','kennen','pebbles','sentry']);
+const ADS = new Set(['xayah','sivir','aphelios','ashe','draven','caitlyn','tristana','jinx','yunara','nidalee','khazix','warwick','masteryi','ezreal','kindred','samira','gnar','varus','kayle','cinderling','mamabeak']);
 const TANK_BIS=["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"];
 const AD_BIS=["Infinity Edge","Last Whisper","Giant Slayer"];
 const AP_BIS=["Rabadon's Deathcap","Jeweled Gauntlet","Spear of Shojin"];
@@ -98,7 +98,8 @@ const CHAMP_BIS = {
   sett: ["Sterak's Gage","Warmog's Armor","Titan's Resolve"],
   leona: ["Gargoyle Stoneplate","Sunfire Cape","Warmog's Armor"],
   vi: ["Titan's Resolve","Sterak's Gage","Bloodthirster"],
-  pebbles: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
+  pebbles: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  sentry: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
   scuttlecrab: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
   krug: ["Warmog's Armor","Titan's Resolve","Sterak's Gage"],
   cinderling: ["Guinsoo's Rageblade","Last Whisper","Bloodthirster"],
@@ -152,15 +153,20 @@ function autoPositions(comp){
     else rest.push(n);
   }
   const primary = carries[0] || rest[0] || units[0];
+  const secondary = carries.find(n=>n!==primary) || rest.find(n=>n!==primary) || null;
+  const mainTank = tanks[0] || null;
+  const priority = new Set([primary, secondary, mainTank].filter(Boolean));
   const pos={};
   const used=new Set();
   function put(row,col,name){
     if(!name || used.has(name) || col<0 || col>6) return;
     used.add(name);
     const isPrimary = name===primary;
+    const bis = itemsForChampion(name, shared, isPrimary);
     pos[`${row},${col}`]={
       name,
-      items: itemsForChampion(name, shared, isPrimary),
+      items: priority.has(name) ? bis : [],
+      allItems: bis,
       carry: isPrimary
     };
   }
@@ -193,8 +199,9 @@ export function renderBoard(comp){
       const name=typeof unit==='string'?unit:(unit.name?.en||unit.name||'');
       const img=champImg(name);
       const items=(unit.items||[]).slice(0,3);
+      const allItems=(unit.allItems||unit.items||[]).slice(0,3);
       const icons=items.map(n=>`<img class="hex-item" src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
-      if(items.length) builds.push({name, items, img});
+      if(allItems.length) builds.push({name, items: allItems, img});
       const entry={name, img, items, carry:!!unit.carry};
       if(r<=1) frontUnits.push(entry); else backUnits.push(entry);
       cells.push(`<div class="cell"><div class="hex filled ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div></div><span class="hex-name">${name}</span><div class="hex-items">${icons}</div></div>`);
