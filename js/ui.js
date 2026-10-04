@@ -146,13 +146,13 @@ function roleOf(name){
 function itemsForChampion(name, shared, isPrimaryCarry){
   const k=roleKey(name);
   const compact=k.replace(/ /g,'');
-  if(isPrimaryCarry && shared.length>=3) return shared.slice(0,3);
   if(CHAMP_BIS[k]) return CHAMP_BIS[k].slice();
   if(CHAMP_BIS[compact]) return CHAMP_BIS[compact].slice();
   const role=roleOf(name);
   if(role==='tank') return TANK_BIS.slice();
   if(role==='ap') return AP_BIS.slice();
   if(role==='ad') return AD_BIS.slice();
+  if(role==='flex' && isPrimaryCarry && shared.length>=3) return shared.slice(0,3);
   return AS_BIS.slice();
 }
 function autoPositions(comp){
