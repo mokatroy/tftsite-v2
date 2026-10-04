@@ -4,11 +4,16 @@ const load=path=>fetch(path).then(r=>{if(!r.ok)throw new Error(path);return r.js
 let comps=[];
 async function render(){
   try{
+    const CDN='https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@14a2ca5/data';
+    const loadOrCdn=(local,file)=>load(local).then(d=>{
+      if(Array.isArray(d)&&d.length===0) throw new Error('empty');
+      return d;
+    }).catch(()=>fetch(CDN+'/'+file).then(r=>r.json()).catch(()=>[]));
     const [compData,extra,extra2,extra3,patches]=await Promise.all([
-      load('data/v2_comps.json').catch(()=>load('data/comps.json')),
-      load('data/v2_comps_extra.json').catch(()=>[]),
-      load('data/v2_comps_extra2.json').catch(()=>[]),
-      load('data/v2_comps_extra3.json').catch(()=>[]),
+      loadOrCdn('data/v2_comps.json','v2_comps.json').catch(()=>load('data/comps.json')),
+      loadOrCdn('data/v2_comps_extra.json','v2_comps_extra.json'),
+      loadOrCdn('data/v2_comps_extra2.json','v2_comps_extra2.json'),
+      loadOrCdn('data/v2_comps_extra3.json','v2_comps_extra3.json'),
       load('data/patches.json')
     ]);
     const base=Array.isArray(compData)?compData:(compData.comps||[]);
