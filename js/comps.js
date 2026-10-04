@@ -1,7 +1,7 @@
 import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js';
 import{compCard}from'./ui.js';
 let comps=[],situational=[],tier='All',query='';
-const root=document.querySelector('#comps-list');
+const root=document.querySelector('#comps-grid') || document.querySelector('#comps-list');
 const situationalRoot=document.querySelector('#situational-list');
 function renderSituational(){
   if(!situationalRoot)return;
