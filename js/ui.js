@@ -51,52 +51,127 @@ export function compCard(c){
   return `<a class="comp-card tier-${tier.toLowerCase()}" href="${href}"><div class="comp-card-top"><span class="tier-badge">${tier}</span><span class="style-pill">${style}</span></div><h3>${title}</h3><p>${note}</p><div class="comp-units">${units}</div></a>`;
 }
 
-const TANKS = new Set(['sentinel','taric','amumu','alistar','ornn','hecarim','rakan','vi','leona','braum','nautilus','zac','sejuani','malphite','shen','ksante','sett','illaoi','sion','chogath','mundo','tahmkench','galio','poppy','rell','thresh','blitzcrank','gromp','scuttlecrab']);
-const APS = new Set(['veigar','ahri','morgana','alune','azir','cassiopeia','cass','leblanc','brand','karma','seraphine','lulu','syndra','zoe','vex','annie','viktor','neeko','nami','elise','diana']);
-const ADS = new Set(['xayah','sivir','aphelios','ashe','draven','caitlyn','tristana','jinx','yunara','nidalee','khazix','warwick','masteryi','ezreal','kindred','samira','gnar','krug']);
+const TANKS = new Set(['sentinel','taric','amumu','alistar','ornn','hecarim','rakan','vi','leona','braum','nautilus','zac','sejuani','malphite','shen','ksante','sett','illaoi','sion','chogath','mundo','tahmkench','galio','poppy','rell','thresh','blitzcrank','gromp','scuttlecrab','yorick','brambleback','kobuko','reksai']);
+const APS = new Set(['veigar','ahri','morgana','alune','azir','cassiopeia','cass','leblanc','brand','karma','seraphine','lulu','syndra','zoe','vex','annie','viktor','neeko','nami','elise','diana','lux','lillia','soraka','fiddlesticks','kennen']);
+const ADS = new Set(['xayah','sivir','aphelios','ashe','draven','caitlyn','tristana','jinx','yunara','nidalee','khazix','warwick','masteryi','ezreal','kindred','samira','gnar','krug','varus','kayle']);
 const TANK_BIS=["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"];
 const AD_BIS=["Infinity Edge","Last Whisper","Giant Slayer"];
 const AP_BIS=["Rabadon's Deathcap","Jeweled Gauntlet","Spear of Shojin"];
-const AS_BIS=["Guinsoo's Rageblade","Hand of Justice","Titan's Resolve"];
-function unitName(u){ if(!u) return ''; if(typeof u==='string') return u; return u.name?.en || u.en || u.name || ''; }
-function roleKey(name){ return String(name||'').toLowerCase().replace(/['’]/g,'').replace(/[^a-z]/g,''); }
-function itemsFor(name, shared, role){
+const AS_BIS=["Guinsoo's Rageblade","Last Whisper","Bloodthirster"];
+const SUPPORT_BIS=["Protector's Vow","Ionic Spark","Redemption"];
+/* Per-champion BiS for Set 18 (primary builds) */
+const CHAMP_BIS = {
+  xayah: ["Guinsoo's Rageblade","Last Whisper","Bloodthirster"],
+  ezreal: ["Guinsoo's Rageblade","Spear of Shojin","Last Whisper"],
+  aphelios: ["Infinity Edge","Last Whisper","Giant Slayer"],
+  sivir: ["Infinity Edge","Last Whisper","Bloodthirster"],
+  ashe: ["Guinsoo's Rageblade","Last Whisper","Giant Slayer"],
+  draven: ["Infinity Edge","Bloodthirster","Last Whisper"],
+  caitlyn: ["Infinity Edge","Last Whisper","Giant Slayer"],
+  yunara: ["Guinsoo's Rageblade","Infinity Edge","Last Whisper"],
+  nidalee: ["Infinity Edge","Last Whisper","Bloodthirster"],
+  khazix: ["Infinity Edge","Bloodthirster","Titan's Resolve"],
+  warwick: ["Titan's Resolve","Bloodthirster","Sterak's Gage"],
+  masteryi: ["Guinsoo's Rageblade","Bloodthirster","Titan's Resolve"],
+  gnar: ["Titan's Resolve","Bloodthirster","Sterak's Gage"],
+  varus: ["Guinsoo's Rageblade","Last Whisper","Giant Slayer"],
+  kayle: ["Guinsoo's Rageblade","Jeweled Gauntlet","Rabadon's Deathcap"],
+  ahri: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  morgana: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  alune: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  azir: ["Spear of Shojin","Jeweled Gauntlet","Rabadon's Deathcap"],
+  veigar: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  leblanc: ["Spear of Shojin","Jeweled Gauntlet","Rabadon's Deathcap"],
+  elise: ["Blue Buff","Jeweled Gauntlet","Morellonomicon"],
+  lux: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  cass: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  cassiopeia: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  karma: ["Spear of Shojin","Jeweled Gauntlet","Archangel's Staff"],
+  ornn: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
+  alistar: ["Warmog's Armor","Gargoyle Stoneplate","Bramble Vest"],
+  hecarim: ["Warmog's Armor","Dragon's Claw","Sunfire Cape"],
+  rakan: ["Protector's Vow","Gargoyle Stoneplate","Warmog's Armor"],
+  sentinel: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
+  taric: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
+  amumu: ["Sunfire Cape","Bramble Vest","Warmog's Armor"],
+  sejuani: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
+  sett: ["Sterak's Gage","Warmog's Armor","Titan's Resolve"],
+  leona: ["Gargoyle Stoneplate","Sunfire Cape","Warmog's Armor"],
+  vi: ["Titan's Resolve","Sterak's Gage","Bloodthirster"],
+  pebbles: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
+  scuttlecrab: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
+  krug: ["Warmog's Armor","Titan's Resolve","Sterak's Gage"],
+  cinderling: ["Guinsoo's Rageblade","Last Whisper","Bloodthirster"],
+  'mama beak': ["Bloodthirster","Titan's Resolve","Infinity Edge"],
+  mamabeak: ["Bloodthirster","Titan's Resolve","Infinity Edge"],
+  tristana: ["Infinity Edge","Last Whisper","Giant Slayer"],
+  jinx: ["Infinity Edge","Last Whisper","Guinsoo's Rageblade"],
+  kindred: ["Guinsoo's Rageblade","Last Whisper","Giant Slayer"],
+  diana: ["Jeweled Gauntlet","Hand of Justice","Titan's Resolve"],
+  brand: ["Morellonomicon","Jeweled Gauntlet","Rabadon's Deathcap"],
+  fiddlesticks: ["Morellonomicon","Jeweled Gauntlet","Rabadon's Deathcap"],
+  lillia: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  yorick: ["Warmog's Armor","Sunfire Cape","Gargoyle Stoneplate"],
+  brambleback: ["Warmog's Armor","Bramble Vest","Sunfire Cape"]
+};
+function unitName(u){
+  if(!u) return '';
+  if(typeof u==='string') return u;
+  if(u.name && typeof u.name==='object') return u.name.en || u.name.ar || '';
+  if(typeof u.name==='string') return u.name;
+  return u.en || u.ar || '';
+}
+function roleKey(name){ return String(name||'').toLowerCase().replace(/['’]/g,'').replace(/[^a-z ]/g,'').trim().replace(/\s+/g,''); }
+function roleOf(name){
+  const k=roleKey(name).replace(/ /g,'');
+  if(TANKS.has(k)) return 'tank';
+  if(APS.has(k)) return 'ap';
+  if(ADS.has(k)) return 'ad';
+  return 'flex';
+}
+function itemsForChampion(name, shared, isPrimaryCarry){
+  const k=roleKey(name);
+  const compact=k.replace(/ /g,'');
+  if(isPrimaryCarry && shared.length>=3) return shared.slice(0,3);
+  if(CHAMP_BIS[k]) return CHAMP_BIS[k].slice();
+  if(CHAMP_BIS[compact]) return CHAMP_BIS[compact].slice();
+  const role=roleOf(name);
   if(role==='tank') return TANK_BIS.slice();
-  if(role==='ap') return shared.length===3 ? shared.slice() : AP_BIS.slice();
-  if(role==='ad') return shared.length===3 ? shared.slice() : AD_BIS.slice();
+  if(role==='ap') return AP_BIS.slice();
+  if(role==='ad') return AD_BIS.slice();
   return AS_BIS.slice();
 }
 function autoPositions(comp){
   const units=(comp.units||[]).map(unitName).filter(Boolean);
-  const shared=(comp.items||[]).map(n=>typeof n==='string'?n:(n.en||n.name||'')).filter(Boolean);
-  const tanks=[], ads=[], aps=[], rest=[];
+  const shared=(comp.items||[]).map(n=>typeof n==='string'?n:(n.en||n.name?.en||n.name||'')).filter(Boolean);
+  const tanks=[], carries=[], rest=[];
   for(const n of units){
-    const k=roleKey(n);
-    if(TANKS.has(k)) tanks.push(n);
-    else if(APS.has(k)) aps.push(n);
-    else if(ADS.has(k)) ads.push(n);
+    const role=roleOf(n);
+    if(role==='tank') tanks.push(n);
+    else if(role==='ad'||role==='ap') carries.push(n);
     else rest.push(n);
   }
-  const carry = ads[0] || aps[0] || rest[0];
-  const second = ads[1] || aps[0] || rest[1];
-  const mainTank = tanks[0];
+  const primary = carries[0] || rest[0] || units[0];
   const pos={};
   const used=new Set();
-  function put(row,col,name,role){
+  function put(row,col,name){
     if(!name || used.has(name) || col<0 || col>6) return;
     used.add(name);
-    const itemized = name===carry || name===second || name===mainTank;
-    pos[`${row},${col}`]={name, items:itemized?itemsFor(name, shared, role):[], carry:name===carry};
+    const isPrimary = name===primary;
+    pos[`${row},${col}`]={
+      name,
+      items: itemsForChampion(name, shared, isPrimary),
+      carry: isPrimary
+    };
   }
-  put(0,3,mainTank,'tank');
-  tanks.slice(1).forEach((n,i)=>put(0, i%2===0?2-Math.floor(i/2):4+Math.floor(i/2), n, 'tank'));
-  tanks.filter(n=>!used.has(n)).forEach((n,i)=>put(1, 2+i, n, 'tank'));
-  put(3,1,carry, ads.includes(carry)?'ad':'ap');
-  if(second && second!==carry) put(3,2,second, ads.includes(second)?'ad':'ap');
-  const back=[...ads,...aps].filter(n=>!used.has(n));
-  back.forEach((n,i)=>put(3, 4+i, n, APS.has(roleKey(n))?'ap':'ad'));
-  rest.filter(n=>!used.has(n)).forEach((n,i)=>put(2, 2+i, n, 'ad'));
-  units.filter(n=>!used.has(n)).forEach((n,i)=>put(2, i, n, 'ad'));
+  const frontSlots=[3,2,4,1,5,0,6];
+  tanks.forEach((n,i)=>put(0, frontSlots[i]??i, n));
+  tanks.filter(n=>!used.has(n)).forEach((n,i)=>put(1, frontSlots[i]??(2+i), n));
+  const backSlots=[1,2,4,5,0,6,3];
+  const back=[...carries, ...rest].filter(n=>!used.has(n));
+  if(primary && !used.has(primary)) put(3, 1, primary);
+  back.filter(n=>!used.has(n)).forEach((n,i)=>put(3, backSlots[i+1]??(i+2), n));
+  units.filter(n=>!used.has(n)).forEach((n,i)=>put(2, 2+i, n));
   return pos;
 }
 export function renderBoard(comp){
@@ -110,7 +185,10 @@ export function renderBoard(comp){
     let hasUnit=false;
     for(let c=0;c<7;c++){
       const unit=positions[`${r},${c}`];
-      if(!unit){ cells.push(`<div class="cell"><div class="hex empty"><div class="hex-inner"></div></div></div>`); continue; }
+      if(!unit){
+        cells.push(`<div class="cell empty-cell"><div class="hex empty"><div class="hex-inner"></div></div></div>`);
+        continue;
+      }
       hasUnit=true;
       const name=typeof unit==='string'?unit:(unit.name?.en||unit.name||'');
       const img=champImg(name);
