@@ -41,3 +41,23 @@
 @media(max-width:900px){
   .board-builds{grid-template-columns:1fr}
 }
+
+/* Recommended items (detail page) — compact */
+.item-row{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center
+}
+.item-row .item-chip{
+  display:inline-flex;flex-direction:row;align-items:center;gap:8px;
+  padding:6px 10px;border-radius:10px;
+  background:rgba(6,9,18,.55);border:1px solid var(--line);
+  max-width:100%
+}
+.item-row .item-chip img{
+  width:28px!important;height:28px!important;
+  flex:0 0 28px;object-fit:contain;border-radius:6px;
+  background:#0d111c
+}
+.item-row .item-chip span{
+  font:600 12px Outfit,Cairo,sans-serif;color:var(--text);
+  white-space:nowrap
+}
