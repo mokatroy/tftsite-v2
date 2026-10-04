@@ -114,20 +114,6 @@ const CHAMP_BIS = {
   yorick: ["Warmog's Armor","Sunfire Cape","Gargoyle Stoneplate"],
   brambleback: ["Warmog's Armor","Bramble Vest","Sunfire Cape"]
 };
-
-const CHAMP_COST = {
-  ornn:1,xayah:1,rakan:1,leona:1,pebbles:1,cinderling:1,kobuko:1,reksai:1,akali:1,kayle:1,
-  alistar:2,leblanc:2,taric:2,amumu:2,scuttlecrab:2,vi:2,nidalee:2,tristana:2,elise:2,karma:2,
-  hecarim:3,krug:3,gnar:5,ezreal:4,aphelios:4,sivir:4,ashe:4,draven:4,caitlyn:4,ahri:4,morgana:4,
-  alune:5,azir:4,veigar:3,sett:4,sejuani:3,'mama beak':3,mamabeak:3,sentinel:1,brambleback:3,
-  yunara:2,warwick:3,khazix:3,masteryi:5,varus:3,cass:3,cassiopeia:3,lux:5,lillia:3,diana:3,
-  brand:3,fiddlesticks:5,yorick:2,jinx:3,kindred:4,samira:5
-};
-function champCost(name){
-  const k=roleKey(name);
-  return CHAMP_COST[k] || CHAMP_COST[k.replace(/ /g,'')] || 1;
-}
-
 function unitName(u){
   if(!u) return '';
   if(typeof u==='string') return u;
@@ -201,24 +187,25 @@ export function renderBoard(comp){
   const backUnits=[];
   for(let r=0;r<4;r++){
     const cells=[];
+    let hasUnit=false;
     for(let c=0;c<7;c++){
       const unit=positions[`${r},${c}`];
       if(!unit){
         cells.push(`<div class="cell empty-cell"><div class="hex empty"><div class="hex-inner"></div></div></div>`);
         continue;
       }
+      hasUnit=true;
       const name=typeof unit==='string'?unit:(unit.name?.en||unit.name||'');
       const img=champImg(name);
-      const cost=champCost(name);
       const items=(unit.items||[]).slice(0,3);
       const allItems=(unit.allItems||unit.items||[]).slice(0,3);
-      const icons=items.map(n=>`<img class="hex-item" data-item="${n}" src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
+      const icons=items.map(n=>`<img class="hex-item" src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
       if(allItems.length) builds.push({name, items: allItems, img});
       const entry={name, img, items, carry:!!unit.carry};
       if(r<=1) frontUnits.push(entry); else backUnits.push(entry);
-      cells.push(`<div class="cell" data-unit="${name}"><div class="hex filled cost-${cost} ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div>${icons?`<div class="hex-items">${icons}</div>`:''}</div></div>`);
+      cells.push(`<div class="cell"><div class="hex filled ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div></div><span class="hex-name">${name}</span><div class="hex-items">${icons}</div></div>`);
     }
-    rows.push(`<div class="hex-row ${r%2===1?'offset':''}">${cells.join('')}</div>`);
+    if(hasUnit) rows.push(`<div class="hex-row ${r%2===1?'offset':''}">${cells.join('')}</div>`);
   }
   const front=lang==='ar'?'↑ العدو / فرونت لاين':lang==='ja'?'↑ 敵 / フロント':'↑ enemy / frontline';
   const fl=lang==='ar'?'فرونت لاين':lang==='ja'?'フロント':'Frontline';
@@ -234,7 +221,7 @@ export function renderBoard(comp){
     <div class="bm-lane"><span class="bm-label">${bl}</span><div class="bm-units">${lane(backUnits)}</div></div>
   </div>`;
   const desktop=`<div class="board-desktop hex-grid">${rows.join('')}</div>`;
-  const buildHtml=builds.map(b=>`<div class="board-build" data-unit="${b.name}"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img data-item="${n}" src="${itemImg(n)}" alt="${n}" title="${n}">`).join('')}</div></div>`).join('');
+  const buildHtml=builds.map(b=>`<div class="board-build"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img src="${itemImg(n)}" alt="${n}" title="${n}">`).join('')}</div></div>`).join('');
   return `<div class="tft-board"><div class="board-label">${front}</div>${mobile}${desktop}${buildHtml?`<div class="board-builds">${buildHtml}</div>`:''}</div>`;
 }
 export function detail(comp){
