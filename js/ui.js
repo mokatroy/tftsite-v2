@@ -6,7 +6,7 @@ const CHAMP_HUD_ONLY = new Set(['raptor']);
 export function champImg(name){
   if(!name) return '';
   const raw = String(name).toLowerCase().trim();
-  const compact = raw.replace(/['’]/g,'').replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
+  const compact = raw.replace(/['’']/g,'').replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
   const key = CHAMP_ALIAS[raw] || CHAMP_ALIAS[compact] || compact;
   if(CHAMP_HUD_ONLY.has(key)) return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_${key}/hud/tft18_${key}_square.png`;
   return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_${key}/tft18_${key}_square.png`;
@@ -17,7 +17,7 @@ export function itemImg(name){
   const key = String(name).toLowerCase().trim();
   const slug = TFT_ITEM_SLUG[key];
   if(slug) return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/${slug}.png`;
-  const heur = key.replace(/['’]/g,'').replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
+  const heur = key.replace(/['’']/g,'').replace(/\s+/g,'').replace(/[^a-z0-9]/g,'');
   return heur ? `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/tft_item_${heur}.png` : '';
 }
 function costClass(cost){const c=Number(cost)||1;return `cost-${Math.min(5,Math.max(1,c))}`;}
@@ -59,7 +59,6 @@ const AD_BIS=["Infinity Edge","Last Whisper","Giant Slayer"];
 const AP_BIS=["Rabadon's Deathcap","Jeweled Gauntlet","Spear of Shojin"];
 const AS_BIS=["Guinsoo's Rageblade","Last Whisper","Bloodthirster"];
 const SUPPORT_BIS=["Protector's Vow","Ionic Spark","Redemption"];
-/* Per-champion BiS for Set 18 (primary builds) */
 const CHAMP_BIS = {
   xayah: ["Guinsoo's Rageblade","Last Whisper","Bloodthirster"],
   ezreal: ["Guinsoo's Rageblade","Spear of Shojin","Last Whisper"],
@@ -122,7 +121,7 @@ function unitName(u){
   if(typeof u.name==='string') return u.name;
   return u.en || u.ar || '';
 }
-function roleKey(name){ return String(name||'').toLowerCase().replace(/['’]/g,'').replace(/[^a-z ]/g,'').trim().replace(/\s+/g,''); }
+function roleKey(name){ return String(name||'').toLowerCase().replace(/['’']/g,'').replace(/[^a-z ]/g,'').trim().replace(/\s+/g,''); }
 function roleOf(name){
   const k=roleKey(name).replace(/ /g,'');
   if(TANKS.has(k)) return 'tank';
@@ -200,11 +199,11 @@ export function renderBoard(comp){
       const img=champImg(name);
       const items=(unit.items||[]).slice(0,3);
       const allItems=(unit.allItems||unit.items||[]).slice(0,3);
-      const icons=items.map(n=>`<img class="hex-item" src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
+      const icons=items.map(n=>`<img class="hex-item" data-item="${n}" src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
       if(allItems.length) builds.push({name, items: allItems, img});
       const entry={name, img, items, carry:!!unit.carry};
       if(r<=1) frontUnits.push(entry); else backUnits.push(entry);
-      cells.push(`<div class="cell"><div class="hex filled ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div></div><span class="hex-name">${name}</span><div class="hex-items">${icons}</div></div>`);
+      cells.push(`<div class="cell" data-unit="${name}"><div class="hex filled ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div></div><span class="hex-name">${name}</span><div class="hex-items">${icons}</div></div>`);
     }
     if(hasUnit) rows.push(`<div class="hex-row ${r%2===1?'offset':''}">${cells.join('')}</div>`);
   }
@@ -222,7 +221,7 @@ export function renderBoard(comp){
     <div class="bm-lane"><span class="bm-label">${bl}</span><div class="bm-units">${lane(backUnits)}</div></div>
   </div>`;
   const desktop=`<div class="board-desktop hex-grid">${rows.join('')}</div>`;
-  const buildHtml=builds.map(b=>`<div class="board-build"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img src="${itemImg(n)}" alt="${n}" title="${n}">`).join('')}</div></div>`).join('');
+  const buildHtml=builds.map(b=>`<div class="board-build" data-unit="${b.name}"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img data-item="${n}" src="${itemImg(n)}" alt="${n}" title="${n}">`).join('')}</div></div>`).join('');
   return `<div class="tft-board"><div class="board-label">${front}</div>${mobile}${desktop}${buildHtml?`<div class="board-builds">${buildHtml}</div>`:''}</div>`;
 }
 export function detail(comp){
