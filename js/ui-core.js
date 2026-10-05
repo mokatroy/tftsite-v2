@@ -1,6 +1,6 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005j';
-import {traitImg} from './icons.js?v=20261005j';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005j';
+import {t,localize,lang,localePath} from './locale.js?v=20261005k';
+import {traitImg} from './icons.js?v=20261005k';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005k';
 
 export function champImg(name){
   const raw=String(name||'').trim();
@@ -131,7 +131,6 @@ function autoPositions(comp){
     else front.push(n);
   }
   while(back.length>4 && front.length<4) front.push(back.pop());
-  // Academy: items only on primary carry, secondary carry, main tank
   const primary=back[0]||null;
   const secondary=back.find(n=>roleKey(n)!==roleKey(primary||''))||null;
   const mainTank=front[0]||null;
@@ -147,8 +146,9 @@ function autoPositions(comp){
     const isSec=secondary&&roleKey(name)===roleKey(secondary);
     const isMainTank=mainTank&&roleKey(name)===roleKey(mainTank);
     const shouldItemize=isPri||isSec||isMainTank;
-    const items=shouldItemize?itemsForChampion(name, shared, true).slice(0,3):[];
-    pos[`${r},${c}`]={name, items, allItems:items, carry:!!isPri};
+    const bis=itemsForChampion(name, shared, true).slice(0,3);
+    const items=shouldItemize?bis:[];
+    pos[`${r},${c}`]={name, items, allItems:bis, carry:!!isPri};
     return idx+1;
   };
   for(const t of front) fi=place(t, frontSlots, fi);
