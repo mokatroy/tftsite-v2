@@ -1,11 +1,31 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005h';
-import {traitImg} from './icons.js?v=20261005h';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005h';
+import {t,localize,lang,localePath} from './locale.js?v=20261005i';
+import {traitImg} from './icons.js?v=20261005i';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005i';
 
 export function champImg(name){
-  const n=String(name||'').replace(/\s+/g,'');
-  const map={Pebbles:'Sentry',Sentinel:'Galio',Krug:'Krug',Cinderling:'Smolder',Scuttlecrab:'Rammus',Gromp:'Gromp',Brambleback:'Ivern',MamaBeak:'Quinn',Mamabeak:'Quinn'};
-  const key=map[n]||n;
+  const raw=String(name||'').trim();
+  const n=raw.toLowerCase().replace(/['']/g,'').replace(/\s+/g,'');
+  const tft18={
+    pebbles:'tft18_sentry',sentry:'tft18_sentry',
+    krug:'tft18_krug',
+    cinderling:'tft18_cinderling',
+    scuttlecrab:'tft18_scuttlecrab',
+    gromp:'tft18_gromp',
+    brambleback:'tft18_brambleback',
+    murkwolf:'tft18_murkwolf',
+    mamabeak:'tft18_raptor','mamabeak':'tft18_raptor',
+    sentinel:'tft18_sentinel',
+    elderdragon:'tft18_elderdragon'
+  };
+  const id=tft18[n];
+  if(id){
+    if(id==='tft18_raptor')
+      return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png`;
+    return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
+  }
+  const map={Pebbles:'Sentry',Sentinel:'Galio',Krug:'Malphite',Cinderling:'Smolder',Scuttlecrab:'Rammus',Gromp:'Nunu',Brambleback:'Ivern',MamaBeak:'Quinn',Mamabeak:'Quinn'};
+  const pretty=raw.replace(/\s+/g,'');
+  const key=map[pretty]||pretty;
   return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/${key}.png`;
 }
 export function itemImg(name){
@@ -97,20 +117,30 @@ function champCost(name){
   const k=roleKey(name);
   return CHAMP_COST[k]||CHAMP_COST[String(name||'').toLowerCase()]||1;
 }
+function isBackline(name){
+  const role=roleOf(name);
+  if(role==='ad'||role==='ap') return true;
+  const k=roleKey(name);
+  // Mama Beak = Rapidfire Summoner → backline; ranged supports
+  return ['mamabeak','mama beak','pebbles','cinderling','alune','veigar','azir','ahri','morgana','xayah','ezreal','aphelios','sivir','ashe','draven','caitlyn','yunara'].includes(k)||['mamabeak','pebbles','cinderling'].includes(String(name||'').toLowerCase().replace(/\s+/g,''));
+}
 function autoPositions(comp){
   const units=(comp.units||[]).map(unitName).filter(Boolean);
-  const tanks=[], carries=[], rest=[];
+  const front=[], back=[];
   for(const n of units){
-    const role=roleOf(n);
-    if(role==='tank') tanks.push(n);
-    else if(role==='ad'||role==='ap') carries.push(n);
-    else rest.push(n);
+    if(isBackline(n)) back.push(n);
+    else front.push(n);
   }
-  const primary=carries[0]||rest[0]||units[0];
-  const secondary=carries.find(n=>n!==primary)||rest.find(n=>n!==primary)||null;
+  // If too many back, move extras to front
+  while(back.length>4 && front.length<4){
+    front.push(back.pop());
+  }
+  const primary=back[0]||front[0]||units[0];
+  const secondary=back.find(n=>roleKey(n)!==roleKey(primary))||null;
   const pos={};
-  const frontSlots=[[0,1],[0,2],[0,3],[0,4],[1,0],[1,1],[1,2]];
-  const backSlots=[[2,1],[2,2],[2,3],[2,4],[3,1],[3,2],[3,3]];
+  // Academy-style: tanks fill front 2 rows (enemy side), carries in back corners
+  const frontSlots=[[0,1],[0,2],[0,3],[0,4],[1,0],[1,1],[1,2],[1,3],[1,4],[1,5]];
+  const backSlots=[[3,0],[3,6],[3,1],[3,5],[2,0],[2,6],[2,1],[2,5],[3,2],[3,4]];
   let fi=0, bi=0;
   const place=(name, slots, idx)=>{
     if(!name||idx>=slots.length) return idx;
@@ -122,12 +152,8 @@ function autoPositions(comp){
     pos[`${r},${c}`]={name, items, allItems:items, carry:isPri};
     return idx+1;
   };
-  for(const t of tanks) fi=place(t, frontSlots, fi);
-  for(const n of units){
-    if(tanks.includes(n)) continue;
-    if(roleOf(n)==='ad'||roleOf(n)==='ap'||n===primary||n===secondary) bi=place(n, backSlots, bi);
-    else fi=place(n, frontSlots, fi);
-  }
+  for(const t of front) fi=place(t, frontSlots, fi);
+  for(const n of back) bi=place(n, backSlots, bi);
   return pos;
 }
 export function renderBoard(comp){
