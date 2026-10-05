@@ -1,12 +1,11 @@
-import {setupLanguage,localize,t,lang} from './locale.js?v=20261005m';
-import {itemChip,traitChip} from './ui.js?v=20261005m';
+import {setupLanguage,localize,t,lang} from './locale.js?v=20261005n';
+import {itemChip,traitChip} from './ui.js?v=20261005n';
 
 /** Champions-page-only avatar resolver (Set 18 CD + ddragon fallback) */
 function champAvatar(name){
   const raw=String(name||'').trim();
   if(!raw) return '';
   const n=raw.toLowerCase().replace(/['']/g,'').replace(/\s+/g,'');
-  // Set 18 specials / monsters on CommunityDragon
   const special={
     pebbles:'tft18_sentry',
     sentry:'tft18_sentry',
@@ -17,9 +16,8 @@ function champAvatar(name){
     brambleback:'tft18_brambleback',
     murkwolf:'tft18_murkwolf',
     mamabeak:'tft18_raptor',
-    'mamabeak':'tft18_raptor',
     sentinel:'tft18_sentinel',
-    ancientsentinel:'tft18_chogath',
+    ancientsentinel:'tft18_sentinel',
     elderdragon:'tft18_elderdragon',
     kobuko:'tft18_kobuko',
     yunara:'tft18_yunara',
@@ -31,9 +29,6 @@ function champAvatar(name){
       return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png`;
     return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
   }
-  // Prefer tft18_ square when available (same slug)
-  const slug='tft18_'+n.replace(/[^a-z0-9]/g,'');
-  // Known ddragon name fixes
   const dd={
     reksai:'RekSai',khazix:'Khazix',kogmaw:'KogMaw',masteryi:'MasterYi',
     leblanc:'Leblanc',chogath:'Chogath',monkeyking:'MonkeyKing',
@@ -43,8 +38,6 @@ function champAvatar(name){
     draven:'Draven',fiddlesticks:'FiddleSticks'
   };
   const key=dd[n]||raw.replace(/['']/g,'').replace(/\s+/g,'');
-  // Try CD tft18 first via onerror chain is hard in string — use ddragon primary for LoL champs
-  // For names that exist as tft18_*, use CD
   const tft18Only=new Set([
     'akali','camille','cinderling','karma','kobuko','leona','ornn','pebbles','rakan','reksai',
     'varus','veigar','xayah','yorick','alistar','caitlyn','elise','gromp','kayle','leblanc',
@@ -52,7 +45,7 @@ function champAvatar(name){
     'diana','fiddlesticks','hecarim','khazix','kogmaw','krug','masteryi','rammus','mamabeak',
     'rengar','tristana','vi','ahri','amumu','aphelios','brambleback','ezreal','lillia',
     'malphite','morgana','nidalee','sett','sentinel','sivir','soraka','zyra','alune','ashe',
-    'draven','elderdragon','gnar','ivern','kennen','lux','maokai','taric'
+    'draven','elderdragon','gnar','ivern','kennen','lux','maokai','taric','ancientsentinel'
   ]);
   if(tft18Only.has(n) || special[n]){
     const id=special[n]||('tft18_'+n);
