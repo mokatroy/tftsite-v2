@@ -1,6 +1,6 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005q';
-import {traitImg} from './icons.js?v=20261005q';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005q';
+import {t,localize,lang,localePath} from './locale.js?v=20261005r';
+import {traitImg} from './icons.js?v=20261005r';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005r';
 
 export function champImg(name){
   const raw=String(name||'').trim();
@@ -136,7 +136,7 @@ function isBackline(name){
   const role=roleOf(name);
   if(role==='ad'||role==='ap') return true;
   const k=roleKey(name);
-  return ['mamabeak','pebbles','cinderling','alune','veigar','azir','ahri','morgana','xayah','ezreal','aphelios','sivir','ashe','draven','caitlyn','yunara'].includes(k);
+  return ['mamabeak','pebbles','cinderling','alune','veigar','azir','ahri','morgana','xayah','ezreal','aphelios','sivir','ashe','draven','caitlyn','yunara','leblanc','karma','kayle','teemo'].includes(k);
 }
 function autoPositions(comp){
   const units=(comp.units||[]).map(unitName).filter(Boolean);
