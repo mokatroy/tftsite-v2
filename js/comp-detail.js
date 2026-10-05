@@ -1,11 +1,41 @@
-import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005aug4';
-import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005aug4';
-import{augmentImg}from'./icons.js?v=20261005aug4';
+import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005aug5';
+import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005aug5';
+import{augmentImg}from'./icons.js?v=20261005aug5';
 
-const COMP_AUGMENTS = {"riftbeast-sentinel":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"elderwood-xayah":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Item Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"vanguard-alune":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Built Different","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"hunter-sivir":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Hustler","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"spellweaver-veigar":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"flora-azir":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"New Recruit","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Built Different","rarity":"Gold"},{"name":"Wise Spending","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"defender-cass":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Portable Forge","rarity":"Prismatic"}],"juggernaut-flex":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"lunar-aphelios":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"blackthorn-lulu":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"New Recruit","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"arcanist-lux":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"warden-ornn":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Portable Forge","rarity":"Prismatic"},{"name":"Radiant Relics","rarity":"Prismatic"}],"sivir-nidalee":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Hustler","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"draven-fast9":[{"name":"Rich Get Richer","rarity":"Prismatic"},{"name":"Wise Spending","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Item Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"vanguard-aphelios":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"solar-yunara":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"New Recruit","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"warwick-ravager":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Binary Airdrop","rarity":"Prismatic"}],"caitlyn-reroll":[{"name":"Hustler","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"master-yi-adaptor":[{"name":"Built Different","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Last Stand","rarity":"Gold"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}]};
+const COMP_AUGMENTS = {"riftbeast-sentinel":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"elderwood-xayah":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Item Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"vanguard-alune":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Built Different","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"hunter-sivir":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Hustler","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"spellweaver-veigar":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"flora-azir":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"New Recruit","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Built Different","rarity":"Gold"},{"name":"Wise Spending","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"defender-cass":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Portable Forge","rarity":"Prismatic"}],"juggernaut-flex":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"lunar-aphelios":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"lunar-aphelios-nidalee":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"invoker-ahri":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"executioner-khazix":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Binary Airdrop","rarity":"Prismatic"}],"juggernaut-ashe":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"invoker-morgana-sentinel":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Last Stand","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Portable Forge","rarity":"Prismatic"}],"sivir-nidalee":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Hustler","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"draven-fast9":[{"name":"Rich Get Richer","rarity":"Prismatic"},{"name":"Wise Spending","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Item Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"vanguard-aphelios":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"solar-yunara":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"New Recruit","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"warwick-ravager":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Binary Airdrop","rarity":"Prismatic"}],"caitlyn-reroll":[{"name":"Hustler","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"master-yi-adaptor":[{"name":"Built Different","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Last Stand","rarity":"Gold"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}]};
 
-const slug=new URLSearchParams(location.search).get('slug');
-let comp,patch;
+const DEFAULT_AUGMENTS = [{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"},{"name":"Radiant Relics","rarity":"Prismatic"}];
+
+const AUG_PRIO = {
+  "Component Grab Bag":"items","Pandora's Items":"items","Item Grab Bag":"items","Radiant Relics":"items","Portable Forge":"items","Binary Airdrop":"items",
+  "Rich Get Richer":"econ","Wise Spending":"econ","Hustler":"econ","Trade Sector":"econ",
+  "Built Different":"combat","Last Stand":"combat","Thrill of the Hunt":"combat","Jeweled Lotus":"combat","Cybernetic Uplink":"combat","Dark Ritual":"combat","Combat Training":"combat",
+  "New Recruit":"unit"
+};
+
+function prioLabel(p){
+  if(lang==='ar'){
+    return {items:'أيتمز',econ:'اقتصاد',combat:'كومبات',unit:'وحدات'}[p]||p;
+  }
+  if(lang==='ja'){
+    return {items:'アイテム',econ:'経済',combat:'戦闘',unit:'ユニット'}[p]||p;
+  }
+  return {items:'Items',econ:'Econ',combat:'Combat',unit:'Units'}[p]||p;
+}
+
+function augmentIcon(name){
+  const MAP={
+    "Jeweled Lotus":"jeweled-lotus-ii","Rich Get Richer":"richgetricher2","Dark Ritual":"missing-t2",
+    "Pandora's Items":"pandora1","Trade Sector":"trade2","Cybernetic Uplink":"cybernetic-uplink-ii",
+    "Binary Airdrop":"binaryairdrop3","Component Grab Bag":"componentgrabbag-ii","Item Grab Bag":"itemgrabbag1",
+    "Thrill of the Hunt":"thrillhunt1","Portable Forge":"portableforge2","Last Stand":"last-stand-ii",
+    "Hustler":"hyperroll2","Combat Training":"combat-training-ii","New Recruit":"newrecruit3",
+    "Radiant Relics":"radiantrelic-iii","Built Different":"builtdifferent2","Wise Spending":"wisespending3"
+  };
+  const slug=MAP[name];
+  if(slug) return "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/augments/hexcore/"+slug+".png";
+  try{return augmentImg(name)||"";}catch(e){return"";}
+}
 
 function stageLabel(stage){
   const n=Number(stage)||0;
@@ -30,36 +60,28 @@ function playGuide(c){
   return `<section class="detail-section play-guide-section"><h2>${t('howToPlay')}</h2>${stageCards?`<div class="play-stages">${stageCards}</div>`:''}${early?`<div class="play-early"><span class="play-early-label">${earlyTitle}</span><div class="unit-row">${early}</div></div>`:''}${how?`<div class="play-tip"><span class="play-tip-label">${tipTitle}</span><p>${how}</p></div>`:''}</section>`;
 }
 
-const DEFAULT_AUGMENTS = [{"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}, {"name": "Radiant Relics", "rarity": "Prismatic"}];
-
-function augmentIcon(name){
-  const MAP={
-    "Jeweled Lotus":"jeweled-lotus-ii","Rich Get Richer":"richgetricher2","Dark Ritual":"missing-t2",
-    "Pandora's Items":"pandora1","Trade Sector":"trade2","Cybernetic Uplink":"cybernetic-uplink-ii",
-    "Binary Airdrop":"binaryairdrop3","Component Grab Bag":"componentgrabbag-ii","Item Grab Bag":"itemgrabbag1",
-    "Thrill of the Hunt":"thrillhunt1","Portable Forge":"portableforge2","Last Stand":"last-stand-ii",
-    "Hustler":"hyperroll2","Combat Training":"combat-training-ii","New Recruit":"newrecruit3",
-    "Radiant Relics":"radiantrelic-iii","Built Different":"builtdifferent2","Wise Spending":"wisespending3"
-  };
-  const slug=MAP[name];
-  if(slug) return "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/augments/hexcore/"+slug+".png";
-  try{return augmentImg(name)||"";}catch(e){return"";}
-}
-
 function augmentsSection(c){
   if(!c) return '';
   const list = (COMP_AUGMENTS[c.slug] || DEFAULT_AUGMENTS).slice(0,6);
   if(!list.length) return '';
   const title = lang==='ar' ? 'الأوجمنتس المقترحة' : lang==='ja' ? 'おすすめオーグメント' : 'Recommended Augments';
-  const hint = lang==='ar' ? 'أولويات عامة — اختار حسب الأوجمنتس اللي بتظهرلك' : lang==='ja' ? '目安です。出たものから優先' : 'General priorities — pick from what you hit';
-  const cards = list.map(a=>{
+  const hint = lang==='ar'
+    ? 'الأولوية حسب نوع الأوجمنت: أيتمز · اقتصاد · كومبات · وحدات — اختار اللي يناسب وضعك في اللوبي'
+    : lang==='ja'
+    ? '優先: アイテム · 経済 · 戦闘 · ユニット — 状況に合わせて選ぶ'
+    : 'Priority by type: Items · Econ · Combat · Units — pick what fits your lobby';
+  const cards = list.map((a,i)=>{
     const rarity=(a.rarity||'Gold');
     const name=a.name||'';
-    return `<div class="comp-aug rarity-${rarity.toLowerCase()}" title="${name}">
+    const prio=a.prio||AUG_PRIO[name]||'combat';
+    const pl=prioLabel(prio);
+    const order=i+1;
+    return `<div class="comp-aug rarity-${rarity.toLowerCase()} prio-${prio}" title="${name}">
+      <span class="comp-aug-order">${order}</span>
       <img src="${augmentIcon(name)}" alt="" width="36" height="36" loading="eager" decoding="async" referrerpolicy="no-referrer">
       <div class="comp-aug-meta">
         <span class="comp-aug-name">${name}</span>
-        <span class="comp-aug-rarity">${rarity}</span>
+        <span class="comp-aug-tags"><span class="comp-aug-rarity">${rarity}</span><span class="comp-aug-prio">${pl}</span></span>
       </div>
     </div>`;
   }).join('');
@@ -69,18 +91,28 @@ function augmentsSection(c){
     <div class="comp-augs-grid">${cards}</div>
   </section>
   <style>
-  .comp-augs-hint{margin:0 0 14px;color:var(--muted);font-size:13px}
-  .comp-augs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-  .comp-aug{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .comp-augs-hint{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
+  .comp-augs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+  .comp-aug{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);position:relative}
+  .comp-aug-order{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgba(233,185,100,.15);color:var(--gold);font:700 11px Outfit,sans-serif;display:flex;align-items:center;justify-content:center}
   .comp-aug img{width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:8px;background:#0d111c}
-  .comp-aug-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .comp-aug-meta{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
   .comp-aug-name{font:600 13px Outfit,Cairo,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .comp-aug-tags{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
   .comp-aug-rarity{font:600 11px Outfit,sans-serif;opacity:.75}
   .comp-aug.rarity-silver .comp-aug-rarity{color:#c8c8c8}
   .comp-aug.rarity-gold .comp-aug-rarity{color:#e9b964}
   .comp-aug.rarity-prismatic .comp-aug-rarity{color:#c47ae0}
+  .comp-aug-prio{font:600 10px Outfit,Cairo,sans-serif;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--muted)}
+  .comp-aug.prio-items .comp-aug-prio{background:rgba(100,180,255,.12);color:#7ec8ff}
+  .comp-aug.prio-econ .comp-aug-prio{background:rgba(80,200,120,.12);color:#6dce8a}
+  .comp-aug.prio-combat .comp-aug-prio{background:rgba(233,100,100,.12);color:#f08a8a}
+  .comp-aug.prio-unit .comp-aug-prio{background:rgba(180,140,255,.12);color:#c4a8ff}
   </style>`;
 }
+
+const slug=new URLSearchParams(location.search).get('slug');
+let comp,patch;
 
 function renderComp(c){
   if(!c) return `<p class="empty">${t('notFound')||'Not found'}</p>`;
