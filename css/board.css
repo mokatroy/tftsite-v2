@@ -2,32 +2,38 @@
 .board-section{margin-top:16px}
 .tft-board{
   display:flex;flex-direction:column;align-items:center;gap:12px;
-  padding:20px 16px 22px;
+  padding:28px 16px 22px;
   background:
     radial-gradient(ellipse at 50% 0%,rgba(80,70,140,.35),transparent 55%),
     linear-gradient(180deg,rgba(16,20,36,.96),rgba(8,10,18,.96));
   border-radius:16px;border:1px solid var(--line);direction:ltr
 }
 .board-label{font:700 11px Outfit,sans-serif;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
-.board-desktop.hex-grid,.hex-grid{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:620px}
-.hex-row{display:flex;justify-content:center;gap:8px}
+.board-desktop.hex-grid,.hex-grid{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;max-width:620px}
+.hex-row{display:flex;justify-content:center;gap:8px;padding-top:10px}
 .hex-row.offset{margin-inline-start:36px}
-.cell{width:72px;display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.cell{width:72px;display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;overflow:visible}
 .cell.empty-cell .hex-name,.cell.empty-cell .hex-items{display:none}
-.hex{width:56px;height:64px;position:relative}
+.hex{width:56px;height:64px;position:relative;overflow:visible}
 .hex-inner{
   position:absolute;inset:0;
   clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
   background:rgba(255,255,255,.04);
-  display:flex;align-items:center;justify-content:center
+  display:flex;align-items:center;justify-content:center;z-index:1
 }
 .hex.empty .hex-inner{background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);opacity:.45}
 .hex.filled .hex-inner{background:linear-gradient(160deg,#2a3358,#14182a);box-shadow:inset 0 0 0 1.5px rgba(233,185,100,.55)}
 .hex.carry .hex-inner{box-shadow:inset 0 0 0 2.5px #e9b964,0 0 12px rgba(233,185,100,.25)}
-.hex-champ{width:38px;height:38px;border-radius:50%;object-fit:cover;background:#0d111c}
+.hex-champ{width:38px;height:38px;border-radius:50%;object-fit:cover;background:#0d111c;position:relative;z-index:1}
 .hex-name{font:700 10px Outfit,sans-serif;color:#f6f1e8;text-align:center;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.15}
-.hex-items{display:flex;gap:3px;justify-content:center;min-height:22px}
-.hex-item{width:20px;height:20px;border-radius:4px;object-fit:cover;background:#0d111c;box-shadow:0 0 0 1px rgba(0,0,0,.55)}
+.hex-items{
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  display:flex;gap:2px;justify-content:center;z-index:10;pointer-events:none
+}
+.hex-item{
+  width:18px;height:18px;border-radius:4px;object-fit:cover;background:#0d111c;
+  box-shadow:0 0 0 1.5px rgba(0,0,0,.75),0 2px 5px rgba(0,0,0,.5);pointer-events:auto
+}
 .board-builds{width:100%;max-width:620px;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;direction:ltr}
 .board-build{
   display:flex;align-items:center;gap:8px;
@@ -75,7 +81,7 @@
 .hex-board .hex{
   width:72px;height:88px;
   display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;
-  position:relative;box-sizing:border-box
+  position:relative;box-sizing:border-box;overflow:visible
 }
 .hex-board .hex.empty{opacity:.3}
 .hex-board .hex.empty::before{
@@ -88,8 +94,11 @@
   box-shadow:0 0 0 2px var(--cost,rgba(233,185,100,.55));background:#0d111c;margin-top:4px
 }
 .hex-board .hex-name{font:700 10px Outfit,sans-serif;color:#f6f1e8;text-align:center;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hex-board .hex-items{display:flex;gap:3px;justify-content:center}
-.hex-board .hex-item{width:16px;height:16px;border-radius:3px;object-fit:cover;background:#0d111c}
+.hex-board .hex-items{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  display:flex;gap:2px;justify-content:center;z-index:10
+}
+.hex-board .hex-item{width:16px;height:16px;border-radius:3px;object-fit:cover;background:#0d111c;box-shadow:0 0 0 1px rgba(0,0,0,.7)}
 .hex-board .hex[data-row="1"],.hex-board .hex[data-row="3"]{transform:translateX(20px)}
 @media(max-width:700px){
   .hex-board{grid-template-columns:repeat(7,minmax(40px,1fr));grid-auto-rows:70px;gap:4px;padding:12px 6px}
