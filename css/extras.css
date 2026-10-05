@@ -83,3 +83,31 @@
   .tier-label{font-size:18px;min-height:52px}
   .tier-entry{min-width:120px;padding:6px 10px}
 }
+
+/* Item Oven */
+.oven-section,.oven-panel{margin:28px 0 36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,rgba(32,39,61,.92),rgba(12,16,29,.94))}
+.oven-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}
+.oven-header h2{margin:0;font:800 20px Outfit,Cairo,sans-serif;color:var(--text)}
+.oven-workspace{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start;direction:ltr}
+.oven-left{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.oven-slots{display:flex;align-items:center;gap:10px}
+.oven-plus{font:800 22px Outfit;color:var(--gold);opacity:.7}
+.oven-slot{width:92px;min-height:100px;border:1px dashed rgba(255,255,255,.18);border-radius:12px;background:rgba(6,9,18,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;color:var(--muted);padding:10px 6px}
+.oven-slot.empty:hover{border-color:rgba(233,185,100,.45)}
+.oven-slot.filled{border-style:solid;border-color:rgba(233,185,100,.4);background:rgba(233,185,100,.08)}
+.oven-slot img{width:42px;height:42px;border-radius:8px;object-fit:contain}
+.oven-slot-plus{font:800 28px Outfit;color:var(--gold);opacity:.55}
+.oven-slot-label{font:600 11px Outfit}
+.oven-slot-name{font:700 10px Outfit;text-align:center;color:var(--text)}
+.oven-result-wrap{flex:1;min-width:160px}
+.oven-result-label{font:700 11px Outfit;color:var(--gold);margin:0 0 6px}
+.oven-result-empty{color:var(--muted);font-size:13px;padding:12px}
+.oven-result-card{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;border:1px solid rgba(233,185,100,.35);background:rgba(233,185,100,.08)}
+.oven-result-img{width:48px;height:48px;border-radius:8px;object-fit:contain}
+.oven-result-name{font:800 16px Outfit;display:block}
+.oven-comp-label{margin:0 0 10px;font:700 12px Outfit;color:var(--muted)}
+.oven-components{display:flex;flex-wrap:wrap;gap:8px}
+.oven-comp{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(6,9,18,.45);cursor:pointer;color:var(--text);font:600 11px Outfit}
+.oven-comp img{width:28px;height:28px;border-radius:6px;object-fit:contain}
+.oven-comp:hover,.oven-comp.active{border-color:var(--gold);background:rgba(233,185,100,.12)}
+@media(max-width:820px){.oven-workspace{grid-template-columns:1fr}.oven-left{justify-content:center}.oven-header{flex-direction:column}}
