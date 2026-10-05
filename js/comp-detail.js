@@ -1,5 +1,5 @@
-import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005r';
-import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005r';
+import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005aug';
+import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005aug';
 
 const slug=new URLSearchParams(location.search).get('slug');
 let comp,patch;
@@ -27,17 +27,64 @@ function playGuide(c){
   return `<section class="detail-section play-guide-section"><h2>${t('howToPlay')}</h2>${stageCards?`<div class="play-stages">${stageCards}</div>`:''}${early?`<div class="play-early"><span class="play-early-label">${earlyTitle}</span><div class="unit-row">${early}</div></div>`:''}${how?`<div class="play-tip"><span class="play-tip-label">${tipTitle}</span><p>${how}</p></div>`:''}</section>`;
 }
 
+const COMP_AUGMENTS = {"riftbeast-sentinel": [{"name": "Built Different", "rarity": "Gold"}, {"name": "Last Stand", "rarity": "Gold"}, {"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Cybernetic Uplink", "rarity": "Silver"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "elderwood-xayah": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Item Grab Bag", "rarity": "Silver"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "vanguard-alune": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Cybernetic Uplink", "rarity": "Silver"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Dark Ritual", "rarity": "Gold"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}], "hunter-sivir": [{"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Hustler", "rarity": "Silver"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "spellweaver-veigar": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Cybernetic Uplink", "rarity": "Silver"}, {"name": "Dark Ritual", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Trade Sector", "rarity": "Gold"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}], "flora-azir": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "New Recruit", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Wise Spending", "rarity": "Silver"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "defender-cass": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Last Stand", "rarity": "Gold"}, {"name": "Cybernetic Uplink", "rarity": "Silver"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Portable Forge", "rarity": "Prismatic"}], "juggernaut-flex": [{"name": "Built Different", "rarity": "Gold"}, {"name": "Last Stand", "rarity": "Gold"}, {"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "lunar-aphelios-nidalee": [{"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}], "invoker-ahri": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Cybernetic Uplink", "rarity": "Silver"}, {"name": "Dark Ritual", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Trade Sector", "rarity": "Gold"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "executioner-khazix": [{"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Hustler", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Last Stand", "rarity": "Gold"}, {"name": "Binary Airdrop", "rarity": "Prismatic"}], "juggernaut-ashe": [{"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "invoker-morgana-sentinel": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Cybernetic Uplink", "rarity": "Silver"}, {"name": "Last Stand", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Portable Forge", "rarity": "Prismatic"}], "sivir-nidalee": [{"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Hustler", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}], "draven-fast9": [{"name": "Rich Get Richer", "rarity": "Prismatic"}, {"name": "Wise Spending", "rarity": "Silver"}, {"name": "Hustler", "rarity": "Silver"}, {"name": "Trade Sector", "rarity": "Gold"}, {"name": "Item Grab Bag", "rarity": "Silver"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "vanguard-aphelios": [{"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Radiant Relics", "rarity": "Prismatic"}], "solar-yunara": [{"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "New Recruit", "rarity": "Gold"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}], "warwick-ravager": [{"name": "Built Different", "rarity": "Gold"}, {"name": "Last Stand", "rarity": "Gold"}, {"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Hustler", "rarity": "Silver"}, {"name": "Binary Airdrop", "rarity": "Prismatic"}], "caitlyn-reroll": [{"name": "Hustler", "rarity": "Silver"}, {"name": "Trade Sector", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}], "master-yi-adaptor": [{"name": "Built Different", "rarity": "Gold"}, {"name": "Thrill of the Hunt", "rarity": "Gold"}, {"name": "Combat Training", "rarity": "Silver"}, {"name": "Last Stand", "rarity": "Gold"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Radiant Relics", "rarity": "Prismatic"}]};
+const DEFAULT_AUGMENTS = [{"name": "Component Grab Bag", "rarity": "Silver"}, {"name": "Pandora's Items", "rarity": "Gold"}, {"name": "Built Different", "rarity": "Gold"}, {"name": "Jeweled Lotus", "rarity": "Gold"}, {"name": "Rich Get Richer", "rarity": "Prismatic"}, {"name": "Radiant Relics", "rarity": "Prismatic"}];
+
+function augmentIcon(name){
+  if(!name) return '';
+  const slug=String(name).toLowerCase().replace(/['']/g,'').replace(/\s*[ivx]+$/i,'').replace(/[^a-z0-9]+/g,'');
+  return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/augments/hexcore/${slug}.png`;
+}
+
+function augmentsSection(c){
+  if(!c) return '';
+  const list = (COMP_AUGMENTS[c.slug] || DEFAULT_AUGMENTS).slice(0,6);
+  if(!list.length) return '';
+  const title = lang==='ar' ? 'الأوجمنتس المقترحة' : lang==='ja' ? 'おすすめオーグメント' : 'Recommended Augments';
+  const hint = lang==='ar' ? 'أولويات عامة — اختار حسب الأوجمنتس اللي بتظهرلك' : lang==='ja' ? '目安です。出たものから優先' : 'General priorities — pick from what you hit';
+  const cards = list.map(a=>{
+    const rarity=(a.rarity||'Gold');
+    const name=a.name||'';
+    return `<div class="comp-aug rarity-${rarity.toLowerCase()}" title="${name}">
+      <img src="${augmentIcon(name)}" alt="" loading="lazy" onerror="this.style.opacity=.25">
+      <div class="comp-aug-meta">
+        <span class="comp-aug-name">${name}</span>
+        <span class="comp-aug-rarity">${rarity}</span>
+      </div>
+    </div>`;
+  }).join('');
+  return `<section class="detail-section comp-augs-section">
+    <h2>${title}</h2>
+    <p class="comp-augs-hint">${hint}</p>
+    <div class="comp-augs-grid">${cards}</div>
+  </section>
+  <style>
+  .comp-augs-hint{margin:0 0 14px;color:var(--muted);font-size:13px}
+  .comp-augs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+  .comp-aug{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .comp-aug img{width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:8px;background:#0d111c}
+  .comp-aug-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .comp-aug-name{font:600 13px Outfit,Cairo,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .comp-aug-rarity{font:600 11px Outfit,sans-serif;opacity:.75}
+  .comp-aug.rarity-silver .comp-aug-rarity{color:#c8c8c8}
+  .comp-aug.rarity-gold .comp-aug-rarity{color:#e9b964}
+  .comp-aug.rarity-prismatic .comp-aug-rarity{color:#c47ae0}
+  </style>`;
+}
+
 function renderComp(c){
   if(!c) return `<p class="empty">${t('notFound')||'Not found'}</p>`;
   let html=detail(c);
   const guide=playGuide(c);
-  if(guide){
+  const augs=augmentsSection(c);
+  const extra=(guide||'')+(augs||'');
+  if(extra){
     if(html.includes('board-section')){
-      html=html.replace(/(<section class="detail-section board-section">[\s\S]*?<\/section>)/, `$1\n  ${guide}`);
+      html=html.replace(/(<section class="detail-section board-section">[\s\S]*?<\/section>)/, `$1\n  ${extra}`);
     } else if(html.includes('page-subtitle')){
-      html=html.replace(/(<p class="page-subtitle">[\s\S]*?<\/p>)/, `$1\n  ${guide}`);
+      html=html.replace(/(<p class="page-subtitle">[\s\S]*?<\/p>)/, `$1\n  ${extra}`);
     } else {
-      html=guide+html;
+      html=extra+html;
     }
   }
   return html;
