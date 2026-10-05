@@ -1,31 +1,46 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005k';
-import {traitImg} from './icons.js?v=20261005k';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005k';
+import {t,localize,lang,localePath} from './locale.js?v=20261005q';
+import {traitImg} from './icons.js?v=20261005q';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005q';
 
 export function champImg(name){
   const raw=String(name||'').trim();
+  if(!raw) return '';
   const n=raw.toLowerCase().replace(/['']/g,'').replace(/\s+/g,'');
-  const tft18={
+  const special={
     pebbles:'tft18_sentry',sentry:'tft18_sentry',
-    krug:'tft18_krug',
-    cinderling:'tft18_cinderling',
-    scuttlecrab:'tft18_scuttlecrab',
-    gromp:'tft18_gromp',
-    brambleback:'tft18_brambleback',
-    murkwolf:'tft18_murkwolf',
+    krug:'tft18_krug',cinderling:'tft18_cinderling',
+    scuttlecrab:'tft18_scuttlecrab',gromp:'tft18_gromp',
+    brambleback:'tft18_brambleback',murkwolf:'tft18_murkwolf',
     mamabeak:'tft18_raptor',
-    sentinel:'tft18_sentinel',
-    elderdragon:'tft18_elderdragon'
+    sentinel:'tft18_sentinel',ancientsentinel:'tft18_sentinel',
+    elderdragon:'tft18_elderdragon',kobuko:'tft18_kobuko',
+    yunara:'tft18_yunara',willump:'tft18_willump',
+    alune:'tft18_alune'
   };
-  const id=tft18[n];
-  if(id){
+  if(special[n]){
+    const id=special[n];
     if(id==='tft18_raptor')
       return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png`;
     return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
   }
-  const map={Pebbles:'Sentry',Sentinel:'Galio',Krug:'Malphite',Cinderling:'Smolder',Scuttlecrab:'Rammus',Gromp:'Nunu',Brambleback:'Ivern',MamaBeak:'Quinn',Mamabeak:'Quinn'};
-  const pretty=raw.replace(/\s+/g,'');
-  const key=map[pretty]||pretty;
+  const tft18Champs=new Set([
+    'akali','camille','cinderling','karma','kobuko','leona','ornn','pebbles','rakan','reksai',
+    'varus','veigar','xayah','yorick','alistar','caitlyn','elise','gromp','kayle','leblanc',
+    'murkwolf','scuttlecrab','sejuani','shen','teemo','warwick','yunara','azir','cassiopeia',
+    'diana','fiddlesticks','hecarim','khazix','kogmaw','krug','masteryi','rammus','mamabeak',
+    'rengar','tristana','vi','ahri','amumu','aphelios','brambleback','ezreal','lillia',
+    'malphite','morgana','nidalee','sett','sentinel','sivir','soraka','zyra','alune','ashe',
+    'draven','elderdragon','gnar','ivern','kennen','lux','maokai','taric','ancientsentinel'
+  ]);
+  if(tft18Champs.has(n)){
+    const id='tft18_'+n;
+    return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
+  }
+  const dd={
+    reksai:'RekSai',khazix:'Khazix',kogmaw:'KogMaw',masteryi:'MasterYi',
+    leblanc:'Leblanc',fiddlesticks:'FiddleSticks',chogath:'Chogath'
+  };
+  const key=dd[n]||raw.replace(/['']/g,'').replace(/\s+/g,'');
   return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/${key}.png`;
 }
 export function itemImg(name){

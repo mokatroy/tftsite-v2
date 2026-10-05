@@ -1,5 +1,5 @@
 export const CHAMP_ALIAS = {pebbles:'pebbles','mama beak':'mamabeak',mamabeak:'mamabeak','ancient golem':'golem',scuttlecrab:'scuttlecrab',cinderling:'cinderling',brambleback:'brambleback',gromp:'gromp',krug:'krug',sentinel:'sentinel'};
-export const CHAMP_COST = {xayah:4,ezreal:4,aphelios:4,sivir:4,ashe:5,draven:5,caitlyn:5,yunara:4,nidalee:4,khazix:3,warwick:2,masteryi:5,gnar:5,rakan:3,alune:5,veigar:1,azir:3,cassiopeia:3,ahri:4,morgana:4,amumu:4,taric:5,sentinel:4,krug:3,pebbles:1,cinderling:1,scuttlecrab:2,gromp:2,brambleback:4,'mama beak':3,mamabeak:3,murkwolf:2};
+export const CHAMP_COST = {xayah:4,ezreal:4,aphelios:4,sivir:4,ashe:5,draven:5,caitlyn:5,yunara:4,nidalee:4,khazix:3,warwick:2,masteryi:5,gnar:5,rakan:3,alune:5,veigar:1,azir:3,cassiopeia:3,ahri:4,morgana:4,amumu:4,taric:5,sentinel:4,krug:3,pebbles:1,cinderling:1,scuttlecrab:2,gromp:2,brambleback:4,'mama beak':3,mamabeak:3,murkwolf:2,elise:2,diana:3,hecarim:2};
 export const CHAMP_BIS = {
   xayah: ["Guinsoo's Rageblade","Last Whisper","Bloodthirster"],
   ezreal: ["Guinsoo's Rageblade","Spear of Shojin","Last Whisper"],
@@ -31,16 +31,20 @@ export const CHAMP_BIS = {
   gromp: ["Warmog's Armor","Dragon's Claw","Gargoyle Stoneplate"],
   brambleback: ["Titan's Resolve","Bloodthirster","Sterak's Gage"],
   'mama beak': ["Guinsoo's Rageblade","Infinity Edge","Last Whisper"],
-  mamabeak: ["Guinsoo's Rageblade","Infinity Edge","Last Whisper"]
+  mamabeak: ["Guinsoo's Rageblade","Infinity Edge","Last Whisper"],
+  elise: ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"],
+  diana: ["Blue Buff","Jeweled Gauntlet","Morellonomicon"],
+  hecarim: ["Titan's Resolve","Bloodthirster","Sterak's Gage"],
+  murkwolf: ["Infinity Edge","Bloodthirster","Titan's Resolve"]
 };
 export const TANK_BIS = ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"];
 export const AP_BIS = ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"];
 export const AD_BIS = ["Infinity Edge","Last Whisper","Bloodthirster"];
 export const ROLE_MAP = {
   tank:['amumu','taric','sentinel','scuttlecrab','gromp','rakan','krug'],
-  ap:['alune','veigar','azir','cassiopeia','ahri','morgana','pebbles'],
+  ap:['alune','veigar','azir','cassiopeia','ahri','morgana','pebbles','elise','diana'],
   ad:['xayah','ezreal','aphelios','sivir','ashe','draven','caitlyn','yunara','nidalee','khazix','cinderling','mamabeak','mama beak'],
-  flex:['warwick','masteryi','gnar','brambleback','murkwolf']
+  flex:['warwick','masteryi','gnar','brambleback','murkwolf','hecarim']
 };
 export function roleKey(name){
   const n=String(name||'').toLowerCase().trim();
