@@ -14,13 +14,14 @@
   <header class="site-header">
     <a class="brand" href="index.html"><span class="brand-mark">M</span><span>MokaTroy <em>TFT</em></span></a>
     <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="comps.html">التشكيلات</a>
-      <a class="active" href="builder.html">البناء</a>
-      <a href="champions.html">التشامبيونز</a>
-      <a href="items.html">الأيتمز</a>
-      <a href="traits.html">التريتس</a>
-      <a href="patch.html">الباتش</a>
+      <a href="index.html" data-i18n="navHome">الرئيسية</a>
+      <a href="comps.html" data-i18n="navComps">التشكيلات</a>
+      <a class="active" href="builder.html" data-i18n="navBuilder">البناء</a>
+      <a href="augments.html" data-i18n="navAugments">الأوجمنتس</a>
+      <a href="champions.html" data-i18n="navChampions">التشامبيونز</a>
+      <a href="items.html" data-i18n="navItems">الأيتمز</a>
+      <a href="traits.html" data-i18n="navTraits">التريتس</a>
+      <a href="patch.html" data-i18n="navPatch">الباتش</a>
     </nav>
     <button class="lang-toggle" type="button" id="builder-lang" aria-label="Language">EN</button>
   </header>
@@ -31,7 +32,6 @@
     <p class="page-subtitle" id="builder-sub">اختار تشامبيونز وحطهم على البورد — التريتس تتعدّ تلقائيًا</p>
 
     <div class="builder-layout">
-      <!-- Board + actions -->
       <section class="builder-board-wrap">
         <div class="builder-toolbar">
           <span class="builder-count" id="unit-count">0 / 10</span>
@@ -41,7 +41,6 @@
         <p class="builder-hint" id="builder-hint">اضغط على خانة فاضية بعد ما تختار تشامبيون من تحت</p>
       </section>
 
-      <!-- Traits sidebar -->
       <aside class="builder-traits" id="traits-panel">
         <h2 id="traits-heading">التريتس</h2>
         <div class="traits-list" id="traits-list">
@@ -50,7 +49,6 @@
       </aside>
     </div>
 
-    <!-- Champion pool -->
     <section class="builder-pool">
       <div class="pool-toolbar">
         <div class="cost-tabs" id="cost-tabs"></div>
