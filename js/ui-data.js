@@ -1,8 +1,5 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005g';
-import {traitImg} from './icons.js?v=20261005g';
-
-export const CHAMP_ALIAS = {pebbles:'sentry','mama beak':'raptor',mamabeak:'raptor','ancient golem':'golem',scuttlecrab:'scuttlecrab',cinderling:'cinderling',brambleback:'brambleback',gromp:'gromp',krug:'krug'};
-export const CHAMP_COST = {xayah:4,ezreal:3,aphelios:4,sivir:3,ashe:2,draven:4,caitlyn:5,yunara:4,nidalee:3,khazix:3,warwick:2,masteryi:5,gnar:2,rakan:3,alune:4,veigar:3,azir:4,cassiopeia:3,ahri:4,morgana:3,amumu:1,taric:2,sentinel:1,krug:2,pebbles:1,cinderling:1,scuttlecrab:1,gromp:2,brambleback:3,'mama beak':3,mamabeak:3};
+export const CHAMP_ALIAS = {pebbles:'pebbles','mama beak':'mamabeak',mamabeak:'mamabeak','ancient golem':'golem',scuttlecrab:'scuttlecrab',cinderling:'cinderling',brambleback:'brambleback',gromp:'gromp',krug:'krug',sentinel:'sentinel'};
+export const CHAMP_COST = {xayah:4,ezreal:4,aphelios:4,sivir:4,ashe:5,draven:5,caitlyn:5,yunara:4,nidalee:4,khazix:3,warwick:2,masteryi:5,gnar:5,rakan:3,alune:5,veigar:1,azir:3,cassiopeia:3,ahri:4,morgana:4,amumu:4,taric:5,sentinel:4,krug:3,pebbles:1,cinderling:1,scuttlecrab:2,gromp:2,brambleback:4,'mama beak':3,mamabeak:3,murkwolf:2};
 export const CHAMP_BIS = {
   xayah: ["Guinsoo's Rageblade","Last Whisper","Bloodthirster"],
   ezreal: ["Guinsoo's Rageblade","Spear of Shojin","Last Whisper"],
@@ -33,17 +30,17 @@ export const CHAMP_BIS = {
   scuttlecrab: ["Warmog's Armor","Gargoyle Stoneplate","Bramble Vest"],
   gromp: ["Warmog's Armor","Dragon's Claw","Gargoyle Stoneplate"],
   brambleback: ["Titan's Resolve","Bloodthirster","Sterak's Gage"],
-  'mama beak': ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"],
-  mamabeak: ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"]
+  'mama beak': ["Guinsoo's Rageblade","Infinity Edge","Last Whisper"],
+  mamabeak: ["Guinsoo's Rageblade","Infinity Edge","Last Whisper"]
 };
 export const TANK_BIS = ["Warmog's Armor","Gargoyle Stoneplate","Sunfire Cape"];
 export const AP_BIS = ["Blue Buff","Jeweled Gauntlet","Rabadon's Deathcap"];
 export const AD_BIS = ["Infinity Edge","Last Whisper","Bloodthirster"];
 export const ROLE_MAP = {
-  tank:['amumu','taric','sentinel','scuttlecrab','gromp','rakan','mama beak','mamabeak'],
+  tank:['amumu','taric','sentinel','scuttlecrab','gromp','rakan','krug'],
   ap:['alune','veigar','azir','cassiopeia','ahri','morgana','pebbles'],
-  ad:['xayah','ezreal','aphelios','sivir','ashe','draven','caitlyn','yunara','nidalee','khazix','cinderling'],
-  flex:['warwick','masteryi','gnar','krug','brambleback']
+  ad:['xayah','ezreal','aphelios','sivir','ashe','draven','caitlyn','yunara','nidalee','khazix','cinderling','mamabeak','mama beak'],
+  flex:['warwick','masteryi','gnar','brambleback','murkwolf']
 };
 export function roleKey(name){
   const n=String(name||'').toLowerCase().trim();
@@ -51,8 +48,9 @@ export function roleKey(name){
 }
 export function roleOf(name){
   const k=roleKey(name);
+  const low=String(name||'').toLowerCase();
   for(const [role,list] of Object.entries(ROLE_MAP)){
-    if(list.includes(k)||list.includes(String(name||'').toLowerCase())) return role;
+    if(list.includes(k)||list.includes(low)) return role;
   }
   return 'flex';
 }
