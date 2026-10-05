@@ -1,5 +1,5 @@
-import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005aug';
-import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005aug';
+import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005aug2';
+import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005aug2';
 
 const slug=new URLSearchParams(location.search).get('slug');
 let comp,patch;
@@ -32,7 +32,31 @@ const DEFAULT_AUGMENTS = [{"name": "Component Grab Bag", "rarity": "Silver"}, {"
 
 function augmentIcon(name){
   if(!name) return '';
-  const slug=String(name).toLowerCase().replace(/['']/g,'').replace(/\s*[ivx]+$/i,'').replace(/[^a-z0-9]+/g,'');
+  const key=String(name).toLowerCase().trim();
+  const map={
+    'jeweled lotus':'jeweled-lotus-ii',
+    'rich get richer':'richgetricher2',
+    'dark ritual':'darkritual2',
+    "pandora's items":'pandora1',
+    'trade sector':'trade2',
+    'cybernetic uplink':'cybernetic-uplink-ii',
+    'binary airdrop':'binaryairdrop3',
+    'component grab bag':'componentgrabbag-ii',
+    'item grab bag':'itemgrabbag1',
+    'thrill of the hunt':'thrillhunt1',
+    'portable forge':'portableforge2',
+    'last stand':'last-stand-ii',
+    'hustler':'hyperroll2',
+    'combat training':'combat-training-ii',
+    'new recruit':'newrecruit3',
+    'radiant relics':'radiantrelic-iii',
+    'built different':'builtdifferent2',
+    'wise spending':'wisespending3'
+  };
+  let slug=map[key];
+  if(!slug){
+    slug=key.replace(/['']/g,'').replace(/\s*[ivx]+$/i,'').replace(/[^a-z0-9]+/g,'');
+  }
   return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/augments/hexcore/${slug}.png`;
 }
 
