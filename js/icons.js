@@ -21,7 +21,7 @@ export function traitImg(name){
 const AUGMENT_SLUGS = {
   'jeweled lotus': 'jeweled-lotus-ii',
   'rich get richer': 'richgetricher2',
-  'dark ritual': 'darkritual2',
+  'dark ritual': 'missing-t2',
   "pandora's items": 'pandora1',
   'trade sector': 'trade2',
   'cybernetic uplink': 'cybernetic-uplink-ii',
