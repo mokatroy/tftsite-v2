@@ -1,6 +1,6 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005g';
-import {traitImg} from './icons.js?v=20261005g';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005g';
+import {t,localize,lang,localePath} from './locale.js?v=20261005h';
+import {traitImg} from './icons.js?v=20261005h';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005h';
 
 export function champImg(name){
   const n=String(name||'').replace(/\s+/g,'');
@@ -9,9 +9,58 @@ export function champImg(name){
   return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/${key}.png`;
 }
 export function itemImg(name){
-  const map={"Guinsoo's Rageblade":"GuinsoosRageblade","Bloodthirster":"Bloodthirster","Last Whisper":"LastWhisper","Giant Slayer":"GiantSlayer","Infinity Edge":"InfinityEdge","Hand of Justice":"HandOfJustice","Spear of Shojin":"SpearofShojin","Blue Buff":"BlueBuff","Rabadon's Deathcap":"RabadonsDeathcap","Jeweled Gauntlet":"JeweledGauntlet","Morellonomicon":"Morellonomicon","Sunfire Cape":"SunfireCape","Gargoyle Stoneplate":"GargoyleStoneplate","Warmog's Armor":"WarmogsArmor","Bramble Vest":"BrambleVest","Dragon's Claw":"DragonsClaw","Titan's Resolve":"TitansResolve","Sterak's Gage":"SteraksGage","Deathblade":"Deathblade","Ionic Spark":"IonicSpark","Red Buff":"RedBuff"};
-  const key=map[name]||String(name||'').replace(/[^a-zA-Z]/g,'');
-  return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/item/${key}.png`;
+  if(!name) return '';
+  const map={
+    "Guinsoo's Rageblade":"tft_item_guinsoosrageblade",
+    "Bloodthirster":"tft_item_bloodthirster",
+    "Last Whisper":"tft_item_lastwhisper",
+    "Giant Slayer":"tft_item_madredsbloodrazor",
+    "Infinity Edge":"tft_item_infinityedge",
+    "Hand of Justice":"tft_item_unstableconcoction",
+    "Spear of Shojin":"tft_item_spearofshojin",
+    "Blue Buff":"tft_item_bluebuff",
+    "Rabadon's Deathcap":"tft_item_rabadonsdeathcap",
+    "Jeweled Gauntlet":"tft_item_jeweledgauntlet",
+    "Morellonomicon":"tft_item_morellonomicon",
+    "Sunfire Cape":"tft_item_redbuff",
+    "Gargoyle Stoneplate":"tft_item_gargoylestoneplate",
+    "Warmog's Armor":"tft_item_warmogsarmor",
+    "Bramble Vest":"tft_item_bramblevest",
+    "Dragon's Claw":"tft_item_dragonsclaw",
+    "Titan's Resolve":"tft_item_titansresolve",
+    "Sterak's Gage":"tft_item_steraksgage",
+    "Deathblade":"tft_item_deathblade",
+    "Ionic Spark":"tft_item_ionicspark",
+    "Red Buff":"tft_item_redbuff",
+    "Edge of Night":"tft_item_guardianangel",
+    "Archangel's Staff":"tft_item_archangelsstaff",
+    "Hextech Gunblade":"tft_item_hextechgunblade",
+    "Crownguard":"tft_item_crownguard",
+    "Protector's Vow":"tft_item_protectorsvow",
+    "Spirit Visage":"tft_item_spiritvisage",
+    "Adaptive Helm":"tft_item_adaptivehelm",
+    "Evenshroud":"tft_item_evenshroud",
+    "Steadfast Heart":"tft_item_steadfastheart",
+    "Nashor's Tooth":"tft_item_nashorstooth",
+    "Void Staff":"tft_item_voidstaff",
+    "Kraken's Fury":"tft_item_krakensfury",
+    "B.F. Sword":"tft_item_bfsword",
+    "Recurve Bow":"tft_item_recurvebow",
+    "Needlessly Large Rod":"tft_item_needlesslylargerod",
+    "Tear of the Goddess":"tft_item_tearofthegoddess",
+    "Chain Vest":"tft_item_chainvest",
+    "Negatron Cloak":"tft_item_negatroncloak",
+    "Giant's Belt":"tft_item_giantsbelt",
+    "Sparring Gloves":"tft_item_sparringgloves",
+    "Spatula":"tft_item_spatula",
+    "Frying Pan":"tft_item_fryingpan"
+  };
+  let slug=map[name];
+  if(!slug){
+    const k=String(name).toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'');
+    slug='tft_item_'+k;
+  }
+  return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/${slug}.png`;
 }
 export function unitChip(u, withImg=true){
   const name=typeof u==='string'?u:(u?.name?localize(u.name)||u.name:u?.en||u?.ar||'');
