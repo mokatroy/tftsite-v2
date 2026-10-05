@@ -1,14 +1,12 @@
-import {unitChip,traitChip,itemChip,renderBoard,champImg,itemImg,compCard} from './ui-core.js?v=20261005c';
-export {unitChip,traitChip,itemChip,renderBoard,champImg,itemImg,compCard};
-export * from './ui-core.js?v=20261005c';
-import {t,localize,lang,localePath} from './locale.js?v=20261005c';
+import {t,localize,lang,localePath} from './locale.js?v=20261005g';
+export * from './ui-core.js?v=20261005g';
+import {unitChip,traitChip,itemChip,renderBoard} from './ui-core.js?v=20261005g';
 
 export function detail(comp){
   if(!comp) return `<p class="empty">${t('notFound')}</p>`;
   const title=localize(comp.name)||comp.slug||'';
   const style=localize(comp.style)||'';
   const note=localize(comp.note)||localize(comp.summary)||'';
-  const how=localize(comp.howToPlay)||localize(comp.guide)||'';
   const tier=(comp.tier||'A').toUpperCase();
   const traits=(comp.traits||[]).map(tr=>traitChip(tr)).join('');
   const items=(comp.items||comp.coreItems||[]).map(n=>itemChip(typeof n==='string'?n:n.name||n)).join('');
@@ -19,11 +17,10 @@ export function detail(comp){
   <p class="eyebrow"><span class="tier-badge">${tier}</span> <span class="style-pill">${style}</span></p>
   <h1 class="page-title">${title}</h1>
   <p class="page-subtitle">${note}</p>
-  <section class="detail-section"><h2>${t('units')}</h2><div class="unit-row">${units}</div></section>
   <section class="detail-section board-section"><h2>${boardTitle}</h2>${boardHtml}</section>
+  <section class="detail-section"><h2>${t('units')}</h2><div class="unit-row">${units}</div></section>
   ${traits?`<section class="detail-section"><h2>${t('traits')}</h2><div class="trait-row">${traits}</div></section>`:''}
-  ${items?`<section class="detail-section"><h2>${t('items')}</h2><div class="item-row">${items}</div></section>`:''}
-  ${how?`<section class="detail-section"><h2>${t('howToPlay')}</h2><div class="guide">${how}</div></section>`:''}`;
+  ${items?`<section class="detail-section"><h2>${t('items')}</h2><div class="item-row">${items}</div></section>`:''}`;
 }
 export function patchPage(p){
   if(!p) return `<p class="empty">${t('notFound')}</p>`;
