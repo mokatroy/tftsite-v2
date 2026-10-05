@@ -1,5 +1,5 @@
-import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005d';
-import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005d';
+import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005g';
+import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005g';
 
 const slug=new URLSearchParams(location.search).get('slug');
 let comp,patch;
@@ -31,13 +31,15 @@ function renderComp(c){
   if(!c) return `<p class="empty">${t('notFound')||'Not found'}</p>`;
   let html=detail(c);
   const guide=playGuide(c);
-  if(!guide) return html;
-  if(html.includes('page-subtitle')){
-    html=html.replace(/(<p class="page-subtitle">[\s\S]*?<\/p>)/, `$1\n  ${guide}`);
-  } else {
-    html=guide+html;
+  if(guide){
+    if(html.includes('board-section')){
+      html=html.replace(/(<section class="detail-section board-section">[\s\S]*?<\/section>)/, `$1\n  ${guide}`);
+    } else if(html.includes('page-subtitle')){
+      html=html.replace(/(<p class="page-subtitle">[\s\S]*?<\/p>)/, `$1\n  ${guide}`);
+    } else {
+      html=guide+html;
+    }
   }
-  html=html.replace(/<section class="detail-section"><h2>[^<]*<\/h2><div class="guide">[\s\S]*?<\/div><\/section>\s*$/,'');
   return html;
 }
 
