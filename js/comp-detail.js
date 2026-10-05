@@ -1,5 +1,5 @@
-import{setupLanguage,t,lang,localize}from'./locale.js';
-import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js';
+import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005b';
+import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005b';
 
 const slug=new URLSearchParams(location.search).get('slug');
 let comp,patch;
