@@ -1,5 +1,5 @@
-import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js';
-import{compCard}from'./ui.js';
+import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js?v=20261005fix';
+import{compCard}from'./ui.js?v=20261005fix';
 let comps=[],situational=[],tier='All',query='';
 const root=document.querySelector('#comps-grid') || document.querySelector('#comps-list');
 const situationalRoot=document.querySelector('#situational-list');
