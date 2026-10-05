@@ -8,74 +8,114 @@
       "ja": "パッチ 18.3b"
     },
     "summary": {
-      "ar": "تحديث سريع بعد 18.3: نيرف لـ Kha'Zix، نيرف لتضحية Blackthorn السحرية، وتعطيل أوجمنت Dark Ritual ومشاكل Polymorph.",
-      "en": "A B-patch on 18.3: Kha'Zix nerfed, AP Blackthorn sacrifice nerfed, Dark Ritual disabled, and Greater Polymorph temporarily disabled.",
-      "ja": "18.3のBパッチ。Kha'Zixナーフ、APブラックソーン生け贄ナーフ、Dark Ritual無効化、Greater Polymorph一時無効。"
+      "ar": "B-patch على 18.3: نيرف لـ Kha'Zix و Blackthorn AP، باف بسيط لـ Brambleback، تعطيل Greater Polymorph و Dark Ritual، واستعادة تعديلات 18.2B اللي اترجعت بالغلط.",
+      "en": "B-patch on 18.3: Kha'Zix and Blackthorn AP nerfed, slight Brambleback buff, Greater Polymorph and Dark Ritual disabled, and 18.2B ranks restored after an accidental revert.",
+      "ja": "18.3のBパッチ。Kha'ZixとBlackthorn APナーフ、Brambleback微バフ、Greater PolymorphとDark Ritual無効化、18.2Bの誤リバーを復元。"
     },
     "highlights": {
-      "ar": "الهدف: تهدئة البوردات اللي اعتمدت على Kha'Zix و Blackthorn AP بعد ما طلعت أقوى من المتوقع، وإصلاح استغلالات الـ Wisp.",
-      "en": "Goal: tone down Kha'Zix and AP Blackthorn boards that overperformed after 18.3, and close Wisp exploit paths.",
-      "ja": "18.3後に強すぎたKha'ZixとAPブラックソーンを抑制し、Wispの悪用経路を塞ぐ。"
+      "ar": "الهدف: تهدئة بوردات Rival و Blackthorn AP بعد ما طلعت أقوى من المتوقع، وإغلاق استغلالات الـ Wisp، مع إعادة توازنات 18.2B.",
+      "en": "Goal: tone down Rival and AP Blackthorn boards that overperformed, close Wisp exploit paths, and restore 18.2B balance that was accidentally reverted.",
+      "ja": "強すぎたRivalとAP Blackthornを抑制し、Wisp悪用を塞ぎ、誤って戻った18.2Bバランスを復元。"
     },
     "changes": [
       {
         "type": "nerf",
         "category": "champion",
-        "name": {"ar": "Kha'Zix", "en": "Kha'Zix", "ja": "Kha'Zix"},
+        "name": { "ar": "Kha'Zix", "en": "Kha'Zix", "ja": "Kha'Zix" },
         "detail": {
-          "ar": "ضرر القدرة الأساسي: 285/400/580 → 265/370/535 (AP). الهدف تهدئة بوردات Rival بعد ما طلعت أقوى من اللازم في 18.3.",
-          "en": "Ability base damage: 285/400/580 → 265/370/535 AP. Aimed at Rival boards that overperformed after 18.3.",
-          "ja": "スキル基礎ダメージ 285/400/580 → 265/370/535 AP。18.3後に強すぎたライバル構成の抑制。"
+          "ar": "ضرر القدرة الأساسي: 285/400/580 → 265/370/535 AP. ضرر العزل (Isolation): 310/445/660 → 285/410/605 AP.",
+          "en": "Ability base damage: 285/400/580 → 265/370/535 AP. Isolation damage: 310/445/660 → 285/410/605 AP.",
+          "ja": "スキル基礎ダメージ 285/400/580 → 265/370/535 AP。Isolation 310/445/660 → 285/410/605 AP。"
         }
       },
       {
         "type": "nerf",
         "category": "trait",
-        "name": {"ar": "Blackthorn", "en": "Blackthorn", "ja": "ブラックソーン"},
+        "name": { "ar": "Blackthorn", "en": "Blackthorn", "ja": "ブラックソーン" },
         "detail": {
-          "ar": "تضحية الـ AP — زيادة الضرر الأساسي: 14% → 12%. تقليل قيمة التضحية السحرية.",
-          "en": "AP Sacrifice base damage amp: 14% → 12%. Reduces the payoff of AP-focused Blackthorn lines.",
-          "ja": "AP生け贄の基礎ダメージ増加 14% → 12%。AP寄りのブラックソーンのリターンを低下。"
+          "ar": "تضحية الـ AP — زيادة الضرر الأساسي: 14% → 12%.",
+          "en": "AP Sacrifice base damage amp: 14% → 12%.",
+          "ja": "AP生け贄の基礎ダメージ増加 14% → 12%。"
         }
       },
       {
-        "type": "adjust",
-        "category": "augment",
-        "name": {"ar": "Dark Ritual", "en": "Dark Ritual", "ja": "Dark Ritual"},
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Brambleback", "en": "Brambleback", "ja": "Brambleback" },
         "detail": {
-          "ar": "الأوجمنت متعطّل في الباتش الحالي بسبب مشاكل توازن.",
-          "en": "This augment is disabled on the current patch due to balance issues.",
-          "ja": "バランス上の問題により、現在このオーグメントは無効。"
+          "ar": "وقت الكاست بقى أسرع شوية.",
+          "en": "Cast time is now slightly faster.",
+          "ja": "キャスト時間がわずかに短縮。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Ashe", "en": "Ashe", "ja": "Ashe" },
+        "detail": {
+          "ar": "(استعادة 18.2B) ضرر القدرة: 5/8 AD/s → 9/14 AD/s. المدة: 4 ث → 3 ث.",
+          "en": "(Restored 18.2B) Ability damage: 5/8 AD/s → 9/14 AD/s. Duration: 4s → 3s.",
+          "ja": "（18.2B復元）スキルダメージ 5/8 AD/s → 9/14 AD/s。持続 4s → 3s。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "champion",
+        "name": { "ar": "Camille", "en": "Camille", "ja": "Camille" },
+        "detail": {
+          "ar": "(استعادة 18.2B) ضرر القدرة: 160/240/410/700 → 150/225/375/640.",
+          "en": "(Restored 18.2B) Ability damage: 160/240/410/700 → 150/225/375/640.",
+          "ja": "（18.2B復元）スキルダメージ 160/240/410/700 → 150/225/375/640。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "champion",
+        "name": { "ar": "LeBlanc", "en": "LeBlanc", "ja": "LeBlanc" },
+        "detail": {
+          "ar": "(استعادة 18.2B) فرصة الكلون: 10/15/40% → 10/15/30%.",
+          "en": "(Restored 18.2B) Clone chance: 10/15/40% → 10/15/30%.",
+          "ja": "（18.2B復元）クローン確率 10/15/40% → 10/15/30%。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "champion",
+        "name": { "ar": "Teemo", "en": "Teemo", "ja": "Teemo" },
+        "detail": {
+          "ar": "(استعادة 18.2B) ضرر القدرة: 60/90/135 → 55/82/130.",
+          "en": "(Restored 18.2B) Ability damage: 60/90/135 → 55/82/130.",
+          "ja": "（18.2B復元）スキルダメージ 60/90/135 → 55/82/130。"
         }
       },
       {
         "type": "adjust",
         "category": "wisp",
-        "name": {"ar": "Greater Polymorph", "en": "Greater Polymorph", "ja": "Greater Polymorph"},
+        "name": { "ar": "Greater Polymorph", "en": "Greater Polymorph", "ja": "Greater Polymorph" },
         "detail": {
-          "ar": "تم تعطيل الـ Wisp مؤقتًا حتى 18.4 بعد استغلال سمح بـ 2-star 5-cost بدري جدًا.",
-          "en": "Temporarily disabled until 18.4 after an exploit enabled consistent early two-star 5-costs.",
-          "ja": "早期の2スター5コストを可能にする悪用が確認されたため、18.4まで一時無効。"
-        }
-      },
-      {
-        "type": "buff",
-        "category": "system",
-        "name": {"ar": "Combat Augments", "en": "Combat Augments", "ja": "戦闘オーグメント"},
-        "detail": {
-          "ar": "18.3 ركّز على رفع قوة أوجمنتس القتال اللي كانت ضعيفة، مع تهدئة الأسقف العالية لبعض التريتس.",
-          "en": "18.3 also lifted underused combat augments while trimming power ceilings on strong traits.",
-          "ja": "18.3では弱い戦闘オーグメントを強化しつつ、強トレイトの上限も抑制。"
+          "ar": "متعطل مؤقتًا حتى 18.4 بعد استغلال سمح بـ 2-star 5-cost بدري.",
+          "en": "Temporarily disabled until 18.4 after an exploit enabled early two-star 5-costs.",
+          "ja": "早期2スター5コストを可能にする悪用のため、18.4まで一時無効。"
         }
       },
       {
         "type": "adjust",
-        "category": "meta",
-        "name": {"ar": "Meta snapshot", "en": "Meta snapshot", "ja": "メタ概況"},
+        "category": "augment",
+        "name": { "ar": "Dark Ritual", "en": "Dark Ritual", "ja": "Dark Ritual" },
         "detail": {
-          "ar": "بعد الـ B-patch: Dragon 9 و Ahri lines و Primal dual-carry لسه قوية. Kha'Zix بقى مشروط أكتر (Unrivaled / items). ركّز على الاقتصاد والوصول لفل 8–9 نظيف.",
-          "en": "Post B-patch: Dragon 9, Ahri lines, and Primal dual-carry remain strong. Kha'Zix is more conditional (Unrivaled / items). Focus on clean econ and hitting 8–9.",
-          "ja": "Bパッチ後もDragon 9、Ahri系、Primalデュアルキャリーは強い。Kha'Zixは条件付き（Unrivaled / アイテム）。クリーンな経済と8〜9到達を意識。"
+          "ar": "الأوجمنت متعطل في الباتش الحالي بسبب مشاكل توازن.",
+          "en": "Disabled on the current patch due to balance issues.",
+          "ja": "バランス問題により現在無効。"
+        }
+      },
+      {
+        "type": "adjust",
+        "category": "system",
+        "name": { "ar": "Champion Targeting", "en": "Champion Targeting", "ja": "チャンピオンターゲット" },
+        "detail": {
+          "ar": "اترجع تغيير استهداف 18.2 عمدًا عشان يطابق سلوك Set 17/18.",
+          "en": "18.2 champion targeting change intentionally reverted for parity with Sets 17/18.",
+          "ja": "18.2のターゲット変更を意図的に戻し、Set17/18と揃える。"
         }
       }
     ]
