@@ -1,5 +1,5 @@
-import {setupLanguage,localize,t,lang} from './locale.js?v=20261005n';
-import {itemChip,traitChip} from './ui.js?v=20261005n';
+import {setupLanguage,localize,t,lang} from './locale.js?v=20261005o';
+import {itemChip,traitChip} from './ui.js?v=20261005o';
 
 /** Champions-page-only avatar resolver (Set 18 CD + ddragon fallback) */
 function champAvatar(name){
