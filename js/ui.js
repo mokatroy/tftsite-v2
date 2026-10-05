@@ -1,6 +1,6 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005g';
-export * from './ui-core.js?v=20261005g';
-import {unitChip,traitChip,itemChip,renderBoard} from './ui-core.js?v=20261005g';
+import {t,localize,lang,localePath} from './locale.js?v=20261005h';
+export * from './ui-core.js?v=20261005h';
+import {unitChip,traitChip,itemChip,renderBoard} from './ui-core.js?v=20261005h';
 
 export function detail(comp){
   if(!comp) return `<p class="empty">${t('notFound')}</p>`;
