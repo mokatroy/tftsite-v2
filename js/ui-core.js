@@ -1,6 +1,6 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261007champs';
-import {traitImg} from './icons.js?v=20261007champs';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261007champs';
+import {t,localize,lang,localePath} from './locale.js?v=20261007items';
+import {traitImg} from './icons.js?v=20261007items';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261007items';
 
 export function resolveChampId(name){
   const raw=String(name||'').trim();
@@ -48,13 +48,12 @@ export function champImgRemote(name){
   return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/${key}.png`;
 }
 
-/** Local-first champion icon (assets/champs). Fallback handled on <img onerror>. */
 export function champImg(name){
   const id=resolveChampId(name);
   if(id) return `assets/champs/${id}.png`;
   return champImgRemote(name);
 }
-export function itemImg(name){
+export function itemSlug(name){
   if(!name) return '';
   const map={
     "Guinsoo's Rageblade":"tft_item_guinsoosrageblade",
@@ -99,14 +98,34 @@ export function itemImg(name){
     "Giant's Belt":"tft_item_giantsbelt",
     "Sparring Gloves":"tft_item_sparringgloves",
     "Spatula":"tft_item_spatula",
-    "Frying Pan":"tft_item_fryingpan"
+    "Frying Pan":"tft_item_fryingpan",
+    "Quicksilver":"tft_item_quicksilver",
+    "Runaan's Hurricane":"tft_item_runaanshurricane",
+    "Statikk Shiv":"tft_item_statikkshiv",
+    "Thief's Gloves":"tft_item_thiefsgloves",
+    "Guardbreaker":"tft_item_guardbreaker",
+    "Striker's Flail":"tft_item_strikersflail",
+    "Night Harvester":"tft_item_nightharvester",
+    "Rapid Firecannon":"tft_item_rapidfirecannon"
   };
   let slug=map[name];
   if(!slug){
     const k=String(name).toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'');
     slug='tft_item_'+k;
   }
+  return slug;
+}
+
+export function itemImgRemote(name){
+  const slug=itemSlug(name);
+  if(!slug) return '';
   return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/items/hexcore/${slug}.png`;
+}
+
+export function itemImg(name){
+  const slug=itemSlug(name);
+  if(!slug) return '';
+  return `assets/items/${slug}.png`;
 }
 export function unitChip(u, withImg=true){
   const name=typeof u==='string'?u:(u?.name?localize(u.name)||u.name:u?.en||u?.ar||'');
@@ -124,7 +143,7 @@ export function traitChip(tr){
 export function itemChip(name){
   const n=typeof name==='string'?name:(name?.name||'');
   if(!n) return '';
-  return `<span class="item-chip has-img" data-item="${n}"><img src="${itemImg(n)}" alt="" loading="lazy" onerror="this.style.display='none'"><span>${n}</span></span>`;
+  return `<span class="item-chip has-img" data-item="${n}"><img src="${itemImg(n)}" data-remote="${itemImgRemote(n)}" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}"><span>${n}</span></span>`;
 }
 export function compCard(c){
   const title=localize(c.name)||c.slug||'';
@@ -197,7 +216,7 @@ export function renderBoard(comp){
       const cost=champCost(name);
       const items=(unit.items||[]).slice(0,3);
       const allItems=(unit.allItems||unit.items||[]).slice(0,3);
-      const icons=items.map(n=>`<img class="hex-item" data-item="${n}" src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
+      const icons=items.map(n=>`<img class="hex-item" data-item="${n}" src="${itemImg(n)}" data-remote="${itemImgRemote(n)}" alt="${n}" title="${n}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}">`).join('');
       if(allItems.length) builds.push({name, items: allItems, img});
       const entry={name, img, items, carry:!!unit.carry};
       if(r<=1) frontUnits.push(entry); else backUnits.push(entry);
@@ -209,11 +228,11 @@ export function renderBoard(comp){
   const fl=lang==='ar'?'فرونت لاين':lang==='ja'?'フロント':'Frontline';
   const bl=lang==='ar'?'باك لاين':lang==='ja'?'バック':'Backline';
   const lane=list=>list.map(u=>{
-    const icons=(u.items||[]).map(n=>`<img src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
+    const icons=(u.items||[]).map(n=>`<img src="${itemImg(n)}" data-remote="${itemImgRemote(n)}" alt="${n}" title="${n}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}">`).join('');
     return `<div class="bm-unit ${u.carry?'carry':''}"><img class="bm-champ" src="${u.img}" data-remote="${champImgRemote(u.name)}" alt="${u.name}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.opacity=.3}"><span class="bm-name">${u.name}</span><div class="bm-items">${icons}</div></div>`;
   }).join('');
   const mobile=`<div class="board-mobile"><div class="bm-lane"><span class="bm-label">${fl}</span><div class="bm-units">${lane(frontUnits)}</div></div><div class="bm-lane"><span class="bm-label">${bl}</span><div class="bm-units">${lane(backUnits)}</div></div></div>`;
   const desktop=`<div class="board-desktop hex-grid">${rows.join('')}</div>`;
-  const buildHtml=builds.map(b=>`<div class="board-build" data-unit="${b.name}"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img data-item="${n}" src="${itemImg(n)}" alt="${n}" title="${n}">`).join('')}</div></div>`).join('');
+  const buildHtml=builds.map(b=>`<div class="board-build" data-unit="${b.name}"><img class="bb-champ" src="${b.img}" alt=""><strong>${b.name}</strong><div class="bb-items">${b.items.map(n=>`<img data-item="${n}" src="${itemImg(n)}" data-remote="${itemImgRemote(n)}" alt="${n}" title="${n}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}">`).join('')}</div></div>`).join('');
   return `<div class="tft-board"><div class="board-label">${front}</div>${mobile}${desktop}${buildHtml?`<div class="board-builds">${buildHtml}</div>`:''}</div>`;
 }
