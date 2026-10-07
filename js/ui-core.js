@@ -1,8 +1,8 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261005r';
-import {traitImg} from './icons.js?v=20261005r';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261005r';
+import {t,localize,lang,localePath} from './locale.js?v=20261007champs';
+import {traitImg} from './icons.js?v=20261007champs';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261007champs';
 
-export function champImg(name){
+export function resolveChampId(name){
   const raw=String(name||'').trim();
   if(!raw) return '';
   const n=raw.toLowerCase().replace(/['']/g,'').replace(/\s+/g,'');
@@ -17,12 +17,7 @@ export function champImg(name){
     yunara:'tft18_yunara',willump:'tft18_willump',
     alune:'tft18_alune'
   };
-  if(special[n]){
-    const id=special[n];
-    if(id==='tft18_raptor')
-      return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png`;
-    return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
-  }
+  if(special[n]) return special[n];
   const tft18Champs=new Set([
     'akali','camille','cinderling','karma','kobuko','leona','ornn','pebbles','rakan','reksai',
     'varus','veigar','xayah','yorick','alistar','caitlyn','elise','gromp','kayle','leblanc',
@@ -32,16 +27,32 @@ export function champImg(name){
     'malphite','morgana','nidalee','sett','sentinel','sivir','soraka','zyra','alune','ashe',
     'draven','elderdragon','gnar','ivern','kennen','lux','maokai','taric','ancientsentinel'
   ]);
-  if(tft18Champs.has(n)){
-    const id='tft18_'+n;
+  if(tft18Champs.has(n)) return 'tft18_'+n;
+  return '';
+}
+
+export function champImgRemote(name){
+  const id=resolveChampId(name);
+  if(id){
+    if(id==='tft18_raptor')
+      return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png`;
     return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
   }
+  const raw=String(name||'').trim();
+  const n=raw.toLowerCase().replace(/['']/g,'').replace(/\s+/g,'');
   const dd={
     reksai:'RekSai',khazix:'Khazix',kogmaw:'KogMaw',masteryi:'MasterYi',
     leblanc:'Leblanc',fiddlesticks:'FiddleSticks',chogath:'Chogath'
   };
   const key=dd[n]||raw.replace(/['']/g,'').replace(/\s+/g,'');
   return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/${key}.png`;
+}
+
+/** Local-first champion icon (assets/champs). Fallback handled on <img onerror>. */
+export function champImg(name){
+  const id=resolveChampId(name);
+  if(id) return `assets/champs/${id}.png`;
+  return champImgRemote(name);
 }
 export function itemImg(name){
   if(!name) return '';
@@ -101,7 +112,7 @@ export function unitChip(u, withImg=true){
   const name=typeof u==='string'?u:(u?.name?localize(u.name)||u.name:u?.en||u?.ar||'');
   const n=String(name||'');
   if(!n) return '';
-  const img=withImg?`<img src="${champImg(n)}" alt="" loading="lazy" onerror="this.style.display='none'">`:'';
+  const img=withImg?`<img src="${champImg(n)}" data-remote="${champImgRemote(n)}" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}">`:'';
   return `<span class="unit-chip has-img" data-unit="${n}">${img}<span>${n}</span></span>`;
 }
 export function traitChip(tr){
@@ -190,7 +201,7 @@ export function renderBoard(comp){
       if(allItems.length) builds.push({name, items: allItems, img});
       const entry={name, img, items, carry:!!unit.carry};
       if(r<=1) frontUnits.push(entry); else backUnits.push(entry);
-      cells.push(`<div class="cell" data-unit="${name}"><div class="hex filled cost-${cost} ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3"></div>${icons?`<div class="hex-items">${icons}</div>`:''}</div></div>`);
+      cells.push(`<div class="cell" data-unit="${name}"><div class="hex filled cost-${cost} ${unit.carry?'carry':''}" title="${name}"><div class="hex-inner"><img class="hex-champ" src="${img}" data-remote="${champImgRemote(name)}" alt="${name}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.opacity=.3}"></div>${icons?`<div class="hex-items">${icons}</div>`:''}</div></div>`);
     }
     rows.push(`<div class="hex-row ${r%2===1?'offset':''}">${cells.join('')}</div>`);
   }
@@ -199,7 +210,7 @@ export function renderBoard(comp){
   const bl=lang==='ar'?'باك لاين':lang==='ja'?'バック':'Backline';
   const lane=list=>list.map(u=>{
     const icons=(u.items||[]).map(n=>`<img src="${itemImg(n)}" alt="${n}" title="${n}" loading="lazy">`).join('');
-    return `<div class="bm-unit ${u.carry?'carry':''}"><img class="bm-champ" src="${u.img}" alt="${u.name}" loading="lazy" onerror="this.style.opacity=.3"><span class="bm-name">${u.name}</span><div class="bm-items">${icons}</div></div>`;
+    return `<div class="bm-unit ${u.carry?'carry':''}"><img class="bm-champ" src="${u.img}" data-remote="${champImgRemote(u.name)}" alt="${u.name}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.opacity=.3}"><span class="bm-name">${u.name}</span><div class="bm-items">${icons}</div></div>`;
   }).join('');
   const mobile=`<div class="board-mobile"><div class="bm-lane"><span class="bm-label">${fl}</span><div class="bm-units">${lane(frontUnits)}</div></div><div class="bm-lane"><span class="bm-label">${bl}</span><div class="bm-units">${lane(backUnits)}</div></div></div>`;
   const desktop=`<div class="board-desktop hex-grid">${rows.join('')}</div>`;
