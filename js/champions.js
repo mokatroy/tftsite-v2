@@ -1,7 +1,6 @@
-import {setupLanguage,localize,t,lang} from './locale.js?v=20261005o';
-import {itemChip,traitChip} from './ui.js?v=20261005o';
+import {setupLanguage,localize,t,lang} from './locale.js?v=20261007champs';
+import {itemChip,traitChip} from './ui.js?v=20261007champs';
 
-/** Champions-page-only avatar resolver (Set 18 CD + ddragon fallback) */
 function champAvatar(name){
   const raw=String(name||'').trim();
   if(!raw) return '';
@@ -21,24 +20,11 @@ function champAvatar(name){
     elderdragon:'tft18_elderdragon',
     kobuko:'tft18_kobuko',
     yunara:'tft18_yunara',
-    willump:'tft18_willump'
+    willump:'tft18_willump',
+    alune:'tft18_alune'
   };
-  if(special[n]){
-    const id=special[n];
-    if(id==='tft18_raptor')
-      return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png`;
-    return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
-  }
-  const dd={
-    reksai:'RekSai',khazix:'Khazix',kogmaw:'KogMaw',masteryi:'MasterYi',
-    leblanc:'Leblanc',chogath:'Chogath',monkeyking:'MonkeyKing',
-    nunu:'Nunu',missfortune:'MissFortune',jarvaniv:'JarvanIV',
-    tahmkench:'TahmKench',twistedfate:'TwistedFate',xinzhao:'XinZhao',
-    aurelionsol:'AurelionSol',belveth:'Belveth',renataglasc:'Renata',
-    draven:'Draven',fiddlesticks:'FiddleSticks'
-  };
-  const key=dd[n]||raw.replace(/['']/g,'').replace(/\s+/g,'');
-  const tft18Only=new Set([
+  let id=special[n]||'';
+  const tft18Champs=new Set([
     'akali','camille','cinderling','karma','kobuko','leona','ornn','pebbles','rakan','reksai',
     'varus','veigar','xayah','yorick','alistar','caitlyn','elise','gromp','kayle','leblanc',
     'murkwolf','scuttlecrab','sejuani','shen','teemo','warwick','yunara','azir','cassiopeia',
@@ -47,13 +33,11 @@ function champAvatar(name){
     'malphite','morgana','nidalee','sett','sentinel','sivir','soraka','zyra','alune','ashe',
     'draven','elderdragon','gnar','ivern','kennen','lux','maokai','taric','ancientsentinel'
   ]);
-  if(tft18Only.has(n) || special[n]){
-    const id=special[n]||('tft18_'+n);
-    if(id==='tft18_raptor')
-      return `https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png`;
-    return `https://raw.communitydragon.org/latest/game/assets/characters/${id}/${id}_square.png`;
-  }
-  return `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/${key}.png`;
+  if(!id && tft18Champs.has(n)) id='tft18_'+n;
+  if(id) return 'assets/champs/'+id+'.png';
+  const dd={reksai:'RekSai',khazix:'Khazix',kogmaw:'KogMaw',masteryi:'MasterYi',leblanc:'Leblanc',fiddlesticks:'FiddleSticks'};
+  const key=dd[n]||raw.replace(/['']/g,'').replace(/\s+/g,'');
+  return 'https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/'+key+'.png';
 }
 
 const grid = document.querySelector('#champ-grid') || document.querySelector('#champ-list');
@@ -114,7 +98,7 @@ function render(){
 
     return `<article class="champ-card ${costClass(c.cost)}" data-unit="${enName}">
       <div class="champ-card-head">
-        <img class="champ-avatar" src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=.3" data-unit="${enName}">
+        <img class="champ-avatar" src="${img}" alt="${name}" loading="lazy" decoding="async" data-unit="${enName}" onerror="if(!this.dataset.fb&&this.src.includes('assets/champs/')){this.dataset.fb=1;const id=this.src.split('/').pop().replace('.png','');this.src=id==='tft18_raptor'?'https://raw.communitydragon.org/latest/game/assets/characters/tft18_raptor/hud/tft18_raptor_square.png':'https://raw.communitydragon.org/latest/game/assets/characters/'+id+'/'+id+'_square.png';}else{this.style.opacity=.3}">
         <div class="champ-meta">
           <span class="cost-badge ${costClass(c.cost)}">${c.cost||'?'}\u00a2</span>
           <h3 data-unit="${enName}">${name}</h3>
