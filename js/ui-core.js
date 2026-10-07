@@ -1,6 +1,6 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261007items';
-import {traitImg} from './icons.js?v=20261007items';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261007items';
+import {t,localize,lang,localePath} from './locale.js?v=20261007traits';
+import {traitImg,traitImgRemote} from './icons.js?v=20261007traits';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261007traits';
 
 export function resolveChampId(name){
   const raw=String(name||'').trim();
@@ -138,7 +138,8 @@ export function traitChip(tr){
   const name=typeof tr==='string'?tr:(tr?.name?localize(tr.name)||tr.name:'');
   const count=tr?.count!=null?` ${tr.count}`:'';
   const img=traitImg?traitImg(name):'';
-  return `<span class="trait-chip" data-trait="${name}">${img?`<img src="${img}" alt="">`:''}<span>${name}${count}</span></span>`;
+  const remote=(typeof traitImgRemote==='function')?traitImgRemote(name):'';
+  return `<span class="trait-chip" data-trait="${name}">${img?`<img src="${img}" data-remote="${remote}" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}">`:''}<span>${name}${count}</span></span>`;
 }
 export function itemChip(name){
   const n=typeof name==='string'?name:(name?.name||'');
