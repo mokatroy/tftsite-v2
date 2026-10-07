@@ -2,7 +2,7 @@
 .mobile-tabbar{display:none}
 .board-mobile{display:none}
 
-@media(max-width:720px){
+@media(max-width:900px){
   body{padding-bottom:72px}
   .ambient{display:none}
   .site-header{
@@ -78,12 +78,7 @@
   .detail-section h2{font-size:15px;margin:0 0 10px}
   .unit-row,.trait-row,.item-row{display:flex;flex-wrap:wrap;gap:6px}
   .item-chip{direction:ltr;unicode-bidi:isolate;gap:6px;padding:4px 8px}
-  .item-chip img{width:28px;height:28px;flex:0 0 28px}
-  .trait-chip{direction:ltr;unicode-bidi:isolate}
-  .trait-chip img{width:22px;height:22px}
-  .guide{font-size:13px;line-height:1.7;unicode-bidi:plaintext}
-  .page-subtitle{unicode-bidi:plaintext}
-  .back-link{display:inline-block;margin-bottom:10px;font-size:13px}
+  .item-chip img{width:22px;height:22px}
 
   .board-desktop,.hex-grid,.hex-row,.cell,.hex{display:none!important}
   .board-mobile{display:flex!important;flex-direction:column;gap:12px}
@@ -147,4 +142,20 @@
   .bm-unit{width:64px}
   .bm-unit img.bm-champ{width:40px;height:40px}
   .page-title,.hero h1{font-size:24px!important}
+}
+
+
+/* Comp detail extras on mobile */
+@media(max-width:900px){
+  .play-stages{display:flex;flex-direction:column;gap:10px}
+  .play-stage{padding:12px!important}
+  .play-stage-text{font-size:13px;line-height:1.5}
+  .econ-list li{font-size:13px;padding:10px!important}
+  .comp-augs-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
+  .comp-aug{padding:8px!important}
+  .comp-aug-name{font-size:12px!important}
+  .comp-aug img{width:28px!important;height:28px!important}
+  .board-builds{margin-top:10px}
+  .lang-menu{right:12px;left:auto;min-width:140px}
+  [dir=rtl] .lang-menu{left:12px;right:auto}
 }
