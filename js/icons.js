@@ -49,7 +49,7 @@ const AUGMENT_SLUGS = {
   'wise spending': 'wisespending3'
 };
 
-export function augmentImg(name){
+export function augmentSlug(name){
   if(!name) return '';
   const key = String(name).toLowerCase().trim();
   let slug = AUGMENT_SLUGS[key];
@@ -60,5 +60,18 @@ export function augmentImg(name){
       .replace(/[^a-z0-9]+/g,'')
       .toLowerCase();
   }
+  return slug;
+}
+
+export function augmentImgRemote(name){
+  const slug = augmentSlug(name);
+  if(!slug) return '';
   return `https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/augments/hexcore/${slug}.png`;
+}
+
+/** Local-first augment icon (assets/augments). Fallback via img onerror. */
+export function augmentImg(name){
+  const slug = augmentSlug(name);
+  if(!slug) return '';
+  return `assets/augments/${slug}.png`;
 }
