@@ -1,20 +1,30 @@
-/** Set 18 trait icon via CommunityDragon */
-export function traitImg(name){
+/** Set 18 trait slug (icon filename without path) */
+export function traitSlug(name){
   if(!name) return '';
   const key = String(name).toLowerCase()
-    .replace(/['’]/g,'')
+    .replace(/['’']/g,'')
     .replace(/\s+/g,'')
     .replace(/[^a-z0-9]/g,'');
-  // aliases for names that differ from icon files
   const alias = {
-    blackthorn: 'caustic', // fallback if missing
+    blackthorn: 'caustic',
     arcanist: 'spellweaver',
     warden: 'defender',
-    'bounty seeker': 'bountyseeker',
     bountyseeker: 'bountyseeker'
   };
-  const slug = alias[key] || alias[String(name).toLowerCase()] || key;
+  return alias[key] || key;
+}
+
+export function traitImgRemote(name){
+  const slug = traitSlug(name);
+  if(!slug) return '';
   return `https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_18_${slug}.png`;
+}
+
+/** Local-first trait icon (assets/traits). Fallback via img onerror. */
+export function traitImg(name){
+  const slug = traitSlug(name);
+  if(!slug) return '';
+  return `assets/traits/trait_icon_18_${slug}.png`;
 }
 
 /** Known augment name → hexcore icon slug */
@@ -44,9 +54,8 @@ export function augmentImg(name){
   const key = String(name).toLowerCase().trim();
   let slug = AUGMENT_SLUGS[key];
   if(!slug){
-    // heuristic: strip roman numerals, spaces → slug
     slug = key
-      .replace(/['’]/g,'')
+      .replace(/['’']/g,'')
       .replace(/\s*[ivx]+$/i,'')
       .replace(/[^a-z0-9]+/g,'')
       .toLowerCase();
