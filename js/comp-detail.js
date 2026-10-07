@@ -1,6 +1,6 @@
-import{setupLanguage,t,lang,localize}from'./locale.js?v=20261005econ1';
-import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261005econ1';
-import{augmentImg}from'./icons.js?v=20261005econ1';
+import{setupLanguage,t,lang,localize}from'./locale.js?v=20261007augs';
+import{detail,unitChip,traitChip,itemChip,renderBoard}from'./ui.js?v=20261007augs';
+import{augmentImg,augmentImgRemote}from'./icons.js?v=20261007augs';
 
 const COMP_AUGMENTS = {"riftbeast-sentinel":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"elderwood-xayah":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Item Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"vanguard-alune":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Built Different","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"hunter-sivir":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Hustler","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"spellweaver-veigar":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"flora-azir":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"New Recruit","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Built Different","rarity":"Gold"},{"name":"Wise Spending","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"defender-cass":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Portable Forge","rarity":"Prismatic"}],"juggernaut-flex":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"lunar-aphelios":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"lunar-aphelios-nidalee":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"invoker-ahri":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Dark Ritual","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"executioner-khazix":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Binary Airdrop","rarity":"Prismatic"}],"juggernaut-ashe":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"invoker-morgana-sentinel":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Cybernetic Uplink","rarity":"Silver"},{"name":"Last Stand","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Portable Forge","rarity":"Prismatic"}],"sivir-nidalee":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Hustler","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"draven-fast9":[{"name":"Rich Get Richer","rarity":"Prismatic"},{"name":"Wise Spending","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Item Grab Bag","rarity":"Silver"},{"name":"Radiant Relics","rarity":"Prismatic"}],"vanguard-aphelios":[{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Built Different","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}],"solar-yunara":[{"name":"Jeweled Lotus","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"New Recruit","rarity":"Gold"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"warwick-ravager":[{"name":"Built Different","rarity":"Gold"},{"name":"Last Stand","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Hustler","rarity":"Silver"},{"name":"Binary Airdrop","rarity":"Prismatic"}],"caitlyn-reroll":[{"name":"Hustler","rarity":"Silver"},{"name":"Trade Sector","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Component Grab Bag","rarity":"Silver"},{"name":"Rich Get Richer","rarity":"Prismatic"}],"master-yi-adaptor":[{"name":"Built Different","rarity":"Gold"},{"name":"Thrill of the Hunt","rarity":"Gold"},{"name":"Combat Training","rarity":"Silver"},{"name":"Last Stand","rarity":"Gold"},{"name":"Pandora's Items","rarity":"Gold"},{"name":"Radiant Relics","rarity":"Prismatic"}]};
 
@@ -33,8 +33,25 @@ function augmentIcon(name){
     "Radiant Relics":"radiantrelic-iii","Built Different":"builtdifferent2","Wise Spending":"wisespending3"
   };
   const slug=MAP[name];
+  if(slug) return "assets/augments/"+slug+".png";
+  try{
+    const u=augmentImg(name);
+    if(u) return u;
+  }catch(e){}
+  return "";
+}
+function augmentIconRemote(name){
+  const MAP={
+    "Jeweled Lotus":"jeweled-lotus-ii","Rich Get Richer":"richgetricher2","Dark Ritual":"missing-t2",
+    "Pandora's Items":"pandora1","Trade Sector":"trade2","Cybernetic Uplink":"cybernetic-uplink-ii",
+    "Binary Airdrop":"binaryairdrop3","Component Grab Bag":"componentgrabbag-ii","Item Grab Bag":"itemgrabbag1",
+    "Thrill of the Hunt":"thrillhunt1","Portable Forge":"portableforge2","Last Stand":"last-stand-ii",
+    "Hustler":"hyperroll2","Combat Training":"combat-training-ii","New Recruit":"newrecruit3",
+    "Radiant Relics":"radiantrelic-iii","Built Different":"builtdifferent2","Wise Spending":"wisespending3"
+  };
+  const slug=MAP[name];
   if(slug) return "https://raw.communitydragon.org/latest/game/assets/maps/tft/icons/augments/hexcore/"+slug+".png";
-  try{return augmentImg(name)||"";}catch(e){return"";}
+  try{return augmentImgRemote?augmentImgRemote(name):(augmentImg(name)||"");}catch(e){return"";}
 }
 
 function stageLabel(stage){
@@ -76,46 +93,14 @@ function detectEconPlan(styleText){
 
 function econPlanLines(key){
   const plans={
-    fast8:{
-      ar:['Stage 2–3: اقتصاد وون/لوس ستريك حسب اللوبي','Level: ادفع لفل 8 بسرعة (حوالي Stage 4-1)','Gold: حافظ على 50 دهب لما تقدر، رول خفيف لو ضعيف'],
-      en:['Stage 2–3: Streak for interest','Level: Push to 8 around 4-1','Gold: Hold 50 when possible; light roll if weak'],
-      ja:['Stage 2–3: ストリークで利息','Level: 4-1前後でレベル8','Gold: 可能なら50ゴールド維持']
-    },
-    fast89:{
-      ar:['Stage 2–3: تيمبو قوي أو اقتصاد نظيف','Level: لفل 8 بدري، لفل 9 لو البورد مستقر','Gold: متبعترش دهب قبل 8 إلا للبقاء'],
-      en:['Stage 2–3: Strong tempo or clean econ','Level: Hit 8 early, 9 if stable','Gold: Don’t burn gold before 8 unless surviving'],
-      ja:['Stage 2–3: テンポか安定エコ','Level: 早めに8、安定なら9','Gold: 8前の無駄遣いを避ける']
-    },
-    fast9:{
-      ar:['Stage 2–4: اقتصاد أقصى + تيمبو كافٍ للبقاء','Level: لفل 9 هدف أساسي (Stage 5)','Gold: 50+ طول الطريق، رول بس لما توصل 9'],
-      en:['Stage 2–4: Max econ + enough tempo to live','Level: Level 9 is the goal (Stage 5)','Gold: Stay 50+; roll mainly at 9'],
-      ja:['Stage 2–4: 最大エコ＋生存テンポ','Level: レベル9が目標（Stage5）','Gold: 50以上維持、主に9でロール']
-    },
-    sr78:{
-      ar:['Stage 2: وون ستريك لو أمكن','Level: لفل 7 ثم سلو رول فوق 50','Gold: متنزلش تحت 50 وأنت بتسلو رول'],
-      en:['Stage 2: Win-streak if possible','Level: Hit 7 then slow roll above 50','Gold: Don’t drop under 50 while slow rolling'],
-      ja:['Stage 2: 可能ならウィンストリーク','Level: 7到達後50以上でスローロール','Gold: スローロール中は50を割らない']
-    },
-    sr7:{
-      ar:['Stage 2–3: تيمبو بدري مستقر','Level: لفل 7 وسلو رول للـ2★','Gold: رول فوق 50، كمّل لفل 8 بعد ما تثبت'],
-      en:['Stage 2–3: Stable early tempo','Level: Level 7 and slow roll for 2★','Gold: Roll above 50; level 8 after you stabilize'],
-      ja:['Stage 2–3: 安定した序盤','Level: 7で2★狙いのスローロール','Gold: 50以上でロール、安定後に8']
-    },
-    rr6:{
-      ar:['Stage 2: اجمع وحدات الريرول بدري','Level: لفل 6 ورول للـ3★','Gold: رول فوق 50 على 6، متستعجلش 7'],
-      en:['Stage 2: Collect reroll units early','Level: Level 6 and roll for 3★','Gold: Roll above 50 at 6; don’t rush 7'],
-      ja:['Stage 2: リロールユニットを早めに','Level: 6で3★狙い','Gold: 6で50以上ロール、7を急がない']
-    },
-    rr56:{
-      ar:['Stage 1–2: افتح وحدات رخيصة فورًا','Level: لفل 5–6 ورول عنيف للـ3★','Gold: مصلحة الريرول أهم من الفائدة البنكية'],
-      en:['Stage 1–2: Open cheap units immediately','Level: Level 5–6 and hard roll for 3★','Gold: Reroll value > pure interest'],
-      ja:['Stage 1–2: 安いユニットをすぐ集める','Level: 5–6で3★ハードロール','Gold: 利息よりリロール優先']
-    },
-    rr67:{
-      ar:['Stage 2–3: وحدات الريرول + تيمبو','Level: لفل 6–7 حسب قطعتك','Gold: رول فوق 50، ثبّت 2★/3★ قبل ما تطلع'],
-      en:['Stage 2–3: Reroll units + tempo','Level: Level 6–7 depending on hits','Gold: Roll above 50; stabilize before leveling'],
-      ja:['Stage 2–3: リロール＋テンポ','Level: 当たり次第で6–7','Gold: 50以上でロール、安定優先']
-    }
+    fast8:{ar:['Stage 2–3: اقتصاد وون/لوس ستريك حسب اللوبي','Level: ادفع لفل 8 بسرعة (حوالي Stage 4-1)','Gold: حافظ على 50 دهب لما تقدر، رول خفيف لو ضعيف'],en:['Stage 2–3: Streak for interest','Level: Push to 8 around 4-1','Gold: Hold 50 when possible; light roll if weak'],ja:['Stage 2–3: ストリークで利息','Level: 4-1前後でレベル8','Gold: 可能なら50ゴールド維持']},
+    fast89:{ar:['Stage 2–3: تيمبو قوي أو اقتصاد نظيف','Level: لفل 8 بدري، لفل 9 لو البورد مستقر','Gold: متبعترش دهب قبل 8 إلا للبقاء'],en:['Stage 2–3: Strong tempo or clean econ','Level: Hit 8 early, 9 if stable','Gold: Don’t burn gold before 8 unless surviving'],ja:['Stage 2–3: テンポか安定エコ','Level: 早めに8、安定なら9','Gold: 8前の無駄遣いを避ける']},
+    fast9:{ar:['Stage 2–4: اقتصاد أقصى + تيمبو كافٍ للبقاء','Level: لفل 9 هدف أساسي (Stage 5)','Gold: 50+ طول الطريق، رول بس لما توصل 9'],en:['Stage 2–4: Max econ + enough tempo to live','Level: Level 9 is the goal (Stage 5)','Gold: Stay 50+; roll mainly at 9'],ja:['Stage 2–4: 最大エコ＋生存テンポ','Level: レベル9が目標（Stage5）','Gold: 50以上維持、主に9でロール']},
+    sr78:{ar:['Stage 2: وون ستريك لو أمكن','Level: لفل 7 ثم سلو رول فوق 50','Gold: متنزلش تحت 50 وأنت بتسلو رول'],en:['Stage 2: Win-streak if possible','Level: Hit 7 then slow roll above 50','Gold: Don’t drop under 50 while slow rolling'],ja:['Stage 2: 可能ならウィンストリーク','Level: 7到達後50以上でスローロール','Gold: スローロール中は50を割らない']},
+    sr7:{ar:['Stage 2–3: تيمبو بدري مستقر','Level: لفل 7 وسلو رول للـ2★','Gold: رول فوق 50، كمّل لفل 8 بعد ما تثبت'],en:['Stage 2–3: Stable early tempo','Level: Level 7 and slow roll for 2★','Gold: Roll above 50; level 8 after you stabilize'],ja:['Stage 2–3: 安定した序盤','Level: 7で2★狙いのスローロール','Gold: 50以上でロール、安定後に8']},
+    rr6:{ar:['Stage 2: اجمع وحدات الريرول بدري','Level: لفل 6 ورول للـ3★','Gold: رول فوق 50 على 6، متستعجلش 7'],en:['Stage 2: Collect reroll units early','Level: Level 6 and roll for 3★','Gold: Roll above 50 at 6; don’t rush 7'],ja:['Stage 2: リロールユニットを早めに','Level: 6で3★狙い','Gold: 6で50以上ロール、7を急がない']},
+    rr56:{ar:['Stage 1–2: افتح وحدات رخيصة فورًا','Level: لفل 5–6 ورول عنيف للـ3★','Gold: مصلحة الريرول أهم من الفائدة البنكية'],en:['Stage 1–2: Open cheap units immediately','Level: Level 5–6 and hard roll for 3★','Gold: Reroll value > pure interest'],ja:['Stage 1–2: 安いユニットをすぐ集める','Level: 5–6で3★ハードロール','Gold: 利息よりリロール優先']},
+    rr67:{ar:['Stage 2–3: وحدات الريرول + تيمبو','Level: لفل 6–7 حسب قطعتك','Gold: رول فوق 50، ثبّت 2★/3★ قبل ما تطلع'],en:['Stage 2–3: Reroll units + tempo','Level: Level 6–7 depending on hits','Gold: Roll above 50; stabilize before leveling'],ja:['Stage 2–3: リロール＋テンポ','Level: 当たり次第で6–7','Gold: 50以上でロール、安定優先']}
   };
   const p=plans[key]||plans.fast8;
   return p[lang]||p.en;
@@ -134,18 +119,8 @@ function econSection(c){
     if(m) return `<li><strong>${m[1]}</strong> ${m[2]}</li>`;
     return `<li>${line}</li>`;
   }).join('');
-  return `<section class="detail-section econ-section">
-    <h2>${title}</h2>
-    ${styleBadge}
-    <ul class="econ-list">${items}</ul>
-  </section>
-  <style>
-  .econ-section{margin-top:8px}
-  .econ-style{display:inline-block;margin:0 0 10px;padding:4px 10px;border-radius:999px;background:rgba(233,185,100,.12);color:var(--gold);font:600 12px Outfit,Cairo,sans-serif}
-  .econ-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
-  .econ-list li{padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);font:500 13px Outfit,Cairo,sans-serif;line-height:1.45;color:var(--text)}
-  .econ-list li strong{color:var(--gold);margin-inline-end:6px;font-weight:700}
-  </style>`;
+  return `<section class="detail-section econ-section"><h2>${title}</h2>${styleBadge}<ul class="econ-list">${items}</ul></section>
+  <style>.econ-section{margin-top:8px}.econ-style{display:inline-block;margin:0 0 10px;padding:4px 10px;border-radius:999px;background:rgba(233,185,100,.12);color:var(--gold);font:600 12px Outfit,Cairo,sans-serif}.econ-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}.econ-list li{padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);font:500 13px Outfit,Cairo,sans-serif;line-height:1.45;color:var(--text)}.econ-list li strong{color:var(--gold);margin-inline-end:6px;font-weight:700}</style>`;
 }
 
 function augmentsSection(c){
@@ -166,7 +141,7 @@ function augmentsSection(c){
     const order=i+1;
     return `<div class="comp-aug rarity-${rarity.toLowerCase()} prio-${prio}" title="${name}">
       <span class="comp-aug-order">${order}</span>
-      <img src="${augmentIcon(name)}" alt="" width="36" height="36" loading="eager" decoding="async" referrerpolicy="no-referrer">
+      <img src="${augmentIcon(name)}" data-remote="${augmentIconRemote(name)}" alt="" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}">
       <div class="comp-aug-meta">
         <span class="comp-aug-name">${name}</span>
         <span class="comp-aug-tags"><span class="comp-aug-rarity">${rarity}</span><span class="comp-aug-prio">${pl}</span></span>
