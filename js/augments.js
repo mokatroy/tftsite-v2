@@ -1,5 +1,5 @@
 import {lang,setupLanguage,t} from './locale.js';
-import {augmentImg} from './icons.js';
+import {augmentImg,augmentImgRemote} from './icons.js?v=20261007augs';
 
 const grid = document.querySelector('#augments-board');
 const search = document.querySelector('#augment-search');
@@ -57,7 +57,7 @@ function render(){
           return `
           <article class="augment-card rarity-${a.rarity.toLowerCase()}">
             <div class="augment-card-top">
-              <img class="augment-icon" src="${img}" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img class="augment-icon" src="${img}" data-remote="${augmentImgRemote(a.name)}" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}">
               <span class="augment-rarity">${esc(a.rarity)}</span>
             </div>
             <h3>${esc(a.name)}</h3>
