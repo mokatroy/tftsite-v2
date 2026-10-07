@@ -1,0 +1,22 @@
+name: Fetch item icons
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download item icons
+        run: python3 scripts/fetch-item-icons.py
+      - name: Commit assets
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "assets: refresh TFT item icons"
+          file_pattern: "assets/items/*.png"
