@@ -1,5 +1,266 @@
 [
   {
+    "version": "18.4",
+    "releaseDate": "2026-10-07",
+    "title": {
+      "ar": "باتش 18.4",
+      "en": "Patch 18.4",
+      "ja": "パッチ 18.4"
+    },
+    "summary": {
+      "ar": "باتش كبير: نقل القوة من التريتس للوحدات، باف لخطوط 1–2 كوست الضعيفة، ونيرف لاستراتيجيات كانت مهيمنة (Coven cashout، Executioner، Juggernaut، Veigar). رجوع Dark Ritual وعدة أوجمنتس مع تعديلات توازن.",
+      "en": "Big balance patch: shift power from traits into units, buff underperforming 1–2-cost lines, and nerf dominant strategies (Coven 130 cashout, Executioner, Juggernaut, Veigar). Dark Ritual and several augments return with tuning.",
+      "ja": "大型バランスパッチ。トレイトからユニットへパワーを移し、弱い1–2コストを強化、強すぎた戦略（Coven 130、Executioner、Juggernaut、Veigar）を抑制。Dark Ritualなど複数オーグメントが調整付きで復帰。"
+    },
+    "highlights": {
+      "ar": "الهدف: تنويع الميتا — باف لـ Blossom / Lunar / Riftbeast 7 / Sprykin 7 / Eclipse، ونيرف لـ Coven و Veigar reroll. لا تغيير في الروستر أو البريك بوينتس.",
+      "en": "Goal: deeper comp diversity — buff Blossom / Lunar / Riftbeast 7 / Sprykin 7 / Eclipse; nerf Coven cashouts and Veigar reroll. No roster or breakpoint changes.",
+      "ja": "目的は編成の多様化。Blossom / Lunar / Riftbeast7 / Sprykin7 / Eclipseを強化し、CovenキャッシュとVeigarリロールを抑制。ロスター・ブレイクポイント変更なし。"
+    },
+    "changes": [
+      {
+        "type": "adjust",
+        "category": "system",
+        "name": { "ar": "Combat Arrival / Departure", "en": "Combat Arrival / Departure", "ja": "戦闘開始・終了フェーズ" },
+        "detail": {
+          "ar": "كل مرحلة أقصر بثانية واحدة (توفير ~دقيقة لكل جيم).",
+          "en": "Each phase shortened by 1 second (~1 minute saved per game).",
+          "ja": "各フェーズ1秒短縮（1試合あたり約1分短縮）。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "trait",
+        "name": { "ar": "Blossom", "en": "Blossom", "ja": "ブロッサム" },
+        "detail": {
+          "ar": "AD/AP: 12/30/45/50% → 12/30/50/55%.",
+          "en": "AD/AP: 12/30/45/50% → 12/30/50/55%.",
+          "ja": "AD/AP: 12/30/45/50% → 12/30/50/55%。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "trait",
+        "name": { "ar": "Coven", "en": "Coven", "ja": "コヴェン" },
+        "detail": {
+          "ar": "كاش آوت 130 Essence أضعف (مثلاً: 2 مكوّنات → 1 مكوّن + 6 دهب، ومكافآت Elise/Camille/Caitlyn مخفّضة).",
+          "en": "130 Essence cashouts reduced (e.g. 2 components → 1 component + 6g; Elise/Camille/Caitlyn rewards trimmed).",
+          "ja": "130エッセンスのキャッシュアウト弱体（例: コンポーネント2→1+6G、Elise/Camille/Caitlyn報酬調整）。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "trait",
+        "name": { "ar": "Eclipse", "en": "Eclipse", "ja": "エクリプス" },
+        "detail": {
+          "ar": "تأخير أول إعدام: 10 ث → 8 ث.",
+          "en": "Initial execution delay: 10s → 8s.",
+          "ja": "最初の処刑ディレイ: 10秒 → 8秒。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "trait",
+        "name": { "ar": "Elderwood (7)", "en": "Elderwood (7)", "ja": "エルダーウッド (7)" },
+        "detail": {
+          "ar": "Deepwood Protector — مانا: 20/70 → 20/60. مقاومة: 65 → 70.",
+          "en": "Deepwood Protector — Mana: 20/70 → 20/60. Resists: 65 → 70.",
+          "ja": "Deepwood Protector — マナ 20/70 → 20/60、耐性 65 → 70。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "trait",
+        "name": { "ar": "Elderwood (9)", "en": "Elderwood (9)", "ja": "エルダーウッド (9)" },
+        "detail": {
+          "ar": "مضاعف صحة النباتات عند الستار أب: 155% → 140%.",
+          "en": "Plant star-up Health multiplier: 155% → 140%.",
+          "ja": "植物の星上げ時HP倍率 155% → 140%。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "trait",
+        "name": { "ar": "Executioner", "en": "Executioner", "ja": "エクスキューショナー" },
+        "detail": {
+          "ar": "ضرر Bleed عند (3/4): 30/40% → 25/35%.",
+          "en": "Bleed damage (3/4): 30/40% → 25/35%.",
+          "ja": "Bleedダメージ (3/4) 30/40% → 25/35%。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "trait",
+        "name": { "ar": "Fae", "en": "Fae", "ja": "フェイ" },
+        "detail": {
+          "ar": "AD/AP لكل Pixie: 5/8% → 4.5/7%.",
+          "en": "AD/AP per Pixie: 5/8% → 4.5/7%.",
+          "ja": "PixieごとのAD/AP 5/8% → 4.5/7%。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "trait",
+        "name": { "ar": "Juggernaut", "en": "Juggernaut", "ja": "ジャガーノート" },
+        "detail": {
+          "ar": "Durability: 20/33/45% → 20/30/42%.",
+          "en": "Durability: 20/33/45% → 20/30/42%.",
+          "ja": "耐久 20/33/45% → 20/30/42%。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "trait",
+        "name": { "ar": "Lunar", "en": "Lunar", "ja": "ルナー" },
+        "detail": {
+          "ar": "Ability Power: 7/10/14/18% → 7/12/16/20%.",
+          "en": "Ability Power: 7/10/14/18% → 7/12/16/20%.",
+          "ja": "AP 7/10/14/18% → 7/12/16/20%。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "trait",
+        "name": { "ar": "Riftbeast (7)", "en": "Riftbeast (7)", "ja": "リフトビースト (7)" },
+        "detail": {
+          "ar": "AD/AP/AS كل 5 ثواني: 5% → 6%.",
+          "en": "AD/AP/AS every 5 seconds: 5% → 6%.",
+          "ja": "5秒ごとのAD/AP/AS 5% → 6%。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "trait",
+        "name": { "ar": "Sprykin (7)", "en": "Sprykin (7)", "ja": "スプライキン (7)" },
+        "detail": {
+          "ar": "إحصائيات BFF: 45% HP + 45% AS → 55% HP + 55% AS.",
+          "en": "BFF stats: 45% HP + 45% AS → 55% HP + 55% AS.",
+          "ja": "BFFステータス 45%HP+45%AS → 55%HP+55%AS。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Camille", "en": "Camille", "ja": "Camille" },
+        "detail": {
+          "ar": "ضرر القدرة (AD): 150/225/375/640 → 150/225/400/665.",
+          "en": "Ability damage (AD): 150/225/375/640 → 150/225/400/665.",
+          "ja": "スキルダメージ(AD) 150/225/375/640 → 150/225/400/665。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Xayah", "en": "Xayah", "ja": "Xayah" },
+        "detail": {
+          "ar": "ضرر القدرة: 68/102/155/165 → 73/108/165/175.",
+          "en": "Ability damage: 68/102/155/165 → 73/108/165/175.",
+          "ja": "スキルダメージ 68/102/155/165 → 73/108/165/175。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Rakan", "en": "Rakan", "ja": "Rakan" },
+        "detail": {
+          "ar": "الدرع: 270/320/415/490 → 290/340/435/510.",
+          "en": "Shield: 270/320/415/490 → 290/340/435/510.",
+          "ja": "シールド 270/320/415/490 → 290/340/435/510。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "champion",
+        "name": { "ar": "Veigar", "en": "Veigar", "ja": "Veigar" },
+        "detail": {
+          "ar": "ضرر القدرة: 200/300/450/765 → 190/285/430/725. عند HP منخفض: 300/450/675/1015 → 285/430/640/1000.",
+          "en": "Ability damage: 200/300/450/765 → 190/285/430/725. Low-HP damage: 300/450/675/1015 → 285/430/640/1000.",
+          "ja": "スキルダメージ 200/300/450/765 → 190/285/430/725。低HP時 300/450/675/1015 → 285/430/640/1000。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Kayle", "en": "Kayle", "ja": "Kayle" },
+        "detail": {
+          "ar": "ضرر القدرة: 62/92/105/115 → 65/97/110/115.",
+          "en": "Ability damage: 62/92/105/115 → 65/97/110/115.",
+          "ja": "スキルダメージ 62/92/105/115 → 65/97/110/115。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Shen", "en": "Shen", "ja": "Shen" },
+        "detail": {
+          "ar": "الدرع: 350/430/550/700 → 375/450/575/725. درع الحليف: 200/275/375/475 → 225/300/400/500.",
+          "en": "Shield: 350/430/550/700 → 375/450/575/725. Ally shield: 200/275/375/475 → 225/300/400/500.",
+          "ja": "シールド 350/430/550/700 → 375/450/575/725。味方シールド 200/275/375/475 → 225/300/400/500。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Gromp", "en": "Gromp", "ja": "Gromp" },
+        "detail": {
+          "ar": "شكل AD — مانا: 20/80 → 0/70. شكل AP — ضرر الـ splash: 160/240/360/610 → 160/240/375/625.",
+          "en": "AD form Mana: 20/80 → 0/70. AP form splash: 160/240/360/610 → 160/240/375/625.",
+          "ja": "AD形態マナ 20/80 → 0/70。AP形態スプラッシュ 160/240/360/610 → 160/240/375/625。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "champion",
+        "name": { "ar": "Ashe / Draven", "en": "Ashe / Draven", "ja": "Ashe / Draven" },
+        "detail": {
+          "ar": "Ashe: استرجاع 70% مانا لو السهم ما ضربش حد. Draven: استرجاع 50% مانا لو الفؤوس ما ضربتش.",
+          "en": "Ashe: refunds 70% Mana if arrow hits 0 enemies. Draven: refunds 50% Mana if axes hit 0 enemies.",
+          "ja": "Ashe: 矢が0体に当たるとマナ70%返還。Draven: 斧が0体ならマナ50%返還。"
+        }
+      },
+      {
+        "type": "nerf",
+        "category": "item",
+        "name": { "ar": "Crownguard", "en": "Crownguard", "ja": "Crownguard" },
+        "detail": {
+          "ar": "AP بعد انتهاء الدرع: 25 → 20.",
+          "en": "AP when shield expires: 25 → 20.",
+          "ja": "シールド終了時のAP 25 → 20。"
+        }
+      },
+      {
+        "type": "buff",
+        "category": "item",
+        "name": { "ar": "Spirit Visage", "en": "Spirit Visage", "ja": "Spirit Visage" },
+        "detail": {
+          "ar": "Durability: 8% → 10%. Radiant: 15% → 18%.",
+          "en": "Durability: 8% → 10%. Radiant: 15% → 18%.",
+          "ja": "耐久 8% → 10%。Radiant 15% → 18%。"
+        }
+      },
+      {
+        "type": "adjust",
+        "category": "augment",
+        "name": { "ar": "Dark Ritual / Construct-A-Companion / Forge-A-Friend", "en": "Dark Ritual / Construct-A-Companion / Forge-A-Friend", "ja": "Dark Ritual / Construct-A-Companion / Forge-A-Friend" },
+        "detail": {
+          "ar": "اتفعّلوا تاني. Dark Ritual: AP لكل كاش آوت أقل (مثلاً كاش 3: 50→33، كاش 5: 125→100).",
+          "en": "Re-enabled. Dark Ritual: less AP per cashout (e.g. cashout 3: 50→33, cashout 5: 125→100).",
+          "ja": "再有効化。Dark RitualのキャッシュごとのAP低下（例: 3回目50→33、5回目125→100）。"
+        }
+      },
+      {
+        "type": "adjust",
+        "category": "wisp",
+        "name": { "ar": "Greater Polymorph & Wisps", "en": "Greater Polymorph & Wisps", "ja": "Greater PolymorphとWisp" },
+        "detail": {
+          "ar": "Greater Polymorph راجع. كل Polymorph Wisps في أول ثانيتين من مرحلة التخطيط فقط. Wisps جديدة رخيصة (0 كوست) من 4-1 لـ 5-7 لو معاك أقل من 10 دهب.",
+          "en": "Greater Polymorph returns. All Polymorph Wisps only in the first 2s of planning. New 0-cost Wisps can appear 4-1 to 5-7 when under 10 gold.",
+          "ja": "Greater Polymorph復帰。Polymorph系は計画フェーズ最初の2秒のみ。0コストWispが4-1〜5-7で所持金10未満時に出現可。"
+        }
+      }
+    ]
+  },
+  {
     "version": "18.3b",
     "releaseDate": "2026-09-24",
     "title": {
@@ -8,116 +269,15 @@
       "ja": "パッチ 18.3b"
     },
     "summary": {
-      "ar": "B-patch على 18.3: نيرف لـ Kha'Zix و Blackthorn AP، باف بسيط لـ Brambleback، تعطيل Greater Polymorph و Dark Ritual، واستعادة تعديلات 18.2B اللي اترجعت بالغلط.",
-      "en": "B-patch on 18.3: Kha'Zix and Blackthorn AP nerfed, slight Brambleback buff, Greater Polymorph and Dark Ritual disabled, and 18.2B ranks restored after an accidental revert.",
-      "ja": "18.3のBパッチ。Kha'ZixとBlackthorn APナーフ、Brambleback微バフ、Greater PolymorphとDark Ritual無効化、18.2Bの誤リバーを復元。"
+      "ar": "B-patch على 18.3: نيرف لـ Kha'Zix و Blackthorn AP، باف بسيط لـ Brambleback، تعطيل Greater Polymorph و Dark Ritual.",
+      "en": "B-patch on 18.3: Kha'Zix and Blackthorn AP nerfed, slight Brambleback buff, Greater Polymorph and Dark Ritual disabled.",
+      "ja": "18.3のBパッチ。Kha'ZixとBlackthorn APナーフ、Brambleback微バフ、Greater PolymorphとDark Ritual無効化。"
     },
     "highlights": {
-      "ar": "الهدف: تهدئة بوردات Rival و Blackthorn AP بعد ما طلعت أقوى من المتوقع، وإغلاق استغلالات الـ Wisp، مع إعادة توازنات 18.2B.",
-      "en": "Goal: tone down Rival and AP Blackthorn boards that overperformed, close Wisp exploit paths, and restore 18.2B balance that was accidentally reverted.",
-      "ja": "強すぎたRivalとAP Blackthornを抑制し、Wisp悪用を塞ぎ、誤って戻った18.2Bバランスを復元。"
+      "ar": "تهدئة Rival و Blackthorn AP وإغلاق استغلالات الـ Wisp.",
+      "en": "Tone down Rival and AP Blackthorn; close Wisp exploit paths.",
+      "ja": "RivalとAP Blackthorn抑制、Wisp悪用を塞ぐ。"
     },
-    "changes": [
-      {
-        "type": "nerf",
-        "category": "champion",
-        "name": { "ar": "Kha'Zix", "en": "Kha'Zix", "ja": "Kha'Zix" },
-        "detail": {
-          "ar": "ضرر القدرة الأساسي: 285/400/580 → 265/370/535 AP. ضرر العزل (Isolation): 310/445/660 → 285/410/605 AP.",
-          "en": "Ability base damage: 285/400/580 → 265/370/535 AP. Isolation damage: 310/445/660 → 285/410/605 AP.",
-          "ja": "スキル基礎ダメージ 285/400/580 → 265/370/535 AP。Isolation 310/445/660 → 285/410/605 AP。"
-        }
-      },
-      {
-        "type": "nerf",
-        "category": "trait",
-        "name": { "ar": "Blackthorn", "en": "Blackthorn", "ja": "ブラックソーン" },
-        "detail": {
-          "ar": "تضحية الـ AP — زيادة الضرر الأساسي: 14% → 12%.",
-          "en": "AP Sacrifice base damage amp: 14% → 12%.",
-          "ja": "AP生け贄の基礎ダメージ増加 14% → 12%。"
-        }
-      },
-      {
-        "type": "buff",
-        "category": "champion",
-        "name": { "ar": "Brambleback", "en": "Brambleback", "ja": "Brambleback" },
-        "detail": {
-          "ar": "وقت الكاست بقى أسرع شوية.",
-          "en": "Cast time is now slightly faster.",
-          "ja": "キャスト時間がわずかに短縮。"
-        }
-      },
-      {
-        "type": "buff",
-        "category": "champion",
-        "name": { "ar": "Ashe", "en": "Ashe", "ja": "Ashe" },
-        "detail": {
-          "ar": "(استعادة 18.2B) ضرر القدرة: 5/8 AD/s → 9/14 AD/s. المدة: 4 ث → 3 ث.",
-          "en": "(Restored 18.2B) Ability damage: 5/8 AD/s → 9/14 AD/s. Duration: 4s → 3s.",
-          "ja": "（18.2B復元）スキルダメージ 5/8 AD/s → 9/14 AD/s。持続 4s → 3s。"
-        }
-      },
-      {
-        "type": "nerf",
-        "category": "champion",
-        "name": { "ar": "Camille", "en": "Camille", "ja": "Camille" },
-        "detail": {
-          "ar": "(استعادة 18.2B) ضرر القدرة: 160/240/410/700 → 150/225/375/640.",
-          "en": "(Restored 18.2B) Ability damage: 160/240/410/700 → 150/225/375/640.",
-          "ja": "（18.2B復元）スキルダメージ 160/240/410/700 → 150/225/375/640。"
-        }
-      },
-      {
-        "type": "nerf",
-        "category": "champion",
-        "name": { "ar": "LeBlanc", "en": "LeBlanc", "ja": "LeBlanc" },
-        "detail": {
-          "ar": "(استعادة 18.2B) فرصة الكلون: 10/15/40% → 10/15/30%.",
-          "en": "(Restored 18.2B) Clone chance: 10/15/40% → 10/15/30%.",
-          "ja": "（18.2B復元）クローン確率 10/15/40% → 10/15/30%。"
-        }
-      },
-      {
-        "type": "nerf",
-        "category": "champion",
-        "name": { "ar": "Teemo", "en": "Teemo", "ja": "Teemo" },
-        "detail": {
-          "ar": "(استعادة 18.2B) ضرر القدرة: 60/90/135 → 55/82/130.",
-          "en": "(Restored 18.2B) Ability damage: 60/90/135 → 55/82/130.",
-          "ja": "（18.2B復元）スキルダメージ 60/90/135 → 55/82/130。"
-        }
-      },
-      {
-        "type": "adjust",
-        "category": "wisp",
-        "name": { "ar": "Greater Polymorph", "en": "Greater Polymorph", "ja": "Greater Polymorph" },
-        "detail": {
-          "ar": "متعطل مؤقتًا حتى 18.4 بعد استغلال سمح بـ 2-star 5-cost بدري.",
-          "en": "Temporarily disabled until 18.4 after an exploit enabled early two-star 5-costs.",
-          "ja": "早期2スター5コストを可能にする悪用のため、18.4まで一時無効。"
-        }
-      },
-      {
-        "type": "adjust",
-        "category": "augment",
-        "name": { "ar": "Dark Ritual", "en": "Dark Ritual", "ja": "Dark Ritual" },
-        "detail": {
-          "ar": "الأوجمنت متعطل في الباتش الحالي بسبب مشاكل توازن.",
-          "en": "Disabled on the current patch due to balance issues.",
-          "ja": "バランス問題により現在無効。"
-        }
-      },
-      {
-        "type": "adjust",
-        "category": "system",
-        "name": { "ar": "Champion Targeting", "en": "Champion Targeting", "ja": "チャンピオンターゲット" },
-        "detail": {
-          "ar": "اترجع تغيير استهداف 18.2 عمدًا عشان يطابق سلوك Set 17/18.",
-          "en": "18.2 champion targeting change intentionally reverted for parity with Sets 17/18.",
-          "ja": "18.2のターゲット変更を意図的に戻し、Set17/18と揃える。"
-        }
-      }
-    ]
+    "changes": []
   }
 ]
