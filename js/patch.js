@@ -78,19 +78,18 @@ function render(){
     root.innerHTML = `<p class="empty">${t('notFound')||'—'}</p>`;
     return;
   }
-  // Show latest first; if multiple patches, stack them
   root.innerHTML = patches.map(renderPatch).join('<hr class="patch-divider">');
   document.title = (localize(patches[0].title) || patches[0].version || 'Patch') + ' — MokaTroy TFT';
 }
 
 const CDN = 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data';
 function loadPatches(){
-  return fetch('data/patches.json?v=20261005p').then(async r=>{
+  return fetch('data/patches.json?v=20261008p184').then(async r=>{
     if(!r.ok) throw new Error('local');
     const d = await r.json();
     if(Array.isArray(d) && d.length === 0) throw new Error('empty');
     return d;
-  }).catch(()=>fetch(CDN+'/patches.json').then(r=>r.json()));
+  }).catch(()=>fetch(CDN+'/patches.json?v=20261008p184').then(r=>r.json()));
 }
 
 loadPatches().then(xs=>{
