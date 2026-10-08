@@ -33,7 +33,7 @@ Promise.all([
   loadJson('data/v2_comps_extra.json', CDN+'/v2_comps_extra.json'),
   loadJson('data/v2_comps_extra2.json', CDN+'/v2_comps_extra2.json'),
   loadJson('data/v2_comps_extra3.json', CDN+'/v2_comps_extra3.json'),
-  fetch('data/patches.json').then(r=>r.json()).catch(()=>[])
+  fetch('data/patches.json?v=20261008p184').then(r=>r.json()).catch(()=>[])
 ]).then(([base,extra,extra2,extra3,ps])=>{
   const list=[...normalizeList(base),...normalizeList(extra),...normalizeList(extra2),...normalizeList(extra3)];
   const seen=new Set();
