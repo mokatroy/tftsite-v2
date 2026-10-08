@@ -2,6 +2,9 @@ import {setupLanguage,localize} from './locale.js?v=20261005nav';
 import{compCard}from'./ui.js?v=20261005nav';
 const load=path=>fetch(path).then(r=>{if(!r.ok)throw new Error(path);return r.json()});
 let comps=[];
+
+const TIER_18_4={'riftbeast-sentinel':'S','elderwood-xayah':'S','vanguard-alune':'S','hunter-sivir':'A','juggernaut-flex':'A','spellweaver-veigar':'B','flora-azir':'S','defender-cass':'A','lunar-aphelios-nidalee':'S','invoker-ahri':'A','executioner-khazix':'S','juggernaut-ashe':'B','invoker-morgana-sentinel':'S','sivir-nidalee':'A','draven-fast9':'A','vanguard-aphelios':'A','solar-yunara':'B','warwick-ravager':'B','caitlyn-reroll':'A','master-yi-adaptor':'B'};
+
 async function render(){
   const root=document.querySelector('#featured-comps');
   const patchTitle=document.querySelector('#patch-title');
@@ -41,7 +44,7 @@ Promise.all([
   for(const c of list){
     if(!c||!c.slug||seen.has(c.slug)) continue;
     seen.add(c.slug);
-    comps.push(c);
+    const t=TIER_18_4[c.slug]; comps.push(t?Object.assign({},c,{tier:t}):c);
   }
   const patch=Array.isArray(ps)?ps[0]:ps;
   const patchTitle=document.querySelector('#patch-title');

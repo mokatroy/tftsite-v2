@@ -1,6 +1,24 @@
 import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js?v=20261005fix';
 import{compCard}from'./ui.js?v=20261005fix';
 let comps=[],situational=[],tier='All',query='';
+
+const TIER_18_4 = {
+  'riftbeast-sentinel':'S','elderwood-xayah':'S','vanguard-alune':'S',
+  'hunter-sivir':'A','juggernaut-flex':'A','spellweaver-veigar':'B',
+  'flora-azir':'S','defender-cass':'A','lunar-aphelios-nidalee':'S',
+  'invoker-ahri':'A','executioner-khazix':'S','juggernaut-ashe':'B',
+  'invoker-morgana-sentinel':'S','sivir-nidalee':'A','draven-fast9':'A',
+  'vanguard-aphelios':'A','solar-yunara':'B','warwick-ravager':'B',
+  'caitlyn-reroll':'A','master-yi-adaptor':'B'
+};
+function applyPatchTiers(list){
+  return (list||[]).map(c=>{
+    if(!c||!c.slug) return c;
+    const t = TIER_18_4[c.slug];
+    return t ? Object.assign({}, c, {tier:t}) : c;
+  });
+}
+
 const root=document.querySelector('#comps-grid') || document.querySelector('#comps-list');
 const situationalRoot=document.querySelector('#situational-list');
 function renderSituational(){
@@ -43,12 +61,12 @@ Promise.all([
   loadJson('data/v2_comps_extra3.json', CDN+'/v2_comps_extra3.json'),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/patches.json').then(r=>r.json())
+  fetch('data/patches.json?v=20261008p184').then(r=>r.json())
 ]).then(([c,extra,extra2,extra3,s,sx,p])=>{
   const base=Array.isArray(c)?c:(c.comps||[]);
   const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[]), ...(Array.isArray(extra3)?extra3:[])];
   const seen=new Set(base.map(x=>x.slug));
-  comps=base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug)));
+  comps=applyPatchTiers(base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug))));
   const sitBase=Array.isArray(s)?s:[];
   const sitExtra=Array.isArray(sx)?sx:[];
   const sitSeen=new Set(sitBase.map(x=>x.slug));
