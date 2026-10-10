@@ -4,15 +4,176 @@
     "tier": "S",
     "featured": true,
     "color": "rgba(140,120,220,.4)",
-    "name": {"ar": "Lunarwood Kha'Zix", "en": "Lunarwood Kha'Zix", "ja": "ルナーウッド・カジックス"},
-    "style": {"ar": "أسلوب اللعب: ريرول 3-كوست لفل 7 (متوسط)", "en": "Playstyle: 3-Cost Reroll level 7 (Medium)", "ja": "プレイスタイル：3コストリロール7（中級）"},
-    "summary": {"ar": "أقوى كومب على TFT Academy في 18.4b — Kha'Zix ريرول مع Lunar + Executioner وSnowball Rival.", "en": "Academy's S-tier in 18.4b — Kha'Zix reroll with Lunar + Executioner and Rival snowball.", "ja": "18.4bのAcademy S帯。Kha'Zixリロール＋Lunar/Executioner。"},
-    "guide": {"ar": "العب بس لو عندك Kha'Zix بدري بأيتمز. سلو رول على 7 لـ 3★. Double HoJ قوي بعد الباف. Diana تاخد أيتمز AP الزيادة.", "en": "Only force with early itemized Kha'Zix. Slow roll 7 for 3★. Double HoJ is strong after the buff. Leftover AP goes on Diana.", "ja": "序盤にアイテム付きKha'Zixがある時だけ。7でスローロール。余ったAPはDianaへ。"},
-    "traits": [{"name": {"ar": "Lunar", "en": "Lunar"}, "count": 2}, {"name": {"ar": "Executioner", "en": "Executioner"}, "count": 3}, {"name": {"ar": "Ravager", "en": "Ravager"}, "count": 2}, {"name": {"ar": "Elderwood", "en": "Elderwood"}, "count": 2}, {"name": {"ar": "Defender", "en": "Defender"}, "count": 2}],
-    "items": [{"ar": "Hand of Justice", "en": "Hand of Justice"}, {"ar": "Hand of Justice", "en": "Hand of Justice"}, {"ar": "Infinity Edge", "en": "Infinity Edge"}],
-    "units": [{"name": {"ar": "Kha'Zix", "en": "Kha'Zix"}}, {"name": {"ar": "Diana", "en": "Diana"}}, {"name": {"ar": "Hecarim", "en": "Hecarim"}}, {"name": {"ar": "Alune", "en": "Alune"}}, {"name": {"ar": "Aphelios", "en": "Aphelios"}}, {"name": {"ar": "Amumu", "en": "Amumu"}}, {"name": {"ar": "Ornn", "en": "Ornn"}}, {"name": {"ar": "Ezreal", "en": "Ezreal"}}],
-    "earlyUnits": [{"name": {"ar": "Kha'Zix", "en": "Kha'Zix"}}, {"name": {"ar": "Ornn", "en": "Ornn"}}, {"name": {"ar": "Hecarim", "en": "Hecarim"}}, {"name": {"ar": "Rakan", "en": "Rakan"}}],
-    "stages": [{"stage": 2, "text": {"ar": "Kha'Zix بأيتمز + أي تانك مطوّر للـstall.", "en": "Early itemized Kha'Zix + any upgraded tank to stall."}}, {"stage": 3, "text": {"ar": "اقتصاد لفل 7؛ رول خفيف على 6 لو عندك pairs مهمة.", "en": "Econ to 7; light roll on 6 only if you have key pairs."}}, {"stage": 4, "text": {"ar": "سلو رول على 7 لـ 3★ ثم ادخل Lunar/Executioner flex.", "en": "Slow roll 7 for 3★ then add Lunar/Executioner flex."}}],
+    "name": {
+      "ar": "Lunarwood Kha'Zix",
+      "en": "Lunarwood Kha'Zix",
+      "ja": "ルナーウッド・カジックス"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: ريرول 3-كوست لفل 7 (متوسط)",
+      "en": "Playstyle: 3-Cost Reroll level 7 (Medium)",
+      "ja": "プレイスタイル：3コストリロール7（中級）"
+    },
+    "summary": {
+      "ar": "أقوى كومب على TFT Academy في 18.4b — Kha'Zix ريرول مع Lunar + Executioner وSnowball Rival.",
+      "en": "Academy's S-tier in 18.4b — Kha'Zix reroll with Lunar + Executioner and Rival snowball.",
+      "ja": "18.4bのAcademy S帯。Kha'Zixリロール＋Lunar/Executioner。"
+    },
+    "guide": {
+      "ar": "أقوى ريرول 3-كوست على Academy. العب بس لو عندك Kha'Zix بدري بأيتمز عشان تسونوبول Rival. Double HoJ قوي بعد الباف. الهدف: 3★ على لفل 7 مع Lunar + Executioner. أيتمز الزيادة AP على Diana.",
+      "en": "Academy’s top 3-cost reroll. Only force with early itemized Kha’Zix so you can snowball Rival. Double HoJ is strong after the buff. Goal: 3★ on level 7 with Lunar + Executioner. Leftover AP goes on Diana.",
+      "ja": "Academy最強3コスト。序盤アイテム付きKha’Zix必須。7で3スタ＋Lunar/Executioner。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Lunar",
+          "en": "Lunar"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Executioner",
+          "en": "Executioner"
+        },
+        "count": 3
+      },
+      {
+        "name": {
+          "ar": "Ravager",
+          "en": "Ravager"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Elderwood",
+          "en": "Elderwood"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Defender",
+          "en": "Defender"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Hand of Justice",
+        "en": "Hand of Justice"
+      },
+      {
+        "ar": "Hand of Justice",
+        "en": "Hand of Justice"
+      },
+      {
+        "ar": "Infinity Edge",
+        "en": "Infinity Edge"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Kha'Zix",
+          "en": "Kha'Zix"
+        }
+      },
+      {
+        "name": {
+          "ar": "Diana",
+          "en": "Diana"
+        }
+      },
+      {
+        "name": {
+          "ar": "Hecarim",
+          "en": "Hecarim"
+        }
+      },
+      {
+        "name": {
+          "ar": "Alune",
+          "en": "Alune"
+        }
+      },
+      {
+        "name": {
+          "ar": "Aphelios",
+          "en": "Aphelios"
+        }
+      },
+      {
+        "name": {
+          "ar": "Amumu",
+          "en": "Amumu"
+        }
+      },
+      {
+        "name": {
+          "ar": "Ornn",
+          "en": "Ornn"
+        }
+      },
+      {
+        "name": {
+          "ar": "Ezreal",
+          "en": "Ezreal"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Kha'Zix",
+          "en": "Kha'Zix"
+        }
+      },
+      {
+        "name": {
+          "ar": "Ornn",
+          "en": "Ornn"
+        }
+      },
+      {
+        "name": {
+          "ar": "Hecarim",
+          "en": "Hecarim"
+        }
+      },
+      {
+        "name": {
+          "ar": "Rakan",
+          "en": "Rakan"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "Kha’Zix بأيتمز (Edge of Night / HoJ) + أي تانك مطوّر للـstall. متلعبش الخط من ورا — محتاج سونوبول بدري.",
+          "en": "Itemized Kha’Zix (Edge of Night / HoJ) + any upgraded tank to stall. Don’t play this from behind — you need early snowball."
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "اقتصاد لفل 7. رول خفيف على 6 بس لو عندك pairs مهمة (Kha + Diana + Hecarim). غير كده استنى 7.",
+          "en": "Econ to 7. Light roll on 6 only if you have key pairs (Kha + Diana + Hecarim). Otherwise wait for 7."
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "سلو رول على 7 لـ 3★. بعد ما تخلص أدخل Lunar (Alune/Aphelios) وExecutioner flex. Double HoJ على Kha، والـAP الزيادة على Diana.",
+          "en": "Slow-roll 7 for 3★. Once done, add Lunar (Alune/Aphelios) and Executioner flex. Double HoJ on Kha, leftover AP on Diana."
+        }
+      }
+    ],
     "sections": []
   },
   {
@@ -20,15 +181,169 @@
     "tier": "A",
     "featured": true,
     "color": "rgba(220,180,80,.4)",
-    "name": {"ar": "Azir Rammus", "en": "Azir Rammus", "ja": "アジール・ラマス"},
-    "style": {"ar": "أسلوب اللعب: ريرول 3-كوست (سهل)", "en": "Playstyle: 3-Cost Reroll (Easy)", "ja": "プレイスタイル：3コストリロール（易）"},
-    "summary": {"ar": "ريرول Azir + Rammus — خط سهل وقوي في 18.4. Blackthorn Lux كاب نهائي ممتاز.", "en": "Azir + Rammus reroll — easy and strong in 18.4. Blackthorn Lux is a great cap.", "ja": "AzirとRammusのリロール。18.4で強くて簡単。"},
-    "guide": {"ar": "محتاج rods كتير — خد أيتم أوجمنتس بدري. على 4-1 لازم Azir 2★ وRammus، بعدين سلو رول فوق 50.", "en": "Rod-hungry — take item augments early. Need Azir 2★ + Rammus by 4-1, then slow roll above 50.", "ja": "ロッド多め。4-1でAzir2とRammus、その後スローロール。"},
-    "traits": [{"name": {"ar": "Flora Fatalis", "en": "Flora Fatalis"}, "count": 2}, {"name": {"ar": "Summoner", "en": "Summoner"}, "count": 2}, {"name": {"ar": "Blossom", "en": "Blossom"}, "count": 2}, {"name": {"ar": "Blackthorn", "en": "Blackthorn"}, "count": 2}],
-    "items": [{"ar": "Jeweled Gauntlet", "en": "Jeweled Gauntlet"}, {"ar": "Spear of Shojin", "en": "Spear of Shojin"}, {"ar": "Rabadon's Deathcap", "en": "Rabadon's Deathcap"}],
-    "units": [{"name": {"ar": "Azir", "en": "Azir"}}, {"name": {"ar": "Rammus", "en": "Rammus"}}, {"name": {"ar": "Teemo", "en": "Teemo"}}, {"name": {"ar": "Veigar", "en": "Veigar"}}, {"name": {"ar": "Zyra", "en": "Zyra"}}, {"name": {"ar": "Soraka", "en": "Soraka"}}, {"name": {"ar": "Fiddlesticks", "en": "Fiddlesticks"}}, {"name": {"ar": "Kennen", "en": "Kennen"}}],
-    "earlyUnits": [{"name": {"ar": "Azir", "en": "Azir"}}, {"name": {"ar": "Teemo", "en": "Teemo"}}, {"name": {"ar": "Veigar", "en": "Veigar"}}, {"name": {"ar": "Kobuko", "en": "Kobuko"}}],
-    "stages": [{"stage": 2, "text": {"ar": "Azir بدري + Blossom opener. خد rods من الكاروسيل.", "en": "Early Azir + Blossom opener. Take rods off carousel."}}, {"stage": 3, "text": {"ar": "اقتصاد لفل 7.", "en": "Econ to 7."}}, {"stage": 4, "text": {"ar": "Azir 2★ + Rammus على 4-1 ثم سلو رول 3★.", "en": "Azir 2★ + Rammus on 4-1 then slow roll 3★."}}],
+    "name": {
+      "ar": "Azir Rammus",
+      "en": "Azir Rammus",
+      "ja": "アジール・ラマス"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: ريرول 3-كوست (سهل)",
+      "en": "Playstyle: 3-Cost Reroll (Easy)",
+      "ja": "プレイスタイル：3コストリロール（易）"
+    },
+    "summary": {
+      "ar": "ريرول Azir + Rammus — خط سهل وقوي في 18.4. Blackthorn Lux كاب نهائي ممتاز.",
+      "en": "Azir + Rammus reroll — easy and strong in 18.4. Blackthorn Lux is a great cap.",
+      "ja": "AzirとRammusのリロール。18.4で強くて簡単。"
+    },
+    "guide": {
+      "ar": "ريرول 3-كوست سهل وقوي. محتاج rods كتير (Gunblade + AP على Azir، Crownguard على Rammus). على 4-1 لازم Azir 2★ + Rammus، بعدين سلو رول فوق 50. Blackthorn Lux كاب ممتاز لو لقيته.",
+      "en": "Easy strong 3-cost reroll. Rod-hungry (Gunblade + AP on Azir, Crownguard on Rammus). Need Azir 2★ + Rammus by 4-1, then slow-roll above 50. Blackthorn Lux is a great cap if you hit it.",
+      "ja": "簡単で強い3コスト。ロッド多め。4-1でAzir2＋Rammus、その後スローロール。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Flora Fatalis",
+          "en": "Flora Fatalis"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Summoner",
+          "en": "Summoner"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Blossom",
+          "en": "Blossom"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Blackthorn",
+          "en": "Blackthorn"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Jeweled Gauntlet",
+        "en": "Jeweled Gauntlet"
+      },
+      {
+        "ar": "Spear of Shojin",
+        "en": "Spear of Shojin"
+      },
+      {
+        "ar": "Rabadon's Deathcap",
+        "en": "Rabadon's Deathcap"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Azir",
+          "en": "Azir"
+        }
+      },
+      {
+        "name": {
+          "ar": "Rammus",
+          "en": "Rammus"
+        }
+      },
+      {
+        "name": {
+          "ar": "Teemo",
+          "en": "Teemo"
+        }
+      },
+      {
+        "name": {
+          "ar": "Veigar",
+          "en": "Veigar"
+        }
+      },
+      {
+        "name": {
+          "ar": "Zyra",
+          "en": "Zyra"
+        }
+      },
+      {
+        "name": {
+          "ar": "Soraka",
+          "en": "Soraka"
+        }
+      },
+      {
+        "name": {
+          "ar": "Fiddlesticks",
+          "en": "Fiddlesticks"
+        }
+      },
+      {
+        "name": {
+          "ar": "Kennen",
+          "en": "Kennen"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Azir",
+          "en": "Azir"
+        }
+      },
+      {
+        "name": {
+          "ar": "Teemo",
+          "en": "Teemo"
+        }
+      },
+      {
+        "name": {
+          "ar": "Veigar",
+          "en": "Veigar"
+        }
+      },
+      {
+        "name": {
+          "ar": "Kobuko",
+          "en": "Kobuko"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "Azir بدري + Blossom opener. خد rods من الكاروسيل وأوجمنتس الأيتمز. اسلَم على Azir وأي تانك.",
+          "en": "Early Azir + Blossom opener. Take rods off carousel and item augments. Slam on Azir and any tank."
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "اقتصاد لفل 7. متـرولش كتير قبل 4-1.",
+          "en": "Econ to 7. Don’t roll much before 4-1."
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "Azir 2★ + Rammus على 4-1 ثم سلو رول 3★ فوق 50 ذهب. بعدين ادخل Flora Fatalis + Summoner flex (Zyra / Soraka / Fiddle).",
+          "en": "Azir 2★ + Rammus on 4-1 then slow-roll 3★ above 50g. Then add Flora Fatalis + Summoner flex (Zyra / Soraka / Fiddle)."
+        }
+      }
+    ],
     "sections": []
   },
   {
@@ -36,15 +351,162 @@
     "tier": "B",
     "featured": true,
     "color": "rgba(200,160,60,.4)",
-    "name": {"ar": "Eclipse Kayle", "en": "Eclipse Kayle", "ja": "エクリプス・ケイル"},
-    "style": {"ar": "أسلوب اللعب: ريرول 2-كوست (سهل)", "en": "Playstyle: 2-Cost Reroll (Easy)", "ja": "プレイスタイル：2コストリロール（易）"},
-    "summary": {"ar": "خط جديد بعد باف Eclipse في 18.4 — Kayle 3★ + Solar/Lunar.", "en": "New line after the 18.4 Eclipse buff — Kayle 3★ with Solar/Lunar.", "ja": "18.4のEclipse強化後の新ライン。"},
-    "guide": {"ar": "ون ستريك ورول على 6 لـ 3★. أولوية: Kayle 3 > Sejuani 3 > Leona 3. بعدين Lunar لـ Eclipse.", "en": "Win-streak and roll 6 for 3★. Priority: Kayle 3 > Sejuani 3 > Leona 3. Then Lunar for Eclipse.", "ja": "6で3スタ。その後LunarでEclipse。"},
-    "traits": [{"name": {"ar": "Solar", "en": "Solar"}, "count": 3}, {"name": {"ar": "Lunar", "en": "Lunar"}, "count": 3}, {"name": {"ar": "Juggernaut", "en": "Juggernaut"}, "count": 2}],
-    "items": [{"ar": "Guinsoo's Rageblade", "en": "Guinsoo's Rageblade"}, {"ar": "Hextech Gunblade", "en": "Hextech Gunblade"}, {"ar": "Giant Slayer", "en": "Giant Slayer"}],
-    "units": [{"name": {"ar": "Kayle", "en": "Kayle"}}, {"name": {"ar": "Sejuani", "en": "Sejuani"}}, {"name": {"ar": "Leona", "en": "Leona"}}, {"name": {"ar": "Shen", "en": "Shen"}}, {"name": {"ar": "Varus", "en": "Varus"}}, {"name": {"ar": "Amumu", "en": "Amumu"}}, {"name": {"ar": "Aphelios", "en": "Aphelios"}}, {"name": {"ar": "Alune", "en": "Alune"}}],
-    "earlyUnits": [{"name": {"ar": "Kayle", "en": "Kayle"}}, {"name": {"ar": "Sejuani", "en": "Sejuani"}}, {"name": {"ar": "Leona", "en": "Leona"}}, {"name": {"ar": "Shen", "en": "Shen"}}],
-    "stages": [{"stage": 2, "text": {"ar": "Kayle + فرونت مطوّر. Rageblade بعدين تانك.", "en": "Kayle + upgraded frontline. Rageblade then tanks."}}, {"stage": 3, "text": {"ar": "رول على 6: Kayle 3 > Sejuani 3 > Leona 3.", "en": "Roll on 6: Kayle 3 > Sejuani 3 > Leona 3."}}, {"stage": 4, "text": {"ar": "كمّل 3★ وادخل Lunar لتفعيل Eclipse.", "en": "Finish 3★ and add Lunar for Eclipse."}}],
+    "name": {
+      "ar": "Eclipse Kayle",
+      "en": "Eclipse Kayle",
+      "ja": "エクリプス・ケイル"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: ريرول 2-كوست (سهل)",
+      "en": "Playstyle: 2-Cost Reroll (Easy)",
+      "ja": "プレイスタイル：2コストリロール（易）"
+    },
+    "summary": {
+      "ar": "خط جديد بعد باف Eclipse في 18.4 — Kayle 3★ + Solar/Lunar.",
+      "en": "New line after the 18.4 Eclipse buff — Kayle 3★ with Solar/Lunar.",
+      "ja": "18.4のEclipse強化後の新ライン。"
+    },
+    "guide": {
+      "ar": "خط جديد بعد باف Eclipse (execute أسرع). ريرول 2-كوست سهل: ون ستريك ورول على 6 لـ 3★. أولوية: Kayle 3 > Sejuani 3 > Leona 3. بعدين ادخل Lunar عشان تفعّل Eclipse. Lunar Lux أو Solar Lux كاب كويس.",
+      "en": "New line after the Eclipse buff (faster execute). Easy 2-cost reroll: win-streak and roll 6 for 3★. Priority: Kayle 3 > Sejuani 3 > Leona 3. Then add Lunar to activate Eclipse. Lunar Lux or Solar Lux are good caps.",
+      "ja": "Eclipse強化後の新ライン。6で3スタ、その後LunarでEclipse。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Solar",
+          "en": "Solar"
+        },
+        "count": 3
+      },
+      {
+        "name": {
+          "ar": "Lunar",
+          "en": "Lunar"
+        },
+        "count": 3
+      },
+      {
+        "name": {
+          "ar": "Juggernaut",
+          "en": "Juggernaut"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Guinsoo's Rageblade",
+        "en": "Guinsoo's Rageblade"
+      },
+      {
+        "ar": "Hextech Gunblade",
+        "en": "Hextech Gunblade"
+      },
+      {
+        "ar": "Giant Slayer",
+        "en": "Giant Slayer"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Kayle",
+          "en": "Kayle"
+        }
+      },
+      {
+        "name": {
+          "ar": "Sejuani",
+          "en": "Sejuani"
+        }
+      },
+      {
+        "name": {
+          "ar": "Leona",
+          "en": "Leona"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      },
+      {
+        "name": {
+          "ar": "Varus",
+          "en": "Varus"
+        }
+      },
+      {
+        "name": {
+          "ar": "Amumu",
+          "en": "Amumu"
+        }
+      },
+      {
+        "name": {
+          "ar": "Aphelios",
+          "en": "Aphelios"
+        }
+      },
+      {
+        "name": {
+          "ar": "Alune",
+          "en": "Alune"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Kayle",
+          "en": "Kayle"
+        }
+      },
+      {
+        "name": {
+          "ar": "Sejuani",
+          "en": "Sejuani"
+        }
+      },
+      {
+        "name": {
+          "ar": "Leona",
+          "en": "Leona"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "Kayle + فرونت مطوّر (Sejuani / Leona / Shen). Rageblade أولوية على Kayle، بعدين تانك أيتمز. اقتصاد عالي.",
+          "en": "Kayle + upgraded frontline (Sejuani / Leona / Shen). Rageblade first on Kayle, then tank items. High econ."
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "رول على 6: Kayle 3 > Sejuani 3 > Leona 3 > Shen/Varus 3. بعد ما تخلص Kayle 3 ابدأ ترفع لفل لـ Lunar.",
+          "en": "Roll on 6: Kayle 3 > Sejuani 3 > Leona 3 > Shen/Varus 3. Once Kayle 3 is done, start leveling for Lunar."
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "كمّل 3★ وادخل Lunar (Diana / Aphelios / Alune) عشان تفعّل Eclipse. ضيف تانك أكتر لو محتاج stall للـexecute.",
+          "en": "Finish 3★ and add Lunar (Diana / Aphelios / Alune) to activate Eclipse. Add more tanks if you need to stall for the execute."
+        }
+      }
+    ],
     "sections": []
   },
   {
@@ -52,15 +514,162 @@
     "tier": "A",
     "featured": true,
     "color": "rgba(160,80,180,.4)",
-    "name": {"ar": "Akali Reroll", "en": "Akali Reroll", "ja": "アカリ・リロール"},
-    "style": {"ar": "أسلوب اللعب: ريرول 1-كوست (متوسط)", "en": "Playstyle: 1-Cost Reroll (Medium)", "ja": "プレイスタイル：1コストリロール（中級）"},
-    "summary": {"ar": "Akali + Camille ريرول — طالع بقوة في 18.4 على TFT Flow.", "en": "Akali + Camille reroll — looking strong on 18.4 per TFT Flow.", "ja": "AkaliとCamilleのリロール。18.4で評価上昇。"},
-    "guide": {"ar": "افتح بـ Akali/Camille وأيتمز AD. سلو رول لفل 5–6 لـ 3★.", "en": "Open Akali/Camille with AD items. Slow roll 5–6 for 3★.", "ja": "Akali/Camille開幕。5–6でスローロール。"},
-    "traits": [{"name": {"ar": "Coven", "en": "Coven"}, "count": 3}, {"name": {"ar": "Ravager", "en": "Ravager"}, "count": 2}, {"name": {"ar": "Solar", "en": "Solar"}, "count": 2}],
-    "items": [{"ar": "Infinity Edge", "en": "Infinity Edge"}, {"ar": "Bloodthirster", "en": "Bloodthirster"}, {"ar": "Edge of Night", "en": "Edge of Night"}],
-    "units": [{"name": {"ar": "Akali", "en": "Akali"}}, {"name": {"ar": "Camille", "en": "Camille"}}, {"name": {"ar": "Shen", "en": "Shen"}}, {"name": {"ar": "Sejuani", "en": "Sejuani"}}, {"name": {"ar": "Leona", "en": "Leona"}}, {"name": {"ar": "Varus", "en": "Varus"}}, {"name": {"ar": "Elise", "en": "Elise"}}, {"name": {"ar": "Amumu", "en": "Amumu"}}],
-    "earlyUnits": [{"name": {"ar": "Akali", "en": "Akali"}}, {"name": {"ar": "Camille", "en": "Camille"}}, {"name": {"ar": "Shen", "en": "Shen"}}, {"name": {"ar": "Leona", "en": "Leona"}}],
-    "stages": [{"stage": 2, "text": {"ar": "Akali/Camille بأيتمز AD + فرونت.", "en": "Itemized Akali/Camille + frontline."}}, {"stage": 3, "text": {"ar": "سلو رول 5–6 لـ 3★.", "en": "Slow roll 5–6 for 3★."}}, {"stage": 4, "text": {"ar": "كمّل 3★ وادفع لفل للكاب.", "en": "Finish 3★ and push levels to cap."}}],
+    "name": {
+      "ar": "Akali Reroll",
+      "en": "Akali Reroll",
+      "ja": "アカリ・リロール"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: ريرول 1-كوست (متوسط)",
+      "en": "Playstyle: 1-Cost Reroll (Medium)",
+      "ja": "プレイスタイル：1コストリロール（中級）"
+    },
+    "summary": {
+      "ar": "Akali + Camille ريرول — طالع بقوة في 18.4 على TFT Flow.",
+      "en": "Akali + Camille reroll — looking strong on 18.4 per TFT Flow.",
+      "ja": "AkaliとCamilleのリロール。18.4で評価上昇。"
+    },
+    "guide": {
+      "ar": "ريرول 1-كوست اتحسن في 18.4 مع بافات Camille وVarus. افتح بـ Akali/Camille وأيتمز AD. سلو رول لفل 5–6 لـ 3★. الخط مرن وممكن يدخل Solar أو Coven حسب اللي يجي.",
+      "en": "1-cost reroll that improved in 18.4 with Camille/Varus buffs. Open Akali/Camille with AD items. Slow-roll level 5–6 for 3★. Flexible into Solar or Coven depending on hits.",
+      "ja": "18.4で強化された1コスト。Akali/Camille開幕、5–6でスローロール。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Coven",
+          "en": "Coven"
+        },
+        "count": 3
+      },
+      {
+        "name": {
+          "ar": "Ravager",
+          "en": "Ravager"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Solar",
+          "en": "Solar"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Infinity Edge",
+        "en": "Infinity Edge"
+      },
+      {
+        "ar": "Bloodthirster",
+        "en": "Bloodthirster"
+      },
+      {
+        "ar": "Edge of Night",
+        "en": "Edge of Night"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Akali",
+          "en": "Akali"
+        }
+      },
+      {
+        "name": {
+          "ar": "Camille",
+          "en": "Camille"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      },
+      {
+        "name": {
+          "ar": "Sejuani",
+          "en": "Sejuani"
+        }
+      },
+      {
+        "name": {
+          "ar": "Leona",
+          "en": "Leona"
+        }
+      },
+      {
+        "name": {
+          "ar": "Varus",
+          "en": "Varus"
+        }
+      },
+      {
+        "name": {
+          "ar": "Elise",
+          "en": "Elise"
+        }
+      },
+      {
+        "name": {
+          "ar": "Amumu",
+          "en": "Amumu"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Akali",
+          "en": "Akali"
+        }
+      },
+      {
+        "name": {
+          "ar": "Camille",
+          "en": "Camille"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      },
+      {
+        "name": {
+          "ar": "Leona",
+          "en": "Leona"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "Akali أو Camille بأيتمز AD (IE / BT / EoN) + فرونت (Shen / Leona). حاول ون ستريك.",
+          "en": "Akali or Camille with AD items (IE / BT / EoN) + frontline (Shen / Leona). Aim for win-streak."
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "سلو رول لفل 5–6 لـ 3★ على Akali وCamille والفرونت. متدفعش لفل بدري.",
+          "en": "Slow-roll level 5–6 for 3★ on Akali, Camille and frontline. Don’t level early."
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "بعد 3★ ارفع لفل وادخل Solar أو Coven flex (Elise / Amumu / Varus). كمل أيتمز على الكاري.",
+          "en": "After 3★ level up and add Solar or Coven flex (Elise / Amumu / Varus). Finish items on carries."
+        }
+      }
+    ],
     "sections": []
   },
   {
@@ -68,15 +677,332 @@
     "tier": "B",
     "featured": true,
     "color": "rgba(100,140,200,.4)",
-    "name": {"ar": "Malphite AP Flex", "en": "Malphite AP Flex", "ja": "マルファイトAPフレックス"},
-    "style": {"ar": "أسلوب اللعب: فاست 8 (متوسط)", "en": "Playstyle: Fast 8 (Medium)", "ja": "プレイスタイル：ファスト8（中級）"},
-    "summary": {"ar": "Malphite + Azir + Flora Fatalis — فليكس AP مرن.", "en": "Malphite + Azir + Flora Fatalis — flexible AP line.", "ja": "Malphite＋Azirの柔軟なAPライン。"},
-    "guide": {"ar": "الكور: Malphite + Azir + 2 Flora. كارري تاني: Ahri/Zyra/Ezreal.", "en": "Core: Malphite + Azir + 2 Flora. Secondary: Ahri/Zyra/Ezreal.", "ja": "コアはMalphiteとAzir。"},
-    "traits": [{"name": {"ar": "Flora Fatalis", "en": "Flora Fatalis"}, "count": 2}, {"name": {"ar": "Summoner", "en": "Summoner"}, "count": 2}, {"name": {"ar": "Blossom", "en": "Blossom"}, "count": 2}],
-    "items": [{"ar": "Warmog's Armor", "en": "Warmog's Armor"}, {"ar": "Gargoyle Stoneplate", "en": "Gargoyle Stoneplate"}, {"ar": "Spirit Visage", "en": "Spirit Visage"}],
-    "units": [{"name": {"ar": "Malphite", "en": "Malphite"}}, {"name": {"ar": "Azir", "en": "Azir"}}, {"name": {"ar": "Zyra", "en": "Zyra"}}, {"name": {"ar": "Ahri", "en": "Ahri"}}, {"name": {"ar": "Amumu", "en": "Amumu"}}, {"name": {"ar": "Lillia", "en": "Lillia"}}, {"name": {"ar": "Fiddlesticks", "en": "Fiddlesticks"}}, {"name": {"ar": "Cassiopeia", "en": "Cassiopeia"}}],
-    "earlyUnits": [{"name": {"ar": "Kobuko", "en": "Kobuko"}}, {"name": {"ar": "Veigar", "en": "Veigar"}}, {"name": {"ar": "Cassiopeia", "en": "Cassiopeia"}}, {"name": {"ar": "Karma", "en": "Karma"}}],
-    "stages": [{"stage": 2, "text": {"ar": "AP opener + Blossom؛ اسلَم تانك على Malphite.", "en": "AP opener + Blossom; slam tanks toward Malphite."}}, {"stage": 3, "text": {"ar": "ضيف 3-كوست مفيدة وflex.", "en": "Add useful 3-costs and flex."}}, {"stage": 4, "text": {"ar": "رول لفل 8 على Malphite.", "en": "Roll level 8 for Malphite."}}],
+    "name": {
+      "ar": "Malphite AP Flex",
+      "en": "Malphite AP Flex",
+      "ja": "マルファイトAPフレックス"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: فاست 8 (متوسط)",
+      "en": "Playstyle: Fast 8 (Medium)",
+      "ja": "プレイスタイル：ファスト8（中級）"
+    },
+    "summary": {
+      "ar": "Malphite + Azir + Flora Fatalis — فليكس AP مرن.",
+      "en": "Malphite + Azir + Flora Fatalis — flexible AP line.",
+      "ja": "Malphite＋Azirの柔軟なAPライン。"
+    },
+    "guide": {
+      "ar": "فاست 8 مرن. الكور: Malphite + Azir + 2 Flora Fatalis للـheal. كارري تاني: Ahri / Zyra / Ezreal. فرونت: Lillia / Amumu / Kennen. اسلَم تانك على Malphite بدري.",
+      "en": "Flexible Fast 8. Core: Malphite + Azir + 2 Flora Fatalis for healing. Secondary carries: Ahri / Zyra / Ezreal. Frontline: Lillia / Amumu / Kennen. Slam tanks on Malphite early.",
+      "ja": "柔軟なFast 8。コアはMalphite＋Azir＋Flora。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Flora Fatalis",
+          "en": "Flora Fatalis"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Summoner",
+          "en": "Summoner"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Blossom",
+          "en": "Blossom"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Warmog's Armor",
+        "en": "Warmog's Armor"
+      },
+      {
+        "ar": "Gargoyle Stoneplate",
+        "en": "Gargoyle Stoneplate"
+      },
+      {
+        "ar": "Spirit Visage",
+        "en": "Spirit Visage"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Malphite",
+          "en": "Malphite"
+        }
+      },
+      {
+        "name": {
+          "ar": "Azir",
+          "en": "Azir"
+        }
+      },
+      {
+        "name": {
+          "ar": "Zyra",
+          "en": "Zyra"
+        }
+      },
+      {
+        "name": {
+          "ar": "Ahri",
+          "en": "Ahri"
+        }
+      },
+      {
+        "name": {
+          "ar": "Amumu",
+          "en": "Amumu"
+        }
+      },
+      {
+        "name": {
+          "ar": "Lillia",
+          "en": "Lillia"
+        }
+      },
+      {
+        "name": {
+          "ar": "Fiddlesticks",
+          "en": "Fiddlesticks"
+        }
+      },
+      {
+        "name": {
+          "ar": "Cassiopeia",
+          "en": "Cassiopeia"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Kobuko",
+          "en": "Kobuko"
+        }
+      },
+      {
+        "name": {
+          "ar": "Veigar",
+          "en": "Veigar"
+        }
+      },
+      {
+        "name": {
+          "ar": "Cassiopeia",
+          "en": "Cassiopeia"
+        }
+      },
+      {
+        "name": {
+          "ar": "Karma",
+          "en": "Karma"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "AP opener + Blossom. اسلَم تانك أيتمز تجاه Malphite وأي AP على الكاري المؤقت.",
+          "en": "AP opener + Blossom. Slam tank items toward Malphite and any AP on temporary carries."
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "ضيف 3-كوست مفيدة (Fiddle / Cassio / Azir) وflex حسب اللي يجي. حط أيتمز على الوحدات المطوّرة.",
+          "en": "Add useful 3-costs (Fiddle / Cassio / Azir) and flex around hits. Put items on upgraded units."
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "رول لفل 8 على Malphite + Azir + Flora. اعمل أيتمز حسب اللي تجيبه — متـtunnelش على رول داون واحد.",
+          "en": "Roll level 8 for Malphite + Azir + Flora. Itemize whoever you hit — don’t tunnel on one roll-down."
+        }
+      }
+    ],
+    "sections": []
+  },
+  {
+    "slug": "riftbeast-pebbles",
+    "tier": "S",
+    "featured": true,
+    "color": "rgba(80,160,120,.4)",
+    "name": {
+      "ar": "Riftbeast Pebbles",
+      "en": "Riftbeast Pebbles",
+      "ja": "リフトビースト・ペブルズ"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: هايبر رول / ريرول 1-كوست لفل 5 (سهل)",
+      "en": "Playstyle: Hyper Roll / 1-Cost Reroll level 5 (Easy)",
+      "ja": "プレイスタイル：ハイパーロール／1コストリロール5（易）"
+    },
+    "summary": {
+      "ar": "S إحصائياً في 18.4 — هايبر رول Pebbles لـ 7 Riftbeast. سهل التنفيذ وقوي بعد باف الـ7 trait وOmega Riftbeast.",
+      "en": "Statistical S in 18.4 — Pebbles hyper-roll into 7 Riftbeast. Easy to play and strong after the 7-trait + Omega Riftbeast buffs.",
+      "ja": "18.4統計S。Pebblesハイパーロールで7 Riftbeast。"
+    },
+    "guide": {
+      "ar": "خط هايبر رول سهل وقوي بعد باف 7 Riftbeast. افتح بأي Riftbeast + Pebbles، اسلَم أيتمز بقوة وحاول ون ستريك. Alpha Mark بدري على Cinderling أو Scuttlecrab، بعدين حوّله على الكاري (Pebbles أو Cinderling). استخدم شوبات الـ5 Riftbeast عشان تخلص 3★ بدون رول كتير. الهدف: 7 Riftbeast على لفل 7–8، وElder Dragon لو وصلت 9.",
+      "en": "Easy hyper-roll that got much stronger after the 7 Riftbeast buff. Open any Riftbeast + Pebbles, slam items hard and try to win-streak. Alpha Mark early on Cinderling or Scuttlecrab, then move it to your carry (Pebbles/Cinderling). Use the 5-Riftbeast guaranteed shops to finish 3★ with fewer rolls. Goal: 7 Riftbeast on level 7–8, Elder Dragon if you reach 9.",
+      "ja": "7 Riftbeast強化後の強いハイパーロール。Pebbles＋Riftbeast開幕、Alpha Markは序盤Cinderling/Scuttlecrab、後半キャリーへ。5ショップで3スタ、7で7 Riftbeast。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Riftbeast",
+          "en": "Riftbeast"
+        },
+        "count": 7
+      },
+      {
+        "name": {
+          "ar": "Invoker",
+          "en": "Invoker"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Brawler",
+          "en": "Brawler"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Vanguard",
+          "en": "Vanguard"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Blue Buff",
+        "en": "Blue Buff"
+      },
+      {
+        "ar": "Jeweled Gauntlet",
+        "en": "Jeweled Gauntlet"
+      },
+      {
+        "ar": "Rabadon's Deathcap",
+        "en": "Rabadon's Deathcap"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Pebbles",
+          "en": "Pebbles"
+        }
+      },
+      {
+        "name": {
+          "ar": "Krug",
+          "en": "Krug"
+        }
+      },
+      {
+        "name": {
+          "ar": "Scuttlecrab",
+          "en": "Scuttlecrab"
+        }
+      },
+      {
+        "name": {
+          "ar": "Sentinel",
+          "en": "Sentinel"
+        }
+      },
+      {
+        "name": {
+          "ar": "Brambleback",
+          "en": "Brambleback"
+        }
+      },
+      {
+        "name": {
+          "ar": "Murkwolf",
+          "en": "Murkwolf"
+        }
+      },
+      {
+        "name": {
+          "ar": "Cinderling",
+          "en": "Cinderling"
+        }
+      },
+      {
+        "name": {
+          "ar": "Elder Dragon",
+          "en": "Elder Dragon"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Pebbles",
+          "en": "Pebbles"
+        }
+      },
+      {
+        "name": {
+          "ar": "Cinderling",
+          "en": "Cinderling"
+        }
+      },
+      {
+        "name": {
+          "ar": "Scuttlecrab",
+          "en": "Scuttlecrab"
+        }
+      },
+      {
+        "name": {
+          "ar": "Krug",
+          "en": "Krug"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "افتح بأي Riftbeast (Pebbles / Cinderling / Scuttlecrab / Krug). اسلَم أيتمز بقوة — Blue Buff أو Rod على Pebbles، وتانك على Krug/Scuttle. Alpha Mark على Crab أو Gromp. حاول ون ستريك عشان اقتصاد قوي.",
+          "en": "Open any Riftbeast (Pebbles / Cinderling / Scuttlecrab / Krug). Slam items hard — Blue Buff or Rod on Pebbles, tanks on Krug/Scuttle. Alpha Mark Crab or Gromp. Aim for a win-streak to build econ."
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "اوصل لفل 5 على 3-2 وابدأ سلو رول فوق 50 ذهب لـ 3★ (Pebbles أولوية، بعدين Krug / Cinderling / Scuttle). لو عندك 5 Riftbeast استخدم الشوبات المجانية عشان تخلص الـ3★ بسرعة. متدفعش لفل قبل ما تخلص أغلب الـ3★.",
+          "en": "Hit level 5 on 3-2 and slow-roll above 50g for 3★ (Pebbles priority, then Krug / Cinderling / Scuttle). If you have 5 Riftbeast, use the free shops to finish 3★ faster. Don’t level until most 3★ are done."
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "بعد ما تخلص 3★ الرئيسية ارفع لفل 7–8 وادخل 7 Riftbeast (Sentinel + Brambleback + Murkwolf + الباقي). Alpha Mark يبقى على أقوى كاري عندك. لو وصلت 9 وحصلت على Elder Dragon حطه ككاب نهائي. أيتمز Pebbles: Blue Buff + JG + Deathcap.",
+          "en": "After core 3★, level 7–8 and field 7 Riftbeast (Sentinel + Brambleback + Murkwolf + rest). Keep Alpha Mark on your strongest carry. If you reach 9 and hit Elder Dragon, he’s the final cap. Pebbles items: Blue Buff + JG + Deathcap."
+        }
+      }
+    ],
     "sections": []
   }
 ]
