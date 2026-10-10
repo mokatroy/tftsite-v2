@@ -11,7 +11,8 @@ const TIER_18_4 = {
   'vanguard-aphelios':'A','solar-yunara':'B','warwick-ravager':'B',
   'caitlyn-reroll':'A','master-yi-adaptor':'B',
   'lunarwood-khazix':'S','azir-rammus':'A','eclipse-kayle':'B',
-  'akali-reroll':'A','malphite-ap-flex':'B'
+  'akali-reroll':'A','malphite-ap-flex':'B',
+  'riftbeast-pebbles':'S'
 };
 function applyPatchTiers(list){
   return (list||[]).map(c=>{
@@ -61,10 +62,10 @@ Promise.all([
   loadJson('data/v2_comps_extra.json', CDN+'/v2_comps_extra.json'),
   loadJson('data/v2_comps_extra2.json', CDN+'/v2_comps_extra2.json'),
   loadJson('data/v2_comps_extra3.json', CDN+'/v2_comps_extra3.json'),
-  loadJson('data/v2_comps_extra4.json', 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra4.json'),
+  loadJson('data/v2_comps_extra4.json', 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@6a63287/data/v2_comps_extra4.json'),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/patches.json?v=20261008p184').then(r=>r.json())
+  fetch('data/patches.json?v=20261010p184c').then(r=>r.ok?r.json():[]).catch(()=>[])
 ]).then(([c,extra,extra2,extra3,extra4,s,sx,p])=>{
   const base=Array.isArray(c)?c:(c.comps||[]);
   const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[]), ...(Array.isArray(extra3)?extra3:[]), ...(Array.isArray(extra4)?extra4:[])];
@@ -74,9 +75,9 @@ Promise.all([
   const sitExtra=Array.isArray(sx)?sx:[];
   const sitSeen=new Set(sitBase.map(x=>x.slug));
   situational=sitBase.concat(sitExtra.filter(x=>x&&x.slug&&!sitSeen.has(x.slug)));
-  if(p[0]) setPatchVersion(p[0].version);
+  if(Array.isArray(p)&&p[0]) setPatchVersion(p[0].version);
   render();renderSituational();
-});
+}).catch(e=>{console.error('comps load',e);render();});
 const search=document.querySelector('#comp-search');
 if(search) search.addEventListener('input',e=>{query=e.target.value;render()});
 setupLanguage(()=>{render();renderSituational()});
