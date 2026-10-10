@@ -224,10 +224,11 @@ Promise.all([
   loadJson('data/v2_comps_extra.json', CDN+'/v2_comps_extra.json'),
   loadJson('data/v2_comps_extra2.json', CDN+'/v2_comps_extra2.json'),
   loadJson('data/v2_comps_extra3.json', CDN+'/v2_comps_extra3.json'),
-  fetch('data/patches.json').then(r=>r.json()).catch(()=>[])
-]).then(([base,extra,extra2,extra3,ps])=>{
+  loadJson('data/v2_comps_extra4.json', 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@6a63287/data/v2_comps_extra4.json'),
+  fetch('data/patches.json').then(r=>r.ok?r.json():[]).catch(()=>[])
+]).then(([base,extra,extra2,extra3,extra4,ps])=>{
   patch=Array.isArray(ps)?ps[0]:ps;
-  const list=[...normalizeList(base),...normalizeList(extra),...normalizeList(extra2),...normalizeList(extra3)];
+  const list=[...normalizeList(base),...normalizeList(extra),...normalizeList(extra2),...normalizeList(extra3),...normalizeList(extra4)];
   const seen=new Set();
   const merged=[];
   for(const c of list){
