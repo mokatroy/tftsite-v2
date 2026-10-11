@@ -155,12 +155,12 @@ function augmentsSection(c){
   </section>
   <style>
   .comp-augs-hint{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
-  .comp-augs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+  .comp-augs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
   .comp-aug{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);position:relative}
   .comp-aug-order{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgba(233,185,100,.15);color:var(--gold);font:700 11px Outfit,sans-serif;display:flex;align-items:center;justify-content:center}
   .comp-aug img{width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:8px;background:#0d111c}
   .comp-aug-meta{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
-  .comp-aug-name{font:600 13px Outfit,Cairo,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .comp-aug-name{font:600 13px Outfit,Cairo,sans-serif;line-height:1.25;word-break:break-word;overflow-wrap:anywhere}
   .comp-aug-tags{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
   .comp-aug-rarity{font:600 11px Outfit,sans-serif;opacity:.75}
   .comp-aug.rarity-silver .comp-aug-rarity{color:#c8c8c8}
