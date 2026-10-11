@@ -1,86 +1,89 @@
-/* Desktop TFT board — honeycomb geometry like TFT Academy */
+/* TFT board — flat-top honeycomb (TFT Academy style) */
 .board-section{margin-top:16px}
 .tft-board{
   display:flex;flex-direction:column;align-items:center;gap:12px;
-  padding:28px 16px 22px;
+  padding:24px 16px 20px;
   background:
-    radial-gradient(ellipse at 50% 0%,rgba(80,70,140,.35),transparent 55%),
-    linear-gradient(180deg,rgba(16,20,36,.96),rgba(8,10,18,.96));
+    radial-gradient(ellipse at 50% 0%,rgba(80,70,140,.25),transparent 55%),
+    linear-gradient(180deg,#0c0f18,#080a12);
   border-radius:16px;border:1px solid var(--line);direction:ltr
 }
 .board-label{font:700 11px Outfit,sans-serif;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
 
-/*
-  Pointy-top honeycomb math:
-  hex width W, height H = W * 1.1547 ≈ W * 2/√3
-  horizontal pitch = W
-  vertical pitch = H * 0.75
-  odd-row offset = W / 2
-*/
 .board-desktop.hex-grid,.hex-grid{
-  --w:64px;
-  --h:74px;
-  --vy:56px; /* ~0.75 * h */
+  /* S = hex width (point-to-point horizontal for flat-top ≈ outer width) */
+  --s:72px;
+  --w:var(--s);
+  --h:calc(var(--s) * 0.866);          /* flat-to-flat vertical */
+  --pitch-x:calc(var(--s) * 0.75);     /* center-to-center same row */
+  --pitch-y:var(--h);                  /* center-to-center next row */
   display:flex;flex-direction:column;align-items:center;
-  width:100%;max-width:520px;
+  width:100%;max-width:560px;
   gap:0;
-  padding:10px 0 6px;
+  padding:8px 0 10px;
 }
 .hex-row{
   display:flex;justify-content:center;
-  gap:0;                 /* edges touch */
-  height:var(--vy);
+  /* cells sized to pitch so hexes share edges */
+  gap:0;
+  height:var(--pitch-y);
   position:relative;
 }
 .hex-row.offset{
-  margin-inline-start:calc(var(--w) / 2);
+  margin-inline-start:calc(var(--pitch-x) / 2);
 }
 .hex-row:last-child{
-  height:var(--h);       /* last row needs full hex height */
+  height:var(--h);
 }
 
 .cell{
-  width:var(--w);
+  width:var(--pitch-x);
   height:var(--h);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   flex-shrink:0;overflow:visible;position:relative;
 }
 .cell.empty-cell .hex-name,
 .cell.empty-cell .hex-items{display:none}
 
 .hex{
-  width:var(--w);height:var(--h);
-  position:relative;overflow:visible;
-}
-.hex-inner{
-  position:absolute;inset:1px;
-  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-  background:rgba(255,255,255,.035);
-  display:flex;align-items:center;justify-content:center;z-index:1;
-}
-/* empty: soft rim like Academy */
-.hex.empty .hex-inner{
-  background:rgba(255,255,255,.02);
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12);
-  opacity:.85;
-}
-.hex.filled .hex-inner{
-  background:linear-gradient(160deg,#2a3358,#14182a);
-  box-shadow:inset 0 0 0 1.5px rgba(233,185,100,.55);
-}
-.hex.carry .hex-inner{
-  box-shadow:inset 0 0 0 2.5px #e9b964,0 0 12px rgba(233,185,100,.25);
+  width:var(--w);
+  height:var(--h);
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  overflow:visible;
 }
 
-/* champions stay circular portraits (original style) */
+/* FLAT-TOP hex shape */
+.hex-inner{
+  position:absolute;inset:0;
+  clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  display:flex;align-items:center;justify-content:center;z-index:1;
+}
+
+/* Empty cells — visible gray rim like Academy */
+.hex.empty .hex-inner{
+  background:rgba(255,255,255,.025);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.14);
+  opacity:1;
+}
+
+.hex.filled .hex-inner{
+  background:linear-gradient(160deg,#2a3358,#14182a);
+  box-shadow:inset 0 0 0 2px rgba(233,185,100,.6);
+}
+.hex.carry .hex-inner{
+  box-shadow:inset 0 0 0 2.5px #e9b964,0 0 12px rgba(233,185,100,.3);
+}
+
 .hex-champ{
-  width:40px;height:40px;border-radius:50%;object-fit:cover;
+  width:42px;height:42px;border-radius:50%;object-fit:cover;
   background:#0d111c;position:relative;z-index:1;
 }
 .hex-name{display:none}
 
 .hex-items{
-  position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+  position:absolute;top:-9px;left:50%;transform:translateX(-50%);
   display:flex;gap:2px;justify-content:center;z-index:10;pointer-events:none
 }
 .hex-item{
@@ -89,7 +92,7 @@
 }
 
 .board-builds{
-  width:100%;max-width:520px;display:grid;grid-template-columns:1fr 1fr;
+  width:100%;max-width:560px;display:grid;grid-template-columns:1fr 1fr;
   gap:8px;margin-top:12px;direction:ltr
 }
 .board-build{
@@ -103,7 +106,7 @@
 .board-build .bb-items img{width:20px;height:20px;border-radius:4px;object-fit:cover}
 @media(max-width:900px){
   .board-builds{grid-template-columns:1fr}
-  .hex-grid{--w:48px;--h:56px;--vy:42px;max-width:400px}
+  .hex-grid{--s:52px;max-width:420px}
   .hex-champ{width:30px;height:30px}
   .hex-item{width:13px;height:13px}
 }
