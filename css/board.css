@@ -1,4 +1,4 @@
-/* TFT board — clean flat-top grid (Academy-like, no overlap) */
+/* TFT board — Academy-sized flat-top hexes, clean spacing */
 .board-section{margin-top:16px}
 .tft-board{
   display:flex;flex-direction:column;align-items:center;gap:12px;
@@ -11,12 +11,13 @@
 .board-label{font:700 11px Outfit,sans-serif;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
 
 .board-desktop.hex-grid,.hex-grid{
-  --hex:54px;          /* hex width */
-  --hex-h:47px;        /* ≈ 54 * 0.866 flat-top height */
-  --gap-x:3px;
-  --gap-y:3px;
+  /* Academy-like size: ~7 cols fit ~520px */
+  --hex:64px;
+  --hex-h:56px;   /* flat-top height ≈ 0.866 * width */
+  --gap-x:4px;
+  --gap-y:6px;
   display:flex;flex-direction:column;align-items:center;
-  width:100%;max-width:480px;
+  width:100%;max-width:540px;
   gap:var(--gap-y);
   padding:10px 0 8px;
 }
@@ -25,7 +26,6 @@
   gap:var(--gap-x);
   position:relative;
 }
-/* odd rows shifted by half a cell */
 .hex-row.offset{
   margin-inline-start:calc((var(--hex) + var(--gap-x)) / 2);
 }
@@ -46,18 +46,19 @@
   overflow:visible;
 }
 
-/* flat-top shape */
+/* flat-top */
 .hex-inner{
   position:absolute;inset:0;
   clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
   display:flex;align-items:center;justify-content:center;z-index:1;
 }
 
+/* empty: solid fill + visible stroke so it reads as a real hex, not a line */
 .hex.empty .hex-inner{
-  background:transparent;
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.16);
-  opacity:1;
+  background:rgba(255,255,255,.04);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.18);
 }
+
 .hex.filled .hex-inner{
   background:linear-gradient(160deg,#2a3358,#14182a);
   box-shadow:inset 0 0 0 2px rgba(233,185,100,.55);
@@ -67,22 +68,22 @@
 }
 
 .hex-champ{
-  width:34px;height:34px;border-radius:50%;object-fit:cover;
+  width:40px;height:40px;border-radius:50%;object-fit:cover;
   background:#0d111c;position:relative;z-index:1;
 }
 .hex-name{display:none}
 
 .hex-items{
-  position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+  position:absolute;top:-9px;left:50%;transform:translateX(-50%);
   display:flex;gap:2px;justify-content:center;z-index:10;pointer-events:none
 }
 .hex-item{
-  width:14px;height:14px;border-radius:3px;object-fit:cover;background:#0d111c;
+  width:15px;height:15px;border-radius:3px;object-fit:cover;background:#0d111c;
   box-shadow:0 0 0 1.5px rgba(0,0,0,.75);pointer-events:auto
 }
 
 .board-builds{
-  width:100%;max-width:480px;display:grid;grid-template-columns:1fr 1fr;
+  width:100%;max-width:540px;display:grid;grid-template-columns:1fr 1fr;
   gap:8px;margin-top:12px;direction:ltr
 }
 .board-build{
@@ -96,8 +97,8 @@
 .board-build .bb-items img{width:20px;height:20px;border-radius:4px;object-fit:cover}
 @media(max-width:900px){
   .board-builds{grid-template-columns:1fr}
-  .hex-grid{--hex:42px;--hex-h:36px;max-width:380px}
-  .hex-champ{width:26px;height:26px}
+  .hex-grid{--hex:48px;--hex-h:42px;max-width:400px}
+  .hex-champ{width:30px;height:30px}
   .hex-item{width:12px;height:12px}
 }
 
