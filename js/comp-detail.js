@@ -29,6 +29,90 @@ const COMP_ECON = {
   "riftbeast-pebbles":{
     ar:["Stage 2: اسلَم أيتمز Pebbles وعدّل وون ستريك؛ Alpha Mark على Crab أو Gromp","Stage 3: اجمع اقتصاد وحاول لفل 7 لـ7 Riftbeast على 3-5 (أو 4-1 لو فقير)","Stage 4: بعد الـ3★ اطلع 8 وميد 7 Riftbeast — لو وصلت 9 ممكن Elder Dragon"],
     en:["Stage 2: Slam Pebbles items and play for full win streak; Alpha Mark Crab or Gromp","Stage 3: Bank econ and try level 7 for 7 Riftbeast on 3-5 (or 4-1 if poor)","Stage 4: After 3★, level 8 and field 7 Riftbeast — Elder Dragon if you hit 9"]
+  },
+  "riftbeast-sentinel":{
+    ar:["Stage 2: أوبنر Riftbeast قوي + Alpha Mark على الكاري؛ وون ستريك لو أمكن","Stage 3: ادفع لفل 7 وفعّل 5→7 Riftbeast؛ سلو رول فوق 50 لو بتدور على 3★","Stage 4: ثبّت البورد على 7–8؛ Elder Dragon / Sentinel ككاب"],
+    en:["Stage 2: Strong Riftbeast opener + Alpha Mark on carry; win-streak if possible","Stage 3: Hit 7 and activate 5→7 Riftbeast; slow roll above 50 if chasing 3★","Stage 4: Stabilize on 7–8; cap with Elder Dragon / Sentinel"]
+  },
+  "elderwood-xayah":{
+    ar:["Stage 2: Xayah بدري بأيتمز + Elderwood opener؛ وون ستريك","Stage 3: لفل 7 وسلو رول فوق 50 لـ Xayah 3 / Ornn 3","Stage 4: بعد الـ3★ اطلع لفل لـ 4+ Elderwood أو فلكس Defender"],
+    en:["Stage 2: Early itemized Xayah + Elderwood opener; win-streak","Stage 3: Level 7 and slow roll above 50 for Xayah 3 / Ornn 3","Stage 4: After 3★, level for 4+ Elderwood or Defender flex"]
+  },
+  "vanguard-alune":{
+    ar:["Stage 2: اقتصاد نظيف + تيمبو يكفي للبقاء؛ متبعترش دهب","Stage 3: ادفع لفل 8 بدري (حوالي 4-1)","Stage 4: لو البورد مستقر اطلع 9 ودور على Alune / 5-كوست"],
+    en:["Stage 2: Clean econ + enough tempo to live; don't burn gold","Stage 3: Push level 8 early (~4-1)","Stage 4: If stable, go 9 for Alune / 5-costs"]
+  },
+  "hunter-sivir":{
+    ar:["Stage 2: أوبنر AD (Cinderling/Riftbeast) واسلَم سيوف وتانك","Stage 3: سيوف من الكاروسيل/أوجمنتس؛ فلكس 5 Riftbeast لو محتاج شوبات","Stage 4: لفل 8 ورول Sivir + Nidalee + تانك 4-كوست"],
+    en:["Stage 2: AD opener (Cinderling/Riftbeast); slam swords and tank items","Stage 3: Take swords from carousel/augments; flex 5 Riftbeast for shops if needed","Stage 4: Level 8 and roll Sivir + Nidalee + 4-cost tank"]
+  },
+  "spellweaver-veigar":{
+    ar:["Stage 2: Veigar بدري + ترقيات؛ ابدأ تجمع stacks","Stage 3: سلو رول فوق 50 على 5–6 لحد Veigar 3 (ولو قريب ارول لحد ما تضرب)","Stage 4: بعد 3★ ادفع لفل لـ Spyrkin / Blackthorn / Brawler"],
+    en:["Stage 2: Early Veigar + upgrades; start stacking","Stage 3: Slow roll above 50 on 5–6 until Veigar 3 (hard roll if close)","Stage 4: After 3★, push levels for Spyrkin / Blackthorn / Brawler"]
+  },
+  "flora-azir":{
+    ar:["Stage 2: Azir / Flora opener + rods؛ وون ستريك لو أمكن","Stage 3: اقتصاد لحد 7؛ رول خفيف على 6 لو عندك أزواج","Stage 4: سلو رول على 7 فوق 50 لـ Azir 3 ووحدات Flora"],
+    en:["Stage 2: Azir / Flora opener + rods; win-streak if possible","Stage 3: Econ to 7; light roll on 6 if holding pairs","Stage 4: Slow roll on 7 above 50 for Azir 3 and Flora units"]
+  },
+  "defender-cass":{
+    ar:["Stage 2: Cassiopeia + Defender opener؛ أيتمز AP بدري","Stage 3: لفل 6–7 ورول للترقيات؛ ثبّت فرونت Defender","Stage 4: سلو رول أو رول 7 لـ Cass 3 / تانك 2★ ثم اطلع 8"],
+    en:["Stage 2: Cassiopeia + Defender opener; early AP items","Stage 3: Level 6–7 and roll for upgrades; lock Defender frontline","Stage 4: Slow/roll 7 for Cass 3 / 2★ tanks then push 8"]
+  },
+  "juggernaut-flex":{
+    ar:["Stage 2: أوبنر Juggernaut / AD قوي واسلَم أيتمز","Stage 3: لفل بشكل طبيعي مع تيمبو؛ متفوتش pairs مهمة","Stage 4: لفل 8 ورول الكاريز 4-كوست + فلكس Juggernaut"],
+    en:["Stage 2: Strong Juggernaut / AD opener; slam items","Stage 3: Level with tempo; don't miss key pairs","Stage 4: Level 8 and roll 4-cost carries + Juggernaut flex"]
+  },
+  "lunar-aphelios":{
+    ar:["Stage 2: أوبنر Lunar / Rapidfire؛ أيتمز AD على الكاري","Stage 3: اقتصاد لفل 8؛ حافظ على 50 لما تقدر","Stage 4: رول 8 على Aphelios + تانك Lunar؛ 9 لو البورد مستقر"],
+    en:["Stage 2: Lunar / Rapidfire opener; AD items on carry","Stage 3: Econ to 8; hold 50 when you can","Stage 4: Roll 8 for Aphelios + Lunar tanks; 9 if stable"]
+  },
+  "lunar-aphelios-nidalee":{
+    ar:["Stage 2: AD opener قوي (Nidalee أو Aphelios حامل أيتمز)","Stage 3: ادفع لفل 8 مع تيمبو نظيف","Stage 4: رول Aphelios + Nidalee على 8؛ فلكس Lunar/Hunter"],
+    en:["Stage 2: Strong AD opener (itemized Nidalee or Aphelios)","Stage 3: Push level 8 with clean tempo","Stage 4: Roll Aphelios + Nidalee on 8; flex Lunar/Hunter"]
+  },
+  "invoker-ahri":{
+    ar:["Stage 2: Blossom / Spellweaver opener؛ Karma تحمل أيتمز Ahri","Stage 3: زوّد 5 Blossom لو قدرت؛ اقتصاد نظيف لفل 8","Stage 4: رول Ahri + Sett على 8؛ كاب بـ Ashe أو 5-كوست"],
+    en:["Stage 2: Blossom / Spellweaver opener; Karma holds Ahri items","Stage 3: Add 5 Blossom if you can; clean econ to 8","Stage 4: Roll Ahri + Sett on 8; cap with Ashe or 5-cost"]
+  },
+  "executioner-khazix":{
+    ar:["Stage 2: Kha'Zix بأيتمز بدري عشان Rival؛ تانك 2★ يوقف","Stage 3: اقتصاد لحد 7 (رول خفيف على 6 لو pairs)","Stage 4: سلو رول على 7 فوق 50 لـ Kha'Zix 3 ووحدات Executioner"],
+    en:["Stage 2: Early itemized Kha'Zix for Rival; 2★ tank to stall","Stage 3: Econ to 7 (light roll on 6 if pairs)","Stage 4: Slow roll on 7 above 50 for Kha'Zix 3 and Executioner units"]
+  },
+  "juggernaut-ashe":{
+    ar:["Stage 2: أوبنر قوي + وون ستريك؛ اسلَم أيتمز Ashe/تانك","Stage 3: ادفع لفل 8؛ اقتصاد أوجمنت لو لسه ماخدتش","Stage 4: رول Ashe على 8؛ لو HP عالي فكّر 9"],
+    en:["Stage 2: Strong opener + win-streak; slam Ashe/tank items","Stage 3: Push level 8; take econ augment if you haven't","Stage 4: Roll Ashe on 8; consider 9 if high HP"]
+  },
+  "invoker-morgana-sentinel":{
+    ar:["Stage 2: أوبنر Invoker / Sentinel مستقر","Stage 3: لفل 8 مع تيمبو؛ متبعترش دهب قبل الرول","Stage 4: رول Morgana + Sentinel / Invoker 4-كوست على 8"],
+    en:["Stage 2: Stable Invoker / Sentinel opener","Stage 3: Level 8 with tempo; don't burn gold before the roll","Stage 4: Roll Morgana + Sentinel / Invoker 4-costs on 8"]
+  },
+  "sivir-nidalee":{
+    ar:["Stage 2: AD opener (Cinderling/Riftbeast) واسلَم سيوف","Stage 3: سيوف أولوية من الكاروسيل؛ فلكس فرونت","Stage 4: لفل 8 ورول Sivir + Nidalee + تانك"],
+    en:["Stage 2: AD opener (Cinderling/Riftbeast); slam swords","Stage 3: Swords priority on carousel; flex frontline","Stage 4: Level 8 and roll Sivir + Nidalee + tank"]
+  },
+  "draven-fast9":{
+    ar:["Stage 2: أوبنر Riftbeast / AD قوي وون ستريك كامل","Stage 3: فضّل الستريك؛ Fast 7 قبل 3-3 لو عندك أوجمنت اقتصاد","Stage 4: ممكن تخسر Stage 4 للاقتصاد — Fast 9 أول Stage 5 مع 70g+ للرول"],
+    en:["Stage 2: Strong Riftbeast / AD opener; full win-streak","Stage 3: Prioritize streak; Fast 7 before 3-3 if you have econ augment","Stage 4: Can lose Stage 4 for econ — Fast 9 early Stage 5 with 70g+ for the roll"]
+  },
+  "vanguard-aphelios":{
+    ar:["Stage 2: أوبنر Vanguard / AD؛ أيتمز Aphelios أو تانك","Stage 3: اقتصاد لفل 8؛ حافظ على فائدة 50","Stage 4: رول Aphelios + Vanguard 4-كوست على 8"],
+    en:["Stage 2: Vanguard / AD opener; Aphelios or tank items","Stage 3: Econ to 8; hold 50 interest","Stage 4: Roll Aphelios + Vanguard 4-costs on 8"]
+  },
+  "solar-yunara":{
+    ar:["Stage 2: Yunara بأيتمز + Blossom وون ستريك؛ تانك Yorick/Juggernaut لحد Sejuani 2","Stage 3: لفل 3-2 ورول ترقيات 2★ ثم اقتصاد؛ رول 3★ المعروضة + Azir من غير ما تنزل صفر","Stage 4: بعد الـ3★ اطلع لفل لـ 3 Solar؛ AP الزيادة على LeBlanc/Karma"],
+    en:["Stage 2: Itemized Yunara + Blossom win-streak; tank Yorick/Juggernaut until Sejuani 2","Stage 3: Level 3-2, roll 2★ upgrades then econ; roll shown 3★ + Azir without going to 0","Stage 4: After 3★, level for 3 Solar; leftover AP on LeBlanc/Karma"]
+  },
+  "warwick-ravager":{
+    ar:["Stage 2: Warwick / Ravager opener؛ أيتمز AD بدري","Stage 3: لفل 6 ورول فوق 50 لـ Warwick 3 ووحدات Ravager","Stage 4: بعد 3★ اطلع لفل لـ فلكس أو كاب 4-كوست"],
+    en:["Stage 2: Warwick / Ravager opener; early AD items","Stage 3: Level 6 and roll above 50 for Warwick 3 and Ravager units","Stage 4: After 3★, level for flex or 4-cost cap"]
+  },
+  "caitlyn-reroll":{
+    ar:["Stage 2: Caitlyn + Rapidfire/AD opener؛ اجمع نسخ بدري","Stage 3: لفل 6 وسلو رول فوق 50 لـ Caitlyn 3","Stage 4: بعد 3★ ادفع لفل لـ وحدات الدعم / 4-كوست"],
+    en:["Stage 2: Caitlyn + Rapidfire/AD opener; collect copies early","Stage 3: Level 6 and slow roll above 50 for Caitlyn 3","Stage 4: After 3★, push levels for support units / 4-costs"]
+  },
+  "master-yi-adaptor":{
+    ar:["Stage 2: Rengar/Yi opener + Blossom لو قدرت؛ وون ستريك","Stage 3: زوّد Adaptor وفرونت؛ خلّص أيتمز Yi/Rengar قبل نهاية الستيج","Stage 4: لفل 7 ورول Yi 2 + Rengar 2 + تانك Juggernaut؛ سلو رول 3★ ثم 8 لـ Kog/فلكس"],
+    en:["Stage 2: Rengar/Yi opener + Blossom if possible; win-streak","Stage 3: Add Adaptors and frontline; finish Yi/Rengar items by end of stage","Stage 4: Level 7 and roll Yi 2 + Rengar 2 + Juggernaut tank; slow roll 3★ then 8 for Kog/flex"]
   }
 };
 
