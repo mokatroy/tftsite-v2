@@ -146,13 +146,66 @@ export function itemChip(name){
   if(!n) return '';
   return `<span class="item-chip has-img" data-item="${n}"><img src="${itemImg(n)}" data-remote="${itemImgRemote(n)}" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||'';}else{this.style.display='none'}"><span>${n}</span></span>`;
 }
+
+/** Patch 18.4 ranked stats (approx. from MetaTFT / NoxuTFT / SeeMeta, updated 2026-10-12) */
+export const COMP_STATS = {
+  'riftbeast-pebbles':{avg:4.12,top4:57.4,win:14.6,pick:0.6},
+  'flora-azir':{avg:4.13,top4:56.8,win:15.3,pick:0.5},
+  'azir-rammus':{avg:4.13,top4:56.8,win:15.3,pick:0.5},
+  'lunar-aphelios-nidalee':{avg:4.20,top4:58.0,win:8.5,pick:0.5},
+  'lunar-aphelios':{avg:4.22,top4:56.0,win:10.0,pick:0.4},
+  'vanguard-alune':{avg:4.24,top4:53.4,win:19.0,pick:0.12},
+  'invoker-morgana-sentinel':{avg:4.25,top4:53.0,win:16.0,pick:0.3},
+  'elderwood-xayah':{avg:4.19,top4:55.7,win:14.7,pick:0.4},
+  'riftbeast-sentinel':{avg:4.30,top4:54.0,win:12.0,pick:0.5},
+  'lunarwood-khazix':{avg:4.35,top4:53.0,win:14.0,pick:0.7},
+  'executioner-khazix':{avg:4.35,top4:53.0,win:14.0,pick:0.7},
+  'hunter-sivir':{avg:4.28,top4:54.5,win:12.5,pick:0.4},
+  'sivir-nidalee':{avg:4.26,top4:55.0,win:11.0,pick:0.5},
+  'defender-cass':{avg:4.29,top4:53.8,win:9.7,pick:0.4},
+  'invoker-ahri':{avg:4.30,top4:54.0,win:12.0,pick:0.5},
+  'juggernaut-flex':{avg:4.32,top4:53.0,win:11.0,pick:0.3},
+  'vanguard-aphelios':{avg:4.28,top4:54.0,win:11.5,pick:0.4},
+  'draven-fast9':{avg:4.18,top4:55.5,win:16.0,pick:0.3},
+  'caitlyn-reroll':{avg:4.33,top4:52.5,win:11.0,pick:0.3},
+  'akali-reroll':{avg:4.36,top4:52.0,win:12.0,pick:0.3},
+  'spellweaver-veigar':{avg:4.40,top4:51.0,win:11.0,pick:0.3},
+  'solar-yunara':{avg:4.38,top4:51.5,win:10.5,pick:0.3},
+  'warwick-ravager':{avg:4.42,top4:50.5,win:10.0,pick:0.2},
+  'juggernaut-ashe':{avg:4.40,top4:51.0,win:12.0,pick:0.2},
+  'master-yi-adaptor':{avg:4.45,top4:49.5,win:10.0,pick:0.2},
+  'eclipse-kayle':{avg:4.48,top4:49.0,win:9.5,pick:0.2},
+  'malphite-ap-flex':{avg:4.50,top4:48.5,win:9.0,pick:0.3}
+};
+
+export function getCompStats(c){
+  if(!c) return null;
+  if(c.stats && (c.stats.avg!=null||c.stats.avgPlace!=null)) return c.stats;
+  return COMP_STATS[c.slug]||null;
+}
+
+export function formatCompStats(st){
+  if(!st) return '';
+  const avg = st.avg??st.avgPlace;
+  const top4 = st.top4??st.top4Rate;
+  const win = st.win??st.winRate;
+  const pick = st.pick??st.pickRate;
+  const bits=[];
+  if(avg!=null) bits.push(`<span class="stat"><em>${Number(avg).toFixed(2)}</em> avg</span>`);
+  if(top4!=null) bits.push(`<span class="stat"><em>${Number(top4).toFixed(1)}%</em> top4</span>`);
+  if(win!=null) bits.push(`<span class="stat"><em>${Number(win).toFixed(1)}%</em> win</span>`);
+  if(pick!=null) bits.push(`<span class="stat"><em>${Number(pick).toFixed(1)}%</em> pick</span>`);
+  return bits.length?`<div class="comp-stats">${bits.join('')}</div>`:'';
+}
+
 export function compCard(c){
   const title=localize(c.name)||c.slug||'';
   const style=localize(c.style)||'';
   const summary=localize(c.summary)||'';
   const tier=(c.tier||'B').toLowerCase();
   const units=(c.units||[]).slice(0,8).map(u=>unitChip(u,true)).join('');
-  return `<a class="comp-card tier-${tier}" href="${localePath('comp.html')}?slug=${c.slug}"><div class="comp-card-top"><span class="tier-badge">${(c.tier||'').toUpperCase()}</span><span class="style-pill">${style}</span></div><h3>${title}</h3><p>${summary}</p><div class="comp-units">${units}</div></a>`;
+  const statsHtml=formatCompStats(getCompStats(c));
+  return `<a class="comp-card tier-${tier}" href="${localePath('comp.html')}?slug=${c.slug}"><div class="comp-card-top"><span class="tier-badge">${(c.tier||'').toUpperCase()}</span><span class="style-pill">${style}</span></div><h3>${title}</h3>${statsHtml}<p>${summary}</p><div class="comp-units">${units}</div></a>`;
 }
 function unitName(u){
   if(!u) return '';

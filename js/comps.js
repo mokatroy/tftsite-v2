@@ -1,5 +1,5 @@
 import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js?v=20261005fix';
-import{compCard}from'./ui.js?v=20261005fix';
+import{compCard}from'./ui.js?v=20261012stats';
 let comps=[],situational=[],tier='All',query='';
 
 const TIER_18_4 = {

@@ -1,5 +1,5 @@
 import {setupLanguage,localize} from './locale.js?v=20261005nav';
-import{compCard}from'./ui.js?v=20261005nav';
+import{compCard}from'./ui.js?v=20261012stats';
 const load=path=>fetch(path).then(r=>{if(!r.ok)throw new Error(path);return r.json()});
 let comps=[];
 

@@ -1,6 +1,6 @@
 import {t,localize,lang,localePath} from './locale.js?v=20261007traits';
-export * from './ui-core.js?v=20261007traits';
-import {unitChip,traitChip,itemChip,renderBoard} from './ui-core.js?v=20261007traits';
+export * from './ui-core.js?v=20261012stats';
+import {unitChip,traitChip,itemChip,renderBoard,getCompStats,formatCompStats} from './ui-core.js?v=20261012stats';
 
 export function detail(comp){
   if(!comp) return `<p class="empty">${t('notFound')}</p>`;
@@ -13,9 +13,11 @@ export function detail(comp){
   const boardHtml=renderBoard(comp);
   const units=(comp.units||[]).map(u=>unitChip(u,true)).join('');
   const boardTitle=lang==='ar'?'توزيع البورد':lang==='ja'?'配置':'Board';
+  const statsHtml=formatCompStats(getCompStats(comp));
   return `<a class="back-link" href="${localePath('comps.html')}">${t('back')}</a>
   <p class="eyebrow"><span class="tier-badge">${tier}</span> <span class="style-pill">${style}</span></p>
   <h1 class="page-title">${title}</h1>
+  ${statsHtml}
   <p class="page-subtitle">${note}</p>
   <section class="detail-section board-section"><h2>${boardTitle}</h2>${boardHtml}</section>
   <section class="detail-section"><h2>${t('units')}</h2><div class="unit-row">${units}</div></section>
