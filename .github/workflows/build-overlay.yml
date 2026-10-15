@@ -1,0 +1,42 @@
+name: Build MokaTroy TFT Overlay
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'overlay/**'
+      - '.github/workflows/build-overlay.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: overlay
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: overlay/package.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Package Windows installer
+        run: npm run package:win
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: MokaTroy-TFT-Overlay-Windows
+          path: overlay/dist/*.exe
+          if-no-files-found: error
+          retention-days: 14
