@@ -11,18 +11,24 @@ const DATA_SOURCES = [
 
 let overlayWindow;
 
+function notifyWindowState() {
+  overlayWindow?.webContents.send('overlay:window-state', {
+    maximized: overlayWindow.isMaximized()
+  });
+}
+
 function createOverlayWindow() {
   const { workArea } = screen.getPrimaryDisplay();
-  const width = 430;
-  const height = Math.min(760, workArea.height - 80);
+  const width = Math.min(620, workArea.width - 48);
+  const height = Math.min(860, workArea.height - 48);
 
   overlayWindow = new BrowserWindow({
     width,
     height,
     x: workArea.x + workArea.width - width - 24,
-    y: workArea.y + Math.max(32, Math.round((workArea.height - height) / 2)),
-    minWidth: 360,
-    minHeight: 480,
+    y: workArea.y + Math.max(24, Math.round((workArea.height - height) / 2)),
+    minWidth: 440,
+    minHeight: 560,
     show: false,
     frame: false,
     transparent: true,
@@ -44,6 +50,8 @@ function createOverlayWindow() {
   overlayWindow.setMenuBarVisibility(false);
   overlayWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
   overlayWindow.once('ready-to-show', () => overlayWindow.showInactive());
+  overlayWindow.on('maximize', notifyWindowState);
+  overlayWindow.on('unmaximize', notifyWindowState);
   overlayWindow.on('closed', () => { overlayWindow = null; });
   overlayWindow.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
 }
@@ -76,13 +84,16 @@ async function loadComps() {
 
 app.whenReady().then(() => {
   createOverlayWindow();
-
   globalShortcut.register('CommandOrControl+Shift+Space', toggleOverlay);
 
   ipcMain.handle('comps:load', loadComps);
   ipcMain.on('overlay:hide', () => overlayWindow?.hide());
   ipcMain.on('overlay:minimize', () => overlayWindow?.minimize());
-  ipcMain.on('overlay:move', () => overlayWindow?.startDrag?.());
+  ipcMain.on('overlay:toggle-maximize', () => {
+    if (!overlayWindow) return;
+    if (overlayWindow.isMaximized()) overlayWindow.unmaximize();
+    else overlayWindow.maximize();
+  });
 
   app.on('activate', () => {
     if (!overlayWindow) createOverlayWindow();
