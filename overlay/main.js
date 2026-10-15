@@ -11,6 +11,7 @@ const DATA_SOURCES = [
 ];
 
 let overlayWindow;
+let isInstallingUpdate = false;
 
 function sendUpdate(state, payload = {}) {
   overlayWindow?.webContents.send('overlay:update', { state, ...payload });
@@ -86,16 +87,33 @@ function configureUpdater() {
   autoUpdater.on('download-progress', (progress) => sendUpdate('downloading', { percent: Math.round(progress.percent || 0) }));
   autoUpdater.on('update-downloaded', (info) => {
     sendUpdate('ready', { version: info.version });
-    // Install silently and relaunch like a normal app
-    setTimeout(() => {
-      try {
-        autoUpdater.quitAndInstall(true, true);
-      } catch (_) {
-        autoUpdater.quitAndInstall();
-      }
-    }, 1800);
+    setTimeout(() => installUpdateNow(), 1500);
   });
   autoUpdater.on('error', (err) => sendUpdate('error', { message: String(err && err.message || err || 'unknown') }));
+}
+
+function installUpdateNow() {
+  isInstallingUpdate = true;
+  // App is designed to stay alive with no windows; temporarily allow a real quit
+  // so NSIS can replace files and relaunch silently.
+  try { app.removeAllListeners('window-all-closed'); } catch (_) {}
+  try {
+    if (overlayWindow && !overlayWindow.isDestroyed()) {
+      overlayWindow.removeAllListeners('closed');
+      overlayWindow.destroy();
+    }
+  } catch (_) {}
+  overlayWindow = null;
+  setImmediate(() => {
+    try {
+      // isSilent=true, isForceRunAfter=true → no wizard, reopen app
+      autoUpdater.quitAndInstall(true, true);
+    } catch (_) {
+      try { autoUpdater.quitAndInstall(); } catch (e) {
+        sendUpdate('error', { message: String(e && e.message || e) });
+      }
+    }
+  });
 }
 
 function checkForUpdates() {
@@ -160,7 +178,7 @@ app.whenReady().then(() => {
     checkForUpdates();
   });
   ipcMain.on('update:download', () => autoUpdater.downloadUpdate().catch(() => sendUpdate('error')));
-  ipcMain.on('update:install', () => { try { autoUpdater.quitAndInstall(true, true); } catch (_) { autoUpdater.quitAndInstall(); } });
+  ipcMain.on('update:install', () => installUpdateNow());
 
   app.on('activate', () => {
     if (!overlayWindow) createOverlayWindow();
@@ -169,4 +187,8 @@ app.whenReady().then(() => {
 });
 
 app.on('will-quit', () => globalShortcut.unregisterAll());
-app.on('window-all-closed', (event) => event.preventDefault());
+app.on('window-all-closed', (event) => {
+  if (isInstallingUpdate) return;
+  // Keep process alive while overlay is only hidden
+  event.preventDefault();
+});
