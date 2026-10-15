@@ -12,6 +12,41 @@ function unitName(unit) {
   return nameOf(unit?.name || unit);
 }
 
+const CHAMP_CDN = 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/assets/champs/';
+const CHAMP_SPECIAL = {
+  pebbles: 'tft18_sentry', sentry: 'tft18_sentry', ancientsentinel: 'tft18_sentinel',
+  krug: 'tft18_krug', cinderling: 'tft18_cinderling', scuttlecrab: 'tft18_scuttlecrab',
+  gromp: 'tft18_gromp', brambleback: 'tft18_brambleback', murkwolf: 'tft18_murkwolf',
+  mamabeak: 'tft18_raptor', 'mama beak': 'tft18_raptor', sentinel: 'tft18_sentinel',
+  elderdragon: 'tft18_elderdragon', 'elder dragon': 'tft18_elderdragon',
+  kobuko: 'tft18_kobuko', yunara: 'tft18_yunara', willump: 'tft18_willump', alune: 'tft18_alune',
+  khazix: 'tft18_khazix', "kha'zix": 'tft18_khazix', reksai: 'tft18_reksai', "rek'sai": 'tft18_reksai',
+  kogmaw: 'tft18_kogmaw', "kog'maw": 'tft18_kogmaw', masteryi: 'tft18_masteryi', 'master yi': 'tft18_masteryi',
+  leblanc: 'tft18_leblanc', fiddlesticks: 'tft18_fiddlesticks'
+};
+const TFT18 = new Set(['akali','camille','cinderling','karma','kobuko','leona','ornn','pebbles','rakan','reksai','varus','veigar','xayah','yorick','alistar','caitlyn','elise','gromp','kayle','leblanc','murkwolf','scuttlecrab','sejuani','shen','teemo','warwick','yunara','azir','cassiopeia','diana','fiddlesticks','hecarim','khazix','kogmaw','krug','masteryi','rammus','mamabeak','rengar','tristana','vi','ahri','amumu','aphelios','brambleback','ezreal','lillia','malphite','morgana','nidalee','sett','sentinel','sivir','soraka','zyra','alune','ashe','draven','elderdragon','gnar','ivern','kennen','lux','maokai','taric','ancientsentinel','willump']);
+
+function champImage(name) {
+  const raw = String(name || '').trim();
+  if (!raw) return '';
+  const key = raw.toLowerCase().replace(/['']/g, '').replace(/\s+/g, '');
+  const spaced = raw.toLowerCase();
+  let id = CHAMP_SPECIAL[spaced] || CHAMP_SPECIAL[key] || '';
+  if (!id && TFT18.has(key)) id = 'tft18_' + key;
+  if (id) return CHAMP_CDN + id + '.png';
+  const dd = { reksai: 'RekSai', khazix: 'Khazix', kogmaw: 'KogMaw', masteryi: 'MasterYi', leblanc: 'Leblanc', fiddlesticks: 'FiddleSticks' };
+  const ddKey = dd[key] || raw.replace(/['']/g, '').replace(/\s+/g, '');
+  return 'https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/' + ddKey + '.png';
+}
+
+function champImgHtml(name, cls) {
+  const src = champImage(name);
+  const alt = escapeHtml(name);
+  if (!src) return '<span class="' + cls + ' letter">' + escapeHtml((name || '?').slice(0, 2)) + '</span>';
+  return '<img class="' + cls + '" src="' + src + '" alt="' + alt + '" loading="lazy" decoding="async" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement(\'span\'),{className:\'' + cls + ' letter\',textContent:\'' + alt.slice(0, 2).replace(/'/g, '') + '\'}))">';
+}
+
+
 function isBackline(name) {
   return /ahri|alune|aphelios|ashe|azir|caitlyn|draven|ezreal|karma|leblanc|lux|morgana|sivir|soraka|tristana|veigar|xayah|zyra/i.test(name);
 }
@@ -38,8 +73,7 @@ function renderBoard(comp) {
       if (!entry) return '<div class="board-cell"></div>';
       const name = typeof entry === 'string' ? entry : unitName(entry);
       const carry = typeof entry === 'object' && entry.carry;
-      const initials = name.split(/\s+/).map((part) => part[0]).join('').slice(0, 2);
-      return '<div class="board-cell filled ' + (carry ? 'carry' : '') + '"><span class="board-unit">' + escapeHtml(initials) + '</span><span class="board-name">' + escapeHtml(name) + '</span></div>';
+      return '<div class="board-cell filled ' + (carry ? 'carry' : '') + '">' + champImgHtml(name, 'board-unit') + '<span class="board-name">' + escapeHtml(name) + '</span></div>';
     }).join('');
     return '<div class="board-row ' + (row % 2 ? 'offset' : '') + '">' + cells + '</div>';
   }).join('');
@@ -74,7 +108,7 @@ function renderDetail() {
   selectedSlug = comp.slug;
   const traits = (comp.traits || []).map((trait) => '<span class="chip">' + escapeHtml(nameOf(trait.name || trait)) + (trait.count ? ' ' + trait.count : '') + '</span>').join('');
   const items = (comp.items || comp.coreItems || []).map((item) => '<span class="chip">' + escapeHtml(nameOf(item.name || item)) + '</span>').join('');
-  const units = (comp.units || []).map((unit) => '<div class="unit">' + escapeHtml(unitName(unit)) + '</div>').join('');
+  const units = (comp.units || []).map((unit) => { const n = unitName(unit); return '<div class="unit">' + champImgHtml(n, 'unit-avatar') + '<span>' + escapeHtml(n) + '</span></div>'; }).join('');
   const early = (comp.earlyUnits || []).map((unit) => '<span class="chip">' + escapeHtml(unitName(unit)) + '</span>').join('');
 
   detailRoot.innerHTML = '<p class="eyebrow"><span class="tier">' + escapeHtml(comp.tier || 'A') + '</span> ' + escapeHtml(localized(comp.style) || 'TFT Comp') + '</p>' +
