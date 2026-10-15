@@ -23,6 +23,18 @@ function notifyWindowState() {
   });
 }
 
+function pinOverlayOnTop() {
+  if (!overlayWindow || overlayWindow.isDestroyed()) return;
+  try {
+    // Highest practical level on Windows so other apps don't cover the overlay
+    overlayWindow.setAlwaysOnTop(true, 'screen-saver');
+    overlayWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+    if (overlayWindow.isVisible()) overlayWindow.moveTop();
+  } catch (_) {
+    try { overlayWindow.setAlwaysOnTop(true); } catch (__) {}
+  }
+}
+
 function createOverlayWindow() {
   const { workArea } = screen.getPrimaryDisplay();
   const width = Math.min(620, workArea.width - 48);
@@ -42,18 +54,21 @@ function createOverlayWindow() {
     }
   });
 
-  overlayWindow.setAlwaysOnTop(true, 'floating');
+  pinOverlayOnTop();
   try { overlayWindow.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch (_) {}
-  overlayWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
   overlayWindow.setMenuBarVisibility(false);
   overlayWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
   overlayWindow.once('ready-to-show', () => {
     overlayWindow.showInactive();
+    pinOverlayOnTop();
     overlayWindow.webContents.send('overlay:version', { version: app.getVersion(), packaged: app.isPackaged });
     setTimeout(checkForUpdates, 4000);
   });
   overlayWindow.on('maximize', notifyWindowState);
   overlayWindow.on('unmaximize', notifyWindowState);
+  overlayWindow.on('blur', () => pinOverlayOnTop());
+  overlayWindow.on('show', () => pinOverlayOnTop());
+  overlayWindow.on('focus', () => pinOverlayOnTop());
   overlayWindow.on('closed', () => { overlayWindow = null; });
   overlayWindow.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
 }
@@ -63,7 +78,7 @@ function toggleOverlay() {
   if (overlayWindow.isVisible()) overlayWindow.hide();
   else {
     overlayWindow.showInactive();
-    overlayWindow.moveTop();
+    pinOverlayOnTop();
   }
 }
 
