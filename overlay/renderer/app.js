@@ -128,7 +128,7 @@ function render() {
   renderDetail();
 }
 
-document.querySelector('#hide').addEventListener('click', () => window.mokaOverlay.hide());
+document.querySelector('#hide').addEventListener('click', () => window.mokaOverlay.close());
 document.querySelector('#minimize').addEventListener('click', () => window.mokaOverlay.minimize());
 document.querySelector('#maximize').addEventListener('click', () => window.mokaOverlay.toggleMaximize());
 window.mokaOverlay.onWindowState((state) => {

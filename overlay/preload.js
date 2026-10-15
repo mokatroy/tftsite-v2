@@ -3,6 +3,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('mokaOverlay', {
   loadComps: () => ipcRenderer.invoke('comps:load'),
   hide: () => ipcRenderer.send('overlay:hide'),
+  close: () => ipcRenderer.send('overlay:close'),
   minimize: () => ipcRenderer.send('overlay:minimize'),
   toggleMaximize: () => ipcRenderer.send('overlay:toggle-maximize'),
   checkForUpdates: () => ipcRenderer.send('update:check'),

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, ipcMain, screen } = require('electron');
+const { app, BrowserWindow, globalShortcut, ipcMain, screen, dialog } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
@@ -12,6 +12,25 @@ const DATA_SOURCES = [
 
 let overlayWindow;
 let isInstallingUpdate = false;
+
+const gotSingleInstanceLock = app.requestSingleInstanceLock();
+if (!gotSingleInstanceLock) {
+  // Second instance: show message then exit
+  app.whenReady().then(() => {
+    try {
+      dialog.showMessageBoxSync({
+        type: 'info',
+        title: 'MokaTroy TFT Overlay',
+        message: 'البرنامج شغال بالفعل',
+        detail: 'نسخة واحدة فقط يمكن فتحها في نفس الوقت.\nلو النافذة مختفية استخدم Ctrl+Shift+Space أو أيقونة شريط المهام.',
+        buttons: ['حسنًا']
+      });
+    } catch (_) {}
+    app.exit(0);
+  });
+}
+
+
 
 function sendUpdate(state, payload = {}) {
   overlayWindow?.webContents.send('overlay:update', { state, ...payload });
@@ -69,6 +88,10 @@ function createOverlayWindow() {
   overlayWindow.on('blur', () => pinOverlayOnTop());
   overlayWindow.on('show', () => pinOverlayOnTop());
   overlayWindow.on('focus', () => pinOverlayOnTop());
+  overlayWindow.on('close', (event) => {
+    if (isInstallingUpdate) return;
+    // Closing the window exits the app completely (hide is only via shortcut)
+  });
   overlayWindow.on('closed', () => { overlayWindow = null; });
   overlayWindow.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
 }
@@ -173,12 +196,34 @@ async function loadComps() {
 }
 
 app.whenReady().then(() => {
+  if (!gotSingleInstanceLock) return;
+  app.on('second-instance', () => {
+    if (!overlayWindow || overlayWindow.isDestroyed()) return;
+    if (overlayWindow.isMinimized()) overlayWindow.restore();
+    if (!overlayWindow.isVisible()) overlayWindow.show();
+    pinOverlayOnTop();
+    try {
+      dialog.showMessageBox(overlayWindow, {
+        type: 'info',
+        title: 'MokaTroy TFT Overlay',
+        message: 'البرنامج شغال بالفعل',
+        detail: 'تم إظهار النافذة المفتوحة.',
+        buttons: ['حسنًا']
+      });
+    } catch (_) {}
+  });
+
   configureUpdater();
   createOverlayWindow();
   globalShortcut.register('CommandOrControl+Shift+Space', toggleOverlay);
 
   ipcMain.handle('comps:load', loadComps);
   ipcMain.on('overlay:hide', () => overlayWindow?.hide());
+  ipcMain.on('overlay:close', () => {
+    if (isInstallingUpdate) return;
+    try { globalShortcut.unregisterAll(); } catch (_) {}
+    app.quit();
+  });
   ipcMain.on('overlay:minimize', () => overlayWindow?.minimize());
   ipcMain.on('overlay:toggle-maximize', () => {
     if (!overlayWindow) return;
@@ -202,8 +247,7 @@ app.whenReady().then(() => {
 });
 
 app.on('will-quit', () => globalShortcut.unregisterAll());
-app.on('window-all-closed', (event) => {
+app.on('window-all-closed', () => {
   if (isInstallingUpdate) return;
-  // Keep process alive while overlay is only hidden
-  event.preventDefault();
+  app.quit();
 });
