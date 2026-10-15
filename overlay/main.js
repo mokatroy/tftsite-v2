@@ -294,10 +294,14 @@ app.whenReady().then(() => {
         const status = result.status;
         let raw = '';
         try { raw = await result.text(); } catch (_) {}
-        if (status >= 200 && status < 400 && !/unable to open the file|Script function not found|405/i.test(raw)) {
+        // Google Apps Script often emails successfully then answers with 302/echo HTML/405.
+        const isGas = /script\.google\.com|script\.googleusercontent\.com/i.test(t.url);
+        if (isGas && status >= 200 && status < 500 && !/Script function not found/i.test(raw)) {
+          return { ok: true, status, via: t.url, note: 'gas' };
+        }
+        if (status >= 200 && status < 400 && !/unable to open the file|Script function not found/i.test(raw)) {
           return { ok: true, status, via: t.url, raw: raw.slice(0, 200) };
         }
-        // GAS often returns 200 with JSON ok
         if (status === 200 && /"ok"\s*:\s*true/i.test(raw)) {
           return { ok: true, status, via: t.url };
         }

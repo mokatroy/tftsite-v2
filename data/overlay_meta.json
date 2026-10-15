@@ -7,11 +7,11 @@
     "en": "Send feedback"
   },
   "announcement": {
-    "id": "2026-10-15-feedback-direct",
+    "id": "2026-10-15-feedback-ok",
     "active": true,
     "level": "info",
-    "ar": "زر الملاحظات بيبعت الرسالة مباشرة — لو أول مرة، فعل الإيميل لو وصلك طلب تفعيل.",
-    "en": "Feedback is sent directly. Confirm activation email if prompted.",
+    "ar": "الملاحظات بتتبعت مباشرة على إيميل MokaTroy.",
+    "en": "Feedback is delivered directly to MokaTroy email.",
     "link": ""
   }
 }
