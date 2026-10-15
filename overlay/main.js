@@ -68,8 +68,8 @@ function toggleOverlay() {
 
 function configureUpdater() {
   if (!app.isPackaged) return;
-  autoUpdater.autoDownload = false;
-  autoUpdater.autoInstallOnAppQuit = false;
+  autoUpdater.autoDownload = true;
+  autoUpdater.autoInstallOnAppQuit = true;
   try {
     autoUpdater.setFeedURL({
       provider: 'github',
@@ -78,10 +78,23 @@ function configureUpdater() {
     });
   } catch (_) {}
   autoUpdater.on('checking-for-update', () => sendUpdate('checking'));
-  autoUpdater.on('update-available', (info) => sendUpdate('available', { version: info.version }));
+  autoUpdater.on('update-available', (info) => {
+    sendUpdate('available', { version: info.version });
+    // autoDownload=true already starts download; keep UI in sync
+  });
   autoUpdater.on('update-not-available', () => sendUpdate('current'));
   autoUpdater.on('download-progress', (progress) => sendUpdate('downloading', { percent: Math.round(progress.percent || 0) }));
-  autoUpdater.on('update-downloaded', (info) => sendUpdate('ready', { version: info.version }));
+  autoUpdater.on('update-downloaded', (info) => {
+    sendUpdate('ready', { version: info.version });
+    // Install silently and relaunch like a normal app
+    setTimeout(() => {
+      try {
+        autoUpdater.quitAndInstall(true, true);
+      } catch (_) {
+        autoUpdater.quitAndInstall();
+      }
+    }, 1800);
+  });
   autoUpdater.on('error', (err) => sendUpdate('error', { message: String(err && err.message || err || 'unknown') }));
 }
 
@@ -147,7 +160,7 @@ app.whenReady().then(() => {
     checkForUpdates();
   });
   ipcMain.on('update:download', () => autoUpdater.downloadUpdate().catch(() => sendUpdate('error')));
-  ipcMain.on('update:install', () => autoUpdater.quitAndInstall());
+  ipcMain.on('update:install', () => { try { autoUpdater.quitAndInstall(true, true); } catch (_) { autoUpdater.quitAndInstall(); } });
 
   app.on('activate', () => {
     if (!overlayWindow) createOverlayWindow();

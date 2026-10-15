@@ -158,9 +158,9 @@ function showUpdate(message, actionLabel = '', actionMode = '') {
 
 window.mokaOverlay.onUpdate((update) => {
   if (update.state === 'checking') showUpdate('جارٍ البحث عن تحديثات…');
-  if (update.state === 'available') showUpdate('يتوفر تحديث جديد (' + update.version + ')', 'تنزيل الآن', 'download');
+  if (update.state === 'available') showUpdate('يتوفر تحديث ' + update.version + ' — جارٍ التنزيل…');
   if (update.state === 'downloading') showUpdate('جارٍ تنزيل التحديث: ' + (update.percent || 0) + '%');
-  if (update.state === 'ready') showUpdate('التحديث جاهز للتثبيت', 'إعادة التشغيل الآن', 'install');
+  if (update.state === 'ready') showUpdate('التحديث جاهز — جارٍ إعادة التشغيل…');
   if (update.state === 'current') showUpdate('أنت على آخر إصدار');
   if (update.state === 'dev') showUpdate('وضع التطوير — التحديث يعمل فقط من النسخة المثبتة');
   if (update.state === 'error') showUpdate('تعذر التحقق من التحديث' + (update.message ? ': ' + update.message : ''));

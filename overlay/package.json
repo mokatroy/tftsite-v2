@@ -1,6 +1,6 @@
 {
   "name": "mokatroy-tft-overlay",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A lightweight desktop companion for MokaTroy TFT.",
   "main": "main.js",
   "private": true,
@@ -43,7 +43,9 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "build/icon.ico",
-      "uninstallerIcon": "build/icon.ico"
+      "uninstallerIcon": "build/icon.ico",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false
     },
     "icon": "build/icon.ico"
   },
