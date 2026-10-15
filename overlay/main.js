@@ -32,7 +32,8 @@ function createOverlayWindow() {
     x: workArea.x + workArea.width - width - 24,
     y: workArea.y + Math.max(24, Math.round((workArea.height - height) / 2)),
     minWidth: 440, minHeight: 560, show: false, frame: false, transparent: true,
-    alwaysOnTop: true, skipTaskbar: true, resizable: true,
+    alwaysOnTop: true, skipTaskbar: false, resizable: true,
+    icon: path.join(__dirname, 'build', 'icon.png'),
     backgroundColor: '#00000000', title: 'MokaTroy TFT Overlay',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -41,6 +42,7 @@ function createOverlayWindow() {
   });
 
   overlayWindow.setAlwaysOnTop(true, 'floating');
+  try { overlayWindow.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch (_) {}
   overlayWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
   overlayWindow.setMenuBarVisibility(false);
   overlayWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
