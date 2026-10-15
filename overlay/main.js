@@ -48,6 +48,7 @@ function createOverlayWindow() {
   overlayWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
   overlayWindow.once('ready-to-show', () => {
     overlayWindow.showInactive();
+    overlayWindow.webContents.send('overlay:version', { version: app.getVersion(), packaged: app.isPackaged });
     setTimeout(checkForUpdates, 4000);
   });
   overlayWindow.on('maximize', notifyWindowState);
@@ -74,7 +75,7 @@ function configureUpdater() {
   autoUpdater.on('update-not-available', () => sendUpdate('current'));
   autoUpdater.on('download-progress', (progress) => sendUpdate('downloading', { percent: Math.round(progress.percent) }));
   autoUpdater.on('update-downloaded', (info) => sendUpdate('ready', { version: info.version }));
-  autoUpdater.on('error', () => sendUpdate('error'));
+  autoUpdater.on('error', (err) => sendUpdate('error', { message: String(err && err.message || err || 'unknown') }));
 }
 
 function checkForUpdates() {
@@ -108,6 +109,13 @@ app.whenReady().then(() => {
     if (!overlayWindow) return;
     if (overlayWindow.isMaximized()) overlayWindow.unmaximize();
     else overlayWindow.maximize();
+  });
+  ipcMain.on('update:check', () => {
+    if (!app.isPackaged) {
+      sendUpdate('dev');
+      return;
+    }
+    checkForUpdates();
   });
   ipcMain.on('update:download', () => autoUpdater.downloadUpdate().catch(() => sendUpdate('error')));
   ipcMain.on('update:install', () => autoUpdater.quitAndInstall());

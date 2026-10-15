@@ -125,11 +125,19 @@ function showUpdate(message, actionLabel = '', actionMode = '') {
 window.mokaOverlay.onUpdate((update) => {
   if (update.state === 'checking') showUpdate('جارٍ البحث عن تحديثات…');
   if (update.state === 'available') showUpdate('يتوفر تحديث جديد (' + update.version + ')', 'تنزيل الآن', 'download');
-  if (update.state === 'downloading') showUpdate('جارٍ تنزيل التحديث: ' + update.percent + '%');
+  if (update.state === 'downloading') showUpdate('جارٍ تنزيل التحديث: ' + (update.percent || 0) + '%');
   if (update.state === 'ready') showUpdate('التحديث جاهز للتثبيت', 'إعادة التشغيل الآن', 'install');
-  if (update.state === 'current') updateBar.hidden = true;
-  if (update.state === 'error') updateBar.hidden = true;
+  if (update.state === 'current') showUpdate('أنت على آخر إصدار');
+  if (update.state === 'dev') showUpdate('وضع التطوير — التحديث يعمل فقط من النسخة المثبتة');
+  if (update.state === 'error') showUpdate('تعذر التحقق من التحديث' + (update.message ? ': ' + update.message : ''));
 });
+
+const versionEl = document.querySelector('#app-version');
+const checkBtn = document.querySelector('#check-update');
+window.mokaOverlay.onVersion((info) => {
+  if (versionEl) versionEl.textContent = 'v' + (info.version || '?');
+});
+if (checkBtn) checkBtn.addEventListener('click', () => window.mokaOverlay.checkForUpdates());
 
 updateAction.addEventListener('click', () => {
   if (updateActionMode === 'download') window.mokaOverlay.downloadUpdate();
