@@ -23,13 +23,14 @@
       "preload.js",
       "renderer/**/*"
     ],
-    "publish": [{
-      "provider": "github",
-      "owner": "mokatroy",
-      "repo": "tftsite-v2",
-      "releaseType": "release"
-    }],
-    "tagNamePrefix": "overlay-v",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "mokatroy",
+        "repo": "tftsite-v2",
+        "releaseType": "release"
+      }
+    ],
     "win": {
       "target": "nsis"
     },
@@ -37,5 +38,6 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
     }
-  }
+  },
+  "author": "MokaTroy"
 }
