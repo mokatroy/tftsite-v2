@@ -70,17 +70,46 @@ function configureUpdater() {
   if (!app.isPackaged) return;
   autoUpdater.autoDownload = false;
   autoUpdater.autoInstallOnAppQuit = false;
+  try {
+    autoUpdater.setFeedURL({
+      provider: 'github',
+      owner: 'mokatroy',
+      repo: 'tftsite-v2'
+    });
+  } catch (_) {}
   autoUpdater.on('checking-for-update', () => sendUpdate('checking'));
   autoUpdater.on('update-available', (info) => sendUpdate('available', { version: info.version }));
   autoUpdater.on('update-not-available', () => sendUpdate('current'));
-  autoUpdater.on('download-progress', (progress) => sendUpdate('downloading', { percent: Math.round(progress.percent) }));
+  autoUpdater.on('download-progress', (progress) => sendUpdate('downloading', { percent: Math.round(progress.percent || 0) }));
   autoUpdater.on('update-downloaded', (info) => sendUpdate('ready', { version: info.version }));
   autoUpdater.on('error', (err) => sendUpdate('error', { message: String(err && err.message || err || 'unknown') }));
 }
 
 function checkForUpdates() {
-  if (!app.isPackaged) return;
-  autoUpdater.checkForUpdates().catch(() => sendUpdate('error'));
+  if (!app.isPackaged) {
+    sendUpdate('dev');
+    return;
+  }
+  sendUpdate('checking');
+  let settled = false;
+  const finish = (state, payload) => {
+    if (settled) return;
+    settled = true;
+    sendUpdate(state, payload || {});
+  };
+  const timer = setTimeout(() => finish('error', { message: 'انتهت مهلة البحث عن التحديث' }), 15000);
+  autoUpdater.checkForUpdates()
+    .then((result) => {
+      clearTimeout(timer);
+      if (settled) return;
+      if (!result || !result.updateInfo) finish('current');
+      // events will also fire; mark settled lightly after a tick
+      setTimeout(() => { settled = true; }, 2000);
+    })
+    .catch((err) => {
+      clearTimeout(timer);
+      finish('error', { message: String(err && err.message || err || 'unknown') });
+    });
 }
 
 async function loadComps() {
