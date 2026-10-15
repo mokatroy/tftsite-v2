@@ -352,7 +352,7 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
     });
     if (result && result.ok) {
       feedbackStatus.style.color = '#9be7b5';
-      feedbackStatus.textContent = 'تم الإرسال. راقب بريد mokatroy@gmail.com (والسبام). أول مرة قد يوصلك إيميل تفعيل.';
+      feedbackStatus.textContent = 'تم إرسال ملاحظتك بنجاح. شكرًا لك!';
       feedbackText.value = '';
     } else {
       throw new Error(result && result.error ? result.error : 'failed');
