@@ -149,9 +149,9 @@ export function itemChip(name){
 
 /** Patch 18.4 ranked stats (approx. from MetaTFT / NoxuTFT / SeeMeta, updated 2026-10-12) */
 export const COMP_STATS = {
-  'riftbeast-pebbles':{avg:4.12,top4:57.4,win:14.6,pick:0.6},
-  'flora-azir':{avg:4.13,top4:56.8,win:15.3,pick:0.5},
-  'azir-rammus':{avg:4.13,top4:56.8,win:15.3,pick:0.5},
+  'riftbeast-pebbles':{avg:4.13,top4:57.1,win:14.3,pick:0.65},
+  'flora-azir':{avg:4.14,top4:56.7,win:15.1,pick:0.52},
+  'azir-rammus':{avg:4.14,top4:56.7,win:15.1,pick:0.52},
   'lunar-aphelios-nidalee':{avg:4.20,top4:58.0,win:8.5,pick:0.5},
   'lunar-aphelios':{avg:4.22,top4:56.0,win:10.0,pick:0.4},
   'vanguard-alune':{avg:4.24,top4:53.4,win:19.0,pick:0.12},
@@ -175,7 +175,15 @@ export const COMP_STATS = {
   'juggernaut-ashe':{avg:4.40,top4:51.0,win:12.0,pick:0.2},
   'master-yi-adaptor':{avg:4.45,top4:49.5,win:10.0,pick:0.2},
   'eclipse-kayle':{avg:4.48,top4:49.0,win:9.5,pick:0.2},
-  'malphite-ap-flex':{avg:4.50,top4:48.5,win:9.0,pick:0.3}
+  'malphite-ap-flex':{avg:4.50,top4:48.5,win:9.0,pick:0.3},
+  'defender-rengar':{avg:4.15,top4:56.6,win:13.9,pick:0.7},
+  'elderwood-aphelios':{avg:4.08,top4:57.3,win:16.3,pick:2.7},
+  'elderwood-executioners':{avg:4.25,top4:54.0,win:13.0,pick:0.5},
+  'juggernaut-zyra':{avg:4.30,top4:53.5,win:12.0,pick:0.4},
+  'soraka-flex':{avg:4.22,top4:55.0,win:14.0,pick:0.4},
+  'solar-kayle':{avg:4.28,top4:54.2,win:14.0,pick:0.3},
+  'invoker-brambleback':{avg:4.32,top4:53.0,win:12.5,pick:0.3},
+  'riftbeast-tempo':{avg:4.20,top4:55.5,win:13.5,pick:0.5},
 };
 
 export function getCompStats(c){

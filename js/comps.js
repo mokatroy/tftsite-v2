@@ -1,18 +1,19 @@
-import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js?v=20261005fix';
+import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js?v=20261015meta';
 import{compCard}from'./ui.js?v=20261012stats';
 let comps=[],situational=[],tier='All',query='';
 
 const TIER_18_4 = {
-  'riftbeast-sentinel':'S','elderwood-xayah':'S','vanguard-alune':'S',
-  'hunter-sivir':'A','juggernaut-flex':'A','spellweaver-veigar':'B',
-  'flora-azir':'S','defender-cass':'A','lunar-aphelios-nidalee':'S',
-  'invoker-ahri':'A','executioner-khazix':'A','juggernaut-ashe':'B',
-  'invoker-morgana-sentinel':'S','sivir-nidalee':'A','draven-fast9':'A',
-  'vanguard-aphelios':'A','solar-yunara':'B','warwick-ravager':'B',
-  'caitlyn-reroll':'A','master-yi-adaptor':'B',
-  'lunarwood-khazix':'S','azir-rammus':'A','eclipse-kayle':'B',
-  'akali-reroll':'A','malphite-ap-flex':'B',
-  'riftbeast-pebbles':'S'
+  'riftbeast-pebbles':'S','flora-azir':'S','azir-rammus':'S',
+  'lunar-aphelios-nidalee':'S','lunarwood-khazix':'S','invoker-morgana-sentinel':'S',
+  'defender-rengar':'S','elderwood-aphelios':'S',
+  'vanguard-alune':'A','elderwood-xayah':'A','riftbeast-sentinel':'A',
+  'hunter-sivir':'A','executioner-khazix':'A','defender-cass':'A',
+  'invoker-ahri':'A','sivir-nidalee':'A','draven-fast9':'A',
+  'vanguard-aphelios':'A','akali-reroll':'A','juggernaut-zyra':'A',
+  'executioner-soraka':'A','solar-kayle':'A',
+  'spellweaver-veigar':'B','juggernaut-flex':'B','juggernaut-ashe':'B',
+  'solar-yunara':'B','warwick-ravager':'B','caitlyn-reroll':'B',
+  'master-yi-adaptor':'B','eclipse-kayle':'B','malphite-ap-flex':'B'
 };
 function applyPatchTiers(list){
   return (list||[]).map(c=>{
@@ -63,12 +64,13 @@ Promise.all([
   loadJson('data/v2_comps_extra2.json', CDN+'/v2_comps_extra2.json'),
   loadJson('data/v2_comps_extra3.json', CDN+'/v2_comps_extra3.json'),
   loadJson('data/v2_comps_extra4.json', 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@6a63287/data/v2_comps_extra4.json'),
+  loadJson('data/v2_comps_extra5.json', 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra5.json'),
   fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/v2_situational_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/patches.json?v=20261010p184c').then(r=>r.ok?r.json():[]).catch(()=>[])
-]).then(([c,extra,extra2,extra3,extra4,s,sx,p])=>{
+]).then(([c,extra,extra2,extra3,extra4,extra5,s,sx,p])=>{
   const base=Array.isArray(c)?c:(c.comps||[]);
-  const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[]), ...(Array.isArray(extra3)?extra3:[]), ...(Array.isArray(extra4)?extra4:[])];
+  const more=[...(Array.isArray(extra)?extra:[]), ...(Array.isArray(extra2)?extra2:[]), ...(Array.isArray(extra3)?extra3:[]), ...(Array.isArray(extra4)?extra4:[]), ...(Array.isArray(extra5)?extra5:[])];
   const seen=new Set(base.map(x=>x.slug));
   comps=applyPatchTiers(base.concat(more.filter(x=>x&&x.slug&&!seen.has(x.slug))));
   const sitBase=Array.isArray(s)?s:[];

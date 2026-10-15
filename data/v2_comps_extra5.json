@@ -1,0 +1,946 @@
+[
+  {
+    "slug": "defender-rengar",
+    "tier": "S",
+    "featured": true,
+    "color": "rgba(90,160,220,.4)",
+    "name": {
+      "ar": "Defender Rengar",
+      "en": "Defender Rengar",
+      "ja": "ディフェンダー・レンガー"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: ريرول 3-كوست لفل 7 (متوسط)",
+      "en": "Playstyle: 3-Cost Reroll level 7 (Medium)",
+      "ja": "プレイスタイル：3コストリロール7（中級）"
+    },
+    "summary": {
+      "ar": "S-tier في 18.4 — ريرول Rengar مع Defender 5 (emblem) + Cassiopeia ثانوي.",
+      "en": "S-tier in 18.4 — Rengar 3★ roll at 7 with Defender 5 (emblem) and Cassiopeia secondary.",
+      "ja": "18.4のS帯。7でRengar3スタ＋Defender。"
+    },
+    "guide": {
+      "ar": "أقوى خط Defender دلوقتي. الهدف Defender Emblem على Rengar + 3★ على لفل 7. Cassiopeia بياخد AP (Archangel / Gunblade). التانك: Rammus / Fiddlesticks. متعملش فورس من غير opener قوي أو emblem بدري.",
+      "en": "Top Defender line. Goal: Defender Emblem on Rengar and 3★ at level 7. Cassiopeia takes AP (Archangel / Gunblade). Tanks: Rammus / Fiddlesticks. Don't force without a strong opener or early emblem.",
+      "ja": "Defender最強ライン。エンブレム＋7で3スタ。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Defender",
+          "en": "Defender"
+        },
+        "count": 5
+      },
+      {
+        "name": {
+          "ar": "Spellweaver",
+          "en": "Spellweaver"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Rival",
+          "en": "Rival"
+        },
+        "count": 1
+      },
+      {
+        "name": {
+          "ar": "Flora Fatalis",
+          "en": "Flora Fatalis"
+        },
+        "count": 1
+      }
+    ],
+    "items": [
+      {
+        "ar": "Defender Emblem",
+        "en": "Defender Emblem"
+      },
+      {
+        "ar": "Guinsoo's Rageblade",
+        "en": "Guinsoo's Rageblade"
+      },
+      {
+        "ar": "Titan's Resolve",
+        "en": "Titan's Resolve"
+      },
+      {
+        "ar": "Archangel's Staff",
+        "en": "Archangel's Staff"
+      },
+      {
+        "ar": "Hextech Gunblade",
+        "en": "Hextech Gunblade"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Rengar",
+          "en": "Rengar"
+        }
+      },
+      {
+        "name": {
+          "ar": "Cassiopeia",
+          "en": "Cassiopeia"
+        }
+      },
+      {
+        "name": {
+          "ar": "Rammus",
+          "en": "Rammus"
+        }
+      },
+      {
+        "name": {
+          "ar": "Fiddlesticks",
+          "en": "Fiddlesticks"
+        }
+      },
+      {
+        "name": {
+          "ar": "Lillia",
+          "en": "Lillia"
+        }
+      },
+      {
+        "name": {
+          "ar": "Ornn",
+          "en": "Ornn"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Rammus",
+          "en": "Rammus"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      },
+      {
+        "name": {
+          "ar": "Lillia",
+          "en": "Lillia"
+        }
+      },
+      {
+        "name": {
+          "ar": "Cassiopeia",
+          "en": "Cassiopeia"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "title": {
+          "ar": "Stage 2",
+          "en": "Stage 2"
+        },
+        "body": {
+          "ar": "افتح Defender/Spellweaver. اجمع Rengar و Cassiopeia. سلاك أيتمز AD على Rengar و AP على Cass.",
+          "en": "Open Defender/Spellweaver. Hold Rengar and Cassiopeia. Slam AD on Rengar, AP on Cass."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 3",
+          "en": "Stage 3"
+        },
+        "body": {
+          "ar": "لفل 6–7. لو معاك Defender Emblem أو Rengar 2★ مع أيتمز، ثبت ريرول 7.",
+          "en": "Level 6–7. With Defender Emblem or itemized Rengar 2★, commit to roll 7."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 4+",
+          "en": "Stage 4+"
+        },
+        "body": {
+          "ar": "ريرول لـ Rengar 3★ و Cass 2★. حط emblem على Rengar. أضف 5-كوست لو استقرت.",
+          "en": "Roll for Rengar 3★ and Cass 2★. Emblem on Rengar. Add 5-costs when stable."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "elderwood-aphelios",
+    "tier": "S",
+    "featured": true,
+    "color": "rgba(80,180,120,.4)",
+    "name": {
+      "ar": "Elderwood Aphelios",
+      "en": "Elderwood Aphelios",
+      "ja": "エルダーウッド・アフェリオス"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: فاست 8 (متوسط)",
+      "en": "Playstyle: Fast 8 (Medium)",
+      "ja": "プレイスタイル：Fast 8（中級）"
+    },
+    "summary": {
+      "ar": "من أقوى خطوط 18.4 — Elderwood 7 مع Aphelios + Ezreal. متوسط ~4.08.",
+      "en": "Top 18.4 line — Elderwood 7 with Aphelios + Ezreal. ~4.08 avg.",
+      "ja": "18.4上位。Elderwood7＋Aphelios/Ezreal。"
+    },
+    "guide": {
+      "ar": "فاست 8 حوالي 4-2. أيتمز AD على Aphelios (Rageblade / Kraken / IE). Elderwood Emblem ممتاز. على 9: Gnar + Lux Elderwood لو لقيتها. مختلف عن Lunar Aphelios — هنا النبات والفرونتلاين Elderwood.",
+      "en": "Fast 8 around 4-2. AD items on Aphelios (Rageblade / Kraken / IE). Elderwood Emblem is excellent. On 9: Gnar + Elderwood Lux if you hit it. Distinct from Lunar Aphelios — plants + Elderwood frontline.",
+      "ja": "4-2前後で8。ApheliosにAD。9でGnar/Lux。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Elderwood",
+          "en": "Elderwood"
+        },
+        "count": 7
+      },
+      {
+        "name": {
+          "ar": "Brawler",
+          "en": "Brawler"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Rapidfire",
+          "en": "Rapidfire"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Fae",
+          "en": "Fae"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Defender",
+          "en": "Defender"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Guinsoo's Rageblade",
+        "en": "Guinsoo's Rageblade"
+      },
+      {
+        "ar": "Kraken's Fury",
+        "en": "Kraken's Fury"
+      },
+      {
+        "ar": "Infinity Edge",
+        "en": "Infinity Edge"
+      },
+      {
+        "ar": "Elderwood Emblem",
+        "en": "Elderwood Emblem"
+      },
+      {
+        "ar": "Spear of Shojin",
+        "en": "Spear of Shojin"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Aphelios",
+          "en": "Aphelios"
+        }
+      },
+      {
+        "name": {
+          "ar": "Ezreal",
+          "en": "Ezreal"
+        }
+      },
+      {
+        "name": {
+          "ar": "Lillia",
+          "en": "Lillia"
+        }
+      },
+      {
+        "name": {
+          "ar": "Ornn",
+          "en": "Ornn"
+        }
+      },
+      {
+        "name": {
+          "ar": "Alistar",
+          "en": "Alistar"
+        }
+      },
+      {
+        "name": {
+          "ar": "LeBlanc",
+          "en": "LeBlanc"
+        }
+      },
+      {
+        "name": {
+          "ar": "Gnar",
+          "en": "Gnar"
+        }
+      },
+      {
+        "name": {
+          "ar": "Xayah",
+          "en": "Xayah"
+        }
+      },
+      {
+        "name": {
+          "ar": "Hecarim",
+          "en": "Hecarim"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Ornn",
+          "en": "Ornn"
+        }
+      },
+      {
+        "name": {
+          "ar": "Xayah",
+          "en": "Xayah"
+        }
+      },
+      {
+        "name": {
+          "ar": "Alistar",
+          "en": "Alistar"
+        }
+      },
+      {
+        "name": {
+          "ar": "LeBlanc",
+          "en": "LeBlanc"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "title": {
+          "ar": "Stage 2",
+          "en": "Stage 2"
+        },
+        "body": {
+          "ar": "افتح Elderwood / Rapidfire. سلاك AD بدري عشان تمبو.",
+          "en": "Open Elderwood / Rapidfire. Slam AD early for tempo."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 3",
+          "en": "Stage 3"
+        },
+        "body": {
+          "ar": "اجمع 5 Elderwood. ما تبيعش econ لو مش مستقر. هدف لفل 8 حوالي 4-1/4-2.",
+          "en": "Stack 5 Elderwood. Don't greed econ if unstable. Target level 8 on 4-1/4-2."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 4+",
+          "en": "Stage 4+"
+        },
+        "body": {
+          "ar": "رول لـ Aphelios و Ezreal 2★. بعد الاستقرار ادفع 9 لـ Gnar/Lux.",
+          "en": "Roll for Aphelios and Ezreal 2★. When stable, push 9 for Gnar/Lux."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "juggernaut-zyra",
+    "tier": "A",
+    "featured": false,
+    "color": "rgba(180,100,80,.4)",
+    "name": {
+      "ar": "Juggernaut Zyra",
+      "en": "Juggernaut Zyra",
+      "ja": "ジャガーノート・ザイラ"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: فاست 8 (صعب)",
+      "en": "Playstyle: Fast 8 (Hard)",
+      "ja": "プレイスタイル：Fast 8（難）"
+    },
+    "summary": {
+      "ar": "Juggernaut 6 + Zyra AP — فرونتلاين تقيل وضرر استنزاف. أفضل مع Juggernaut Emblem.",
+      "en": "Juggernaut 6 + Zyra AP — tanky frontline and DoT damage. Best with Juggernaut Emblem.",
+      "ja": "Juggernaut6＋Zyra。エンブレム推奨。"
+    },
+    "guide": {
+      "ar": "AP opener (Blossom/Yorick). أولوية أيتمز Zyra (Archangel / Gunblade). التانك Amumu ثم Maokai. ثانوي: Nidalee أو Sivir/Ashe. مش Juggernaut Ashe — هنا الكاري Zyra.",
+      "en": "AP opener (Blossom/Yorick). Priority items on Zyra (Archangel / Gunblade). Tank Amumu then Maokai. Secondary: Nidalee or Sivir/Ashe. Not Juggernaut Ashe — Zyra is the carry.",
+      "ja": "APオープナー。Zyra優先。Asheラインではない。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Juggernaut",
+          "en": "Juggernaut"
+        },
+        "count": 6
+      },
+      {
+        "name": {
+          "ar": "Summoner",
+          "en": "Summoner"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Primal",
+          "en": "Primal"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Thornmaiden",
+          "en": "Thornmaiden"
+        },
+        "count": 1
+      }
+    ],
+    "items": [
+      {
+        "ar": "Archangel's Staff",
+        "en": "Archangel's Staff"
+      },
+      {
+        "ar": "Hextech Gunblade",
+        "en": "Hextech Gunblade"
+      },
+      {
+        "ar": "Gargoyle Stoneplate",
+        "en": "Gargoyle Stoneplate"
+      },
+      {
+        "ar": "Warmog's Armor",
+        "en": "Warmog's Armor"
+      },
+      {
+        "ar": "Spirit Visage",
+        "en": "Spirit Visage"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Zyra",
+          "en": "Zyra"
+        }
+      },
+      {
+        "name": {
+          "ar": "Amumu",
+          "en": "Amumu"
+        }
+      },
+      {
+        "name": {
+          "ar": "Vi",
+          "en": "Vi"
+        }
+      },
+      {
+        "name": {
+          "ar": "Yorick",
+          "en": "Yorick"
+        }
+      },
+      {
+        "name": {
+          "ar": "Rakan",
+          "en": "Rakan"
+        }
+      },
+      {
+        "name": {
+          "ar": "Scuttlecrab",
+          "en": "Scuttlecrab"
+        }
+      },
+      {
+        "name": {
+          "ar": "Nidalee",
+          "en": "Nidalee"
+        }
+      },
+      {
+        "name": {
+          "ar": "Sejuani",
+          "en": "Sejuani"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Yorick",
+          "en": "Yorick"
+        }
+      },
+      {
+        "name": {
+          "ar": "Rakan",
+          "en": "Rakan"
+        }
+      },
+      {
+        "name": {
+          "ar": "Scuttlecrab",
+          "en": "Scuttlecrab"
+        }
+      },
+      {
+        "name": {
+          "ar": "Vi",
+          "en": "Vi"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "title": {
+          "ar": "Stage 2",
+          "en": "Stage 2"
+        },
+        "body": {
+          "ar": "افتح AP / Blossom. سلاك AP وتانك.",
+          "en": "Open AP / Blossom. Slam AP and tank items."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 3",
+          "en": "Stage 3"
+        },
+        "body": {
+          "ar": "اجمع Juggernauts. ثبت التمبو قبل 4-1.",
+          "en": "Stack Juggernauts. Stabilize before 4-1."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 4+",
+          "en": "Stage 4+"
+        },
+        "body": {
+          "ar": "لفل 8 رول لـ Zyra 2★ و 6 Juggernaut. ادفع 9 لما تستقر.",
+          "en": "Level 8 roll for Zyra 2★ and 6 Juggernaut. Push 9 when stable."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "executioner-soraka",
+    "tier": "A",
+    "featured": false,
+    "color": "rgba(200,160,80,.4)",
+    "name": {
+      "ar": "Executioner Soraka",
+      "en": "Executioner Soraka",
+      "ja": "エクスキューショナー・ソラカ"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: فاست 8 (متوسط)",
+      "en": "Playstyle: Fast 8 (Medium)",
+      "ja": "プレイスタイル：Fast 8（中級）"
+    },
+    "summary": {
+      "ar": "Soraka + Zyra مع Executioner / Flora Fatalis — خط Pro شائع كـ Fast 8 فليكس.",
+      "en": "Soraka + Zyra with Executioner / Flora Fatalis — common Pro Fast 8 flex.",
+      "ja": "Soraka＋ZyraのExecutionerフレックス。"
+    },
+    "guide": {
+      "ar": "فاست 8. أيتمز على Zyra أولاً ثم Soraka (Shojin / Archangel). ثانوي Kennen أو Alune على 9. مش شرط Emblem بس Executioner 3 كويس.",
+      "en": "Fast 8. Items on Zyra first, then Soraka (Shojin / Archangel). Secondary Kennen or Alune on 9. Emblem optional; Executioner 3 is enough.",
+      "ja": "Fast8。Zyra優先、Soraka次。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Executioner",
+          "en": "Executioner"
+        },
+        "count": 3
+      },
+      {
+        "name": {
+          "ar": "Summoner",
+          "en": "Summoner"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Flora Fatalis",
+          "en": "Flora Fatalis"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Juggernaut",
+          "en": "Juggernaut"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Spellweaver",
+          "en": "Spellweaver"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Spear of Shojin",
+        "en": "Spear of Shojin"
+      },
+      {
+        "ar": "Archangel's Staff",
+        "en": "Archangel's Staff"
+      },
+      {
+        "ar": "Jeweled Gauntlet",
+        "en": "Jeweled Gauntlet"
+      },
+      {
+        "ar": "Hextech Gunblade",
+        "en": "Hextech Gunblade"
+      },
+      {
+        "ar": "Rabadon's Deathcap",
+        "en": "Rabadon's Deathcap"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Soraka",
+          "en": "Soraka"
+        }
+      },
+      {
+        "name": {
+          "ar": "Zyra",
+          "en": "Zyra"
+        }
+      },
+      {
+        "name": {
+          "ar": "Fiddlesticks",
+          "en": "Fiddlesticks"
+        }
+      },
+      {
+        "name": {
+          "ar": "Malphite",
+          "en": "Malphite"
+        }
+      },
+      {
+        "name": {
+          "ar": "Amumu",
+          "en": "Amumu"
+        }
+      },
+      {
+        "name": {
+          "ar": "Azir",
+          "en": "Azir"
+        }
+      },
+      {
+        "name": {
+          "ar": "Kennen",
+          "en": "Kennen"
+        }
+      },
+      {
+        "name": {
+          "ar": "Yorick",
+          "en": "Yorick"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Yorick",
+          "en": "Yorick"
+        }
+      },
+      {
+        "name": {
+          "ar": "Azir",
+          "en": "Azir"
+        }
+      },
+      {
+        "name": {
+          "ar": "Fiddlesticks",
+          "en": "Fiddlesticks"
+        }
+      },
+      {
+        "name": {
+          "ar": "Malphite",
+          "en": "Malphite"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "title": {
+          "ar": "Stage 2",
+          "en": "Stage 2"
+        },
+        "body": {
+          "ar": "افتح Summoner / Blossom. اجمع مكونات AP.",
+          "en": "Open Summoner / Blossom. Collect AP components."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 3",
+          "en": "Stage 3"
+        },
+        "body": {
+          "ar": "ثبّت econ وادفع لفل 7–8 بصحة كويسة.",
+          "en": "Stabilize econ and push 7–8 while healthy."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 4+",
+          "en": "Stage 4+"
+        },
+        "body": {
+          "ar": "رول لـ Soraka و Zyra 2★. على 9 أضف Kennen/Alune.",
+          "en": "Roll for Soraka and Zyra 2★. On 9 add Kennen/Alune."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "solar-kayle",
+    "tier": "A",
+    "featured": false,
+    "color": "rgba(220,180,60,.4)",
+    "name": {
+      "ar": "Solar Kayle",
+      "en": "Solar Kayle",
+      "ja": "ソーラー・ケイル"
+    },
+    "style": {
+      "ar": "أسلوب اللعب: ريرول 2-كوست لفل 6–7 (سهل)",
+      "en": "Playstyle: 2-Cost Reroll level 6–7 (Easy)",
+      "ja": "プレイスタイル：2コストリロール6–7（易）"
+    },
+    "summary": {
+      "ar": "Kayle ريرول مع Solar / Rapidfire — أقوى من Eclipse-only في بيانات 18.4.",
+      "en": "Kayle reroll with Solar / Rapidfire — stronger than pure Eclipse in 18.4 data.",
+      "ja": "Kayleリロール。Solar/Rapidfire。"
+    },
+    "guide": {
+      "ar": "ريرول Kayle 3★ على 6 أو 7. أيتمز AS/AD (Rageblade، Guinsoo، IE). Sejuani و Varus و Shen فرونت. لو فتحت Lunar+Solar تقدر تحول Eclipse.",
+      "en": "Roll Kayle 3★ on 6 or 7. AS/AD items (Rageblade, IE). Sejuani, Varus, Shen front. If you open Lunar+Solar you can pivot Eclipse.",
+      "ja": "6–7でKayle3スタ。Eclipseへのピボット可。"
+    },
+    "traits": [
+      {
+        "name": {
+          "ar": "Solar",
+          "en": "Solar"
+        },
+        "count": 3
+      },
+      {
+        "name": {
+          "ar": "Rapidfire",
+          "en": "Rapidfire"
+        },
+        "count": 3
+      },
+      {
+        "name": {
+          "ar": "Defender",
+          "en": "Defender"
+        },
+        "count": 2
+      },
+      {
+        "name": {
+          "ar": "Lunar",
+          "en": "Lunar"
+        },
+        "count": 2
+      }
+    ],
+    "items": [
+      {
+        "ar": "Guinsoo's Rageblade",
+        "en": "Guinsoo's Rageblade"
+      },
+      {
+        "ar": "Infinity Edge",
+        "en": "Infinity Edge"
+      },
+      {
+        "ar": "Last Whisper",
+        "en": "Last Whisper"
+      },
+      {
+        "ar": "Giant Slayer",
+        "en": "Giant Slayer"
+      },
+      {
+        "ar": "Bloodthirster",
+        "en": "Bloodthirster"
+      }
+    ],
+    "units": [
+      {
+        "name": {
+          "ar": "Kayle",
+          "en": "Kayle"
+        }
+      },
+      {
+        "name": {
+          "ar": "Sejuani",
+          "en": "Sejuani"
+        }
+      },
+      {
+        "name": {
+          "ar": "Varus",
+          "en": "Varus"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      },
+      {
+        "name": {
+          "ar": "Aphelios",
+          "en": "Aphelios"
+        }
+      },
+      {
+        "name": {
+          "ar": "Amumu",
+          "en": "Amumu"
+        }
+      },
+      {
+        "name": {
+          "ar": "Diana",
+          "en": "Diana"
+        }
+      },
+      {
+        "name": {
+          "ar": "Leona",
+          "en": "Leona"
+        }
+      }
+    ],
+    "earlyUnits": [
+      {
+        "name": {
+          "ar": "Kayle",
+          "en": "Kayle"
+        }
+      },
+      {
+        "name": {
+          "ar": "Leona",
+          "en": "Leona"
+        }
+      },
+      {
+        "name": {
+          "ar": "Varus",
+          "en": "Varus"
+        }
+      },
+      {
+        "name": {
+          "ar": "Shen",
+          "en": "Shen"
+        }
+      }
+    ],
+    "stages": [
+      {
+        "title": {
+          "ar": "Stage 2",
+          "en": "Stage 2"
+        },
+        "body": {
+          "ar": "افتح Solar/Rapidfire مع Kayle. سلاك Rageblade بدري.",
+          "en": "Open Solar/Rapidfire with Kayle. Slam Rageblade early."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 3",
+          "en": "Stage 3"
+        },
+        "body": {
+          "ar": "ريرول على 6 أو 7 لـ Kayle 3★. ثبت التانك.",
+          "en": "Roll on 6 or 7 for Kayle 3★. Stabilize tanks."
+        }
+      },
+      {
+        "title": {
+          "ar": "Stage 4+",
+          "en": "Stage 4+"
+        },
+        "body": {
+          "ar": "أضف Aphelios/Amumu. لو Lunar متاح حوّل Eclipse.",
+          "en": "Add Aphelios/Amumu. Pivot Eclipse if Lunar is available."
+        }
+      }
+    ]
+  }
+]

@@ -3,7 +3,7 @@ import{compCard}from'./ui.js?v=20261012stats';
 const load=path=>fetch(path).then(r=>{if(!r.ok)throw new Error(path);return r.json()});
 let comps=[];
 
-const TIER_18_4={'riftbeast-sentinel':'S','elderwood-xayah':'S','vanguard-alune':'S','hunter-sivir':'A','juggernaut-flex':'A','spellweaver-veigar':'B','flora-azir':'S','defender-cass':'A','lunar-aphelios-nidalee':'S','invoker-ahri':'A','executioner-khazix':'S','juggernaut-ashe':'B','invoker-morgana-sentinel':'S','sivir-nidalee':'A','draven-fast9':'A','vanguard-aphelios':'A','solar-yunara':'B','warwick-ravager':'B','caitlyn-reroll':'A','master-yi-adaptor':'B'};
+const TIER_18_4={'riftbeast-pebbles':'S','flora-azir':'S','azir-rammus':'S','lunar-aphelios-nidalee':'S','lunarwood-khazix':'S','invoker-morgana-sentinel':'S','defender-rengar':'S','elderwood-aphelios':'S','vanguard-alune':'A','elderwood-xayah':'A','riftbeast-sentinel':'A','hunter-sivir':'A','executioner-khazix':'A','defender-cass':'A','invoker-ahri':'A','sivir-nidalee':'A','draven-fast9':'A','vanguard-aphelios':'A','akali-reroll':'A','juggernaut-zyra':'A','executioner-soraka':'A','solar-kayle':'A','spellweaver-veigar':'B','juggernaut-flex':'B','juggernaut-ashe':'B','solar-yunara':'B','warwick-ravager':'B','caitlyn-reroll':'B','master-yi-adaptor':'B','eclipse-kayle':'B','malphite-ap-flex':'B'};
 
 async function render(){
   const root=document.querySelector('#featured-comps');
@@ -37,9 +37,10 @@ Promise.all([
   loadJson('data/v2_comps_extra2.json', CDN+'/v2_comps_extra2.json'),
   loadJson('data/v2_comps_extra3.json', CDN+'/v2_comps_extra3.json'),
   loadJson('data/v2_comps_extra4.json', 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@6a63287/data/v2_comps_extra4.json'),
+  loadJson('data/v2_comps_extra5.json', 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra5.json'),
   fetch('data/patches.json?v=20261008p184').then(r=>r.json()).catch(()=>[])
-]).then(([base,extra,extra2,extra3,extra4,ps])=>{
-  const list=[...normalizeList(base),...normalizeList(extra),...normalizeList(extra2),...normalizeList(extra3),...normalizeList(extra4)];
+]).then(([base,extra,extra2,extra3,extra4,extra5,ps])=>{
+  const list=[...normalizeList(base),...normalizeList(extra),...normalizeList(extra2),...normalizeList(extra3),...normalizeList(extra4),...normalizeList(extra5)];
   const seen=new Set();
   comps=[];
   for(const c of list){
