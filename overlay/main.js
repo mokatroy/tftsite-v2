@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, ipcMain, screen, dialog } = require('electron');
+const { app, BrowserWindow, globalShortcut, ipcMain, screen, dialog, shell } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
@@ -219,6 +219,13 @@ app.whenReady().then(() => {
 
   ipcMain.handle('comps:load', loadComps);
   ipcMain.on('overlay:hide', () => overlayWindow?.hide());
+  ipcMain.handle('shell:openExternal', async (_e, url) => {
+    const safe = String(url || '');
+    if (!/^https?:\/\//i.test(safe) && !/^mailto:/i.test(safe)) return false;
+    await shell.openExternal(safe);
+    return true;
+  });
+  ipcMain.handle('app:getVersion', () => app.getVersion());
   ipcMain.on('overlay:close', () => {
     if (isInstallingUpdate) return;
     try { globalShortcut.unregisterAll(); } catch (_) {}

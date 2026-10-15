@@ -22,12 +22,18 @@
       <span>رفيقك أثناء اللعب</span>
       <span id="app-version" class="version-chip">v…</span>
       <button type="button" id="check-update" class="check-update-btn" title="بحث عن تحديث">تحديث</button>
+      <button type="button" id="feedback-btn" class="feedback-btn" title="إرسال ملاحظات">ملاحظات</button>
       <kbd>Ctrl + Shift + Space</kbd>
     </section>
 
     <section id="update-bar" class="update-bar" hidden>
       <span id="update-message"></span>
       <button id="update-action" hidden></button>
+    </section>
+
+    <section id="announce-bar" class="announce-bar" hidden>
+      <span id="announce-message"></span>
+      <button type="button" id="announce-dismiss" title="إخفاء">×</button>
     </section>
 
     <section class="search-wrap">
@@ -42,6 +48,21 @@
     </section>
 
     <footer>دليل مرجعي فقط — لا يقرأ التطبيق معلومات الجيم أو ذاكرة اللعبة.</footer>
+    <div id="feedback-modal" class="modal" hidden>
+    <div class="modal-card">
+      <header>
+        <strong>إرسال ملاحظات</strong>
+        <button type="button" id="feedback-close" aria-label="إغلاق">×</button>
+      </header>
+      <p class="modal-hint">اكتب المشكلة أو الاقتراح. هيتفتح رابط إرسال جاهز (GitHub) أو تقدر تنسخ النص.</p>
+      <textarea id="feedback-text" rows="5" placeholder="مثال: التحديث فشل، البورد غلط في كومب Invoker Ahri..."></textarea>
+      <div class="modal-actions">
+        <button type="button" id="feedback-copy" class="btn-ghost">نسخ النص</button>
+        <button type="button" id="feedback-send" class="btn-primary">إرسال</button>
+      </div>
+      <p id="feedback-status" class="modal-status" hidden></p>
+    </div>
+  </div>
   </main>
   <script src="app.js"></script>
 </body>

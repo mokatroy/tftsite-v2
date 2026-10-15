@@ -11,5 +11,7 @@ contextBridge.exposeInMainWorld('mokaOverlay', {
   installUpdate: () => ipcRenderer.send('update:install'),
   onUpdate: (cb) => ipcRenderer.on('overlay:update', (_e, data) => cb(data)),
   onVersion: (cb) => ipcRenderer.on('overlay:version', (_e, data) => cb(data)),
-  onWindowState: (cb) => ipcRenderer.on('overlay:window-state', (_e, data) => cb(data))
+  onWindowState: (cb) => ipcRenderer.on('overlay:window-state', (_e, data) => cb(data)),
+  openExternal: (url) => ipcRenderer.invoke('shell:openExternal', url),
+  getVersion: () => ipcRenderer.invoke('app:getVersion')
 });

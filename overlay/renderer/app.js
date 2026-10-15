@@ -225,3 +225,126 @@ updateAction.addEventListener('click', () => {
   if (updateActionMode === 'download') window.mokaOverlay.downloadUpdate();
   if (updateActionMode === 'install') window.mokaOverlay.installUpdate();
 });
+
+/* —— announcements + feedback —— */
+const META_URLS = [
+  'https://tftsite-v2.mokatroymonk.workers.dev/data/overlay_meta.json',
+  'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/overlay_meta.json'
+];
+const announceBar = document.querySelector('#announce-bar');
+const announceMessage = document.querySelector('#announce-message');
+const announceDismiss = document.querySelector('#announce-dismiss');
+const feedbackBtn = document.querySelector('#feedback-btn');
+const feedbackModal = document.querySelector('#feedback-modal');
+const feedbackText = document.querySelector('#feedback-text');
+const feedbackStatus = document.querySelector('#feedback-status');
+let metaConfig = {
+  feedbackUrl: 'https://github.com/mokatroy/tftsite-v2/issues/new',
+  announcement: null
+};
+
+async function loadMeta() {
+  for (const url of META_URLS) {
+    try {
+      const res = await fetch(url + (url.includes('?') ? '&' : '?') + 't=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (data) {
+        metaConfig = { ...metaConfig, ...data };
+        break;
+      }
+    } catch (_) {}
+  }
+  showAnnouncement();
+}
+
+function showAnnouncement() {
+  const a = metaConfig.announcement;
+  if (!a || !a.active || !a.ar) {
+    announceBar.hidden = true;
+    return;
+  }
+  const dismissed = localStorage.getItem('moka-overlay-announce-dismissed');
+  if (dismissed && dismissed === String(a.id)) {
+    announceBar.hidden = true;
+    return;
+  }
+  announceBar.hidden = false;
+  announceBar.classList.remove('warn', 'error', 'info');
+  if (a.level) announceBar.classList.add(a.level);
+  let html = escapeHtml(a.ar);
+  if (a.link) {
+    html += ' <a href="#" id="announce-link">المزيد</a>';
+  }
+  announceMessage.innerHTML = html;
+  const link = document.querySelector('#announce-link');
+  if (link && a.link) {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.mokaOverlay.openExternal(a.link);
+    });
+  }
+}
+
+announceDismiss?.addEventListener('click', () => {
+  const id = metaConfig.announcement?.id;
+  if (id) localStorage.setItem('moka-overlay-announce-dismissed', String(id));
+  announceBar.hidden = true;
+});
+
+function openFeedbackModal() {
+  feedbackModal.hidden = false;
+  feedbackStatus.hidden = true;
+  feedbackText.value = '';
+  feedbackText.focus();
+}
+function closeFeedbackModal() {
+  feedbackModal.hidden = true;
+}
+
+feedbackBtn?.addEventListener('click', openFeedbackModal);
+document.querySelector('#feedback-close')?.addEventListener('click', closeFeedbackModal);
+feedbackModal?.addEventListener('click', (e) => {
+  if (e.target === feedbackModal) closeFeedbackModal();
+});
+
+document.querySelector('#feedback-copy')?.addEventListener('click', async () => {
+  const text = feedbackText.value.trim();
+  if (!text) return;
+  try {
+    await navigator.clipboard.writeText(text);
+    feedbackStatus.hidden = false;
+    feedbackStatus.textContent = 'تم نسخ النص';
+  } catch (_) {
+    feedbackStatus.hidden = false;
+    feedbackStatus.textContent = 'تعذر النسخ — انسخ يدويًا';
+  }
+});
+
+document.querySelector('#feedback-send')?.addEventListener('click', async () => {
+  const text = feedbackText.value.trim();
+  let version = '';
+  try { version = await window.mokaOverlay.getVersion(); } catch (_) {}
+  const body = [
+    text || '(بدون نص)',
+    '',
+    '---',
+    'Overlay version: ' + (version || '?'),
+    'From: in-app feedback'
+  ].join('\n');
+  const base = metaConfig.feedbackUrl || 'https://github.com/mokatroy/tftsite-v2/issues/new';
+  let url = base;
+  try {
+    const u = new URL(base);
+    u.searchParams.set('title', 'Overlay Feedback');
+    u.searchParams.set('body', body);
+    url = u.toString();
+  } catch (_) {
+    url = base + (base.includes('?') ? '&' : '?') + 'body=' + encodeURIComponent(body);
+  }
+  await window.mokaOverlay.openExternal(url);
+  feedbackStatus.hidden = false;
+  feedbackStatus.textContent = 'اتفتح رابط الإرسال في المتصفح';
+});
+
+loadMeta();
