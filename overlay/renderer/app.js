@@ -47,22 +47,70 @@ function champImgHtml(name, cls) {
 }
 
 
-function isBackline(name) {
-  return /ahri|alune|aphelios|ashe|azir|caitlyn|draven|ezreal|karma|leblanc|lux|morgana|sivir|soraka|tristana|veigar|xayah|zyra/i.test(name);
+const ROLE_MAP = {
+  tank: ['amumu','taric','sentinel','scuttlecrab','gromp','rakan','krug','ornn','alistar','sejuani','shen','leona','kobuko','ivern','maokai','lillia','rammus','yorick','willump'],
+  ap: ['alune','veigar','azir','cassiopeia','ahri','morgana','pebbles','elise','diana','leblanc','karma','kayle','teemo','lux','kennen','zyra','soraka','fiddlesticks'],
+  ad: ['xayah','ezreal','aphelios','sivir','ashe','draven','caitlyn','yunara','nidalee','khazix','cinderling','mamabeak','varus','tristana','kogmaw','camille','akali'],
+  flex: ['warwick','masteryi','gnar','brambleback','murkwolf','hecarim','sett','rengar','vi','reksai']
+};
+const CHAMP_ALIAS = {
+  pebbles: 'pebbles', 'mama beak': 'mamabeak', mamabeak: 'mamabeak',
+  scuttlecrab: 'scuttlecrab', cinderling: 'cinderling', brambleback: 'brambleback',
+  gromp: 'gromp', krug: 'krug', sentinel: 'sentinel', ancientsentinel: 'sentinel',
+  "kha'zix": 'khazix', "rek'sai": 'reksai', "kog'maw": 'kogmaw', 'master yi': 'masteryi',
+  leblanc: 'leblanc'
+};
+
+function roleKey(name) {
+  const n = String(name || '').toLowerCase().trim();
+  return CHAMP_ALIAS[n] || n.replace(/['']/g, '').replace(/\s+/g, '');
 }
 
+function roleOf(name) {
+  const k = roleKey(name);
+  for (const [role, list] of Object.entries(ROLE_MAP)) {
+    if (list.includes(k)) return role;
+  }
+  return 'flex';
+}
+
+function isBackline(name) {
+  const role = roleOf(name);
+  return role === 'ad' || role === 'ap';
+}
+
+/** Same placement rules as the website (js/ui-core autoPositions). */
 function buildPositions(comp) {
   const explicit = comp.positions && Object.keys(comp.positions).length ? comp.positions : null;
   if (explicit) return explicit;
 
-  const front = [], back = [];
-  (comp.units || []).map(unitName).filter(Boolean).forEach((name) => (isBackline(name) ? back : front).push(name));
-  const slots = {};
-  const frontSlots = [[0,1],[0,2],[0,3],[0,4],[1,1],[1,2],[1,3],[1,4]];
-  const backSlots = [[3,1],[3,5],[3,2],[3,4],[2,1],[2,5],[2,2],[2,4]];
-  front.forEach((name, index) => { if (frontSlots[index]) slots[frontSlots[index].join(',')] = { name, carry: false }; });
-  back.forEach((name, index) => { if (backSlots[index]) slots[backSlots[index].join(',')] = { name, carry: index === 0 }; });
-  return slots;
+  const units = (comp.units || []).map(unitName).filter(Boolean);
+  const front = [];
+  const back = [];
+  for (const n of units) {
+    if (isBackline(n)) back.push(n);
+    else front.push(n);
+  }
+  while (back.length > 4 && front.length < 4) front.push(back.pop());
+
+  const primary = back[0] || null;
+  const pos = {};
+  // TFT 7-wide: row 0 = enemy side / frontline, row 3 = player backline
+  const frontSlots = [[0,1],[0,2],[0,3],[0,4],[1,0],[1,1],[1,2],[1,3],[1,4],[1,5]];
+  const backSlots = [[3,0],[3,6],[3,1],[3,5],[2,0],[2,6],[2,1],[2,5],[3,2],[3,4]];
+
+  let fi = 0;
+  let bi = 0;
+  const place = (name, slots, idx) => {
+    if (!name || idx >= slots.length) return idx;
+    const [r, c] = slots[idx];
+    const carry = !!(primary && roleKey(name) === roleKey(primary));
+    pos[r + ',' + c] = { name, carry };
+    return idx + 1;
+  };
+  for (const t of front) fi = place(t, frontSlots, fi);
+  for (const n of back) bi = place(n, backSlots, bi);
+  return pos;
 }
 
 function renderBoard(comp) {
