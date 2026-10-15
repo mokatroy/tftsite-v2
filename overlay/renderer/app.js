@@ -108,3 +108,30 @@ window.mokaOverlay.loadComps().then((data) => {
   comps = data;
   render();
 }).catch(() => renderDetail());
+
+const updateBar = document.querySelector('#update-bar');
+const updateMessage = document.querySelector('#update-message');
+const updateAction = document.querySelector('#update-action');
+let updateActionMode = '';
+
+function showUpdate(message, actionLabel = '', actionMode = '') {
+  updateBar.hidden = false;
+  updateMessage.textContent = message;
+  updateActionMode = actionMode;
+  updateAction.hidden = !actionLabel;
+  updateAction.textContent = actionLabel;
+}
+
+window.mokaOverlay.onUpdate((update) => {
+  if (update.state === 'checking') showUpdate('جارٍ البحث عن تحديثات…');
+  if (update.state === 'available') showUpdate('يتوفر تحديث جديد (' + update.version + ')', 'تنزيل الآن', 'download');
+  if (update.state === 'downloading') showUpdate('جارٍ تنزيل التحديث: ' + update.percent + '%');
+  if (update.state === 'ready') showUpdate('التحديث جاهز للتثبيت', 'إعادة التشغيل الآن', 'install');
+  if (update.state === 'current') updateBar.hidden = true;
+  if (update.state === 'error') updateBar.hidden = true;
+});
+
+updateAction.addEventListener('click', () => {
+  if (updateActionMode === 'download') window.mokaOverlay.downloadUpdate();
+  if (updateActionMode === 'install') window.mokaOverlay.installUpdate();
+});
