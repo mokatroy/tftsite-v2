@@ -239,7 +239,8 @@ const feedbackModal = document.querySelector('#feedback-modal');
 const feedbackText = document.querySelector('#feedback-text');
 const feedbackStatus = document.querySelector('#feedback-status');
 let metaConfig = {
-  feedbackUrl: 'https://github.com/mokatroy/tftsite-v2/issues/new',
+  feedbackUrl: 'mailto:mokatroy@gmail.com',
+  feedbackEmail: 'mokatroy@gmail.com',
   announcement: null
 };
 
@@ -332,19 +333,21 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
     'Overlay version: ' + (version || '?'),
     'From: in-app feedback'
   ].join('\n');
-  const base = metaConfig.feedbackUrl || 'https://github.com/mokatroy/tftsite-v2/issues/new';
-  let url = base;
-  try {
-    const u = new URL(base);
-    u.searchParams.set('title', 'Overlay Feedback');
-    u.searchParams.set('body', body);
-    url = u.toString();
-  } catch (_) {
-    url = base + (base.includes('?') ? '&' : '?') + 'body=' + encodeURIComponent(body);
+  const email = metaConfig.feedbackEmail || 'mokatroy@gmail.com';
+  const subject = 'MokaTroy Overlay Feedback' + (version ? ' v' + version : '');
+  // Prefer explicit mailto; fall back to feedbackUrl if it is already mailto
+  let url = 'mailto:' + encodeURIComponent(email)
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+  const configured = String(metaConfig.feedbackUrl || '');
+  if (/^mailto:/i.test(configured)) {
+    url = 'mailto:' + encodeURIComponent(email)
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
   }
   await window.mokaOverlay.openExternal(url);
   feedbackStatus.hidden = false;
-  feedbackStatus.textContent = 'اتفتح رابط الإرسال في المتصفح';
+  feedbackStatus.textContent = 'اتفتح برنامج الإيميل لإرسال الرسالة إلى ' + email;
 });
 
 loadMeta();

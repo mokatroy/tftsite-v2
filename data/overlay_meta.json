@@ -1,5 +1,5 @@
 {
-  "feedbackUrl": "https://github.com/mokatroy/tftsite-v2/issues/new?title=Overlay%20Feedback&body=%0A%0A---%0A%0A%3C%21--%20اكتب%20ملاحظاتك%20فوق%20الخط%20--%3E%0A",
+  "feedbackUrl": "mailto:mokatroy@gmail.com",
   "feedbackLabel": {
     "ar": "إرسال ملاحظات",
     "en": "Send feedback"
@@ -11,5 +11,6 @@
     "ar": "لو واجهت مشكلة في التحديث أو البورد، ابعت ملاحظات من زر «إرسال ملاحظات».",
     "en": "If you hit an update or board issue, send feedback from the button above.",
     "link": ""
-  }
+  },
+  "feedbackEmail": "mokatroy@gmail.com"
 }
