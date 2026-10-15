@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MokaTroy TFT Overlay</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="overlay-shell">
+    <header class="titlebar">
+      <div class="brand"><span class="brand-mark">M</span><span>MokaTroy <em>TFT</em></span></div>
+      <div class="window-actions">
+        <button id="minimize" aria-label="تصغير">—</button>
+        <button id="hide" aria-label="إخفاء">×</button>
+      </div>
+    </header>
+
+    <section class="shortcut-bar">
+      <span class="status-dot"></span>
+      <span>رفيقك أثناء اللعب</span>
+      <kbd>Ctrl + Shift + Space</kbd>
+    </section>
+
+    <section class="search-wrap">
+      <label class="sr-only" for="comp-search">ابحث عن كومب</label>
+      <input id="comp-search" type="search" placeholder="ابحث عن كومب أو Champion…">
+    </section>
+
+    <nav id="comp-list" class="comp-list" aria-label="التشكيلات"></nav>
+
+    <section id="comp-detail" class="comp-detail" aria-live="polite">
+      <div class="loading">جارٍ تحميل التشكيلات…</div>
+    </section>
+
+    <footer>لا يقرأ التطبيق معلومات الجيم أو ذاكرة اللعبة.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
