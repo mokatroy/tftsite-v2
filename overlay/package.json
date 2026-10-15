@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "electron .",
-    "package:win": "electron-builder --win nsis"
+    "package:win": "electron-builder --win nsis --publish never"
   },
   "dependencies": {
     "electron-updater": "^6.6.2"
