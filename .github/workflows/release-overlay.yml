@@ -1,9 +1,10 @@
-name: Release MokaTroy TFT Overlay
+name: Publish MokaTroy TFT Overlay
 
 on:
   push:
-    tags:
-      - 'overlay-v*'
+    branches: [main]
+    paths:
+      - 'overlay/package.json'
 
 permissions:
   contents: write
@@ -23,14 +24,10 @@ jobs:
         with:
           node-version: 22
 
-      - name: Match application version to release tag
-        shell: bash
-        run: npm version "${GITHUB_REF_NAME#overlay-v}" --no-git-tag-version
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build and publish GitHub Release
+      - name: Build and publish this version
         run: npx electron-builder --win nsis --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
