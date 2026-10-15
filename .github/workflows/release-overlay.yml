@@ -1,0 +1,38 @@
+name: Release MokaTroy TFT Overlay
+
+on:
+  push:
+    tags:
+      - 'overlay-v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: overlay
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Match application version to release tag
+        shell: bash
+        run: npm version "${GITHUB_REF_NAME#overlay-v}" --no-git-tag-version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build and publish GitHub Release
+        run: npx electron-builder --win nsis --publish always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSC_LINK: ${{ secrets.WINDOWS_CERTIFICATE_PFX }}
+          CSC_KEY_PASSWORD: ${{ secrets.WINDOWS_CERTIFICATE_PASSWORD }}
