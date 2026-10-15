@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, ipcMain, screen, dialog, shell } = require('electron');
+const { app, BrowserWindow, globalShortcut, ipcMain, screen, dialog, shell, net } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
@@ -219,6 +219,74 @@ app.whenReady().then(() => {
 
   ipcMain.handle('comps:load', loadComps);
   ipcMain.on('overlay:hide', () => overlayWindow?.hide());
+  
+  ipcMain.handle('feedback:send', async (_e, payload) => {
+    const text = String(payload?.message || '').trim();
+    const version = String(payload?.version || app.getVersion());
+    const email = String(payload?.email || 'mokatroy@gmail.com');
+    const endpoint = String(payload?.endpoint || '').trim();
+    if (!text) return { ok: false, error: 'empty' };
+
+    const subject = 'MokaTroy Overlay Feedback v' + version;
+    const bodyJson = JSON.stringify({
+      message: text,
+      version,
+      subject,
+      name: 'Overlay User',
+      email: 'overlay@mokatroy.app',
+      _subject: subject,
+      _template: 'table',
+      _captcha: 'false',
+      _honey: '',
+      source: 'mokatroy-overlay'
+    });
+
+    const targets = [];
+    if (endpoint) targets.push({ url: endpoint, type: 'json' });
+    // FormSubmit AJAX
+    targets.push({ url: 'https://formsubmit.co/ajax/' + email, type: 'json' });
+    // FormSubmit classic form post (often triggers activation email more reliably)
+    targets.push({ url: 'https://formsubmit.co/' + email, type: 'form' });
+
+    const errors = [];
+    for (const t of targets) {
+      try {
+        let result;
+        if (t.type === 'form') {
+          const params = new URLSearchParams({
+            name: 'Overlay User',
+            email: 'overlay-feedback@users.noreply',
+            _subject: subject,
+            message: text + '\n\nOverlay version: ' + version,
+            _captcha: 'false'
+          });
+          result = await net.fetch(t.url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+            body: params.toString(),
+            redirect: 'manual'
+          });
+        } else {
+          result = await net.fetch(t.url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: bodyJson
+          });
+        }
+        // 200-399 treat as attempt success (formsubmit may redirect 302)
+        if (result.status >= 200 && result.status < 400) {
+          let data = null;
+          try { data = await result.json(); } catch (_) {}
+          return { ok: true, status: result.status, via: t.url, data };
+        }
+        errors.push(t.url + ' -> ' + result.status);
+      } catch (err) {
+        errors.push(t.url + ' -> ' + String(err && err.message || err));
+      }
+    }
+    return { ok: false, error: errors.join(' | ') || 'send failed' };
+  });
+
   ipcMain.handle('shell:openExternal', async (_e, url) => {
     const safe = String(url || '');
     if (!/^https?:\/\//i.test(safe) && !/^mailto:/i.test(safe)) return false;

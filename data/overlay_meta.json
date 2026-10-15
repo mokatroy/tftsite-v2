@@ -1,16 +1,17 @@
 {
+  "feedbackEmail": "mokatroy@gmail.com",
+  "feedbackEndpoint": "",
   "feedbackUrl": "https://formsubmit.co/ajax/mokatroy@gmail.com",
   "feedbackLabel": {
     "ar": "إرسال ملاحظات",
     "en": "Send feedback"
   },
   "announcement": {
-    "id": "2026-10-15-welcome",
+    "id": "2026-10-15-feedback-direct",
     "active": true,
     "level": "info",
-    "ar": "لو واجهت مشكلة في التحديث أو البورد، ابعت ملاحظات من زر «إرسال ملاحظات».",
-    "en": "If you hit an update or board issue, send feedback from the button above.",
+    "ar": "زر الملاحظات بيبعت الرسالة مباشرة — لو أول مرة، فعل الإيميل لو وصلك طلب تفعيل.",
+    "en": "Feedback is sent directly. Confirm activation email if prompted.",
     "link": ""
-  },
-  "feedbackEmail": "mokatroy@gmail.com"
+  }
 }

@@ -241,6 +241,7 @@ const feedbackStatus = document.querySelector('#feedback-status');
 let metaConfig = {
   feedbackUrl: 'https://formsubmit.co/ajax/mokatroy@gmail.com',
   feedbackEmail: 'mokatroy@gmail.com',
+  feedbackEndpoint: '',
   announcement: null
 };
 
@@ -326,8 +327,8 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
   const text = feedbackText.value.trim();
   if (!text) {
     feedbackStatus.hidden = false;
-    feedbackStatus.textContent = 'اكتب الملاحظة أولاً';
     feedbackStatus.style.color = '#ffb4b4';
+    feedbackStatus.textContent = 'اكتب الملاحظة أولاً';
     return;
   }
   const sendBtn = document.querySelector('#feedback-send');
@@ -337,43 +338,28 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
   }
   feedbackStatus.hidden = false;
   feedbackStatus.style.color = '#c8f2d8';
-  feedbackStatus.textContent = 'جارٍ إرسال الرسالة…';
+  feedbackStatus.textContent = 'جارٍ إرسال الرسالة مباشرة…';
 
   let version = '';
   try { version = await window.mokaOverlay.getVersion(); } catch (_) {}
 
-  const email = metaConfig.feedbackEmail || 'mokatroy@gmail.com';
-  const endpoint = metaConfig.feedbackUrl || ('https://formsubmit.co/ajax/' + email);
-
-  const payload = {
-    name: 'MokaTroy Overlay User',
-    email: 'overlay-feedback@mokatroy.local',
-    _subject: 'MokaTroy Overlay Feedback' + (version ? ' v' + version : ''),
-    _template: 'table',
-    _captcha: 'false',
-    message: text,
-    overlay_version: version || 'unknown',
-    source: 'in-app-overlay'
-  };
-
   try {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
+    const result = await window.mokaOverlay.sendFeedback({
+      message: text,
+      version: version || '?',
+      email: metaConfig.feedbackEmail || 'mokatroy@gmail.com',
+      endpoint: metaConfig.feedbackEndpoint || ''
     });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(data.message || ('HTTP ' + res.status));
-
-    feedbackStatus.style.color = '#9be7b5';
-    feedbackStatus.textContent = 'تم إرسال الملاحظة بنجاح إلى ' + email;
-    feedbackText.value = '';
+    if (result && result.ok) {
+      feedbackStatus.style.color = '#9be7b5';
+      feedbackStatus.textContent = 'تم الإرسال. راقب بريد mokatroy@gmail.com (والسبام). أول مرة قد يوصلك إيميل تفعيل.';
+      feedbackText.value = '';
+    } else {
+      throw new Error(result && result.error ? result.error : 'failed');
+    }
   } catch (err) {
     feedbackStatus.style.color = '#ffb4b4';
-    feedbackStatus.textContent = 'تعذر الإرسال من البرنامج. تقدر تنسخ النص وتبعته يدويًا.';
+    feedbackStatus.textContent = 'تعذر الإرسال الآن. استخدم «نسخ النص» وابعت يدويًا.';
     console.error(err);
   } finally {
     if (sendBtn) {
