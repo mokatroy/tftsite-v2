@@ -239,7 +239,7 @@ const feedbackModal = document.querySelector('#feedback-modal');
 const feedbackText = document.querySelector('#feedback-text');
 const feedbackStatus = document.querySelector('#feedback-status');
 let metaConfig = {
-  feedbackUrl: 'mailto:mokatroy@gmail.com',
+  feedbackUrl: 'https://formsubmit.co/ajax/mokatroy@gmail.com',
   feedbackEmail: 'mokatroy@gmail.com',
   announcement: null
 };
@@ -324,30 +324,63 @@ document.querySelector('#feedback-copy')?.addEventListener('click', async () => 
 
 document.querySelector('#feedback-send')?.addEventListener('click', async () => {
   const text = feedbackText.value.trim();
+  if (!text) {
+    feedbackStatus.hidden = false;
+    feedbackStatus.textContent = 'اكتب الملاحظة أولاً';
+    feedbackStatus.style.color = '#ffb4b4';
+    return;
+  }
+  const sendBtn = document.querySelector('#feedback-send');
+  if (sendBtn) {
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'جارٍ الإرسال…';
+  }
+  feedbackStatus.hidden = false;
+  feedbackStatus.style.color = '#c8f2d8';
+  feedbackStatus.textContent = 'جارٍ إرسال الرسالة…';
+
   let version = '';
   try { version = await window.mokaOverlay.getVersion(); } catch (_) {}
-  const body = [
-    text || '(بدون نص)',
-    '',
-    '---',
-    'Overlay version: ' + (version || '?'),
-    'From: in-app feedback'
-  ].join('\n');
+
   const email = metaConfig.feedbackEmail || 'mokatroy@gmail.com';
-  const subject = 'MokaTroy Overlay Feedback' + (version ? ' v' + version : '');
-  // Prefer explicit mailto; fall back to feedbackUrl if it is already mailto
-  let url = 'mailto:' + encodeURIComponent(email)
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body=' + encodeURIComponent(body);
-  const configured = String(metaConfig.feedbackUrl || '');
-  if (/^mailto:/i.test(configured)) {
-    url = 'mailto:' + encodeURIComponent(email)
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(body);
+  const endpoint = metaConfig.feedbackUrl || ('https://formsubmit.co/ajax/' + email);
+
+  const payload = {
+    name: 'MokaTroy Overlay User',
+    email: 'overlay-feedback@mokatroy.local',
+    _subject: 'MokaTroy Overlay Feedback' + (version ? ' v' + version : ''),
+    _template: 'table',
+    _captcha: 'false',
+    message: text,
+    overlay_version: version || 'unknown',
+    source: 'in-app-overlay'
+  };
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.message || ('HTTP ' + res.status));
+
+    feedbackStatus.style.color = '#9be7b5';
+    feedbackStatus.textContent = 'تم إرسال الملاحظة بنجاح إلى ' + email;
+    feedbackText.value = '';
+  } catch (err) {
+    feedbackStatus.style.color = '#ffb4b4';
+    feedbackStatus.textContent = 'تعذر الإرسال من البرنامج. تقدر تنسخ النص وتبعته يدويًا.';
+    console.error(err);
+  } finally {
+    if (sendBtn) {
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'إرسال';
+    }
   }
-  await window.mokaOverlay.openExternal(url);
-  feedbackStatus.hidden = false;
-  feedbackStatus.textContent = 'اتفتح برنامج الإيميل لإرسال الرسالة إلى ' + email;
 });
 
 loadMeta();
