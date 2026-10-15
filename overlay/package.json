@@ -1,0 +1,31 @@
+{
+  "name": "mokatroy-tft-overlay",
+  "version": "0.1.0",
+  "description": "A lightweight desktop companion for MokaTroy TFT.",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "package:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.mokatroy.tftoverlay",
+    "productName": "MokaTroy TFT Overlay",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
