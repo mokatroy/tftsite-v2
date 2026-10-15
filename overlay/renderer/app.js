@@ -241,7 +241,7 @@ const feedbackStatus = document.querySelector('#feedback-status');
 let metaConfig = {
   feedbackUrl: 'https://formsubmit.co/ajax/mokatroy@gmail.com',
   feedbackEmail: 'mokatroy@gmail.com',
-  feedbackEndpoint: 'https://script.google.com/macros/s/AKfycbxORsX0OsSl9Ph44d8A22iHBreTB4bwrTTl8MuGYgXWGtYg4YDWkyewuIKJTRD9bzB5/exec',
+  feedbackEndpoint: 'https://script.google.com/macros/s/AKfycbwVSs_43h8duhjUkFkiCQd22Sha1v4LQzdd_WY9CaOMKU7HUeDTwQWojpcehM5pVI8/exec',
   announcement: null
 };
 

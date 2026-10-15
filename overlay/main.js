@@ -228,64 +228,87 @@ app.whenReady().then(() => {
     if (!text) return { ok: false, error: 'empty' };
 
     const subject = 'MokaTroy Overlay Feedback v' + version;
-    const bodyJson = JSON.stringify({
+    const formBody = new URLSearchParams({
       message: text,
       version,
       subject,
       name: 'Overlay User',
       email: 'overlay@mokatroy.app',
-      _subject: subject,
-      _template: 'table',
-      _captcha: 'false',
-      _honey: '',
-      source: 'mokatroy-overlay'
-    });
+      _subject: subject
+    }).toString();
+
+    async function postFollow(url, body, contentType) {
+      const res = await net.fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': contentType,
+          'Accept': 'application/json, text/plain, */*',
+          'User-Agent': 'MokaTroyOverlay/1.0'
+        },
+        body,
+        redirect: 'manual'
+      });
+      if (res.status >= 300 && res.status < 400) {
+        const loc = res.headers.get('location');
+        if (loc) {
+          return net.fetch(loc, {
+            method: 'POST',
+            headers: {
+              'Content-Type': contentType,
+              'Accept': 'application/json, text/plain, */*',
+              'User-Agent': 'MokaTroyOverlay/1.0'
+            },
+            body,
+            redirect: 'manual'
+          });
+        }
+      }
+      return res;
+    }
 
     const targets = [];
-    if (endpoint) targets.push({ url: endpoint, type: 'json' });
-    // FormSubmit AJAX
-    targets.push({ url: 'https://formsubmit.co/ajax/' + email, type: 'json' });
-    // FormSubmit classic form post (often triggers activation email more reliably)
-    targets.push({ url: 'https://formsubmit.co/' + email, type: 'form' });
+    if (endpoint) {
+      targets.push({ url: endpoint, body: formBody, type: 'application/x-www-form-urlencoded' });
+      targets.push({
+        url: endpoint,
+        body: JSON.stringify({ message: text, version, subject }),
+        type: 'application/json'
+      });
+    }
+    targets.push({
+      url: 'https://formsubmit.co/ajax/' + email,
+      body: JSON.stringify({
+        name: 'Overlay User',
+        email: 'overlay@mokatroy.app',
+        _subject: subject,
+        message: text,
+        _captcha: 'false'
+      }),
+      type: 'application/json'
+    });
 
     const errors = [];
     for (const t of targets) {
       try {
-        let result;
-        if (t.type === 'form') {
-          const params = new URLSearchParams({
-            name: 'Overlay User',
-            email: 'overlay-feedback@users.noreply',
-            _subject: subject,
-            message: text + '\n\nOverlay version: ' + version,
-            _captcha: 'false'
-          });
-          result = await net.fetch(t.url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
-            body: params.toString(),
-            redirect: 'manual'
-          });
-        } else {
-          result = await net.fetch(t.url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: bodyJson
-          });
+        const result = await postFollow(t.url, t.body, t.type);
+        const status = result.status;
+        let raw = '';
+        try { raw = await result.text(); } catch (_) {}
+        if (status >= 200 && status < 400 && !/unable to open the file|Script function not found|405/i.test(raw)) {
+          return { ok: true, status, via: t.url, raw: raw.slice(0, 200) };
         }
-        // 200-399 treat as attempt success (formsubmit may redirect 302)
-        if (result.status >= 200 && result.status < 400) {
-          let data = null;
-          try { data = await result.json(); } catch (_) {}
-          return { ok: true, status: result.status, via: t.url, data };
+        // GAS often returns 200 with JSON ok
+        if (status === 200 && /"ok"\s*:\s*true/i.test(raw)) {
+          return { ok: true, status, via: t.url };
         }
-        errors.push(t.url + ' -> ' + result.status);
+        errors.push(t.url + ' -> ' + status);
       } catch (err) {
         errors.push(t.url + ' -> ' + String(err && err.message || err));
       }
     }
     return { ok: false, error: errors.join(' | ') || 'send failed' };
   });
+
 
   ipcMain.handle('shell:openExternal', async (_e, url) => {
     const safe = String(url || '');
