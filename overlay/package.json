@@ -8,6 +8,9 @@
     "start": "electron .",
     "package:win": "electron-builder --win nsis"
   },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
+  },
   "devDependencies": {
     "electron": "^36.4.0",
     "electron-builder": "^26.0.12"
@@ -20,6 +23,13 @@
       "preload.js",
       "renderer/**/*"
     ],
+    "publish": [{
+      "provider": "github",
+      "owner": "mokatroy",
+      "repo": "tftsite-v2",
+      "releaseType": "release"
+    }],
+    "tagNamePrefix": "overlay-v",
     "win": {
       "target": "nsis"
     },
