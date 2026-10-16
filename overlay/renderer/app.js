@@ -59,6 +59,47 @@ function unitChip(unit, withImage = false) {
   return '<span class="chip unit">' + escapeHtml(name) + '</span>';
 }
 
+
+const TRAIT_CDN = 'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/assets/traits/';
+const TRAIT_ALIAS = {
+  blackthorn: 'caustic',
+  arcanist: 'spellweaver',
+  warden: 'defender'
+};
+
+function traitSlug(name) {
+  if (!name) return '';
+  const key = String(name).toLowerCase()
+    .replace(/[''\u2019]/g, '')
+    .replace(/\s+/g, '')
+    .replace(/[^a-z0-9]/g, '');
+  return TRAIT_ALIAS[key] || key;
+}
+
+function traitImgUrl(name) {
+  const slug = traitSlug(name);
+  if (!slug) return '';
+  return TRAIT_CDN + 'trait_icon_18_' + slug + '.png';
+}
+
+function traitImgRemote(name) {
+  const slug = traitSlug(name);
+  if (!slug) return '';
+  return 'https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_18_' + slug + '.png';
+}
+
+function traitChip(tr) {
+  const name = typeof tr === 'string' ? tr : nameOf(tr && tr.name ? tr.name : tr);
+  if (!name) return '';
+  const count = tr && tr.count != null ? ' ' + tr.count : '';
+  const src = traitImgUrl(name);
+  const remote = traitImgRemote(name);
+  const img = src
+    ? ('<img class="trait-icon" src="' + src + '" data-remote="' + remote + '" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.dataset.remote||\'\';}else{this.style.display=\'none\'}">')
+    : '';
+  return '<span class="trait-chip">' + img + '<span>' + escapeHtml(name) + escapeHtml(count) + '</span></span>';
+}
+
 const ROLE_MAP = {
   tank: ['amumu','taric','sentinel','scuttlecrab','gromp','rakan','krug','ornn','alistar','sejuani','shen','leona','kobuko','ivern','maokai','lillia','rammus','yorick','willump'],
   ap: ['alune','veigar','azir','cassiopeia','ahri','morgana','pebbles','elise','diana','leblanc','karma','kayle','teemo','lux','kennen','zyra','soraka','fiddlesticks'],
@@ -167,8 +208,8 @@ function renderDetail() {
     return;
   }
   const units = (comp.units || []).map((unit) => unitChip(unit, true)).join('');
-  const early = (comp.earlyUnits || []).map((unit) => unitChip(unit)).join('');
-  const traits = (comp.traits || []).map((trait) => '<span class="chip">' + escapeHtml(nameOf(trait)) + '</span>').join('');
+  const early = (comp.earlyUnits || []).map((unit) => unitChip(unit, true)).join('');
+  const traits = (comp.traits || []).map((trait) => traitChip(trait)).join('');
   const items = (comp.coreItems || []).map((item) => '<span class="chip item">' + escapeHtml(nameOf(item)) + '</span>').join('');
   detailRoot.innerHTML =
     '<button type="button" id="board-focus-btn" class="board-focus-btn">الوحدات النهائية فقط</button>' +
@@ -177,9 +218,9 @@ function renderDetail() {
     '<p class="summary">' + escapeHtml(localized(comp.summary)) + '</p>' +
     '<section class="section section-board"><h2>توزيع البورد</h2>' + renderBoard(comp) + '</section>' +
     '<section class="section section-final-units"><h2>الوحدات النهائية</h2><div class="units">' + units + '</div></section>' +
-    (traits ? '<section class="section"><h2>Traits</h2><div class="chips">' + traits + '</div></section>' : '') +
+    (traits ? '<section class="section"><h2>Traits</h2><div class="traits-row">' + traits + '</div></section>' : '') +
     (items ? '<section class="section"><h2>Core Items</h2><div class="chips">' + items + '</div></section>' : '') +
-    (early ? '<section class="section"><h2>وحدات البداية</h2><div class="chips">' + early + '</div></section>' : '') +
+    (early ? '<section class="section"><h2>وحدات البداية</h2><div class="units">' + early + '</div></section>' : '') +
     renderStages(comp.stages) +
     (comp.guide ? '<section class="section"><h2>طريقة اللعب</h2><p class="guide">' + escapeHtml(localized(comp.guide)) + '</p></section>' : '');
 
