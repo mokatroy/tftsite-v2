@@ -153,22 +153,35 @@ function renderDetail() {
     detailRoot.innerHTML = '<div class="loading">تعذر تحميل البيانات. تأكد من اتصال الإنترنت ثم أعد فتح التطبيق.</div>';
     return;
   }
-  selectedSlug = comp.slug;
-  const traits = (comp.traits || []).map((trait) => '<span class="chip">' + escapeHtml(nameOf(trait.name || trait)) + (trait.count ? ' ' + trait.count : '') + '</span>').join('');
-  const items = (comp.items || comp.coreItems || []).map((item) => '<span class="chip">' + escapeHtml(nameOf(item.name || item)) + '</span>').join('');
-  const units = (comp.units || []).map((unit) => { const n = unitName(unit); return '<div class="unit">' + champImgHtml(n, 'unit-avatar') + '<span>' + escapeHtml(n) + '</span></div>'; }).join('');
-  const early = (comp.earlyUnits || []).map((unit) => '<span class="chip">' + escapeHtml(unitName(unit)) + '</span>').join('');
-
-  detailRoot.innerHTML = '<p class="eyebrow"><span class="tier">' + escapeHtml(comp.tier || 'A') + '</span> ' + escapeHtml(localized(comp.style) || 'TFT Comp') + '</p>' +
+  const focusOn = detailRoot.classList.contains('board-focus-only');
+  const units = (comp.units || []).map((unit) => unitChip(unit, true)).join('');
+  const early = (comp.earlyUnits || []).map((unit) => unitChip(unit)).join('');
+  const traits = (comp.traits || []).map((trait) => '<span class="chip">' + escapeHtml(nameOf(trait)) + '</span>').join('');
+  const items = (comp.coreItems || []).map((item) => '<span class="chip item">' + escapeHtml(nameOf(item)) + '</span>').join('');
+  detailRoot.innerHTML =
+    '<button type="button" id="board-focus-btn" class="board-focus-btn' + (focusOn ? ' active' : '') + '">' +
+      (focusOn ? 'عرض التفاصيل كاملة' : 'الوحدات النهائية فقط') +
+    '</button>' +
+    '<div class="eyebrow">' + escapeHtml((comp.tier || '').toUpperCase()) + ' · ' + escapeHtml(localized(comp.style)) + '</div>' +
     '<h1 class="comp-name">' + escapeHtml(localized(comp.name)) + '</h1>' +
-    '<p class="summary">' + escapeHtml(localized(comp.summary) || '') + '</p>' +
-    '<section class="section"><h2>توزيع البورد</h2>' + renderBoard(comp) + '</section>' +
-    '<section class="section"><h2>الوحدات النهائية</h2><div class="units">' + units + '</div></section>' +
+    '<p class="summary">' + escapeHtml(localized(comp.summary)) + '</p>' +
+    '<section class="section section-board"><h2>توزيع البورد</h2>' + renderBoard(comp) + '</section>' +
+    '<section class="section section-final-units"><h2>الوحدات النهائية</h2><div class="units">' + units + '</div></section>' +
     (traits ? '<section class="section"><h2>Traits</h2><div class="chips">' + traits + '</div></section>' : '') +
     (items ? '<section class="section"><h2>Core Items</h2><div class="chips">' + items + '</div></section>' : '') +
     (early ? '<section class="section"><h2>وحدات البداية</h2><div class="chips">' + early + '</div></section>' : '') +
     renderStages(comp.stages) +
     (comp.guide ? '<section class="section"><h2>طريقة اللعب</h2><p class="guide">' + escapeHtml(localized(comp.guide)) + '</p></section>' : '');
+
+  const focusBtn = document.querySelector('#board-focus-btn');
+  if (focusBtn) {
+    focusBtn.addEventListener('click', () => {
+      detailRoot.classList.toggle('board-focus-only');
+      const on = detailRoot.classList.contains('board-focus-only');
+      focusBtn.classList.toggle('active', on);
+      focusBtn.textContent = on ? 'عرض التفاصيل كاملة' : 'الوحدات النهائية فقط';
+    });
+  }
 }
 
 function render() {
@@ -373,70 +386,4 @@ loadMeta();
 
 
 
-/* —— opacity + compact mode (safe) —— */
-(function initOverlayChrome() {
-  try {
-    const shell = document.querySelector('.overlay-shell');
-    const opacityRange = document.querySelector('#opacity-range');
-    const opacityValue = document.querySelector('#opacity-value');
-    const compactBtn = document.querySelector('#compact-toggle');
-    if (!window.mokaOverlay) return;
 
-    function applyOpacity(pct) {
-      try {
-        const value = Math.min(100, Math.max(35, Number(pct) || 100));
-        if (opacityRange) opacityRange.value = String(value);
-        if (opacityValue) opacityValue.textContent = value + '%';
-        localStorage.setItem('moka-overlay-opacity', String(value));
-        if (typeof window.mokaOverlay.setOpacity === 'function') {
-          window.mokaOverlay.setOpacity(value / 100);
-        }
-      } catch (e) { console.error('opacity', e); }
-    }
-
-    function setCompact(on) {
-      try {
-        shell && shell.classList.toggle('compact', !!on);
-        compactBtn && compactBtn.classList.toggle('active', !!on);
-        if (compactBtn) compactBtn.textContent = on ? 'موسّع' : 'مضغوط';
-        localStorage.setItem('moka-overlay-compact', on ? '1' : '0');
-        document.querySelectorAll('.comp-detail .section').forEach((sec) => {
-          sec.classList.toggle('compact-hide', !!(on && !sec.querySelector('.board')));
-        });
-      } catch (e) { console.error('compact', e); }
-    }
-
-    function toggleCompact() {
-      setCompact(!(shell && shell.classList.contains('compact')));
-    }
-
-    opacityRange && opacityRange.addEventListener('input', () => applyOpacity(opacityRange.value));
-    compactBtn && compactBtn.addEventListener('click', toggleCompact);
-    if (typeof window.mokaOverlay.onCompactShortcut === 'function') {
-      window.mokaOverlay.onCompactShortcut(() => toggleCompact());
-    }
-
-    // Default fully visible — never leave window invisible
-    let saved = 100;
-    try { saved = Number(localStorage.getItem('moka-overlay-opacity') || '100') || 100; } catch (_) {}
-    if (saved < 35 || saved > 100) saved = 100;
-    applyOpacity(saved);
-    try { setCompact(localStorage.getItem('moka-overlay-compact') === '1'); } catch (_) {}
-
-    const originalRenderDetail = typeof renderDetail === 'function' ? renderDetail : null;
-    if (originalRenderDetail) {
-      renderDetail = function () {
-        originalRenderDetail.apply(this, arguments);
-        try {
-          if (shell && shell.classList.contains('compact')) {
-            document.querySelectorAll('.comp-detail .section').forEach((sec) => {
-              sec.classList.toggle('compact-hide', !sec.querySelector('.board'));
-            });
-          }
-        } catch (_) {}
-      };
-    }
-  } catch (e) {
-    console.error('initOverlayChrome failed', e);
-  }
-})();

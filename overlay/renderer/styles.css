@@ -36,25 +36,13 @@ span.unit-avatar.letter{display:grid;place-items:center;font-size:11px;font-weig
 .btn-ghost{border:1px solid rgba(255,255,255,.14);border-radius:8px;background:transparent;color:#dfe3ec;padding:8px 12px;font:700 12px Arial,"Cairo",sans-serif;cursor:pointer}
 .modal-status{margin:8px 0 0;font-size:12px;color:#9be7b5}
 
-.tool-btn{border:0;border-radius:7px;background:rgba(101,213,155,.16);color:#c8f2d8;padding:4px 10px;font:700 11px Arial,"Cairo",sans-serif;cursor:pointer}
-.tool-btn:hover,.tool-btn.active{background:rgba(101,213,155,.32)}
-.opacity-control{display:flex;align-items:center;gap:6px;color:#aeb6c8;font-size:11px;font-weight:700}
-.opacity-control input[type=range]{width:72px;accent-color:#e9b964;cursor:pointer}
-.opacity-control em{font-style:normal;color:#e9b964;min-width:34px}
 
-/* Compact mode: keep board + essentials only */
-.overlay-shell.compact .search-wrap,
-.overlay-shell.compact .comp-list,
-.overlay-shell.compact footer,
-.overlay-shell.compact .shortcut-label,
-.overlay-shell.compact #check-update,
-.overlay-shell.compact #feedback-btn,
-.overlay-shell.compact kbd{display:none!important}
-.overlay-shell.compact .comp-detail{padding:10px 12px 12px}
-.overlay-shell.compact .section.compact-hide{display:none!important}
-.overlay-shell.compact .summary,
-.overlay-shell.compact .eyebrow{display:none}
-.overlay-shell.compact .comp-name{font-size:16px;margin:0 0 8px}
-.overlay-shell.compact .board{transform:scale(.92);transform-origin:top center}
-.overlay-shell.compact .titlebar{padding:6px 10px}
-.overlay-shell.compact .shortcut-bar{padding:6px 10px;gap:8px}
+.board-focus-btn{border:0;border-radius:8px;background:rgba(233,185,100,.18);color:#f0d9a8;padding:7px 12px;font:800 12px Arial,"Cairo",sans-serif;cursor:pointer;margin:0 0 10px}
+.board-focus-btn:hover,.board-focus-btn.active{background:rgba(233,185,100,.32)}
+.comp-detail.board-focus-only .section{display:none!important}
+.comp-detail.board-focus-only .section.section-board,
+.comp-detail.board-focus-only .section.section-final-units{display:block!important}
+.comp-detail.board-focus-only .eyebrow,
+.comp-detail.board-focus-only .comp-name,
+.comp-detail.board-focus-only .summary{display:none!important}
+.comp-detail.board-focus-only .board-focus-btn{margin-bottom:12px}
