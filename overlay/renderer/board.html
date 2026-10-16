@@ -6,53 +6,57 @@
   <title>الوحدات النهائية</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body{margin:0;background:transparent}
-    .board-shell{
-      margin:10px;border-radius:18px;overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(165deg,rgba(16,20,34,.96),rgba(8,10,18,.94));
-      box-shadow:0 18px 50px rgba(0,0,0,.45);
+    html,body{margin:0;padding:0;background:transparent;overflow:hidden}
+    .strip{
+      margin:6px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(90deg,rgba(14,18,30,.96),rgba(10,12,22,.94));
+      box-shadow:0 12px 32px rgba(0,0,0,.4);
       -webkit-app-region:drag;
+      padding:8px 10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-height:72px;
     }
-    .board-top{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);
+    .strip-meta{flex:0 0 auto;max-width:140px}
+    .strip-meta .tier{color:#e9b964;font:800 10px Arial,"Cairo",sans-serif;margin:0 0 2px}
+    .strip-meta h1{margin:0;font:800 13px Outfit,Cairo,sans-serif;color:#f6f1e8;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px}
+    .strip-units{
+      flex:1 1 auto;
+      display:flex;flex-wrap:nowrap;gap:6px;align-items:center;
+      overflow-x:auto;overflow-y:hidden;
+      -webkit-app-region:no-drag;
+      padding:2px 0;
     }
-    .board-top h1{margin:0;font:800 15px Outfit,Cairo,sans-serif;color:#f6f1e8}
-    .board-top .tier{color:#e9b964;font-size:11px;font-weight:800}
-    .board-actions{-webkit-app-region:no-drag;display:flex;gap:8px}
-    .board-actions button{
-      border:0;border-radius:8px;padding:7px 11px;cursor:pointer;
-      font:800 12px Arial,"Cairo",sans-serif;
+    .strip-units .unit-chip{
+      flex:0 0 auto;
+      padding:4px 8px 4px 4px;
+      gap:6px;
+      background:rgba(255,255,255,.06);
+    }
+    .strip-units .unit-avatar{width:32px;height:32px;border-radius:8px}
+    .strip-units .unit-label{font-size:11px;white-space:nowrap}
+    .strip-actions{-webkit-app-region:no-drag;display:flex;gap:6px;flex:0 0 auto}
+    .strip-actions button{
+      border:0;border-radius:8px;padding:6px 10px;cursor:pointer;
+      font:800 11px Arial,"Cairo",sans-serif;white-space:nowrap;
     }
     .btn-back{background:#e9b964;color:#1a1408}
-    .btn-close{background:rgba(255,255,255,.08);color:#dfe3ec}
-    .board-body{padding:12px 14px 16px;-webkit-app-region:no-drag}
-    .board-body h2{margin:0 0 8px;font-size:12px;color:#aeb6c8}
-    .board-body .section{margin-top:14px}
+    .btn-close{background:rgba(255,255,255,.1);color:#dfe3ec;width:32px;padding:6px 0}
   </style>
 </head>
 <body>
-  <main class="board-shell">
-    <header class="board-top">
-      <div>
-        <div class="tier" id="board-tier"></div>
-        <h1 id="board-title">…</h1>
-      </div>
-      <div class="board-actions">
-        <button type="button" class="btn-back" id="back-main">اختيار كومب آخر</button>
-        <button type="button" class="btn-close" id="close-board">×</button>
-      </div>
-    </header>
-    <div class="board-body">
-      <section>
-        <h2>توزيع البورد</h2>
-        <div id="board-mount"></div>
-      </section>
-      <section class="section">
-        <h2>الوحدات النهائية</h2>
-        <div class="units" id="units-mount"></div>
-      </section>
+  <main class="strip">
+    <div class="strip-meta">
+      <div class="tier" id="board-tier"></div>
+      <h1 id="board-title">…</h1>
+    </div>
+    <div class="strip-units units" id="units-mount"></div>
+    <div class="strip-actions">
+      <button type="button" class="btn-back" id="back-main">كومب آخر</button>
+      <button type="button" class="btn-close" id="close-board" title="إغلاق">×</button>
     </div>
   </main>
   <script src="board.js"></script>

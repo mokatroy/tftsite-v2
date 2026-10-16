@@ -190,7 +190,6 @@ function renderDetail() {
         await window.mokaOverlay.openBoardView({
           title: localized(comp.name),
           tier: ((comp.tier || '') + ' · ' + localized(comp.style)).trim(),
-          boardHtml: renderBoard(comp),
           unitsHtml: units
         });
       } catch (err) {

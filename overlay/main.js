@@ -75,13 +75,13 @@ function pinWindow(win) {
 function createBoardWindow() {
   if (boardWindow && !boardWindow.isDestroyed()) return boardWindow;
   const { workArea } = screen.getPrimaryDisplay();
-  const width = Math.min(480, workArea.width - 48);
-  const height = Math.min(640, workArea.height - 48);
+  const width = Math.min(820, Math.max(520, workArea.width - 80));
+  const height = 110;
   boardWindow = new BrowserWindow({
     width, height,
-    x: workArea.x + workArea.width - width - 24,
-    y: workArea.y + Math.max(24, Math.round((workArea.height - height) / 2)),
-    minWidth: 360, minHeight: 420,
+    x: workArea.x + Math.round((workArea.width - width) / 2),
+    y: workArea.y + workArea.height - height - 28,
+    minWidth: 420, minHeight: 96, maxHeight: 160,
     show: false, frame: false, transparent: true,
     alwaysOnTop: true, skipTaskbar: false, resizable: true,
     icon: path.join(__dirname, 'build', 'icon.png'),
