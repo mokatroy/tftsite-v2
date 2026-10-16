@@ -14,5 +14,7 @@ contextBridge.exposeInMainWorld('mokaOverlay', {
   onWindowState: (cb) => ipcRenderer.on('overlay:window-state', (_e, data) => cb(data)),
   openExternal: (url) => ipcRenderer.invoke('shell:openExternal', url),
   sendFeedback: (payload) => ipcRenderer.invoke('feedback:send', payload),
-  getVersion: () => ipcRenderer.invoke('app:getVersion')
+  getVersion: () => ipcRenderer.invoke('app:getVersion'),
+  setOpacity: (value) => ipcRenderer.send('overlay:set-opacity', value),
+  onCompactShortcut: (cb) => ipcRenderer.on('overlay:toggle-compact', () => cb())
 });

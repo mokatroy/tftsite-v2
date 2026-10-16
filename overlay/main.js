@@ -216,6 +216,9 @@ app.whenReady().then(() => {
   configureUpdater();
   createOverlayWindow();
   globalShortcut.register('CommandOrControl+Shift+Space', toggleOverlay);
+  globalShortcut.register('CommandOrControl+Shift+C', () => {
+    overlayWindow?.webContents.send('overlay:toggle-compact');
+  });
 
   ipcMain.handle('comps:load', loadComps);
   ipcMain.on('overlay:hide', () => overlayWindow?.hide());
@@ -327,6 +330,10 @@ app.whenReady().then(() => {
     app.quit();
   });
   ipcMain.on('overlay:minimize', () => overlayWindow?.minimize());
+  ipcMain.on('overlay:set-opacity', (_e, value) => {
+    const n = Math.min(1, Math.max(0.35, Number(value) || 1));
+    try { overlayWindow?.setOpacity(n); } catch (_) {}
+  });
   ipcMain.on('overlay:toggle-maximize', () => {
     if (!overlayWindow) return;
     if (overlayWindow.isMaximized()) overlayWindow.unmaximize();

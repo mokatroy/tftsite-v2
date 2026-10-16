@@ -370,3 +370,52 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
 });
 
 loadMeta();
+
+
+/* —— opacity + compact mode —— */
+const shell = document.querySelector('.overlay-shell');
+const opacityRange = document.querySelector('#opacity-range');
+const opacityValue = document.querySelector('#opacity-value');
+const compactBtn = document.querySelector('#compact-toggle');
+
+function applyOpacity(pct) {
+  const value = Math.min(100, Math.max(35, Number(pct) || 100));
+  if (opacityRange) opacityRange.value = String(value);
+  if (opacityValue) opacityValue.textContent = value + '%';
+  localStorage.setItem('moka-overlay-opacity', String(value));
+  window.mokaOverlay.setOpacity(value / 100);
+}
+
+function setCompact(on) {
+  shell?.classList.toggle('compact', !!on);
+  compactBtn?.classList.toggle('active', !!on);
+  if (compactBtn) compactBtn.textContent = on ? 'موسّع' : 'مضغوط';
+  localStorage.setItem('moka-overlay-compact', on ? '1' : '0');
+  // Hide non-board sections in compact
+  document.querySelectorAll('.comp-detail .section').forEach((sec) => {
+    sec.classList.toggle('compact-hide', on && !sec.querySelector('.board'));
+  });
+}
+
+function toggleCompact() {
+  setCompact(!shell?.classList.contains('compact'));
+}
+
+opacityRange?.addEventListener('input', () => applyOpacity(opacityRange.value));
+compactBtn?.addEventListener('click', toggleCompact);
+window.mokaOverlay.onCompactShortcut(() => toggleCompact());
+
+// restore prefs
+applyOpacity(localStorage.getItem('moka-overlay-opacity') || '100');
+setCompact(localStorage.getItem('moka-overlay-compact') === '1');
+
+// re-apply compact section classes after each render
+const _renderDetail = renderDetail;
+renderDetail = function() {
+  _renderDetail.apply(this, arguments);
+  if (shell?.classList.contains('compact')) {
+    document.querySelectorAll('.comp-detail .section').forEach((sec) => {
+      sec.classList.toggle('compact-hide', !sec.querySelector('.board'));
+    });
+  }
+};
