@@ -14,5 +14,12 @@ contextBridge.exposeInMainWorld('mokaOverlay', {
   onWindowState: (cb) => ipcRenderer.on('overlay:window-state', (_e, data) => cb(data)),
   openExternal: (url) => ipcRenderer.invoke('shell:openExternal', url),
   sendFeedback: (payload) => ipcRenderer.invoke('feedback:send', payload),
-  getVersion: () => ipcRenderer.invoke('app:getVersion')
+  getVersion: () => ipcRenderer.invoke('app:getVersion'),
+  openBoardView: (payload) => ipcRenderer.invoke('board:open', payload)
 });
+
+contextBridge.exposeInMainWorld('mokaBoard', {
+  onData: (cb) => ipcRenderer.on('board:data', (_e, data) => cb(data)),
+  backToMain: () => ipcRenderer.send('board:back')
+});
+

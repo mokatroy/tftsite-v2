@@ -16,6 +16,7 @@ const DATA_SOURCES = [
 ];
 
 let overlayWindow;
+let boardWindow;
 let isInstallingUpdate = false;
 
 const gotSingleInstanceLock = app.requestSingleInstanceLock();
@@ -58,6 +59,84 @@ function pinOverlayOnTop() {
     try { overlayWindow.setAlwaysOnTop(true); } catch (__) {}
   }
 }
+
+
+function pinWindow(win) {
+  if (!win || win.isDestroyed()) return;
+  try {
+    win.setAlwaysOnTop(true, 'screen-saver');
+    win.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+    if (win.isVisible()) win.moveTop();
+  } catch (_) {
+    try { win.setAlwaysOnTop(true); } catch (__) {}
+  }
+}
+
+function createBoardWindow() {
+  if (boardWindow && !boardWindow.isDestroyed()) return boardWindow;
+  const { workArea } = screen.getPrimaryDisplay();
+  const width = Math.min(480, workArea.width - 48);
+  const height = Math.min(640, workArea.height - 48);
+  boardWindow = new BrowserWindow({
+    width, height,
+    x: workArea.x + workArea.width - width - 24,
+    y: workArea.y + Math.max(24, Math.round((workArea.height - height) / 2)),
+    minWidth: 360, minHeight: 420,
+    show: false, frame: false, transparent: true,
+    alwaysOnTop: true, skipTaskbar: false, resizable: true,
+    icon: path.join(__dirname, 'build', 'icon.png'),
+    backgroundColor: '#00000000',
+    title: 'MokaTroy — الوحدات النهائية',
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true, nodeIntegration: false, sandbox: true
+    }
+  });
+  pinWindow(boardWindow);
+  boardWindow.setMenuBarVisibility(false);
+  boardWindow.loadFile(path.join(__dirname, 'renderer', 'board.html'));
+  boardWindow.on('closed', () => {
+    boardWindow = null;
+    if (overlayWindow && !overlayWindow.isDestroyed() && !overlayWindow.isVisible()) {
+      overlayWindow.show();
+      pinOverlayOnTop();
+    }
+  });
+  boardWindow.on('close', (e) => {
+    if (isInstallingUpdate) return;
+    // Hide instead of destroying so reopen is faster — still OK to destroy
+  });
+  return boardWindow;
+}
+
+async function openBoardView(payload) {
+  const win = createBoardWindow();
+  const send = () => {
+    try { win.webContents.send('board:data', payload || {}); } catch (_) {}
+  };
+  if (win.webContents.isLoading()) {
+    win.webContents.once('did-finish-load', send);
+  } else {
+    send();
+  }
+  win.show();
+  pinWindow(win);
+  if (overlayWindow && !overlayWindow.isDestroyed()) overlayWindow.hide();
+  return true;
+}
+
+function backToMainFromBoard() {
+  if (boardWindow && !boardWindow.isDestroyed()) {
+    boardWindow.hide();
+  }
+  if (!overlayWindow || overlayWindow.isDestroyed()) {
+    createOverlayWindow();
+  } else {
+    overlayWindow.show();
+    pinOverlayOnTop();
+  }
+}
+
 
 function createOverlayWindow() {
   const { workArea } = screen.getPrimaryDisplay();
@@ -237,6 +316,8 @@ app.whenReady().then(() => {
   try { globalShortcut.register('CommandOrControl+Shift+Space', toggleOverlay); } catch (_) {}
 
   ipcMain.handle('comps:load', loadComps);
+  ipcMain.handle('board:open', async (_e, payload) => openBoardView(payload));
+  ipcMain.on('board:back', () => backToMainFromBoard());
   ipcMain.on('overlay:hide', () => overlayWindow?.hide());
   
   ipcMain.handle('feedback:send', async (_e, payload) => {

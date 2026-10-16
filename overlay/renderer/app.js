@@ -166,15 +166,12 @@ function renderDetail() {
     detailRoot.innerHTML = '<div class="loading">تعذر تحميل البيانات. تأكد من اتصال الإنترنت ثم أعد فتح التطبيق.</div>';
     return;
   }
-  const focusOn = detailRoot.classList.contains('board-focus-only');
   const units = (comp.units || []).map((unit) => unitChip(unit, true)).join('');
   const early = (comp.earlyUnits || []).map((unit) => unitChip(unit)).join('');
   const traits = (comp.traits || []).map((trait) => '<span class="chip">' + escapeHtml(nameOf(trait)) + '</span>').join('');
   const items = (comp.coreItems || []).map((item) => '<span class="chip item">' + escapeHtml(nameOf(item)) + '</span>').join('');
   detailRoot.innerHTML =
-    '<button type="button" id="board-focus-btn" class="board-focus-btn' + (focusOn ? ' active' : '') + '">' +
-      (focusOn ? 'عرض التفاصيل كاملة' : 'الوحدات النهائية فقط') +
-    '</button>' +
+    '<button type="button" id="board-focus-btn" class="board-focus-btn">الوحدات النهائية فقط</button>' +
     '<div class="eyebrow">' + escapeHtml((comp.tier || '').toUpperCase()) + ' · ' + escapeHtml(localized(comp.style)) + '</div>' +
     '<h1 class="comp-name">' + escapeHtml(localized(comp.name)) + '</h1>' +
     '<p class="summary">' + escapeHtml(localized(comp.summary)) + '</p>' +
@@ -188,11 +185,17 @@ function renderDetail() {
 
   const focusBtn = document.querySelector('#board-focus-btn');
   if (focusBtn) {
-    focusBtn.addEventListener('click', () => {
-      detailRoot.classList.toggle('board-focus-only');
-      const on = detailRoot.classList.contains('board-focus-only');
-      focusBtn.classList.toggle('active', on);
-      focusBtn.textContent = on ? 'عرض التفاصيل كاملة' : 'الوحدات النهائية فقط';
+    focusBtn.addEventListener('click', async () => {
+      try {
+        await window.mokaOverlay.openBoardView({
+          title: localized(comp.name),
+          tier: ((comp.tier || '') + ' · ' + localized(comp.style)).trim(),
+          boardHtml: renderBoard(comp),
+          unitsHtml: units
+        });
+      } catch (err) {
+        console.error(err);
+      }
     });
   }
   } catch (err) {
