@@ -47,6 +47,18 @@ function champImgHtml(name, cls) {
 }
 
 
+
+function unitChip(unit, withImage = false) {
+  const name = unitName(unit);
+  if (!name) return '';
+  const cost = unit && (unit.cost || unit.star) ? String(unit.cost || unit.star) : '';
+  if (withImage) {
+    return '<div class="unit-chip has-img">' + champImgHtml(name, 'unit-avatar') +
+      '<span class="unit-label">' + escapeHtml(name) + (cost ? ' <em>' + escapeHtml(cost) + '</em>' : '') + '</span></div>';
+  }
+  return '<span class="chip unit">' + escapeHtml(name) + '</span>';
+}
+
 const ROLE_MAP = {
   tank: ['amumu','taric','sentinel','scuttlecrab','gromp','rakan','krug','ornn','alistar','sejuani','shen','leona','kobuko','ivern','maokai','lillia','rammus','yorick','willump'],
   ap: ['alune','veigar','azir','cassiopeia','ahri','morgana','pebbles','elise','diana','leblanc','karma','kayle','teemo','lux','kennen','zyra','soraka','fiddlesticks'],
@@ -148,6 +160,7 @@ function renderStages(stages) {
 }
 
 function renderDetail() {
+  try {
   const comp = comps.find((item) => item.slug === selectedSlug) || comps[0];
   if (!comp) {
     detailRoot.innerHTML = '<div class="loading">تعذر تحميل البيانات. تأكد من اتصال الإنترنت ثم أعد فتح التطبيق.</div>';
@@ -181,6 +194,10 @@ function renderDetail() {
       focusBtn.classList.toggle('active', on);
       focusBtn.textContent = on ? 'عرض التفاصيل كاملة' : 'الوحدات النهائية فقط';
     });
+  }
+  } catch (err) {
+    console.error('renderDetail', err);
+    detailRoot.innerHTML = '<div class="loading">حصل خطأ أثناء عرض التشكيلة. جرّب كومب تاني أو أعد فتح التطبيق.</div>';
   }
 }
 

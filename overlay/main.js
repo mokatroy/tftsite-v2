@@ -3,11 +3,16 @@ const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
 const DATA_SOURCES = [
-  'https://tftsite-v2.mokatroymonk.workers.dev/data/v2_comps.json',
   'https://tftsite-v2.mokatroymonk.workers.dev/data/v2_comps_extra.json',
   'https://tftsite-v2.mokatroymonk.workers.dev/data/v2_comps_extra2.json',
   'https://tftsite-v2.mokatroymonk.workers.dev/data/v2_comps_extra3.json',
-  'https://tftsite-v2.mokatroymonk.workers.dev/data/v2_comps_extra4.json'
+  'https://tftsite-v2.mokatroymonk.workers.dev/data/v2_comps_extra4.json',
+  'https://tftsite-v2.mokatroymonk.workers.dev/data/v2_comps_extra5.json',
+  'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra.json',
+  'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra2.json',
+  'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra3.json',
+  'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra4.json',
+  'https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/data/v2_comps_extra5.json'
 ];
 
 let overlayWindow;
@@ -191,7 +196,13 @@ function checkForUpdates() {
 
 async function loadComps() {
   const responses = await Promise.allSettled(DATA_SOURCES.map(async (url) => {
-    const response = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    let response;
+    try {
+      response = await fetch(url, { signal: AbortSignal.timeout(8000) });
+    } catch (e) {
+      response = await fetch(url);
+    }
+    
     if (!response.ok) throw new Error('Unable to load ' + url);
     return response.json();
   }));

@@ -46,3 +46,4 @@ span.unit-avatar.letter{display:grid;place-items:center;font-size:11px;font-weig
 .comp-detail.board-focus-only .comp-name,
 .comp-detail.board-focus-only .summary{display:none!important}
 .comp-detail.board-focus-only .board-focus-btn{margin-bottom:12px}
+.unit-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}.unit-label{font-size:12px;font-weight:700;color:#eef2ff}.unit-label em{color:#e9b964;font-style:normal;font-size:11px}.units{display:flex;flex-wrap:wrap;gap:8px}
