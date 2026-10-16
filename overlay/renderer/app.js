@@ -372,50 +372,71 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
 loadMeta();
 
 
-/* —— opacity + compact mode —— */
-const shell = document.querySelector('.overlay-shell');
-const opacityRange = document.querySelector('#opacity-range');
-const opacityValue = document.querySelector('#opacity-value');
-const compactBtn = document.querySelector('#compact-toggle');
 
-function applyOpacity(pct) {
-  const value = Math.min(100, Math.max(35, Number(pct) || 100));
-  if (opacityRange) opacityRange.value = String(value);
-  if (opacityValue) opacityValue.textContent = value + '%';
-  localStorage.setItem('moka-overlay-opacity', String(value));
-  window.mokaOverlay.setOpacity(value / 100);
-}
+/* —— opacity + compact mode (safe) —— */
+(function initOverlayChrome() {
+  try {
+    const shell = document.querySelector('.overlay-shell');
+    const opacityRange = document.querySelector('#opacity-range');
+    const opacityValue = document.querySelector('#opacity-value');
+    const compactBtn = document.querySelector('#compact-toggle');
+    if (!window.mokaOverlay) return;
 
-function setCompact(on) {
-  shell?.classList.toggle('compact', !!on);
-  compactBtn?.classList.toggle('active', !!on);
-  if (compactBtn) compactBtn.textContent = on ? 'موسّع' : 'مضغوط';
-  localStorage.setItem('moka-overlay-compact', on ? '1' : '0');
-  // Hide non-board sections in compact
-  document.querySelectorAll('.comp-detail .section').forEach((sec) => {
-    sec.classList.toggle('compact-hide', on && !sec.querySelector('.board'));
-  });
-}
+    function applyOpacity(pct) {
+      try {
+        const value = Math.min(100, Math.max(35, Number(pct) || 100));
+        if (opacityRange) opacityRange.value = String(value);
+        if (opacityValue) opacityValue.textContent = value + '%';
+        localStorage.setItem('moka-overlay-opacity', String(value));
+        if (typeof window.mokaOverlay.setOpacity === 'function') {
+          window.mokaOverlay.setOpacity(value / 100);
+        }
+      } catch (e) { console.error('opacity', e); }
+    }
 
-function toggleCompact() {
-  setCompact(!shell?.classList.contains('compact'));
-}
+    function setCompact(on) {
+      try {
+        shell && shell.classList.toggle('compact', !!on);
+        compactBtn && compactBtn.classList.toggle('active', !!on);
+        if (compactBtn) compactBtn.textContent = on ? 'موسّع' : 'مضغوط';
+        localStorage.setItem('moka-overlay-compact', on ? '1' : '0');
+        document.querySelectorAll('.comp-detail .section').forEach((sec) => {
+          sec.classList.toggle('compact-hide', !!(on && !sec.querySelector('.board')));
+        });
+      } catch (e) { console.error('compact', e); }
+    }
 
-opacityRange?.addEventListener('input', () => applyOpacity(opacityRange.value));
-compactBtn?.addEventListener('click', toggleCompact);
-window.mokaOverlay.onCompactShortcut(() => toggleCompact());
+    function toggleCompact() {
+      setCompact(!(shell && shell.classList.contains('compact')));
+    }
 
-// restore prefs
-applyOpacity(localStorage.getItem('moka-overlay-opacity') || '100');
-setCompact(localStorage.getItem('moka-overlay-compact') === '1');
+    opacityRange && opacityRange.addEventListener('input', () => applyOpacity(opacityRange.value));
+    compactBtn && compactBtn.addEventListener('click', toggleCompact);
+    if (typeof window.mokaOverlay.onCompactShortcut === 'function') {
+      window.mokaOverlay.onCompactShortcut(() => toggleCompact());
+    }
 
-// re-apply compact section classes after each render
-const _renderDetail = renderDetail;
-renderDetail = function() {
-  _renderDetail.apply(this, arguments);
-  if (shell?.classList.contains('compact')) {
-    document.querySelectorAll('.comp-detail .section').forEach((sec) => {
-      sec.classList.toggle('compact-hide', !sec.querySelector('.board'));
-    });
+    // Default fully visible — never leave window invisible
+    let saved = 100;
+    try { saved = Number(localStorage.getItem('moka-overlay-opacity') || '100') || 100; } catch (_) {}
+    if (saved < 35 || saved > 100) saved = 100;
+    applyOpacity(saved);
+    try { setCompact(localStorage.getItem('moka-overlay-compact') === '1'); } catch (_) {}
+
+    const originalRenderDetail = typeof renderDetail === 'function' ? renderDetail : null;
+    if (originalRenderDetail) {
+      renderDetail = function () {
+        originalRenderDetail.apply(this, arguments);
+        try {
+          if (shell && shell.classList.contains('compact')) {
+            document.querySelectorAll('.comp-detail .section').forEach((sec) => {
+              sec.classList.toggle('compact-hide', !sec.querySelector('.board'));
+            });
+          }
+        } catch (_) {}
+      };
+    }
+  } catch (e) {
+    console.error('initOverlayChrome failed', e);
   }
-};
+})();

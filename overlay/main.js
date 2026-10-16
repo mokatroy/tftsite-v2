@@ -78,10 +78,19 @@ function createOverlayWindow() {
   overlayWindow.setMenuBarVisibility(false);
   overlayWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
   overlayWindow.once('ready-to-show', () => {
-    overlayWindow.showInactive();
+    try { overlayWindow.setOpacity(1); } catch (_) {}
+    overlayWindow.show();
     pinOverlayOnTop();
-    overlayWindow.webContents.send('overlay:version', { version: app.getVersion(), packaged: app.isPackaged });
+    try {
+      overlayWindow.webContents.send('overlay:version', { version: app.getVersion(), packaged: app.isPackaged });
+    } catch (_) {}
     setTimeout(checkForUpdates, 4000);
+  });
+  overlayWindow.webContents.on('did-fail-load', (_e, code, desc) => {
+    console.error('did-fail-load', code, desc);
+  });
+  overlayWindow.webContents.on('render-process-gone', (_e, details) => {
+    console.error('render-process-gone', details);
   });
   overlayWindow.on('maximize', notifyWindowState);
   overlayWindow.on('unmaximize', notifyWindowState);
@@ -215,10 +224,12 @@ app.whenReady().then(() => {
 
   configureUpdater();
   createOverlayWindow();
-  globalShortcut.register('CommandOrControl+Shift+Space', toggleOverlay);
-  globalShortcut.register('CommandOrControl+Shift+C', () => {
-    overlayWindow?.webContents.send('overlay:toggle-compact');
-  });
+  try { globalShortcut.register('CommandOrControl+Shift+Space', toggleOverlay); } catch (_) {}
+  try {
+    globalShortcut.register('CommandOrControl+Shift+C', () => {
+      try { overlayWindow?.webContents.send('overlay:toggle-compact'); } catch (__) {}
+    });
+  } catch (_) {}
 
   ipcMain.handle('comps:load', loadComps);
   ipcMain.on('overlay:hide', () => overlayWindow?.hide());
