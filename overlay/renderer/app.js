@@ -269,7 +269,33 @@ const announceDismiss = document.querySelector('#announce-dismiss');
 const feedbackBtn = document.querySelector('#feedback-btn');
 const feedbackModal = document.querySelector('#feedback-modal');
 const feedbackText = document.querySelector('#feedback-text');
+
 const feedbackStatus = document.querySelector('#feedback-status');
+const FEEDBACK_COOLDOWN_MS = 30 * 60 * 1000; // نصف ساعة
+const FEEDBACK_LAST_KEY = 'moka-overlay-feedback-last';
+
+function feedbackRemainingMs() {
+  try {
+    const last = Number(localStorage.getItem(FEEDBACK_LAST_KEY) || 0);
+    if (!last) return 0;
+    return Math.max(0, last + FEEDBACK_COOLDOWN_MS - Date.now());
+  } catch (_) {
+    return 0;
+  }
+}
+
+function formatCooldown(ms) {
+  const totalSec = Math.ceil(ms / 1000);
+  const m = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  if (m <= 0) return s + ' ثانية';
+  return m + ' دقيقة' + (s ? ' و ' + s + ' ثانية' : '');
+}
+
+function markFeedbackSent() {
+  try { localStorage.setItem(FEEDBACK_LAST_KEY, String(Date.now())); } catch (_) {}
+}
+
 let metaConfig = {
   feedbackUrl: 'https://formsubmit.co/ajax/mokatroy@gmail.com',
   feedbackEmail: 'mokatroy@gmail.com',
@@ -328,8 +354,21 @@ announceDismiss?.addEventListener('click', () => {
 
 function openFeedbackModal() {
   feedbackModal.hidden = false;
-  feedbackStatus.hidden = true;
   feedbackText.value = '';
+  const left = feedbackRemainingMs();
+  const sendBtn = document.querySelector('#feedback-send');
+  if (left > 0) {
+    feedbackStatus.hidden = false;
+    feedbackStatus.style.color = '#ffd7a0';
+    feedbackStatus.textContent = 'تقدر تبعت ملاحظة تانية بعد ' + formatCooldown(left);
+    if (sendBtn) sendBtn.disabled = true;
+  } else {
+    feedbackStatus.hidden = true;
+    if (sendBtn) {
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'إرسال';
+    }
+  }
   feedbackText.focus();
 }
 function closeFeedbackModal() {
@@ -363,6 +402,13 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
     feedbackStatus.textContent = 'اكتب الملاحظة أولاً';
     return;
   }
+  const left = feedbackRemainingMs();
+  if (left > 0) {
+    feedbackStatus.hidden = false;
+    feedbackStatus.style.color = '#ffd7a0';
+    feedbackStatus.textContent = 'تقدر تبعت ملاحظة تانية بعد ' + formatCooldown(left);
+    return;
+  }
   const sendBtn = document.querySelector('#feedback-send');
   if (sendBtn) {
     sendBtn.disabled = true;
@@ -383,9 +429,11 @@ document.querySelector('#feedback-send')?.addEventListener('click', async () => 
       endpoint: metaConfig.feedbackEndpoint || ''
     });
     if (result && result.ok) {
+      markFeedbackSent();
       feedbackStatus.style.color = '#9be7b5';
-      feedbackStatus.textContent = 'تم إرسال ملاحظتك بنجاح. شكرًا لك!';
+      feedbackStatus.textContent = 'تم إرسال ملاحظتك بنجاح. شكرًا لك! تقدر تبعت تاني بعد نصف ساعة.';
       feedbackText.value = '';
+      if (sendBtn) sendBtn.disabled = true;
     } else {
       throw new Error(result && result.error ? result.error : 'failed');
     }
