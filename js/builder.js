@@ -116,23 +116,20 @@ function fitBoard(){
   const el = document.getElementById('board');
   const wrap = el && el.closest('.builder-board-wrap');
   if(!el || !wrap) return;
-  // reset before measure
-  el.style.transform = 'none';
-  el.style.width = '';
+  el.style.transform = '';
   el.style.marginBottom = '';
-  // only shrink on narrow screens
+  el.style.width = '';
   if(window.innerWidth > 900) return;
-  const avail = Math.max(0, wrap.clientWidth - 8);
-  const need = el.scrollWidth || el.getBoundingClientRect().width;
-  if(!need || avail <= 0) return;
-  const scale = Math.min(1, avail / need);
-  el.style.transformOrigin = 'top center';
-  el.style.transform = 'scale(' + scale + ')';
-  // collapse leftover layout height after scale
-  const h = el.getBoundingClientRect().height;
-  // getBoundingClientRect already reflects scale; scrollHeight does not
-  const full = el.scrollHeight;
-  if(full > h) el.style.marginBottom = (h - full) + 'px';
+  // CSS sizes hexes to fit; only scale as last resort if still overflowing
+  const avail = wrap.clientWidth;
+  const need = el.scrollWidth;
+  if(need > avail + 2){
+    const scale = avail / need;
+    el.style.transformOrigin = 'top center';
+    el.style.transform = 'scale(' + scale + ')';
+    const full = el.scrollHeight;
+    el.style.marginBottom = ((scale - 1) * full) + 'px';
+  }
 }
 
 function renderBoard(){
