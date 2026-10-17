@@ -17,9 +17,9 @@ function guideText(g, key){
 function renderList(){
   if(!root) return;
   root.innerHTML = `
-    <p class="eyebrow">SET 18 · 18.3B</p>
+    <p class="eyebrow">SET 18 · 18.4B</p>
     <h1 class="page-title">${t('situationalTitle')||'Situational'}</h1>
-    <p class="page-subtitle">${lang==='ar'?'تشكيلات مشروطة بأوجمنت أو ظروف معينة — افتح الدليل الكامل.':lang==='ja'?'特定オーグメントや条件付きの構成。詳細ガイドを開いてください。':'Conditional comps that need specific augments or conditions — open the full guide.'}</p>
+    <p class="page-subtitle">${lang==='ar'?'تشكيلات X من TFT Academy لباتش 18.4b. متلعبهاش غير لو الشرط أو الأوجمنت مظبوط.':lang==='ja'?'TFT AcademyのXティア（パッチ18.4b）。条件かオーグメントが揃った時だけ。':'TFT Academy X-tier for patch 18.4b. Only play them when the condition or augment is right.'}</p>
     <div class="situational-grid">
       ${list.map(c=>{
         const title = localize(c.title) || c.name || c.slug || '';
@@ -124,8 +124,8 @@ function render(){
 }
 
 Promise.all([
-  fetch('data/v2_situational-comps.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/v2_situational_extra.json').then(r=>r.ok?r.json():[]).catch(()=>[])
+  fetch('data/v2_situational-comps.json?v=20261017sit').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/v2_situational_extra.json?v=20261017sit').then(r=>r.ok?r.json():[]).catch(()=>[])
 ]).then(([base,extra])=>{
   const a = Array.isArray(base)?base:[];
   const b = Array.isArray(extra)?extra:[];

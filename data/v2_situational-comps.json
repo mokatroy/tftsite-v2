@@ -1,136 +1,249 @@
 [
   {
-    "name": "Unrivaled Kha'Zix",
-    "ar": "Unrivaled Kha'Zix",
-    "ja": "アンライバルド・カ＝ジックス",
+    "name": "Cursed Crown Kayle",
+    "ar": "Cursed Crown Kayle",
+    "ja": "カースドクラウン・ケイル",
     "style": {
-      "ar": "ريرول 3 كوست · مشروط",
-      "en": "3-Cost Reroll · Conditional",
-      "ja": "3コストリロール · 条件付き"
+      "ar": "ريرول 2 كوست · سهل",
+      "en": "2-Cost Reroll · Easy",
+      "ja": "2コストリロール · 初級"
     },
     "augments": [
-      "Rivals",
-      "Heroic Grab Bag+",
-      "Heroic Grab Bag++",
-      "Swordsmith",
-      "Big Grab Bag",
-      "Golden Gamble+",
-      "Small Grab Bag",
-      "Salvage Bin+"
+      "Cursed Crown",
+      "Worth the Wait",
+      "Worth the Wait II",
+      "Speedy Double Kill",
+      "Prismatic Ticket",
+      "Missed Connections",
+      "Commerce Core",
+      "Pandora's Bench"
     ],
     "note": {
-      "ar": "التشكيلة مشروطة بوجود Kha'Zix مبكر وأيتمز مناسبة. ترتيب الخصائص التي يكتسبها مع الإقصاءات مهم.",
-      "en": "Conditional on an early Kha'Zix with suitable items. The order of traits gained through takedowns matters.",
-      "ja": "早期のKha'Zixと適切なアイテムが条件。キルによるトレイト獲得順が重要です。"
+      "ar": "متلعبهاش غير مع Cursed Crown. الهدف بونص Solar لـ 8 وحدات 3 نجوم. اعمل رول على لفل 5 للـ1 كوست وعلى 6 للـ2 كوست، وبيع LeBlanc وElise لو محتاج مكان على البنش.",
+      "en": "Only with Cursed Crown. Go for the 8-unit 3-star Solar bonus. Roll on 5 for 1-costs and on 6 for 2-costs. Sell LeBlanc and Elise if you need bench space.",
+      "ja": "Cursed Crownがある時だけ。8体3スターのSolarボーナスを狙う。1コストはレベル5、2コストはレベル6でロール。ベンチが足りなければLeBlancとEliseを売る。"
     },
     "title": {
-      "ar": "Unrivaled Kha'Zix",
-      "en": "Unrivaled Kha'Zix",
-      "ja": "アンライバルド・カ＝ジックス"
+      "ar": "Cursed Crown Kayle",
+      "en": "Cursed Crown Kayle",
+      "ja": "カースドクラウン・ケイル"
     },
-    "slug": "unrivaled-khazix",
+    "slug": "cursed-crown-kayle",
     "stages": [
       {
         "stage": 2,
         "text": {
-          "ar": "العبها فقط لو حصلت على Kha'Zix مبكرًا ومعه أيتمز مناسبة. استخدم فرونت لاين مطوّر لكسب وقت.",
-          "en": "Only consider this with an early Kha'Zix and suitable items. Use upgraded frontline to buy time.",
-          "ja": "早期にKha'Zixと適切なアイテムが揃った場合に検討。強化した前衛で時間を稼ぎます。"
+          "ar": "افتح Solar أو Elderwood أو Inferno بدري. أولوية أيتمز Kayle وOrnn. الأوجمنت غالي، فكل فايدة دهب مهمة.",
+          "en": "Play aroud early Solar, Elderwood, and Inferno. Prioritize Kayle and Ornn items. Cursed Crown is very expensive so every gold interest counts.",
+          "ja": "序盤はSolar、Elderwood、Inferno。KayleとOrnnのアイテム優先。オーグメントが高いので金利を死守。"
         }
       },
       {
         "stage": 3,
         "text": {
-          "ar": "لو عندك أزواج مهمة على لفل 6، ممكن تعمل رول بسيط؛ وإلا حافظ على الاقتصاد واتجه إلى لفل 7.",
-          "en": "If you have key pairs at level 6, roll a little; otherwise preserve economy toward level 7.",
-          "ja": "レベル6で重要なペアがあれば少しロールし、なければ経済を維持してレベル7を目指します。"
+          "ar": "غالبًا هتبقى فقير، خد أوجمنت اقتصاد لو ظهر. Slow roll فوق 50 دهب للـ3 نجوم. الأولوية Solar ثم 1 كوست ثم 2 كوست.",
+          "en": "You will likely be poor so consider an econ augment. Slow roll above 50g for 3* units. Prioritize Solars > 1 costs > 2 costs.",
+          "ja": "金が足りないので経済オーグメントを検討。50ゴールド以上で3スターをスローロール。優先はSolar、次に1コスト、その次に2コスト。"
         }
       },
       {
         "stage": 4,
         "text": {
-          "ar": "اعمل Slow Roll على لفل 7 لتطوير وحدات الـ3 كوست المستهدفة. حاول تفعيل خصائص Kha'Zix بالتتابع مع الإقصاءات.",
-          "en": "Slow roll at level 7 for your target 3-cost upgrades. Sequence Kha'Zix's gained traits through takedowns.",
-          "ja": "レベル7でスローロールし、狙う3コストを強化。Kha'Zixのキルによるトレイト獲得順を意識します。"
+          "ar": "تقدر تفضل على لفل 6 لحد ما تخلّص كل الـ3 نجوم بسبب Cursed Crown. لو طلعت 7 طبيعي، ضيف Spellweaver أو 5 كوست.",
+          "en": "You can stay on 6 to finish all your 3* because of Cursed Crown. If you natural level to 7, add in any Spellweaver or 5 cost.",
+          "ja": "Cursed Crownがあるので6のまま3スターを完成させてよい。自然に7になったらSpellweaverか5コストを追加。"
         }
       }
     ],
     "guide": {
       "board": [
-        "Amumu",
-        "Shen",
-        "Fiddlesticks",
-        "Akali",
-        "Varus",
-        "Rengar",
-        "Kennen",
-        "Kha'Zix"
+        "Leona",
+        "Rakan",
+        "Ornn",
+        "Xayah",
+        "Elise",
+        "LeBlanc",
+        "Sejuani",
+        "Kayle"
       ],
       "items": [
         {
-          "unit": "Kha'Zix",
+          "unit": "Ornn",
           "items": [
-            "Edge of Night",
-            "Hand of Justice",
-            "Jeweled Gauntlet"
+            "Gargoyle Stoneplate",
+            "Warmog's Armor",
+            "Spirit Visage"
           ]
         },
         {
-          "unit": "Rengar",
+          "unit": "Xayah",
           "items": [
-            "Titan's Resolve",
             "Guinsoo's Rageblade",
-            "Edge of Night"
+            "Kraken's Fury",
+            "Deathblade"
+          ]
+        },
+        {
+          "unit": "Kayle",
+          "items": [
+            "Guinsoo's Rageblade",
+            "Jeweled Gauntlet",
+            "Striker's Flail"
           ]
         }
       ],
       "priority": [
-        "Edge of Night",
-        "Titan's Resolve",
         "Guinsoo's Rageblade",
-        "Hand of Justice"
+        "Gargoyle Stoneplate",
+        "Needlessly Large Rod",
+        "Sparring Gloves"
       ],
       "early": [
-        "Kha'Zix",
-        "Rengar",
-        "Hecarim",
-        "LeBlanc"
+        "Kayle",
+        "Leona",
+        "Sejuani",
+        "Ornn"
       ],
-      "flex": [
-        "Add a frontline tank; later add 5-cost units after 3-star core."
-      ],
-      "position": "Keep Kha'Zix and Rengar protected until they can reach targets; adjust their sides to the enemy carry. Use a durable upgraded frontline.",
-      "alt": "Item alternatives include Hand of Justice, Rabadon's Deathcap, Jeweled Gauntlet, or suitable defensive items based on components.",
+      "position": "Keep Kayle in the back and Ornn in front so the 3-stars have time to cast.",
+      "flex": "If you natural level 7, add a Spellweaver or a 5-cost. Sell LeBlanc and Elise when the bench is full.",
+      "alt": "Do not commit without Cursed Crown.",
       "ar": {
-        "position": "احمِ خازكس ورينجار لحد ما يوصلوا للأهداف، وغيّر الجهة حسب مكان كاري الخصم. استخدم فرونت لاين مطوّر ومتين.",
-        "flex": "زوّد تانك فرونت لاين مناسب، وبعد ما تكمل وحدات الـ3 نجوم أضف وحدات 5 كوست.",
-        "alt": "بدائل الأيتمز تشمل Hand of Justice وRabadon's Deathcap وJeweled Gauntlet، أو أيتمز دفاعية مناسبة للمكونات."
+        "position": "خلي Kayle في الخلف وOrnn قدامها عشان يعيش ويكسب وقت للـ3 نجوم.",
+        "flex": "لو طلعت لفل 7 طبيعي ضيف Spellweaver أو وحدة 5 كوست. بيع LeBlanc وElise لو البنش مليان.",
+        "alt": "من غير Cursed Crown متكملش الخط ده."
       },
       "en": {
-        "position": "Protect Kha'Zix and Rengar until they reach targets; swap their sides to match the enemy carry. Use a durable upgraded frontline.",
-        "flex": "Add a suitable frontline tank; after completing the 3-star core, add 5-cost units.",
-        "alt": "Alternatives include Hand of Justice, Rabadon's Deathcap, Jeweled Gauntlet, or suitable defensive items based on components."
+        "position": "Keep Kayle in the back and Ornn in front so the 3-stars have time to cast.",
+        "flex": "If you natural level 7, add a Spellweaver or a 5-cost. Sell LeBlanc and Elise when the bench is full.",
+        "alt": "Do not commit without Cursed Crown."
       },
       "ja": {
-        "position": "Kha'ZixとRengarが敵に届くまで守り、相手キャリーの位置に合わせて左右を調整。強化した前衛で時間を稼ぎます。",
-        "flex": "適切な前衛タンクを追加し、主力の3スター完成後は5コストを加えます。",
-        "alt": "Hand of Justice、Rabadon's Deathcap、Jeweled Gauntletや、素材に応じた防御アイテムが代替候補です。"
+        "position": "Kayleを後衛、Ornnを前衛にして3スターが時間を稼げるようにする。",
+        "flex": "自然に7になったらSpellweaverか5コスト。ベンチ不足ならLeBlancとEliseを売る。",
+        "alt": "Cursed Crownがなければこのラインは狙わない。"
       }
     },
-    "requiredAugment": "Unrivaled"
+    "requiredAugment": "Cursed Crown"
   },
   {
-    "name": "Ravager Elise",
-    "ar": "Ravager Elise",
-    "ja": "ラヴェジャー・エリス",
+    "name": "Bronze For Life AP",
+    "ar": "Bronze For Life AP",
+    "ja": "ブロンズフォーライフ AP",
+    "style": {
+      "ar": "فاست 8 · 4 كوست · متوسط",
+      "en": "4-Cost Fast 8 · Medium",
+      "ja": "4コスト・ファスト8 · 中級"
+    },
+    "augments": [],
+    "note": {
+      "ar": "خط X مشروط بـ Bronze For Life. الكاري Zyra AP ومعاها Nidalee، والتانك Malphite. أكاديمي ما كتبش دليل مراحل مفصل للخط ده.",
+      "en": "X-tier line that wants Bronze For Life. Zyra is the AP carry with Nidalee, and Malphite tanks. Academy did not publish a full stage guide for this line.",
+      "ja": "Bronze For Life向きのXティア。ZyraがAPキャリー、Nidaleeがサブ、Malphiteがタンク。段階ガイドはAcademy未記載。"
+    },
+    "title": {
+      "ar": "Bronze For Life AP",
+      "en": "Bronze For Life AP",
+      "ja": "ブロンズフォーライフ AP"
+    },
+    "slug": "bronze-for-life-ap",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "افتح أقوى بورد AP وثبت أيتمز على حامل مؤقت لحد Zyra.",
+          "en": "X-tier line that wants Bronze For Life. Zyra is the AP carry with Nidalee, and Malphite tanks. Academy did not publish a full stage guide for this line.",
+          "ja": "強いAP盤面で開き、Zyraまでの仮キャリーにアイテムを置く。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "ارفع نحو لفل 8 ودور على Zyra وNidalee وفرونت لاين 2 نجوم.",
+          "en": "X-tier line that wants Bronze For Life. Zyra is the AP carry with Nidalee, and Malphite tanks. Academy did not publish a full stage guide for this line.",
+          "ja": "レベル8に向けて、Zyra、Nidalee、前衛の2スターを探す。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "ثبّت Malphite تانك وخلّي أيتمز الكاري على Zyra الأول.",
+          "en": "X-tier line that wants Bronze For Life. Zyra is the AP carry with Nidalee, and Malphite tanks. Academy did not publish a full stage guide for this line.",
+          "ja": "Malphiteをタンクにし、キャリーアイテムはまずZyraへ。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Akali",
+        "Azir",
+        "Vi",
+        "Amumu",
+        "Soraka",
+        "Malphite",
+        "Nidalee",
+        "Zyra"
+      ],
+      "items": [
+        {
+          "unit": "Malphite",
+          "items": [
+            "Warmog's Armor",
+            "Gargoyle Stoneplate",
+            "Crownguard"
+          ]
+        },
+        {
+          "unit": "Nidalee",
+          "items": [
+            "Jeweled Gauntlet",
+            "Guinsoo's Rageblade",
+            "Striker's Flail"
+          ]
+        },
+        {
+          "unit": "Zyra",
+          "items": [
+            "Spear of Shojin",
+            "Void Staff",
+            "Rabadon's Deathcap"
+          ]
+        }
+      ],
+      "priority": [],
+      "early": [],
+      "position": "Zyra and Nidalee in the back, Malphite in front of them.",
+      "flex": "Frontline is flexible: Amumu, Vi, or Sett, whichever you hit 2-star.",
+      "alt": "If you hit Morgana instead of Zyra, the sister line is Bronze For Life Ahri.",
+      "ar": {
+        "position": "Zyra وNidalee في الخلف، Malphite في النص قدامهم.",
+        "flex": "الفرونت مرن: Amumu وVi وSett حسب اللي يطلعلك 2 نجوم.",
+        "alt": "لو لقيت Morgana بدل Zyra، الخط التاني هو Bronze For Life Ahri."
+      },
+      "en": {
+        "position": "Zyra and Nidalee in the back, Malphite in front of them.",
+        "flex": "Frontline is flexible: Amumu, Vi, or Sett, whichever you hit 2-star.",
+        "alt": "If you hit Morgana instead of Zyra, the sister line is Bronze For Life Ahri."
+      },
+      "ja": {
+        "position": "ZyraとNidaleeを後衛、その前にMalphite。",
+        "flex": "前衛はAmumu、Vi、Settなど2スターしやすい方でよい。",
+        "alt": "ZyraではなくMorganaなら、姉妹構成のBronze For Life Ahri。"
+      }
+    },
+    "requiredAugment": "Bronze For Life"
+  },
+  {
+    "name": "Coven Elise",
+    "ar": "Coven Elise",
+    "ja": "コーヴェン・エリス",
     "style": {
       "ar": "ريرول 2 كوست · متوسط",
       "en": "2-Cost Reroll · Medium",
       "ja": "2コストリロール · 中級"
     },
     "augments": [
-      "Coven Trait Augment (Loot to AP)",
-      "Coven Trait Augment",
+      "Dark Ritual",
+      "Coven Crest",
       "Worth the Wait II",
       "Cooking Pot",
       "Heroic Grab Bag+",
@@ -139,75 +252,75 @@
       "Expedition"
     ],
     "note": {
-      "ar": "قوية جدًا مع Ravager Emblem. من غيره تقدر تلعب 4 Vanguard مع Coven وتكمّل الخانات الأخيرة حسب المتاح. Elise تقدر تستخدم Gargoyle Stoneplate بدل Archangel's Staff لبناء دفاعي.",
-      "en": "Very strong with Ravager Emblem. Without it, use 4 Vanguard with Coven and flex the remaining slots. Elise can use Gargoyle Stoneplate instead of Archangel's Staff for a more defensive build.",
-      "ja": "Ravagerの紋章が非常に有効。ない場合はCovenとVanguard 4を軸に残りを調整。防御寄りならEliseにArchangel's Staffの代わりにGargoyle Stoneplateを装備できます。"
+      "ar": "العبها مع Dark Ritual عشان تحوّل كاش أوت Coven إلى AP. استهدف كاش أوت 250+ الأول، وبعدين 40 لو محتاج ستاك زيادة. أقوى كاب هو 2 Morgana 2 نجوم والاتنين عليهم أيتمز.",
+      "en": "Play with Dark Ritual so Coven cashouts convert to AP. Aim for a 250+ cashout first, then take 40s if you need more stacks. Best cap is two itemized 2-star Morganas.",
+      "ja": "Dark RitualでCovenのキャッシュアウトをAPに変換。まず250以上を狙い、さらにスタックが要るなら40も取る。上限はアイテム持ちMorgana 2スターが2体。"
     },
     "title": {
-      "ar": "Ravager Elise",
-      "en": "Ravager Elise",
-      "ja": "ラヴェジャー・エリス"
+      "ar": "Coven Elise",
+      "en": "Coven Elise",
+      "ja": "コーヴェン・エリス"
     },
-    "slug": "ravager-elise",
+    "slug": "coven-elise",
     "stages": [
       {
         "stage": 2,
         "text": {
-          "ar": "ابدأ حول Coven واجمع Essence. الفوز المبكر أفضل من الخسارة المتعمدة؛ ما تجبرش Lose Streak.",
-          "en": "Open around Coven and gather Essence. Winning early is better than forcing a loss streak.",
-          "ja": "Covenを軸に始めてEssenceを集めます。無理に連敗するより序盤に勝つ方が有効です。"
+          "ar": "افتح Coven واجمع Essence. الفوز المبكر أفضل من الخسارة المتعمدة؛ ما تجبرش Lose Streak.",
+          "en": "Ideally open with Coven and start gathering Essence. It is actually better to win early than lose for stacks so don't overly force lose streak.",
+          "ja": "Covenで開いてEssenceを集める。無理な連敗より序盤に勝つ方がいい。"
         }
       },
       {
         "stage": 3,
         "text": {
-          "ar": "ارفع لفل 6 ودوّر على Elise نجمتين ووحدات Coven وRavager إضافية. مع أيتمز AD ابحث عن Murkwolf، ومع AP ابحث عن Diana.",
-          "en": "Level to 6 and roll for 2-star Elise, Coven units, and another Ravager. With AD items look for Murkwolf; with AP look for Diana.",
-          "ja": "レベル6に上げ、2スターElise、Coven、追加のRavagerを狙います。ADアイテムならMurkwolf、APならDianaを探します。"
+          "ar": "ارفع لفل 6 ودور على Elise 2 وCoven وVanguard. أيتمز AP الزيادة على Cassiopeia أو Diana. اعمل كاش أوت وعندك 2–3 حياة (حوالي 25–30 HP).",
+          "en": "Level to 6 and roll for a Elise 2, Covens, and Vanguards. Give Cassio or Diana leftover AP. Cash out Coven and convert to AP with at least 2-3 lives (25-30 hp).",
+          "ja": "レベル6でElise 2、Coven、Vanguardをロール。余りAPはCassiopeiaかDiana。ライフ2〜3（HP25〜30）でキャッシュアウト。"
         }
       },
       {
         "stage": 4,
         "text": {
-          "ar": "أنهِ تطوير Elise إلى 3 نجوم، ثم ارفع المستوى وأضف Vanguard أو Coven أو وحدات Lunar/5 كوست حسب المتاح.",
-          "en": "Finish 3-star Elise, then level up and add Vanguard, Coven, or Lunar/5-cost units as available.",
-          "ja": "Eliseを3スターにしてからレベルを上げ、状況に応じてVanguard、Coven、Lunarや5コストを追加します。"
+          "ar": "خلّص Elise 3 وCassiopeia 3 ثم ارفع المستوى لـ Vanguard أو Lunar زيادة. لو عندك أيتمز زيادة العب 2 Morgana.",
+          "en": "Finish Elise 3 / Cassio 3 then level for more Vanguards or Lunar. Play 2 Morganas with items if you have extra.",
+          "ja": "Elise 3とCassiopeia 3を終えたらレベルを上げ、VanguardかLunarを追加。アイテムが余ればMorganaを2体。"
         }
       }
     ],
     "guide": {
       "board": [
-        "Sentinel",
-        "Hecarim",
         "Elise",
         "Diana",
+        "Hecarim",
+        "Cassiopeia",
+        "Sentinel",
         "Morgana",
-        "Murkwolf",
-        "Brambleback",
-        "Camille"
+        "Alune"
       ],
       "items": [
         {
           "unit": "Elise",
           "items": [
-            "Ravager Emblem",
+            "Titan's Resolve",
             "Guinsoo's Rageblade",
-            "Archangel's Staff"
+            "Gargoyle Stoneplate"
           ]
         },
         {
-          "unit": "Diana",
+          "unit": "Cassiopeia",
           "items": [
-            "Jeweled Gauntlet",
-            "Striker's Flail",
-            "Hand of Justice"
+            "Spear of Shojin",
+            "Hextech Gunblade",
+            "Archangel's Staff"
           ]
         },
         {
           "unit": "Morgana",
           "items": [
             "Void Staff",
-            "Morellonomicon"
+            "Morellonomicon",
+            "Jeweled Gauntlet"
           ]
         }
       ],
@@ -218,31 +331,689 @@
         "Chain Vest"
       ],
       "early": [
-        "Coven units",
-        "Elise"
+        "Camille",
+        "Caitlyn",
+        "Elise",
+        "Diana"
       ],
-      "flex": [
-        "Without Ravager Emblem, use 4 Vanguard with Coven and flex remaining slots.",
-        "Murkwolf for AD items; Diana for AP items."
-      ],
-      "position": "Place Elise where she can survive and build stacks; position frontline to buy time. Adjust against enemy targeting.",
-      "alt": "Without Ravager Emblem, pivot to 4 Vanguard plus Coven. Elise can use Gargoyle Stoneplate instead of Archangel's Staff for a defensive build.",
+      "position": "Place Elise where she can live and stack, with frontline buying time.",
+      "flex": "Leftover AP goes to Cassiopeia or Diana. Cap with two itemized Morganas.",
+      "alt": "Without Dark Ritual the line is weaker. You can still play Vanguard with Coven and flex the rest.",
       "ar": {
-        "position": "حط Elise في مكان يساعدها تعيش وتجمع الستاك، وخلي الفرونت لاين يكسبها وقت. عدّل التمركز حسب استهداف الخصم.",
-        "flex": "من غير Ravager Emblem العب 4 Vanguard مع Coven واملأ الخانات حسب المتاح. Murkwolf مع أيتمز AD وDiana مع AP.",
-        "alt": "من غير Ravager Emblem حوّل إلى 4 Vanguard مع Coven. تقدر تستخدم Elise أيتم Gargoyle Stoneplate بدل Archangel's Staff لبناء دفاعي."
+        "position": "Elise في مكان تعيش فيه وتبني الستاك، والفرونت يكسبها وقت.",
+        "flex": "أيتمز AP الزيادة تروح لـ Cassiopeia أو Diana. الكاب: مورجانا مرتين عليهم أيتمز.",
+        "alt": "من غير Dark Ritual الخط أضعف. تقدر تلعب Vanguard مع Coven وتفليكس الباقي."
       },
       "en": {
-        "position": "Place Elise where she can survive and build stacks; use the frontline to buy time. Adjust against enemy targeting.",
-        "flex": "Without Ravager Emblem, use 4 Vanguard with Coven and flex remaining slots. Murkwolf fits AD items; Diana fits AP.",
-        "alt": "Without Ravager Emblem, pivot to 4 Vanguard plus Coven. Elise can use Gargoyle Stoneplate instead of Archangel's Staff for a defensive build."
+        "position": "Place Elise where she can live and stack, with frontline buying time.",
+        "flex": "Leftover AP goes to Cassiopeia or Diana. Cap with two itemized Morganas.",
+        "alt": "Without Dark Ritual the line is weaker. You can still play Vanguard with Coven and flex the rest."
       },
       "ja": {
-        "position": "Eliseが生存してスタックを重ねられる位置に配置し、前衛で時間を稼ぎます。敵の狙いに応じて調整。",
-        "flex": "Ravagerの紋章がなければCoven＋Vanguard 4を軸に調整。ADならMurkwolf、APならDiana。",
-        "alt": "紋章がなければCoven＋Vanguard 4へ。防御寄りのEliseにはArchangel's Staffの代わりにGargoyle Stoneplateも使用可能。"
+        "position": "Eliseが生存してスタックできる位置に、前衛で時間を稼ぐ。",
+        "flex": "余ったAPはCassiopeiaかDiana。上限はアイテム持ちMorgana 2体。",
+        "alt": "Dark Ritualがないと弱い。Coven＋Vanguardで残りは柔軟に。"
       }
     }
+  },
+  {
+    "name": "Bronze For Life Ahri",
+    "ar": "Bronze For Life Ahri",
+    "ja": "ブロンズフォーライフ・アーリ",
+    "style": {
+      "ar": "فاست 8 · 4 كوست · متوسط",
+      "en": "4-Cost Fast 8 · Medium",
+      "ja": "4コスト・ファスト8 · 中級"
+    },
+    "augments": [
+      "Jeweled Lotus",
+      "Jeweled Lotus II",
+      "Glass Cannon",
+      "FOURcing",
+      "Staffsmith",
+      "Cybernetic Uplink",
+      "Bronze For Life",
+      "Bronze For Life II"
+    ],
+    "note": {
+      "ar": "العبها لما تطلع Zyra 2 في رول داون Ahri بدل Morgana. على لفل 8 العب 5 Blossom مع Karma، وبعدين حاول توصل 9 للـ5 كوست. آخر الجيم أيتمز Alune 2.",
+      "en": "Play when the Ahri rolldown gives Zyra 2 instead of Morgana. At level 8 play 5 Blossom with Karma, then try to go 9 for 5-costs. Itemize Alune 2 late.",
+      "ja": "AhriのロールダウンでMorganaではなくZyra 2が出た時。レベル8でKarma込みのBlossom 5、その後9で5コスト。終盤はAlune 2にアイテム。"
+    },
+    "title": {
+      "ar": "Bronze For Life Ahri",
+      "en": "Bronze For Life Ahri",
+      "ja": "ブロンズフォーライフ・アーリ"
+    },
+    "slug": "bronze-for-life-ahri",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "دور على 3 Blossom بدري والعب للون ستريك. Karma تمسك أيتمز Ahri. أيتمز التانك على Yorick أو أي تانك 2 نجوم.",
+          "en": "Look for 3 Blossom early and play for win streak. Karma can hold items for Ahri. Itemize Yorick or any other 2* tank.",
+          "ja": "序盤にBlossom 3を探して連勝。KarmaがAhriのアイテムを預かり、タンクはYorickか他の2スター。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "زوّد Spellweaver وفرونت لاين. التانك ممكن Juggernaut أو Defender أو Vanguard.",
+          "en": "Flex in more Spellweavers + frontline as you get them. You can tank all kinds of frontline: Juggernauts, Defenders, or Vanguards.",
+          "ja": "Spellweaverと前衛を追加。タンクはJuggernaut、Defender、Vanguardのどれでもよい。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "ارفع ودور على Ahri وZyra و4 Spellweaver. العب Cassiopeia أو LeBlanc لحد ما تلاقى Alune.",
+          "en": "Level and roll for Ahri, Zyra, and the 4 Spellweavers. Play Cassio or LeBlanc until you find Alune.",
+          "ja": "レベルを上げてAhri、Zyra、Spellweaver 4体をロール。AluneまではCassiopeiaかLeBlanc。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Rakan",
+        "Yorick",
+        "Fiddlesticks",
+        "Lillia",
+        "Ahri",
+        "Sett",
+        "Zyra",
+        "Taric",
+        "Gnar"
+      ],
+      "items": [
+        {
+          "unit": "Lillia",
+          "items": [
+            "Protector's Vow"
+          ]
+        },
+        {
+          "unit": "Ahri",
+          "items": [
+            "Jeweled Gauntlet",
+            "Striker's Flail",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Sett",
+          "items": [
+            "Warmog's Armor",
+            "Bramble Vest",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Zyra",
+          "items": [
+            "Void Staff",
+            "Morellonomicon",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Gnar",
+          "items": [
+            "Thief's Gloves"
+          ]
+        }
+      ],
+      "priority": [
+        "Spear of Shojin",
+        "Jeweled Gauntlet",
+        "Giant's Belt",
+        "Tear of the Goddess"
+      ],
+      "early": [
+        "Karma",
+        "Rakan",
+        "Yorick",
+        "Yunara"
+      ],
+      "position": "Ahri and Zyra in the back, Sett and Lillia in front.",
+      "flex": "Frontline flexes between Juggernaut, Defender, and Vanguard. Alune caps the board late.",
+      "alt": "If you hit Morgana instead of Zyra, do not force this line.",
+      "ar": {
+        "position": "Ahri وZyra في الخلف، Sett وLillia قدامهم.",
+        "flex": "الفرونت مرن بين Juggernaut وDefender وVanguard. Alune هي كاب آخر الجيم.",
+        "alt": "لو Morgana هي اللي طلعت مش Zyra، متجبرش الخط ده."
+      },
+      "en": {
+        "position": "Ahri and Zyra in the back, Sett and Lillia in front.",
+        "flex": "Frontline flexes between Juggernaut, Defender, and Vanguard. Alune caps the board late.",
+        "alt": "If you hit Morgana instead of Zyra, do not force this line."
+      },
+      "ja": {
+        "position": "AhriとZyraを後衛、SettとLilliaを前衛。",
+        "flex": "前衛はJuggernaut、Defender、Vanguardで柔軟。終盤の上限はAlune。",
+        "alt": "ZyraではなくMorganaなら、このラインは無理しない。"
+      }
+    },
+    "requiredAugment": "Bronze For Life"
+  },
+  {
+    "name": "Inferno Fast 9",
+    "ar": "Inferno Fast 9",
+    "ja": "インフェルノ・ファスト9",
+    "style": {
+      "ar": "فاست 8 · 4 كوست · صعب",
+      "en": "4-Cost Fast 8 · Hard",
+      "ja": "4コスト・ファスト8 · 上級"
+    },
+    "augments": [
+      "Big Grab Bag",
+      "Cybernetic Uplink",
+      "Commerce Core",
+      "Spreading Roots",
+      "The Trait Tree",
+      "Boxing Lessons",
+      "Late-Game Scaling",
+      "Late-Game Specialist"
+    ],
+    "note": {
+      "ar": "متلعبهاش غير مع Inferno Emblem. الأقوى مع Inferno Lux، لكن تقدر تاخد Top 4 من غير Lux لو Ashe معاها الإمبلم. تقدر تلعب فرونت زيادة بدل 7 Inferno، أو Hunter مع Taric و4 Juggernaut.",
+      "en": "Only play with Inferno Emblem. Inferno Lux is the high cap, but you can top 4 with emblem Ashe and no Lux. More frontline instead of 7 Inferno, or Hunter with Taric and 4 Juggernaut, also works.",
+      "ja": "Infernoの紋章がある時だけ。上限はInferno Luxだが、紋章AsheだけでもTop 4は狙える。7 Infernoの代わりに前衛を増やすか、TaricとJuggernaut 4のHunterでもよい。"
+    },
+    "title": {
+      "ar": "Inferno Fast 9",
+      "en": "Inferno Fast 9",
+      "ja": "インフェルノ・ファスト9"
+    },
+    "slug": "inferno-fast-9",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "افتح AD قوي، يفضل حول Yunara. ثبّت أيتمز AD وتانك للون ستريك. ينفع كمان Varus أو Akali 2 بأيتمز AD.",
+          "en": "Open with a strong AD opener, preferably around Yunara. Slam generic AD items and Tank items for a win streak. You can also play around Varus/Akali 2 with AD items.",
+          "ja": "Yunara中心の強いADで開く。ADとタンクアイテムをスラムして連勝。VarusやAkali 2のADでもよい。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "ارفع المستوى وزوّد Juggernaut وExecutioner. احتفظ بوحدات Inferno في الطريق. 3 Inferno ممكن لو الشوب حلو.",
+          "en": "Level and add more Juggernauts and Executioners. Make sure to hold Inferno units along the way. Can also play 3 Inferno for shop high rolls.",
+          "ja": "レベルを上げてJuggernautとExecutionerを追加。Infernoは手元に残す。ショップが良ければInferno 3でもよい。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "رول على 8 لـ 5 Inferno: Sivir وVi وLillia وHunter. Tristana قبل Ashe ينفع. لما تلاقى Ashe اديها Inferno Emblem وShojin.",
+          "en": "Roll on 8 for 5 inferno Sivir + Vi + Lillia + Hunter (can play Tristana before Ashe). When you find Ashe make sure to give her inferno emblem + shojin.",
+          "ja": "8でInferno 5（Sivir、Vi、Lillia、Hunter）をロール。Asheの前はTristanaでも可。AsheにはInferno紋章とShojin。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Akali",
+        "Shen",
+        "Vi",
+        "Lillia",
+        "Sivir",
+        "Amumu",
+        "Ashe",
+        "Kennen",
+        "Lux"
+      ],
+      "items": [
+        {
+          "unit": "Lillia",
+          "items": [
+            "Protector's Vow"
+          ]
+        },
+        {
+          "unit": "Sivir",
+          "items": [
+            "Last Whisper",
+            "Infinity Edge"
+          ]
+        },
+        {
+          "unit": "Amumu",
+          "items": [
+            "Warmog's Armor",
+            "Bramble Vest",
+            "Dragon's Claw"
+          ]
+        },
+        {
+          "unit": "Ashe",
+          "items": [
+            "Spear of Shojin",
+            "Red Buff",
+            "Inferno Emblem"
+          ]
+        },
+        {
+          "unit": "Kennen",
+          "items": [
+            "Edge of Night",
+            "Quicksilver",
+            "Bloodthirster"
+          ]
+        },
+        {
+          "unit": "Lux",
+          "items": [
+            "Spear of Shojin",
+            "Rabadon's Deathcap",
+            "Jeweled Gauntlet"
+          ]
+        }
+      ],
+      "priority": [
+        "Infinity Edge",
+        "Warmog's Armor",
+        "Recurve Bow",
+        "B.F. Sword"
+      ],
+      "early": [
+        "Karma",
+        "Rakan",
+        "Yorick",
+        "Yunara"
+      ],
+      "position": "Keep Ashe safe with the emblem. Lux goes in a corner once you hit her, with frontline in front of the carry.",
+      "flex": "Cap with Maokai over Vi and Taric over Sivir, or add frontline instead of forcing 7 Inferno.",
+      "alt": "Do not play without the emblem. You can still play Ashe if Lux never shows up.",
+      "ar": {
+        "position": "Ashe في صف آمن والإمبلم عليها، Lux في الزاوية لما توصل، والفرونت قدام الكاري.",
+        "flex": "الكاب Maokai بدل Vi، وTaric بدل Sivir. أو فرونت زيادة بدل 7 Inferno.",
+        "alt": "من غير الإمبلم متلعبهاش. من غير Lux لسه تقدر تكمل بـ Ashe."
+      },
+      "en": {
+        "position": "Keep Ashe safe with the emblem. Lux goes in a corner once you hit her, with frontline in front of the carry.",
+        "flex": "Cap with Maokai over Vi and Taric over Sivir, or add frontline instead of forcing 7 Inferno.",
+        "alt": "Do not play without the emblem. You can still play Ashe if Lux never shows up."
+      },
+      "ja": {
+        "position": "紋章持ちのAsheは安全な列へ。Luxが来たら角、キャリーの前に前衛。",
+        "flex": "上限はViをMaokai、SivirをTaricに。7 Infernoを無理せず前衛を足してもよい。",
+        "alt": "紋章がなければプレイしない。Luxが来なくてもAsheで続行できる。"
+      }
+    },
+    "requiredAugment": "Inferno Emblem"
+  },
+  {
+    "name": "Trait Ladder",
+    "ar": "Trait Ladder",
+    "ja": "トレイトラダー",
+    "style": {
+      "ar": "فاست 9 · صعب",
+      "en": "Fast 9 · Hard",
+      "ja": "ファスト9 · 上級"
+    },
+    "augments": [
+      "Trait Ladder",
+      "Coronation",
+      "Cursed Crown",
+      "Magic Roll",
+      "Urf's Grab Bag",
+      "URF",
+      "Spreading Roots+",
+      "Branching Out+"
+    ],
+    "note": {
+      "ar": "فليكس صعب بس قوي لو اتلعبت صح. أي إمبلم في البداية ينفع. خازكس محتاج 10 إقصاءات لتطور Ravager، وفي نفس الوقت كاش أوت التريتس من 2 لـ 8. عند 10 تريتس تاخد Tactician Crown: يا تقلب لليجندري أو تكمل كاش أوت لو صحتك كويسة.",
+      "en": "Hard flex, very strong when played well. Any emblem start is fine. Get 10 Kha'Zix takedowns for Ravager evolution while cashing the 2–8 trait intervals. At 10 traits you get a Tactician's Crown: pivot to legendaries, or keep cashing out if you are healthy.",
+      "ja": "難しいフレックスだが上手く回すと非常に強い。どの紋章からでもよい。Kha'Zixの10キルでRavager進化を取りつつ、2〜8トレイトのキャッシュアウトを集める。10トレイトで戦術冠。体力があればさらに伸ばし、なければレジェンドへピボット。"
+    },
+    "title": {
+      "ar": "Trait Ladder",
+      "en": "Trait Ladder",
+      "ja": "トレイトラダー"
+    },
+    "slug": "trait-ladder",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "يبدأ الأفضل بـ Kha'Zix عشان الـ10 إقصاءات بسرعة. ضيف 1 و2 كوست رخيصة لتفعيل تريتس. غير كده الفليكس حوالي أقوى وحدة مطوّرة.",
+          "en": "Ideally start with Khazix to get 10 takedowns ASAP. Add in the cheap 1-2 cost units to activate traits. Otherwise, flex around your best upgraded unit.",
+          "ja": "理想はKha'Zixから10キルを急ぐ。安い1〜2コストでトレイトを起動。ダメなら一番育ったユニット中心にフレックス。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "كمّل تضيف تريتس. أوجمنت +1 حجم فريق زي Coronation أو Cursed Crown قوية جدًا هنا.",
+          "en": "Continue adding and flexing in more traits. +1 team size augments like Coronation or Cursed Crown are very OP here.",
+          "ja": "トレイトを増やし続ける。CoronationやCursed Crownのような人数+1はここで非常に強い。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "بعد 11 تريت حط Amumu بالتاج اللي أخدته، وبعدين ارفع لـ Kennen. على لفل 9 اقلب لـ 5 كوست.",
+          "en": "After you hit 11 traits, add Amumu with the Tactician's Crown you get and then level for Kennen. Then pivot to 5 costs at level 9.",
+          "ja": "11トレイト後はもらった戦術冠をAmumuに。その後Kennenへレベルを上げ、9で5コストにピボット。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Ornn",
+        "Rakan",
+        "Xayah",
+        "LeBlanc",
+        "Diana",
+        "Kha'Zix",
+        "Fiddlesticks",
+        "Aphelios"
+      ],
+      "items": [
+        {
+          "unit": "LeBlanc",
+          "items": [
+            "Spear of Shojin",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Kha'Zix",
+          "items": [
+            "Slayer Emblem"
+          ]
+        },
+        {
+          "unit": "Fiddlesticks",
+          "items": [
+            "Warmog's Armor",
+            "Sunfire Cape",
+            "Spirit Visage"
+          ]
+        },
+        {
+          "unit": "Aphelios",
+          "items": [
+            "Guinsoo's Rageblade",
+            "Kraken's Fury",
+            "Last Whisper"
+          ]
+        }
+      ],
+      "priority": [
+        "Guinsoo's Rageblade",
+        "Recurve Bow",
+        "Sparring Gloves",
+        "Giant's Belt"
+      ],
+      "early": [
+        "Ornn",
+        "Varus",
+        "Shen",
+        "Kha'Zix"
+      ],
+      "position": "Kha'Zix needs to reach targets for takedowns. Fiddlesticks tanks the middle and the carry stays back.",
+      "flex": "After the crown: Amumu, then Kennen, then legendaries at 9 if you need to stabilize or you are healthy enough to keep going.",
+      "alt": "Any starting emblem is fine. Do not lock a fixed board.",
+      "ar": {
+        "position": "Kha'Zix يوصل للأهداف عشان الإقصاءات. Fiddlesticks تانك في النص، والكاري في الخلف.",
+        "flex": "بعد التاج: Amumu ثم Kennen ثم ليجندري على 9 لو صحتك تسمح أو لو محتاج تستقر.",
+        "alt": "أي إمبلم بداية كويسة. متتمسكش ببورد ثابت."
+      },
+      "en": {
+        "position": "Kha'Zix needs to reach targets for takedowns. Fiddlesticks tanks the middle and the carry stays back.",
+        "flex": "After the crown: Amumu, then Kennen, then legendaries at 9 if you need to stabilize or you are healthy enough to keep going.",
+        "alt": "Any starting emblem is fine. Do not lock a fixed board."
+      },
+      "ja": {
+        "position": "Kha'Zixはキルを取るために届く位置へ。Fiddlesticksが中央のタンク、キャリーは後衛。",
+        "flex": "冠の後はAmumu、次にKennen、9でレジェンド。体力があればキャッシュアウトを伸ばしてもよい。",
+        "alt": "最初の紋章は何でもよい。盤面を固定しない。"
+      }
+    }
+  },
+  {
+    "name": "Solar Eclipse",
+    "ar": "Solar Eclipse",
+    "ja": "ソーラーエクリプス",
+    "style": {
+      "ar": "فاست 8 · 4 كوست · صعب",
+      "en": "4-Cost Fast 8 · Hard",
+      "ja": "4コスト・ファスト8 · 上級"
+    },
+    "augments": [
+      "Solar Crest",
+      "Pandora's Bench",
+      "Prismatic Ticket",
+      "No Scout No Pivot",
+      "Heroic Grab Bag+",
+      "Missed Connections",
+      "Portable Forge",
+      "Crafted Crafting"
+    ],
+    "note": {
+      "ar": "الفرونت مرن جدًا: Lillia وAmumu وSentinel خياراتك. الأقوى مع Lunar Emblem عشان تتجنب يانصيب Alune. لو محتار زوّد فرونت عشان تطوّل الجولة لحد Eclipse. Lux كاب للبورد.",
+      "en": "Frontline is very flexible: Lillia, Amumu, and Sentinel. Best with a Lunar emblem so you skip the Alune lottery. When in doubt, add frontline to stall for Eclipse. Lux caps the board.",
+      "ja": "前衛はLillia、Amumu、Sentinelで柔軟。ルナー紋章があるとAluneの抽選を避けられて最良。迷ったら前衛を足してEclipseまで耐える。上限はLux。"
+    },
+    "title": {
+      "ar": "Solar Eclipse",
+      "en": "Solar Eclipse",
+      "ja": "ソーラーエクリプス"
+    },
+    "slug": "solar-eclipse",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "أي أوبنر تيمبو يوصّلك لـ Aphelios. البورد القياسي AD مع فرونت مطوّر. خد السباتيولا من الكاروسيل للـ Lunar لو تقدر.",
+          "en": "Play any tempo opener that can lead to Aphelios. Standard board is AD + upgraded frontline. Take the spatula off carousel for Lunar if possible.",
+          "ja": "Apheliosに繋がるテンポオープナーなら何でも。標準はAD＋強化した前衛。可能ならカルーセルでスパチュラを取りLunarへ。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "احتفظ بنسخ Solar على البنش. لو طوّرتهم العبهم فرونت. Kayle ضعيفة، متخليهاش كاري إلا للضرورة.",
+          "en": "Hold copies of Solar on your bench. If you upgrade them, play the Solar units as frontline. Kayle is quite weak so don't carry unless necessary.",
+          "ja": "Solarはベンチに残す。強化できたら前衛として出す。Kayleは弱いので、必要な時以外キャリーにしない。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "ارفع لفل 8 ودور على أي فرونت يطوّل الجولة لـ Eclipse. Lillia 2 أسهل حاجة، وينفع كمان Amumu أو Sentinel.",
+          "en": "Level to 8 and look for any frontline that can stall for Eclipse. Lillia 2 is the easiest to hit, but you can also tank Amumu, Sentinel, etc.",
+          "ja": "レベル8でEclipseまで耐えられる前衛を探す。一番当たりやすいのはLillia 2。AmumuやSentinelでもタンクできる。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Leona",
+        "Rakan",
+        "Kayle",
+        "Sejuani",
+        "Shen",
+        "Diana",
+        "Aphelios",
+        "Lillia"
+      ],
+      "items": [
+        {
+          "unit": "Aphelios",
+          "items": [
+            "Kraken's Fury",
+            "Guinsoo's Rageblade",
+            "Last Whisper"
+          ]
+        },
+        {
+          "unit": "Lillia",
+          "items": [
+            "Protector's Vow",
+            "Adaptive Helm",
+            "Warmog's Armor"
+          ]
+        }
+      ],
+      "priority": [
+        "Guinsoo's Rageblade",
+        "Warmog's Armor",
+        "Chain Vest",
+        "Sparring Gloves"
+      ],
+      "early": [
+        "Camille",
+        "Leona",
+        "Akali",
+        "Shen"
+      ],
+      "position": "Aphelios in the back corner, frontline in front so Eclipse has time to fire.",
+      "flex": "Lillia, Amumu, or Sentinel. Lux caps. A Lunar emblem lets you skip Alune.",
+      "alt": "Playable without Lunar, but Alune becomes a lottery.",
+      "ar": {
+        "position": "Aphelios في الزاوية الخلفية، والفرونت قدامه عشان Eclipse يلحق يضرب.",
+        "flex": "Lillia أو Amumu أو Sentinel. Lux كاب. Lunar Emblem يغنيك عن Alune.",
+        "alt": "من غير Lunar لسه تقدر تلعبها، بس Alune بتبقى يانصيب."
+      },
+      "en": {
+        "position": "Aphelios in the back corner, frontline in front so Eclipse has time to fire.",
+        "flex": "Lillia, Amumu, or Sentinel. Lux caps. A Lunar emblem lets you skip Alune.",
+        "alt": "Playable without Lunar, but Alune becomes a lottery."
+      },
+      "ja": {
+        "position": "Apheliosは後衛の角。Eclipseが撃てるまで前衛で耐える。",
+        "flex": "Lillia、Amumu、Sentinel。上限はLux。ルナー紋章ならAlune不要。",
+        "alt": "ルナーなしでもプレイできるが、Aluneは運になる。"
+      }
+    }
+  },
+  {
+    "name": "Moo-nara",
+    "ar": "Moo-nara",
+    "ja": "ムーナラ",
+    "style": {
+      "ar": "ريرول 2 كوست · متوسط",
+      "en": "2-Cost Reroll · Medium",
+      "ja": "2コストリロール · 中級"
+    },
+    "augments": [
+      "Worth the Wait II",
+      "Swordsmith",
+      "Glass Cannon",
+      "Sword Overflow",
+      "Solo Plate",
+      "URF",
+      "Urf's Grab Bag",
+      "Spreading Roots"
+    ],
+    "note": {
+      "ar": "العبها لما يكون معاك نسخ كتير من Yunara وBlackthorn Emblem. الأولوية: أيتمز Yunara ثم التانك ثم Warwick. Murkwolf يمسك الأيتمز مؤقتًا لحد Yunara.",
+      "en": "Play when you have a lot of Yunara copies plus a Blackthorn emblem. Priority is Yunara items, then tank, then Warwick. Murkwolf can hold items until Yunara is online.",
+      "ja": "Yunaraのコピーが多く、Blackthorn紋章がある時。優先はYunara、次にタンク、その次にWarwick。Yunaraが揃うまではMurkwolfが仮持ち。"
+    },
+    "title": {
+      "ar": "Moo-nara",
+      "en": "Moo-nara",
+      "ja": "ムーナラ"
+    },
+    "slug": "moo-nara",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "ثبّت أيتمز Yunara والعب ون ستريك ومعاك Blossom. التانك Yorick أو Juggernaut لحد Alistar.",
+          "en": "Slam items for Yunara and play for win streak with Blossom in. Tank Yorick / Juggernaut until you find Alistar.",
+          "ja": "Yunaraのアイテムをスラムし、Blossom入りで連勝。AlistarまではYorickかJuggernautがタンク。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "لفّل على 3-2 ودور على 2 نجوم ثم ارجع اقتصاد. سيّب Azir 2 لأنه غالي. اشتري Charm كل راوند لو تقدر وكمل الون ستريك.",
+          "en": "Level at 3-2 and roll for 2* upgrades then econ up. Skip Azir 2 because he's too expensive. Buy a charm every round if possible and win streak.",
+          "ja": "3-2でレベルを上げて2スターをロールしてからエコ。Azir 2は高いのでスキップ。可能なら毎ラウンドチャームを買って連勝。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "خلّص الـ3 نجوم ثم ارفع المستوى. دور على 3 Executioner لـ Yunara. Kennen كاب، وBlackthorn Lux هايرول قوي.",
+          "en": "Finish your 3* units then push levels. Look for 3 Executioner for Yunara. Kennen caps your board. Blackthorn Lux is a high roll top end finisher.",
+          "ja": "3スターを終えたらレベルを上げる。YunaraのためにExecutioner 3。上限はKennen、ハイロールはBlackthorn Lux。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Rek'Sai",
+        "Murkwolf",
+        "Alistar",
+        "Warwick",
+        "Yunara",
+        "Azir",
+        "Ezreal"
+      ],
+      "items": [
+        {
+          "unit": "Alistar",
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmog's Armor"
+          ]
+        },
+        {
+          "unit": "Warwick",
+          "items": [
+            "Sterak's Gage",
+            "Titan's Resolve",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Yunara",
+          "items": [
+            "Spear of Shojin",
+            "Blackthorn Emblem",
+            "Last Whisper"
+          ]
+        }
+      ],
+      "priority": [
+        "Spear of Shojin",
+        "Gargoyle Stoneplate",
+        "Recurve Bow",
+        "Sparring Gloves"
+      ],
+      "early": [
+        "Karma",
+        "Yorick",
+        "Yunara",
+        "Azir"
+      ],
+      "position": "Yunara in the back, shifted toward the enemy carry if she needs to reach. Alistar in front of her.",
+      "flex": "Kennen caps the board. Blackthorn Lux is a high-roll finisher. Murkwolf is a temporary holder.",
+      "alt": "Do not force it without Yunara copies and the emblem.",
+      "ar": {
+        "position": "Yunara في الخلف على نفس جهة كاري الخصم لو محتاجة توصل، Alistar قدامها.",
+        "flex": "Kennen كاب البورد. Blackthorn Lux هايرول. Murkwolf حامل مؤقت.",
+        "alt": "من غير نسخ Yunara والإمبلم متجبرهاش."
+      },
+      "en": {
+        "position": "Yunara in the back, shifted toward the enemy carry if she needs to reach. Alistar in front of her.",
+        "flex": "Kennen caps the board. Blackthorn Lux is a high-roll finisher. Murkwolf is a temporary holder.",
+        "alt": "Do not force it without Yunara copies and the emblem."
+      },
+      "ja": {
+        "position": "Yunaraは後衛。届く必要があるなら相手キャリー側へ。その前にAlistar。",
+        "flex": "上限はKennen。ハイロールはBlackthorn Lux。Murkwolfは仮のアイテム持ち。",
+        "alt": "Yunaraのコピーと紋章がなければ無理しない。"
+      }
+    },
+    "requiredAugment": "Blackthorn Emblem"
   },
   {
     "name": "Veigar Consuming Flora",
@@ -264,9 +1035,9 @@
       "Deadlier Caps"
     ],
     "note": {
-      "ar": "ركز على Veigar من البداية، واستفد من أوجمنتس الـForge أو Flora Fatalis لو ظهرت.",
-      "en": "Prioritize Veigar early; Forge or Flora Fatalis augments are relevant options.",
-      "ja": "序盤からVeigarを優先し、Forge系やFlora Fatalisのオーグメントを活用。"
+      "ar": "قوية مع Dawncore وLuden's كمان. ضحّي بوحدة 3 نجوم عشان إحصائيات Blackthorn توصل للحد الأقصى. الخط معتمد على Flora Fatalis.",
+      "en": "Very strong with Dawncore and Luden's as well. Sacrifice a 3-star for maximum Blackthorn stats. The line depends on Flora Fatalis.",
+      "ja": "DawncoreとLuden'sでも非常に強い。Blackthornの数値を最大にするには3スターを生け贄に。Flora Fatalisが前提。"
     },
     "title": {
       "ar": "Veigar Consuming Flora",
@@ -278,48 +1049,40 @@
       {
         "stage": 2,
         "text": {
-          "ar": "العب حول Veigar بس لو عندك ترقيات بدري عشان يقدر يكبر ويجمع الستاك. خلي أولوية الأيتمز ليه.",
+          "ar": "العب الخط ده بس لو عندك ترقيات بدري عشان Veigar يكبر ويجمع ستاك. أولوية الأيتمز ليه.",
           "en": "Only play around this opener with early upgrades so Veigar can snowball and gain stacks. Prioritize Veigar items.",
-          "ja": "序盤に強化が揃っている場合のみ、この構成を狙いましょう。Veigarのスタックを伸ばすため、アイテムを優先します。"
+          "ja": "序盤に強化が揃ってVeigarがスタックできる時だけ。アイテムはVeigar優先。"
         }
       },
       {
         "stage": 3,
         "text": {
-          "ar": "لو قربت من Veigar 3 نجوم (7 نسخ أو أكتر)، فكّر تلف لحد ما تكمله. لو لسه بعيد (3–4 نسخ)، اعمل Slow Roll فوق 50 دهب.",
-          "en": "If you are close to Veigar 3 (7+ copies), consider rolling until you hit 3-star. If far (3–4 copies), slow roll above 50 gold.",
-          "ja": "Veigarが7体以上いて3スターに近いなら、完成までロールを検討。3〜4体で遠い場合は50ゴールド以上を維持してスローロールします。"
+          "ar": "لو قريب من Veigar 3 (7 نسخ أو أكتر) لفّ لحد ما تكمله. لو بعيد (3–4 نسخ) اعمل Slow roll فوق 50 دهب.",
+          "en": "If you are close to Veigar 3 (7+ copies), consider rolling until you hit 3*. If far (3-4 copies), slow roll above 50g for 3*.",
+          "ja": "Veigarが7体以上で近いなら完成までロール。3〜4体で遠いなら50ゴールド以上でスローロール。"
         }
       },
       {
         "stage": 4,
         "text": {
-          "ar": "بعد ما تكمّل Veigar 3 نجوم، ارفع المستوى عشان تزود Sprykin أو Blackthorn أو Brawler.",
-          "en": "Once you finish 3-star Veigar, push levels for more Sprykin, Blackthorn, or Brawlers.",
-          "ja": "Veigarを3スターにしたらレベルを上げ、Sprykin・Blackthorn・Brawlerを追加します。"
+          "ar": "بعد الـ3 نجوم ارفع المستوى وزوّد Sprykin أو Blackthorn أو Brawler.",
+          "en": "Once you finish your 3*, push levels for more Spyrkin, Blackthorn, or Brawlers.",
+          "ja": "3スターが終わったらレベルを上げ、Sprykin、Blackthorn、Brawlerを追加。"
         }
       }
     ],
     "guide": {
       "board": [
+        "Kobuko",
         "Rek'Sai",
-        "Sett",
-        "Rammus",
-        "Gnar",
         "Veigar",
-        "Fiddlesticks",
         "Teemo",
-        "Kobuko"
+        "Fiddlesticks",
+        "Rammus",
+        "Sett",
+        "Gnar"
       ],
       "items": [
-        {
-          "unit": "Veigar",
-          "items": [
-            "Flora Fatalis Emblem",
-            "Blue Buff",
-            "Jeweled Gauntlet"
-          ]
-        },
         {
           "unit": "Rek'Sai",
           "items": [
@@ -329,46 +1092,414 @@
           ]
         },
         {
-          "unit": "Teemo",
+          "unit": "Veigar",
           "items": [
             "Jeweled Gauntlet",
-            "Morellonomicon",
-            "Void Staff"
+            "Blue Buff",
+            "Flora Fatalis Emblem"
           ]
         }
       ],
       "priority": [
-        "Tear of the Goddess",
-        "Needlessly Large Rod",
-        "Sparring Gloves",
-        "Gargoyle Stoneplate"
+        "Blue Buff",
+        "Jeweled Gauntlet",
+        "Gargoyle Stoneplate",
+        "Giant's Belt"
       ],
       "early": [
+        "Kobuko",
+        "Rek'Sai",
         "Veigar",
-        "Rek'Sai"
+        "Teemo"
       ],
-      "flex": [
-        "After 3-star Veigar, level up for more Sprykin, Blackthorn, or Brawlers."
-      ],
-      "position": "Keep Veigar in the backline and protect him; put Rek'Sai and other durable units in front. Sacrifice a 3-star unit to maximize Blackthorn stats when appropriate.",
-      "alt": "Dawncore and Luden's are strong options. This line depends on the Flora Fatalis augment; do not commit without it.",
+      "position": "Veigar in the back, Rek'Sai and the frontline in front. Sacrifice a 3-star when Blackthorn wants the stats.",
+      "flex": "After Veigar 3, add Sprykin, Blackthorn, or Brawlers. Dawncore and Luden's are strong alternatives.",
+      "alt": "Do not commit without the Flora Fatalis augment.",
       "ar": {
-        "position": "خلي Veigar في الخلف واحميه، وحط Rek'Sai والوحدات المتينة في الأمام. ضحّي بوحدة 3 نجوم لتعظيم إحصائيات Blackthorn عند الحاجة.",
-        "flex": "بعد ما تكمل Veigar 3 نجوم، ارفع المستوى وزوّد Sprykin أو Blackthorn أو Brawler.",
-        "alt": "Dawncore وLuden's خيارات مناسبة. التشكيلة معتمدة على Augment Flora Fatalis؛ ما تلتزمش بيها من غيره."
+        "position": "Veigar في الخلف. Rek'Sai والفرونت قدامه. ضحّي بـ3 نجوم لما Blackthorn يحتاج.",
+        "flex": "بعد Veigar 3 زوّد Sprykin أو Blackthorn أو Brawler. Dawncore وLuden's بدائل قوية.",
+        "alt": "متلتزمش بالخط من غير أوجمنت Flora Fatalis."
       },
       "en": {
-        "position": "Keep Veigar in the backline and protect him; put Rek'Sai and durable units in front. Sacrifice a 3-star unit to maximize Blackthorn stats when appropriate.",
-        "flex": "After 3-star Veigar, level up for more Sprykin, Blackthorn, or Brawlers.",
-        "alt": "Dawncore and Luden's are strong options. This line depends on the Flora Fatalis augment; do not commit without it."
+        "position": "Veigar in the back, Rek'Sai and the frontline in front. Sacrifice a 3-star when Blackthorn wants the stats.",
+        "flex": "After Veigar 3, add Sprykin, Blackthorn, or Brawlers. Dawncore and Luden's are strong alternatives.",
+        "alt": "Do not commit without the Flora Fatalis augment."
       },
       "ja": {
-        "position": "Veigarを後衛で守り、Rek'Saiなど耐久力のあるユニットを前衛に配置。必要に応じて3スターを生け贄にしBlackthornの能力を最大化します。",
-        "flex": "Veigarの3スター完成後はレベルを上げ、Sprykin、Blackthorn、Brawlerを追加。",
-        "alt": "DawncoreとLuden'sも有力。Flora Fatalisオーグメントが前提なので、提示される前に決め打ちしないでください。"
+        "position": "Veigarは後衛、Rek'Saiと前衛がその前。Blackthornの数値が要る時は3スターを生け贄。",
+        "flex": "Veigar 3の後はSprykin、Blackthorn、Brawler。DawncoreとLuden'sも強い。",
+        "alt": "Flora Fatalisがなければ決め打ちしない。"
       }
     },
-    "requiredAugment": "Consuming Flora"
+    "requiredAugment": "Flora Fatalis"
+  },
+  {
+    "name": "Emblem Rengar",
+    "ar": "Emblem Rengar",
+    "ja": "エンブレム・レンガー",
+    "style": {
+      "ar": "ريرول 3 كوست · متوسط",
+      "en": "3-Cost Reroll · Medium",
+      "ja": "3コストリロール · 中級"
+    },
+    "augments": [
+      "Spreading Roots",
+      "Spreading Roots+",
+      "Branching Out",
+      "Branching Out+",
+      "The Trait Tree",
+      "Heroic Grab Bag++",
+      "Legion of Threes",
+      "Big Grab Bag"
+    ],
+    "note": {
+      "ar": "متلعبهاش غير لما يكون عندك إمبلم لـ Rengar. توصيل 4 Fae بسرعة مهم عشان محرّك الدهب. لو مش لاقي Rammus، Lillia تقدر تبقى التانك الأساسي. ينفع تفليكس Primal لو معاك الإمبلم.",
+      "en": "Only play when you have an emblem for Rengar. Stacking 4 Fae fast is the gold engine. Lillia can be the main tank if Rammus does not show. Primal is a flex if you have the emblem.",
+      "ja": "Rengar用の紋章がある時だけ。4 Faeを急ぐのがゴールドエンジン。RammusがいなければLilliaがメインタング。紋章があればPrimalもフレックス可。"
+    },
+    "title": {
+      "ar": "Emblem Rengar",
+      "en": "Emblem Rengar",
+      "ja": "エンブレム・レンガー"
+    },
+    "slug": "emblem-rengar",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "ون ستريك بـ Rengar والإمبلم. حطه نفس جهة كاري الخصم عشان يخطف الباك لاين.",
+          "en": "Play for win streak with Rengar and the emblem. Position him same side as enemy carries to get backline snipes.",
+          "ja": "Rengarと紋章で連勝。相手キャリーと同じ側に置いて後衛をスナイプ。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "كمّل السنوبول. لو مش ماشي على 3 أيتمز قبل نهاية المرحلة خد أوجمنت أيتمز. Rengar بقوته قد قوة تانكتك، فأولوية الفرونت كمان.",
+          "en": "Keep snowballing with Rengar. Take an item augment if you aren't on track to get 3 items by end of Stage. Rengar only performs as well as your best tank so prioritize frontline too.",
+          "ja": "スノーボールを続ける。ステージ終了までに3アイテムが見えなければアイテムオーグメント。Rengarはタンク次第なので前衛も優先。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "ارفع لفل 7 ورول فوق 50 دهب لـ Rengar 3 وRammus 3. كاش أوت 4 Fae يرفعك مستوى. Tristana تاخد الأيتمز الزيادة.",
+          "en": "Level to 7 and roll above 50g for 3* Rengar and 3* Rammus. Use your 4 Fae cash outs to push levels. Tristana takes leftover items.",
+          "ja": "レベル7で50ゴールド以上を維持し、Rengar 3とRammus 3をロール。4 Faeのキャッシュアウトでレベルを上げる。余りアイテムはTristana。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Kobuko",
+        "Rammus",
+        "Rengar",
+        "Tristana",
+        "Lillia",
+        "Sivir",
+        "Gnar"
+      ],
+      "items": [
+        {
+          "unit": "Rammus",
+          "items": [
+            "Gargoyle Stoneplate",
+            "Spirit Visage",
+            "Warmog's Armor"
+          ]
+        },
+        {
+          "unit": "Rengar",
+          "items": [
+            "Sprykin Emblem",
+            "Edge of Night",
+            "Guinsoo's Rageblade"
+          ]
+        },
+        {
+          "unit": "Tristana",
+          "items": [
+            "Guinsoo's Rageblade",
+            "Last Whisper",
+            "Deathblade"
+          ]
+        }
+      ],
+      "priority": [
+        "Guinsoo's Rageblade",
+        "Edge of Night",
+        "Negatron Cloak",
+        "Recurve Bow"
+      ],
+      "early": [
+        "Rakan",
+        "Xayah",
+        "Yorick",
+        "Rengar"
+      ],
+      "position": "Put Rengar on the same side as the enemy carry for backline snipes. Rammus in front.",
+      "flex": "Lillia replaces Rammus as the tank. Primal is a flex when the emblem fits.",
+      "alt": "Do not play without the emblem.",
+      "ar": {
+        "position": "Rengar نفس جهة كاري الخصم عشان يخطف الباك لاين. Rammus قدامه.",
+        "flex": "Lillia تانك بديل لو Rammus مش موجود. Primal فليكس لو الإمبلم مناسب.",
+        "alt": "من غير الإمبلم متلعبهاش."
+      },
+      "en": {
+        "position": "Put Rengar on the same side as the enemy carry for backline snipes. Rammus in front.",
+        "flex": "Lillia replaces Rammus as the tank. Primal is a flex when the emblem fits.",
+        "alt": "Do not play without the emblem."
+      },
+      "ja": {
+        "position": "相手キャリーと同じ側にRengarを置いて後衛スナイプ。前はRammus。",
+        "flex": "RammusがいなければLilliaがタンク。紋章が合えばPrimalも可。",
+        "alt": "紋章がなければプレイしない。"
+      }
+    },
+    "requiredAugment": "Sprykin Emblem"
+  },
+  {
+    "name": "Ravager Elise",
+    "ar": "Ravager Elise",
+    "ja": "ラヴェジャー・エリス",
+    "style": {
+      "ar": "ريرول 2 كوست · متوسط",
+      "en": "2-Cost Reroll · Medium",
+      "ja": "2コストリロール · 中級"
+    },
+    "augments": [
+      "Dark Ritual",
+      "Coven Crest",
+      "Worth the Wait II",
+      "Cooking Pot",
+      "Heroic Grab Bag+",
+      "Solo Plate",
+      "Staffsmith",
+      "Expedition"
+    ],
+    "note": {
+      "ar": "قوية جدًا مع Ravager Emblem. من غيره تقدر تلعب 4 Vanguard مع Coven وتفليكس الباقي. Elise تقدر تستخدم Gargoyle Stoneplate بدل Archangel's Staff لبناء دفاعي.",
+      "en": "Very strong with Ravager Emblem. Without it, play 4 Vanguard with Coven and flex the last slots. Elise can use Gargoyle Stoneplate instead of Archangel's Staff for a defensive build.",
+      "ja": "Ravager紋章があると非常に強い。なければCoven＋Vanguard 4で残りは柔軟に。防御寄りならEliseはArchangel's Staffの代わりにGargoyle Stoneplate。"
+    },
+    "title": {
+      "ar": "Ravager Elise",
+      "en": "Ravager Elise",
+      "ja": "ラヴェジャー・エリス"
+    },
+    "slug": "ravager-elise",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "افتح Coven واجمع Essence. الفوز المبكر أفضل من الخسارة المتعمدة.",
+          "en": "Ideally open with Coven and start gathering Essence. It is actually better to win early than lose for stacks so don't overly force lose streak.",
+          "ja": "Covenで開いてEssenceを集める。無理な連敗より序盤勝利の方がいい。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "ارفع لفل 6 ودور على Elise 2 وCoven وRavager تاني. أيتمز AD على Murkwolf، وAP على Diana.",
+          "en": "Level to 6 and roll for a Elise 2, Covens, and another Ravager. If AD items, look for Murkwolf. If AP items, look for Dianas.",
+          "ja": "レベル6でElise 2、Coven、もう1体のRavager。ADならMurkwolf、APならDiana。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "كاش أوت Coven وعندك 2–3 حياة (25–30 HP). خلّص Elise 3 ثم ارفع لـ Vanguard أو Coven أو Lunar أو 5 كوست.",
+          "en": "Cash out Coven with at least 2-3 lives (25-30 hp). Finish Elise 3 then level for more Vanguards, Coven, or Lunar / 5 costs.",
+          "ja": "ライフ2〜3（HP25〜30）でCovenをキャッシュアウト。Elise 3の後はVanguard、Coven、Lunar、5コストへレベルを上げる。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Camille",
+        "Murkwolf",
+        "Elise",
+        "Hecarim",
+        "Diana",
+        "Brambleback",
+        "Morgana",
+        "Sentinel"
+      ],
+      "items": [
+        {
+          "unit": "Murkwolf",
+          "items": [
+            "Thief's Gloves"
+          ]
+        },
+        {
+          "unit": "Elise",
+          "items": [
+            "Titan's Resolve",
+            "Guinsoo's Rageblade",
+            "Archangel's Staff"
+          ]
+        },
+        {
+          "unit": "Diana",
+          "items": [
+            "Jeweled Gauntlet",
+            "Striker's Flail",
+            "Hand of Justice"
+          ]
+        },
+        {
+          "unit": "Morgana",
+          "items": [
+            "Void Staff",
+            "Morellonomicon"
+          ]
+        },
+        {
+          "unit": "Sentinel",
+          "items": [
+            "Warmog's Armor",
+            "Protector's Vow",
+            "Gargoyle Stoneplate"
+          ]
+        }
+      ],
+      "priority": [
+        "Guinsoo's Rageblade",
+        "Titan's Resolve",
+        "Negatron Cloak",
+        "Chain Vest"
+      ],
+      "early": [
+        "Camille",
+        "Caitlyn",
+        "Elise",
+        "Diana"
+      ],
+      "position": "Elise needs to live and stack. Sentinel and the frontline stand in front.",
+      "flex": "Without the emblem: 4 Vanguard plus Coven. Murkwolf for AD, Diana for AP.",
+      "alt": "Stoneplate instead of Archangel's if you want a tankier Elise.",
+      "ar": {
+        "position": "Elise تعيش وتجمع ستاك. Sentinel والفرونت قدامها.",
+        "flex": "من غير الإمبلم: 4 Vanguard مع Coven. Murkwolf للـ AD وDiana للـ AP.",
+        "alt": "Stoneplate بدل Archangel's لو عايز Elise أدفع."
+      },
+      "en": {
+        "position": "Elise needs to live and stack. Sentinel and the frontline stand in front.",
+        "flex": "Without the emblem: 4 Vanguard plus Coven. Murkwolf for AD, Diana for AP.",
+        "alt": "Stoneplate instead of Archangel's if you want a tankier Elise."
+      },
+      "ja": {
+        "position": "Eliseが生存してスタックする位置。前はSentinelと前衛。",
+        "flex": "紋章がなければCoven＋Vanguard 4。ADはMurkwolf、APはDiana。",
+        "alt": "耐久寄りならArchangel'sではなくStoneplate。"
+      }
+    }
+  },
+  {
+    "name": "Double Trouble Cass",
+    "ar": "Double Trouble Cass",
+    "ja": "ダブルトラブル・カス",
+    "style": {
+      "ar": "ريرول 3 كوست · متوسط",
+      "en": "3-Cost Reroll · Medium",
+      "ja": "3コストリロール · 中級"
+    },
+    "augments": [],
+    "note": {
+      "ar": "خط Double Trouble: نسختين Cassiopeia ونسختين Fiddlesticks. تقدر تلعب Coven بدري عشان الكاش أوت. أكاديمي ما كتبش مراحل مفصلة.",
+      "en": "Double Trouble line: two Cassiopeias and two Fiddlesticks. You can open Coven for the cashout. Academy did not publish a full stage guide.",
+      "ja": "Double Trouble。Cassiopeia 2体とFiddlesticks 2体。序盤Covenでキャッシュアウト可。段階ガイドはAcademy未記載。"
+    },
+    "title": {
+      "ar": "Double Trouble Cass",
+      "en": "Double Trouble Cass",
+      "ja": "ダブルトラブル・カス"
+    },
+    "slug": "double-trouble-cass",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "افتح Coven لو متاح عشان تجمع كاش أوت، وثبّت أيتمز AP على Cassiopeia.",
+          "en": "Double Trouble line: two Cassiopeias and two Fiddlesticks. You can open Coven for the cashout. Academy did not publish a full stage guide.",
+          "ja": "可能ならCovenで開いてキャッシュアウト。APアイテムはCassiopeiaへ。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "ريرول حوالي لفل 7 لـ Cassiopeia 3 وFiddlesticks 3 وRammus.",
+          "en": "Double Trouble line: two Cassiopeias and two Fiddlesticks. You can open Coven for the cashout. Academy did not publish a full stage guide.",
+          "ja": "レベル7前後でCassiopeia 3、Fiddlesticks 3、Rammusをリロール。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "النسخة التانية من Cass وFiddle هي فكرة الخط. Soraka تكمل البورد.",
+          "en": "Double Trouble line: two Cassiopeias and two Fiddlesticks. You can open Coven for the cashout. Academy did not publish a full stage guide.",
+          "ja": "2体目のCassとFiddleがこの構成の核。Sorakaで盤面を埋める。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Cassiopeia",
+        "Fiddlesticks",
+        "Rammus",
+        "Rammus",
+        "Cassiopeia",
+        "Fiddlesticks",
+        "Soraka"
+      ],
+      "items": [
+        {
+          "unit": "Cassiopeia",
+          "items": [
+            "Void Staff",
+            "Morellonomicon",
+            "Spear of Shojin"
+          ]
+        },
+        {
+          "unit": "Cassiopeia",
+          "items": [
+            "Jeweled Gauntlet",
+            "Spear of Shojin",
+            "Hextech Gunblade"
+          ]
+        },
+        {
+          "unit": "Fiddlesticks",
+          "items": [
+            "Warmog's Armor",
+            "Gargoyle Stoneplate",
+            "Spirit Visage"
+          ]
+        }
+      ],
+      "priority": [],
+      "early": [],
+      "position": "Both Cassiopeias in the back, Fiddlesticks and Rammus in front.",
+      "flex": "Early Coven is an optional cashout. Soraka fills the spellweaver slot.",
+      "alt": "If you cannot field the duplicates, do not force it.",
+      "ar": {
+        "position": "النسختين بتوع Cass في الخلف، وFiddlesticks وRammus قدام.",
+        "flex": "Coven بدري اختياري للكاش أوت. Soraka تكمل السبل ويفر.",
+        "alt": "لو مش قادر على النسختين، متجبرش الخط."
+      },
+      "en": {
+        "position": "Both Cassiopeias in the back, Fiddlesticks and Rammus in front.",
+        "flex": "Early Coven is an optional cashout. Soraka fills the spellweaver slot.",
+        "alt": "If you cannot field the duplicates, do not force it."
+      },
+      "ja": {
+        "position": "Cassiopeia 2体は後衛、FiddlesticksとRammusが前衛。",
+        "flex": "序盤Covenは任意のキャッシュアウト。SorakaでSpellweaverを埋める。",
+        "alt": "2体ずつ出せないなら無理しない。"
+      }
+    }
   },
   {
     "name": "Fae Tristana",
@@ -381,7 +1512,7 @@
     },
     "augments": [
       "URF",
-      "Urfs Grab Bag",
+      "Urf's Grab Bag",
       "Branching Out",
       "Branching Out+",
       "Spreading Roots",
@@ -390,9 +1521,9 @@
       "Swordsmith"
     ],
     "note": {
-      "ar": "ما تلعبهاش من غير Fae Emblem. الوصول إلى 4 Fae بدري مهم. لو مش لاقي Rammus، ممكن Vi تكون التانك الأساسي. غالبًا اختار Primal Execute بدل Item Primal، إلا لو متقدم جدًا أو عامل ون ستريك.",
-      "en": "Do not play without Fae Emblem. Reaching 4 Fae early is important. Vi can be the main tank if you cannot find Rammus. Prefer Execute Primal over Item Primal unless far ahead or win-streaking.",
-      "ja": "Faeの紋章なしではプレイしないでください。早期にFae 4を揃えることが重要です。Rammusが見つからなければViをメインタンクにできます。大きく先行または連勝中でない限り、Item PrimalよりExecute Primalを優先します。"
+      "ar": "متلعبهاش من غير Fae Emblem. 4 Fae بسرعة يعني محرّك دهب. لو مش لاقي Rammus، Vi تبقى التانك. غالبًا اختار Execute Primal مش Item Primal، إلا لو متقدم جدًا أو عامل ون ستريك.",
+      "en": "Only play with a Fae emblem. 4 Fae fast is the gold engine. Vi can tank if you cannot find Rammus. Prefer Execute Primal over Item Primal unless you are far ahead or win-streaking.",
+      "ja": "Fae紋章がある時だけ。4 Faeを急ぐのがゴールドエンジン。RammusがいなければViがタンク。大きくリードか連勝中でなければItem PrimalよりExecute Primal。"
     },
     "title": {
       "ar": "Fae Tristana",
@@ -404,37 +1535,37 @@
       {
         "stage": 2,
         "text": {
-          "ar": "العب على ون ستريك مع حامل Rageblade مطوّر، وابدأ تفعيل Fae بدري؛ الوصول إلى 7 Fae بسرعة مهم للاقتصاد.",
-          "en": "Play for a win streak with an upgraded Rageblade holder and start stacking Fae early; reaching 7 Fae quickly is important for economy.",
-          "ja": "強化したRageblade持ちで連勝を狙い、早めにFaeを重ねます。早期にFae 7へ到達することが経済面で重要です。"
+          "ar": "ون ستريك وحامل Rageblade مطوّر. ابدأ تجمع Fae لأن الوصول لـ 7 بسرعة مهم.",
+          "en": "Play for win streak with upgraded Rageblade holder. Start stacking Fae since getting to 7 ASAP is crucial for success.",
+          "ja": "強化したRageblade持ちで連勝。7体に早く届くのでFaeを積み始める。"
         }
       },
       {
         "stage": 3,
         "text": {
-          "ar": "حط الأيتمز على Tristana بمجرد ما تلاقيها. Sprykin أهم من Hunter. لو Primal ظهر بدري وإنت متقدم، ممكن تختار أيتمز.",
-          "en": "Itemize Tristana as soon as you find her. Sprykin matters more than Hunter. If you hit Primal early while ahead, items can be considered.",
-          "ja": "Tristanaを見つけたらすぐアイテムを装備。HunterよりSprykinを優先します。大きく先行して早期にPrimalを引いた場合はアイテムも検討できます。"
+          "ar": "أول ما تلاقى Tristana العبها وحط عليها الأيتمز. Sprykin أهم من Hunter. لو سبقت بدري جدًا في Primal ممكن تفكر في الأيتمز.",
+          "en": "Itemize and play Tristana as soon as you find her. Sprykin is more important than Hunter. If you spike very early Primal from ahead, you can consider items.",
+          "ja": "Tristanaを見つけたらすぐ出してアイテム。HunterよりSprykinが重要。序盤から大きくリードしている時だけPrimalアイテムを検討。"
         }
       },
       {
         "stage": 4,
         "text": {
-          "ar": "ارفع لفل 7 واعمل Slow Roll فوق 50 دهب لتطوير Tristana وRammus إلى 3 نجوم. استخدم مكافآت Fae لرفع المستوى، وادّي Sivir الأيتمز الفيزيائية الزيادة.",
-          "en": "Level to 7 and slow roll above 50 gold for 3-star Tristana and Rammus. Use Fae cash-outs to level and give leftover AD items to Sivir.",
-          "ja": "レベル7に上げ、50ゴールド以上でスローロールしてTristanaとRammusを3スターにします。Faeの換金でレベルを上げ、余ったADアイテムはSivirへ。"
+          "ar": "ارفع لفل 7 ورول فوق 50 دهب لـ Tristana 3 وRammus. كاش أوت 4 Fae يرفع المستوى. أيتمز AD الزيادة لـ Sivir.",
+          "en": "Level to 7 and roll above 50g for 3* Tristana and Rammus. Use your 4 Fae cash outs to push levels. Give Sivir leftover AD items.",
+          "ja": "レベル7で50ゴールド以上を維持し、Tristana 3とRammusをロール。4 Faeのキャッシュアウトでレベルを上げ、余ったADはSivir。"
         }
       }
     ],
     "guide": {
       "board": [
-        "Rammus",
-        "Vi",
+        "Kobuko",
         "Rakan",
+        "Vi",
+        "Rammus",
+        "Tristana",
         "Lillia",
-        "Rengar",
-        "Sivir",
-        "Tristana"
+        "Sivir"
       ],
       "items": [
         {
@@ -460,12 +1591,6 @@
             "Last Whisper",
             "Red Buff"
           ]
-        },
-        {
-          "unit": "Rengar",
-          "items": [
-            "Edge of Night"
-          ]
         }
       ],
       "priority": [
@@ -475,108 +1600,99 @@
         "Recurve Bow"
       ],
       "early": [
-        "Fae units",
-        "Rageblade holder"
+        "Rakan",
+        "Varus",
+        "Xayah",
+        "Hecarim"
       ],
-      "flex": [
-        "Vi can tank if Rammus is missing. Flex Ashe, Kobuko, Rengar, or Xayah."
-      ],
-      "position": "Rammus anchors the frontline. Put Rengar on the side where he can access the enemy backline; keep Tristana and Sivir protected in the back.",
-      "alt": "Only play with Fae Emblem. Prefer Execute Primal over Item Primal unless far ahead or win-streaking.",
+      "position": "Tristana in the back, Rammus or Vi in front, Sivir beside her with the emblem.",
+      "flex": "Vi is the backup tank. Ashe caps at level 9. Execute Primal beats Item Primal.",
+      "alt": "Do not play without a Fae emblem.",
       "ar": {
-        "position": "Rammus يكون أساس الفرونت. حط Rengar في الجهة اللي توصله للباك لاين، وخلي Tristana وSivir محميين في الخلف.",
-        "flex": "Vi تقدر تكون التانك لو Rammus مش موجود. الخانات المرنة: Ashe أو Kobuko أو Rengar أو Xayah.",
-        "alt": "العبها فقط مع Fae Emblem. اختار Execute Primal بدل Item Primal إلا لو متقدم جدًا أو عامل ون ستريك."
+        "position": "Tristana في الخلف، Rammus أو Vi قدامها، وSivir جنبها بالإمبلم.",
+        "flex": "Vi تانك بديل. Ashe كاب على لفل 9. Execute Primal أفضل من Item Primal.",
+        "alt": "من غير Fae Emblem متلعبهاش."
       },
       "en": {
-        "position": "Rammus anchors the frontline. Put Rengar on the side where he can access the enemy backline; keep Tristana and Sivir protected in the back.",
-        "flex": "Vi can tank if Rammus is missing. Flex Ashe, Kobuko, Rengar, or Xayah.",
-        "alt": "Only play with Fae Emblem. Prefer Execute Primal over Item Primal unless far ahead or win-streaking."
+        "position": "Tristana in the back, Rammus or Vi in front, Sivir beside her with the emblem.",
+        "flex": "Vi is the backup tank. Ashe caps at level 9. Execute Primal beats Item Primal.",
+        "alt": "Do not play without a Fae emblem."
       },
       "ja": {
-        "position": "Rammusを前衛の軸に。Rengarは敵後衛へ届く側、TristanaとSivirは後衛で守ります。",
-        "flex": "RammusがいなければViをタンクに。Ashe、Kobuko、Rengar、Xayahをフレックス枠にできます。",
-        "alt": "Faeの紋章が必須。大きく先行または連勝中でない限り、Item PrimalよりExecute Primalを優先。"
+        "position": "Tristanaは後衛、前はRammusかVi。紋章Sivirはその隣。",
+        "flex": "予備タンクはVi。9の上限はAshe。Execute Primalを優先。",
+        "alt": "Fae紋章がなければプレイしない。"
       }
     },
     "requiredAugment": "Fae Emblem"
   },
   {
-    "name": "Lunarwood Kha'zix",
-    "ar": "Lunarwood Kha'zix",
-    "ja": "ルナウッド・カ＝ジックス",
+    "name": "Unrivaled Reroll",
+    "ar": "Unrivaled Reroll",
+    "ja": "アンライバルド・リロール",
     "style": {
-      "ar": "ريرول 3 كوست · متوسط",
-      "en": "3-Cost Reroll · Medium",
-      "ja": "3コストリロール · 中級"
+      "ar": "ريرول 3 كوست · مشروط",
+      "en": "3-Cost Reroll · Conditional",
+      "ja": "3コストリロール · 条件付き"
     },
     "augments": [
-      "Champ Delivery",
-      "Pandora's Bench",
-      "Flowing Tears",
-      "Advanced Loan+",
+      "Rivals",
+      "Heroic Grab Bag+",
       "Heroic Grab Bag++",
-      "Legion of Threes",
-      "Lucky Gloves+",
-      "Prismatic Ticket"
+      "Swordsmith",
+      "Big Grab Bag",
+      "Golden Gamble+",
+      "Small Grab Bag",
+      "Salvage Bin+"
     ],
     "note": {
-      "ar": "العبها مع Kha'Zix مبكر وأيتمز مناسبة.",
-      "en": "Play with an early Kha'Zix and suitable items.",
-      "ja": "早期Kha'Zixと適切なアイテムが条件です。"
+      "ar": "مشروطة بـ Unrivaled / Rivals. ترتيب تريتس Kha'Zix مع الإقصاءات: Ravager ثم Executioner ثم Rapidfire ثم Spellweaver. الأيتمز أهم حاجة، وبالذات Edge of Night.",
+      "en": "Conditional on Unrivaled / Rivals. Kha'Zix should gain Ravager, then Executioner, then Rapidfire, then Spellweaver from takedowns. Items matter most, especially Edge of Night.",
+      "ja": "Unrivaled / Rivalsが条件。Kha'Zixのキル順はRavager、Executioner、Rapidfire、Spellweaver。アイテム、特にEdge of Nightが最重要。"
     },
     "title": {
-      "ar": "Lunarwood Kha'zix",
-      "en": "Lunarwood Kha'zix",
-      "ja": "ルナウッド・カ＝ジックス"
+      "ar": "Unrivaled Reroll",
+      "en": "Unrivaled Reroll",
+      "ja": "アンライバルド・リロール"
     },
-    "slug": "lunarwood-khazix",
+    "slug": "unrivaled-reroll",
     "stages": [
       {
         "stage": 2,
         "text": {
-          "ar": "العبها فقط مع Kha'Zix مبكر ومعه أيتمز.",
-          "en": "Only play with an early Kha'Zix and items.",
-          "ja": "早期Kha'Zixとアイテムがある場合のみ。"
+          "ar": "الأيتمز أهم من البورد. ركّز Edge of Night الأول. أي تانك فرونت مطوّر يكسب وقت لـ Kha'Zix وRengar.",
+          "en": "Items are crucial for this composition so focus on Edge of Night first. Play any upgraded frontline tank to stall for Khazix + Rengar.",
+          "ja": "盤面よりアイテム。まずEdge of Night。強化した前衛でKha'ZixとRengarの時間を稼ぐ。"
         }
       },
       {
         "stage": 3,
         "text": {
-          "ar": "لو عندك أزواج مهمة على 6 رول بسيط، وإلا اصعد 7.",
-          "en": "If you have key pairs at 6, roll a little; otherwise econ toward 7.",
-          "ja": "6で重要なペアがあれば少しロール、なければ7へ。"
+          "ar": "زوّد فرونت. Rengar وKha'Zix بقوتهم قد قوة تانكتك. أوجمنت الأيتمز مهم عشان تحافظ على التقدم.",
+          "en": "Keep adding more frontline. Rengar and Khazix will only be effective as your best tank. Item augments are huge to keep your momentum.",
+          "ja": "前衛を増やし続ける。RengarとKha'Zixはタンク次第。勢いに乗るためにアイテムオーグメントは大きい。"
         }
       },
       {
         "stage": 4,
         "text": {
-          "ar": "على 7 Slow Roll للـ3 نجوم في Kha'Zix وHecarim وDiana.",
-          "en": "At 7, slow roll for Kha'Zix, Hecarim and Diana 3.",
-          "ja": "7でKha'Zix、Hecarim、Dianaの3スターを狙います。"
+          "ar": "ارفع لفل 7 ودور على 2 نجوم، ثم اقتصاد وSlow roll فوق 50 للـ3 نجوم. بعد تانك 3 وKha'Zix 3 أو Rengar 3 ضيف 5 كوست.",
+          "en": "Level to 7 and roll for the 2* upgrades. Then econ up and slow roll above 50g for 3* units. Once you finish 3* tank + Khazix 3 / Rengar 3, add 5 costs.",
+          "ja": "レベル7で2スターをロールし、その後50ゴールド以上で3スターをスローロール。タンク3とKha'Zix 3かRengar 3が終わったら5コスト。"
         }
       }
     ],
     "guide": {
       "board": [
+        "LeBlanc",
         "Diana",
         "Hecarim",
         "Kha'Zix",
+        "Rengar",
         "Ezreal",
-        "Alune",
-        "Soraka",
-        "Fiddlesticks",
-        "Ornn"
+        "Aphelios"
       ],
       "items": [
-        {
-          "unit": "Kha'Zix",
-          "items": [
-            "Hand of Justice",
-            "Hand of Justice",
-            "Rabadon's Deathcap"
-          ]
-        },
         {
           "unit": "Hecarim",
           "items": [
@@ -586,54 +1702,167 @@
           ]
         },
         {
-          "unit": "Diana",
+          "unit": "Kha'Zix",
           "items": [
-            "Jeweled Gauntlet",
             "Hand of Justice",
-            "Ionic Spark"
+            "Rabadon's Deathcap",
+            "Edge of Night"
           ]
         },
         {
-          "unit": "Ezreal",
+          "unit": "Rengar",
           "items": [
-            "Red Buff",
-            "Spear of Shojin",
-            "Deathblade"
+            "Edge of Night",
+            "Titan's Resolve",
+            "Guinsoo's Rageblade"
+          ]
+        },
+        {
+          "unit": "Aphelios",
+          "items": [
+            "Last Whisper",
+            "Red Buff"
           ]
         }
       ],
       "priority": [
-        "Hand of Justice",
-        "Jeweled Gauntlet",
-        "Gargoyle Stoneplate",
-        "Warmog's Armor"
+        "Edge of Night",
+        "B.F. Sword",
+        "Chain Vest",
+        "Needlessly Large Rod"
       ],
       "early": [
+        "Kobuko",
+        "Rek'Sai",
         "Kha'Zix",
-        "Ornn",
-        "Alistar",
-        "LeBlanc"
+        "Rengar"
       ],
-      "flex": [
-        "Before Alune, use a third Executioner such as Lux or Ivern."
-      ],
-      "position": "Kha'Zix and Hecarim take the front/side access lanes; keep Ezreal, Alune and Soraka in the back.",
-      "alt": "Double Hand of Justice is a strong Kha'Zix setup; Deathcap or Jeweled Gauntlet can replace one.",
+      "position": "Kha'Zix and Rengar need to reach targets. Hecarim stands in front. Swap sides to match the enemy carry.",
+      "flex": "After the 3-stars, add 5-costs such as Ahri, Soraka, or Kennen.",
+      "alt": "Item alternatives are Hand of Justice, Rabadon's, and Edge of Night depending on components.",
       "ar": {
-        "position": "Kha'Zix وHecarim في الأمام/الجنب، وخلي Ezreal وAlune وSoraka في الخلف.",
-        "flex": "قبل Alune استخدم Executioner ثالث مثل Lux أو Ivern.",
-        "alt": "Double Hand of Justice قوي على Kha'Zix، ويمكن استبدال واحدة بـDeathcap أو JG."
+        "position": "Kha'Zix وRengar يوصلوا للأهداف. Hecarim قدامهم. عدّل الجهة حسب كاري الخصم.",
+        "flex": "بعد الـ3 نجوم ضيف 5 كوست زي Ahri أو Soraka أو Kennen.",
+        "alt": "بدائل الأيتمز: Hand of Justice وRabadon's وEdge of Night حسب الكومبوننتس."
       },
       "en": {
-        "position": "Kha'Zix and Hecarim take the front/side access lanes; keep Ezreal, Alune and Soraka in the back.",
-        "flex": "Before Alune, use a third Executioner such as Lux or Ivern.",
-        "alt": "Double Hand of Justice is a strong Kha'Zix setup; Deathcap or Jeweled Gauntlet can replace one."
+        "position": "Kha'Zix and Rengar need to reach targets. Hecarim stands in front. Swap sides to match the enemy carry.",
+        "flex": "After the 3-stars, add 5-costs such as Ahri, Soraka, or Kennen.",
+        "alt": "Item alternatives are Hand of Justice, Rabadon's, and Edge of Night depending on components."
       },
       "ja": {
-        "position": "Kha'ZixとHecarimは前方/サイド、Ezreal、Alune、Sorakaは後衛へ。",
-        "flex": "Alune前はLuxやIvernなど3体目のExecutionerを使用可能。",
-        "alt": "HoJ 2枚は有力。素材に応じてDeathcapやJeweled Gauntletへ。"
+        "position": "Kha'ZixとRengarは敵に届く位置。前はHecarim。相手キャリーに合わせて左右を変える。",
+        "flex": "3スター後はAhri、Soraka、Kennenなどの5コスト。",
+        "alt": "アイテムの代替はコンポーネント次第でHand of Justice、Rabadon's、Edge of Night。"
       }
-    }
+    },
+    "requiredAugment": "Unrivaled"
+  },
+  {
+    "name": "Blackthorn Khazix",
+    "ar": "Blackthorn Khazix",
+    "ja": "ブラックソーン・カ＝ジックス",
+    "style": {
+      "ar": "ريرول 3 كوست · متوسط",
+      "en": "3-Cost Reroll · Medium",
+      "ja": "3コストリロール · 中級"
+    },
+    "augments": [],
+    "note": {
+      "ar": "Kha'Zix مع Blackthorn Emblem. ترتيب التريتس من الإقصاءات: Executioner ثم Ravager ثم Spellweaver ثم Rapidfire. أكاديمي ما كتبش مراحل مفصلة.",
+      "en": "Kha'Zix with a Blackthorn emblem. Takedown trait order is Executioner, then Ravager, then Spellweaver, then Rapidfire. Academy did not publish a full stage guide.",
+      "ja": "Blackthorn紋章のKha'Zix。キルで得るトレイト順はExecutioner、Ravager、Spellweaver、Rapidfire。段階ガイドはAcademy未記載。"
+    },
+    "title": {
+      "ar": "Blackthorn Khazix",
+      "en": "Blackthorn Khazix",
+      "ja": "ブラックソーン・カ＝ジックス"
+    },
+    "slug": "blackthorn-khazix",
+    "stages": [
+      {
+        "stage": 2,
+        "text": {
+          "ar": "متبدأش الخط من غير الإمبلم ونسخ Kha'Zix. ثبّت Hand of Justice عليه.",
+          "en": "Kha'Zix with a Blackthorn emblem. Takedown trait order is Executioner, then Ravager, then Spellweaver, then Rapidfire. Academy did not publish a full stage guide.",
+          "ja": "紋章とKha'Zixのコピーがなければ始めない。Hand of Justiceを載せる。"
+        }
+      },
+      {
+        "stage": 3,
+        "text": {
+          "ar": "ريرول لـ Kha'Zix 3، والفرونت Malphite أو Sett. راقب ترتيب التريتس مع كل إقصاء.",
+          "en": "Kha'Zix with a Blackthorn emblem. Takedown trait order is Executioner, then Ravager, then Spellweaver, then Rapidfire. Academy did not publish a full stage guide.",
+          "ja": "Kha'Zix 3をリロール。前衛はMalphiteかSett。キルごとにトレイト順を確認。"
+        }
+      },
+      {
+        "stage": 4,
+        "text": {
+          "ar": "الترتيب المطلوب: Executioner ثم Ravager ثم Spellweaver ثم Rapidfire.",
+          "en": "Kha'Zix with a Blackthorn emblem. Takedown trait order is Executioner, then Ravager, then Spellweaver, then Rapidfire. Academy did not publish a full stage guide.",
+          "ja": "狙う順はExecutioner、次にRavager、Spellweaver、最後にRapidfire。"
+        }
+      }
+    ],
+    "guide": {
+      "board": [
+        "Azir",
+        "Veigar",
+        "Sett",
+        "Zyra",
+        "Malphite",
+        "Rek'Sai",
+        "Kha'Zix",
+        "Warwick"
+      ],
+      "items": [
+        {
+          "unit": "Azir",
+          "items": [
+            "Void Staff",
+            "Guinsoo's Rageblade",
+            "Rabadon's Deathcap"
+          ]
+        },
+        {
+          "unit": "Malphite",
+          "items": [
+            "Crownguard",
+            "Warmog's Armor",
+            "Gargoyle Stoneplate"
+          ]
+        },
+        {
+          "unit": "Kha'Zix",
+          "items": [
+            "Hand of Justice",
+            "Hand of Justice",
+            "Blackthorn Emblem"
+          ]
+        }
+      ],
+      "priority": [],
+      "early": [],
+      "position": "Kha'Zix has to reach the backline so takedowns build traits in order.",
+      "flex": "Azir holds side AP items. Malphite and Sett are the frontline.",
+      "alt": "If the trait order is wrong early, the line gets worse. Do not force it.",
+      "ar": {
+        "position": "Kha'Zix يوصل للباك لاين عشان الإقصاءات تبني التريتس بالترتيب.",
+        "flex": "Azir يمسك أيتمز AP جانبية. الفرونت Malphite وSett.",
+        "alt": "لو الترتيب اتلخبط بدري، الخط بيضعف. متجبرهوش."
+      },
+      "en": {
+        "position": "Kha'Zix has to reach the backline so takedowns build traits in order.",
+        "flex": "Azir holds side AP items. Malphite and Sett are the frontline.",
+        "alt": "If the trait order is wrong early, the line gets worse. Do not force it."
+      },
+      "ja": {
+        "position": "Kha'Zixは後衛に届かせ、キル順でトレイトを積む。",
+        "flex": "サブのAPはAzir。前衛はMalphiteとSett。",
+        "alt": "序盤にトレイト順を外すと弱い。無理しない。"
+      }
+    },
+    "requiredAugment": "Blackthorn Emblem"
   }
 ]

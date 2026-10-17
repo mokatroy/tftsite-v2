@@ -2,12 +2,12 @@ import {
   setupLanguage as setupLocaleLanguage,
   applyLanguage,
   LANG_LABEL
-} from './locale.js?v=20261005lang';
+} from './locale.js?v=20261017sit';
 
 export {
   copy, detectLang, lang, patchVersion, setPatchVersion, t, localize,
   LANGS, nextLang, localePath, LANG_LABEL, applyLanguage
-} from './locale.js?v=20261005lang';
+} from './locale.js?v=20261017sit';
 
 export function currentLocaleUrl(target='ar'){
   const u=new URL(location.href);
