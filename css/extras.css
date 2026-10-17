@@ -79,3 +79,12 @@
 .play-tip-label{display:block;font:800 11px Outfit;color:var(--purple);margin-bottom:6px}
 .play-tip p{margin:0;font:500 13px Outfit,Cairo,sans-serif;color:var(--text);line-height:1.6}
 @media(max-width:800px){.play-stages{grid-template-columns:1fr}}
+
+.situational-section{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.situational-section-head{margin-bottom:16px}
+.situational-section .section-title{margin:6px 0 8px;font:800 26px Outfit,Cairo,sans-serif;color:var(--text)}
+.situational-section-sub{margin:0 0 8px;max-width:52ch}
+.situational-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.situational-more{margin:16px 0 0}
+.situational-more a{color:var(--gold);font:700 13px Outfit,Cairo,sans-serif;text-decoration:none}
+.situational-more a:hover{text-decoration:underline}

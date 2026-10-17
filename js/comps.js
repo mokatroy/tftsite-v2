@@ -27,13 +27,27 @@ const root=document.querySelector('#comps-grid') || document.querySelector('#com
 const situationalRoot=document.querySelector('#situational-list');
 function renderSituational(){
   if(!situationalRoot)return;
-  situationalRoot.innerHTML=situational.map(c=>{
+  const section=document.querySelector('#situational-section');
+  const q=(query||'').toLowerCase().trim();
+  const list=situational.filter(c=>{
+    if(!q) return true;
+    try{ return JSON.stringify(c).toLowerCase().includes(q); }catch(e){ return true; }
+  });
+  if(section) section.hidden = !situational.length;
+  if(!list.length){
+    situationalRoot.innerHTML = situational.length
+      ? `<p class="empty">${t('notFound')}</p>`
+      : '';
+    return;
+  }
+  situationalRoot.innerHTML=list.map(c=>{
     const title=localize(c.title)||c.name||c.slug||'';
     const style=localize(c.style)||'';
     const note=localize(c.note)||'';
-    const augs=(c.augments||[]).map(a=>`<span>${a}</span>`).join('');
+    const augs=(c.augments||[]).slice(0,4).map(a=>`<span>${a}</span>`).join('');
     const slug=c.slug||'';
-    return `<article class="situational-card"><div class="situational-card-head"><div><span class="situational-label">SITUATIONAL</span><h3>${title}</h3><p>${style}</p></div><a class="situational-open" href="${localePath('situational.html')}?slug=${slug}">${t('situationalOpen')||'Open'} ↗</a></div><p class="situational-note">${note}</p><div class="situational-augments">${augs}</div></article>`;
+    const req=c.requiredAugment?`<span class="req-aug">${c.requiredAugment}</span>`:'';
+    return `<article class="situational-card"><div class="situational-card-head"><div><span class="situational-label">SITUATIONAL</span>${req}<h3>${title}</h3><p class="style-line">${style}</p></div><a class="situational-open" href="${localePath('situational.html')}?slug=${slug}">${t('situationalOpen')||'Open'} ↗</a></div><p class="situational-note">${note}</p><div class="situational-augments">${augs}</div></article>`;
   }).join('');
 }
 function render(){
@@ -81,5 +95,5 @@ Promise.all([
   render();renderSituational();
 }).catch(e=>{console.error('comps load',e);render();});
 const search=document.querySelector('#comp-search');
-if(search) search.addEventListener('input',e=>{query=e.target.value;render()});
+if(search) search.addEventListener('input',e=>{query=e.target.value;render();renderSituational()});
 setupLanguage(()=>{render();renderSituational()});
