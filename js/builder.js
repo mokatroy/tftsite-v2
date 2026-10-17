@@ -114,34 +114,18 @@ function applyLang(){
 
 function fitBoard(){
   const el = document.getElementById('board');
-  const wrap = el && el.closest('.builder-board-wrap');
-  if(!el || !wrap) return;
+  if(!el) return;
+  // Clear any previous JS sizing / scale — CSS grid handles mobile
   el.style.transform = '';
   el.style.marginBottom = '';
-  if(window.innerWidth > 900){
-    el.style.removeProperty('--hex-w');
-    el.style.removeProperty('--hex-h');
-    el.style.removeProperty('--hex-gap');
-    return;
-  }
-  // Available inner width of the card
-  const style = getComputedStyle(wrap);
-  const padL = parseFloat(style.paddingLeft) || 0;
-  const padR = parseFloat(style.paddingRight) || 0;
-  const avail = Math.max(160, wrap.clientWidth - padL - padR);
-  // Need room for 7 hexes + 6 gaps + 0.5 hex offset = 7.5 hex + 6 gaps
-  const gap = 2;
-  const hexW = Math.floor((avail - 6 * gap) / 7.5);
-  const hexH = Math.round(hexW * 1.15);
-  el.style.setProperty('--hex-w', hexW + 'px');
-  el.style.setProperty('--hex-h', hexH + 'px');
-  el.style.setProperty('--hex-gap', gap + 'px');
-  // side padding so offset row stays inside
-  el.style.paddingLeft = Math.floor(hexW / 2) + 'px';
-  el.style.paddingRight = Math.floor(hexW / 2) + 'px';
-  el.style.boxSizing = 'border-box';
-  el.style.width = '100%';
+  el.style.width = '';
+  el.style.paddingLeft = '';
+  el.style.paddingRight = '';
+  el.style.removeProperty('--hex-w');
+  el.style.removeProperty('--hex-h');
+  el.style.removeProperty('--hex-gap');
 }
+
 
 
 function renderBoard(){

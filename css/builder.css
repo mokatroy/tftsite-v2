@@ -171,96 +171,92 @@
 
 
 
-/* —— Mobile builder: JS sets --hex-w/--hex-h to fit card —— */
+
+/* —— Mobile builder: simple 7-col grid, always fits —— */
 @media (max-width: 900px) {
   .builder-page {
     max-width: 100%;
-    padding: 0 10px 96px !important;
+    padding: 0 12px 96px !important;
     overflow-x: hidden;
   }
   .builder-page .page-title { font-size: 22px !important; }
-  .builder-page .page-subtitle { font-size: 12px !important; margin-bottom: 10px; }
+  .builder-page .page-subtitle { font-size: 12px !important; }
 
   .builder-layout {
     grid-template-columns: 1fr !important;
     gap: 12px;
-    margin-top: 12px;
   }
 
   .builder-board-wrap {
     padding: 12px 10px 14px;
-    border-radius: 14px;
-    overflow: hidden;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .builder-hex-grid {
-    --hex-gap: 2px;
-    --hex-w: 36px;
-    --hex-h: 41px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
+    gap: 6px;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    box-sizing: border-box;
-    overflow: visible;
+    padding: 0 !important;
     transform: none !important;
-    padding-bottom: calc(var(--hex-h) * 0.2);
+    align-items: stretch;
   }
 
   .builder-row {
-    display: flex;
-    justify-content: flex-start;
-    gap: var(--hex-gap);
-    margin: 0;
-    margin-top: calc(var(--hex-h) * -0.26);
-    width: max-content;
-  }
-  .builder-row:first-child { margin-top: 0; }
-
-  .builder-row.offset {
-    margin-inline-start: calc(var(--hex-w) * 0.5 + var(--hex-gap) * 0.5) !important;
-    padding-inline-start: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    transform: none !important;
     left: auto !important;
     position: static !important;
-    transform: none !important;
+    justify-content: stretch;
+  }
+
+  /* staggered look without overflowing: indent whole row slightly */
+  .builder-row.offset {
+    padding-inline-start: 6% !important;
+    padding-inline-end: 0 !important;
+    margin-inline-start: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box;
   }
 
   .builder-hex {
-    width: var(--hex-w);
-    height: var(--hex-h);
-    flex-shrink: 0;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1.1;
+    min-width: 0;
+    flex-shrink: 1;
     position: relative;
   }
-  .builder-hex-inner { position: absolute; inset: 0; }
+  .builder-hex-inner {
+    position: absolute;
+    inset: 0;
+  }
   .builder-hex img {
-    width: 62%;
-    height: 62%;
+    width: 70%;
+    height: 70%;
   }
   .builder-hex .hex-x {
     display: flex !important;
-    width: 14px;
-    height: 14px;
-    font-size: 9px;
-    top: 0;
-    right: 0;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
   }
 
-  .builder-traits { width: 100%; max-width: 100%; padding: 12px; }
-  .builder-pool { margin-top: 12px; padding-bottom: 8px; }
-  .pool-toolbar { flex-wrap: wrap; gap: 8px; }
-  .pool-search { width: 100%; min-width: 0; font-size: 16px; }
-  .cost-tabs { flex-wrap: wrap; gap: 6px; }
+  .builder-traits { width: 100%; padding: 12px; }
+  .builder-pool { margin-top: 12px; }
+  .pool-search { width: 100%; font-size: 16px; }
   .pool-grid {
     grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)) !important;
-    gap: 8px;
   }
-  .pool-champ { padding: 6px 4px; }
-  .pool-champ img { width: 40px; height: 40px; }
-  .pool-champ span { font-size: 10px; max-width: 100%; }
 }
