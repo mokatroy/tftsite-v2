@@ -24,7 +24,7 @@ export function traitImgRemote(name){
 export function traitImg(name){
   const slug = traitSlug(name);
   if(!slug) return '';
-  return `assets/traits/trait_icon_18_${slug}.png`;
+  return `https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/assets/traits/trait_icon_18_${slug}.png`;
 }
 
 /** Known augment name → hexcore icon slug */
@@ -73,5 +73,5 @@ export function augmentImgRemote(name){
 export function augmentImg(name){
   const slug = augmentSlug(name);
   if(!slug) return '';
-  return `assets/augments/${slug}.png`;
+  return `https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/assets/augments/${slug}.png`;
 }

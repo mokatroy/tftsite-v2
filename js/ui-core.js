@@ -1,6 +1,6 @@
-import {t,localize,lang,localePath} from './locale.js?v=20261007traits';
-import {traitImg,traitImgRemote} from './icons.js?v=20261007traits';
-import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261007traits';
+import {t,localize,lang,localePath} from './locale.js?v=20261017m';
+import {traitImg,traitImgRemote} from './icons.js?v=20261017m';
+import {roleKey,roleOf,itemsForChampion,CHAMP_COST} from './ui-data.js?v=20261017m';
 
 export function resolveChampId(name){
   const raw=String(name||'').trim();
@@ -50,7 +50,7 @@ export function champImgRemote(name){
 
 export function champImg(name){
   const id=resolveChampId(name);
-  if(id) return `assets/champs/${id}.png`;
+  if(id) return `https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/assets/champs/${id}.png`;
   return champImgRemote(name);
 }
 export function itemSlug(name){
@@ -125,7 +125,7 @@ export function itemImgRemote(name){
 export function itemImg(name){
   const slug=itemSlug(name);
   if(!slug) return '';
-  return `assets/items/${slug}.png`;
+  return `https://cdn.jsdelivr.net/gh/mokatroy/tftsite-v2@main/assets/items/${slug}.png`;
 }
 export function unitChip(u, withImg=true){
   const name=typeof u==='string'?u:(u?.name?localize(u.name)||u.name:u?.en||u?.ar||'');

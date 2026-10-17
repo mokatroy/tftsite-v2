@@ -159,3 +159,32 @@
   .lang-menu{right:12px;left:auto;min-width:140px}
   [dir=rtl] .lang-menu{left:12px;right:auto}
 }
+
+
+/* ===== Mobile reliability pass 2026-10-17 ===== */
+@media(max-width:900px){
+  img{max-width:100%;height:auto}
+  .unit-chip.has-img img,
+  .item-chip img,
+  .trait-chip img,
+  .bm-champ,
+  .bb-champ,
+  .hex-champ{object-fit:cover;background:#121826}
+  .board-mobile{display:flex!important;flex-direction:column;gap:14px;width:100%}
+  .bm-units{display:flex;flex-wrap:wrap;gap:10px}
+  .bm-unit{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:56px}
+  .bm-unit img.bm-champ{width:48px;height:48px;border-radius:12px;display:block}
+  .tft-board{overflow:visible;padding:8px 0}
+  .comp-grid{grid-template-columns:1fr!important;gap:12px}
+  .situational-list{grid-template-columns:1fr!important}
+  .situational-card{padding:14px}
+  .situational-card .unit-list{display:flex;flex-wrap:wrap;gap:6px}
+  .detail-grid{grid-template-columns:1fr!important}
+  .page-main,.page-main>*{max-width:100%;box-sizing:border-box}
+  .hex-grid,.board-desktop{display:none!important}
+  /* keep data readable */
+  .comp-card,.situational-card{overflow:visible}
+  .filters{flex-direction:column;align-items:stretch}
+  .search input{width:100%;font-size:16px} /* prevent iOS zoom */
+  input,select,textarea{font-size:16px}
+}
