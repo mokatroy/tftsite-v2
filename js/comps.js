@@ -1,5 +1,5 @@
 import {setupLanguage,setPatchVersion,t,localize,localePath} from './locale.js?v=20261015meta';
-import{compCard}from'./ui.js?v=20261012stats';
+import{compCard,unitChip}from'./ui.js?v=20261012stats';
 let comps=[],situational=[],tier='All',query='';
 
 const TIER_18_4 = {
@@ -47,7 +47,12 @@ function renderSituational(){
     const augs=(c.augments||[]).slice(0,4).map(a=>`<span>${a}</span>`).join('');
     const slug=c.slug||'';
     const req=c.requiredAugment?`<span class="req-aug">${c.requiredAugment}</span>`:'';
-    return `<article class="situational-card"><div class="situational-card-head"><div><span class="situational-label">SITUATIONAL</span>${req}<h3>${title}</h3><p class="style-line">${style}</p></div><a class="situational-open" href="${localePath('situational.html')}?slug=${slug}">${t('situationalOpen')||'Open'} ↗</a></div><p class="situational-note">${note}</p><div class="situational-augments">${augs}</div></article>`;
+    const board=(c.guide&&c.guide.board||[]).slice(0,8).map(n=>unitChip(n,true)).join('');
+    const itemPreview=(c.guide&&c.guide.items||[]).slice(0,2).map(row=>{
+      const its=(row.items||[]).slice(0,3).map(n=>`<span class="chip item">${n}</span>`).join('');
+      return `<div class="sit-card-items"><strong>${row.unit||''}</strong>${its}</div>`;
+    }).join('');
+    return `<article class="situational-card"><div class="situational-card-head"><div><span class="situational-label">SITUATIONAL</span>${req}<h3>${title}</h3><p class="style-line">${style}</p></div><a class="situational-open" href="${localePath('situational.html')}?slug=${slug}">${t('situationalOpen')||'Open'} ↗</a></div><p class="situational-note">${note}</p>${board?`<div class="unit-list">${board}</div>`:''}${itemPreview}<div class="situational-augments">${augs}</div></article>`;
   }).join('');
 }
 function render(){

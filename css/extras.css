@@ -88,3 +88,12 @@
 .situational-more{margin:16px 0 0}
 .situational-more a{color:var(--gold);font:700 13px Outfit,Cairo,sans-serif;text-decoration:none}
 .situational-more a:hover{text-decoration:underline}
+
+.sit-card-items{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;font-size:12px;color:var(--muted)}
+.sit-card-items strong{color:var(--text);margin-inline-end:4px}
+.detail-section .subhead{margin-top:16px;font-size:14px;color:var(--muted)}
+.unit-list.large{gap:10px}
+.stages{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.stages .stage{padding:12px;border-radius:12px;border:1px solid var(--line);background:rgba(6,9,18,.4)}
+.stages .stage strong{display:block;color:var(--gold);margin-bottom:6px;font-size:12px}
+.stages .stage p{margin:0;font-size:13px;line-height:1.5;color:var(--text)}

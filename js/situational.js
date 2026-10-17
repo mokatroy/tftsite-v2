@@ -14,97 +14,63 @@ function guideText(g, key){
   return '';
 }
 
-function renderList(){
-  if(!root) return;
-  root.innerHTML = `
-    <p class="eyebrow">SET 18 · 18.4B</p>
-    <h1 class="page-title">${t('situationalTitle')||'Situational'}</h1>
-    <p class="page-subtitle">${lang==='ar'?'تشكيلات X من TFT Academy لباتش 18.4b. متلعبهاش غير لو الشرط أو الأوجمنت مظبوط.':lang==='ja'?'TFT AcademyのXティア（パッチ18.4b）。条件かオーグメントが揃った時だけ。':'TFT Academy X-tier for patch 18.4b. Only play them when the condition or augment is right.'}</p>
-    <div class="situational-grid">
-      ${list.map(c=>{
-        const title = localize(c.title) || c.name || c.slug || '';
-        const style = localize(c.style) || '';
-        const note = localize(c.note) || '';
-        const board = (c.guide?.board || []).slice(0,6);
-        const units = board.map(n=>unitChip({name:{en:n}},true)).join('');
-        const augs = (c.augments||[]).slice(0,4).map(a=>`<span>${a}</span>`).join('');
-        const req = c.requiredAugment ? `<span class="req-aug">Requires: ${c.requiredAugment}</span>` : '';
-        return `<article class="situational-card">
-          <div class="situational-card-head">
-            <div>
-              <span class="situational-label">SITUATIONAL</span>
-              ${req}
-              <h3>${title}</h3>
-              <p class="style-line">${style}</p>
-            </div>
-            <a class="situational-open" href="${localePath('situational.html')}?slug=${c.slug||''}">${t('situationalOpen')||'Open'} ↗</a>
-          </div>
-          <p class="situational-note">${note}</p>
-          ${units?`<div class="unit-list">${units}</div>`:''}
-          <div class="situational-augments">${augs}</div>
-        </article>`;
-      }).join('')}
-    </div>`;
-}
-
 function renderDetail(c){
   if(!root || !c) return;
   const title = localize(c.title) || c.name || c.slug || '';
   const style = localize(c.style) || '';
   const note = localize(c.note) || '';
-  const unitList = (c.guide?.board || []).map(n=>({name:{en:n}}));
-  (c.guide?.items||[]).forEach(block=>{
-    const u = unitList.find(x=>x.name.en===block.unit);
-    if(u) u.items = block.items;
-  });
-  const boardChips = unitList.map(u=>unitChip(u,true)).join('');
-  const early = (c.guide?.early || []).map(n=>unitChip({name:{en:n}},true)).join('');
-  const stages = (c.stages||[]).map(s=>{
-    const txt = localize(s.text) || '';
-    return `<div class="stage-row"><span class="stage-num">Stage ${s.stage}</span><p>${txt}</p></div>`;
+  const boardNames = c.guide?.board || [];
+  const unitList = boardNames.map(n => ({name:{en:n}}));
+  const boardChips = boardNames.map(n => unitChip(n, true)).join('');
+  const earlyNames = c.guide?.early || [];
+  const early = earlyNames.map(n => unitChip(n, true)).join('');
+  const itemBlocks = (c.guide?.items || []).map(row => {
+    const unit = row.unit || '';
+    const items = (row.items || []).map(n => itemChip(n)).join('');
+    return `<div class="sit-item-row"><span class="sit-unit">${unitChip(unit, true)}</span><div class="item-list">${items}</div></div>`;
   }).join('');
-  const itemBlocks = (c.guide?.items || []).map(block=>{
-    const unit = block.unit || '';
-    const items = (block.items||[]).map(n=>itemChip(n,true)).join('');
-    return `<div class="sit-item-row"><span class="sit-unit">${unit}</span><div class="item-list">${items}</div></div>`;
+  const priority = (c.guide?.priority || []).map(n => itemChip(n)).join('');
+  const augs = (c.augments || []).map(a => `<span>${a}</span>`).join('');
+  const stages = (c.stages || []).map(st => {
+    const text = localize(st.text) || '';
+    return `<article class="stage"><strong>Stage ${st.stage || ''}</strong><p>${text}</p></article>`;
   }).join('');
-  const priority = (c.guide?.priority||[]).map(n=>itemChip(n,true)).join('');
-  const augs = (c.augments||[]).map(a=>`<span>${a}</span>`).join('');
   const position = guideText(c.guide, 'position');
   const flex = guideText(c.guide, 'flex');
   const alt = guideText(c.guide, 'alt');
+  const how = guideText(c.guide, 'how');
   const boardHtml = renderBoard({units: unitList});
 
   root.innerHTML = `
-    <a class="back-link" href="${localePath('situational.html')}">← ${t('situationalTitle')||'Situational'}</a>
+    <a class="back-link" href="${localePath('comps.html')}#situational-section">← ${t('compsTitle') || 'Comps'}</a>
     <div class="detail-hero">
       <span class="situational-label">SITUATIONAL</span>
-      ${c.requiredAugment?`<span class="req-aug">Requires: ${c.requiredAugment}</span>`:''}
+      ${c.requiredAugment ? `<span class="req-aug">${c.requiredAugment}</span>` : ''}
       <h1>${title}</h1>
       <p class="page-subtitle">${style}</p>
       <p class="guide">${note}</p>
     </div>
 
-    ${boardHtml}
+    ${boardHtml ? `<section class="detail-section"><h2>${t('units') || 'Board'}</h2>${boardHtml}</section>` : ''}
 
     <div class="detail-grid">
       <section class="detail-section">
-        <h2>${t('units')}</h2>
+        <h2>${t('units') || 'Units'}</h2>
         <div class="unit-list large">${boardChips}</div>
-        ${early?`<h3 style="margin-top:16px;font-size:14px;color:var(--muted)">Early</h3><div class="unit-list">${early}</div>`:''}
+        ${early ? `<h3 class="subhead">Early</h3><div class="unit-list">${early}</div>` : ''}
       </section>
       <section class="detail-section">
-        <h2>${t('items')}</h2>
+        <h2>${t('items') || 'Items'}</h2>
         ${itemBlocks || '<p class="empty">—</p>'}
-        ${priority?`<h3 style="margin-top:14px;font-size:14px;color:var(--muted)">Priority</h3><div class="item-list">${priority}</div>`:''}
+        ${priority ? `<h3 class="subhead">Priority</h3><div class="item-list">${priority}</div>` : ''}
       </section>
     </div>
 
-    ${stages?`<section class="detail-section" style="margin-top:16px"><h2>Stages</h2><div class="stages">${stages}</div></section>`:''}
-
-    ${position?`<section class="detail-section" style="margin-top:16px"><h2>Positioning notes</h2><p class="guide">${position}</p></section>`:''}
-    ${flex?`<section class="detail-section" style="margin-top:16px"><h2>Flex</h2><p class="guide">${flex}</p></section>`:''}
-    ${alt?`<section class="detail-section" style="margin-top:16px"><h2>Alternatives</h2><p class="guide">${alt}</p></section>`:''}
+    ${how ? `<section class="detail-section" style="margin-top:16px"><h2>${t('howToPlay') || 'How to play'}</h2><p class="guide">${how}</p></section>` : ''}
+    ${stages ? `<section class="detail-section" style="margin-top:16px"><h2>Stages</h2><div class="stages">${stages}</div></section>` : ''}
+    ${position ? `<section class="detail-section" style="margin-top:16px"><h2>Positioning</h2><p class="guide">${position}</p></section>` : ''}
+    ${flex ? `<section class="detail-section" style="margin-top:16px"><h2>Flex</h2><p class="guide">${flex}</p></section>` : ''}
+    ${alt ? `<section class="detail-section" style="margin-top:16px"><h2>Alternatives</h2><p class="guide">${alt}</p></section>` : ''}
 
     <section class="detail-section" style="margin-top:16px">
       <h2>Key Augments</h2>
@@ -114,24 +80,26 @@ function renderDetail(c){
 }
 
 function render(){
-  if(activeSlug){
-    const c = list.find(x=>x.slug===activeSlug);
-    if(c) renderDetail(c);
-    else renderList();
-  } else {
-    renderList();
+  if(!activeSlug){
+    location.replace(localePath('comps.html') + '#situational-section');
+    return;
   }
+  const c = list.find(x => x.slug === activeSlug);
+  if(c) renderDetail(c);
+  else location.replace(localePath('comps.html') + '#situational-section');
 }
 
 Promise.all([
-  fetch('data/v2_situational-comps.json?v=20261017sit').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/v2_situational_extra.json?v=20261017sit').then(r=>r.ok?r.json():[]).catch(()=>[])
-]).then(([base,extra])=>{
-  const a = Array.isArray(base)?base:[];
-  const b = Array.isArray(extra)?extra:[];
-  const seen = new Set(a.map(x=>x.slug));
-  list = a.concat(b.filter(x=>x&&x.slug&&!seen.has(x.slug)));
+  fetch('data/v2_situational-comps.json?v=20261017human').then(r => r.ok ? r.json() : []).catch(() => []),
+  fetch('data/v2_situational_extra.json?v=20261017human').then(r => r.ok ? r.json() : []).catch(() => [])
+]).then(([base, extra]) => {
+  const a = Array.isArray(base) ? base : [];
+  const b = Array.isArray(extra) ? extra : [];
+  const seen = new Set(a.map(x => x.slug));
+  list = a.concat(b.filter(x => x && x.slug && !seen.has(x.slug)));
   render();
-}).catch(()=>{ if(root) root.innerHTML='<p class="empty">—</p>'; });
+}).catch(() => {
+  if(root) root.innerHTML = '<p class="empty">—</p>';
+});
 
 setupLanguage(render);
