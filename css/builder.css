@@ -186,24 +186,26 @@
   }
 
   .builder-board-wrap {
-    padding: 12px 6px 14px;
+    padding: 12px 4px 14px;
     border-radius: 14px;
-    overflow: hidden;
+    overflow: visible;
     width: 100%;
     box-sizing: border-box;
   }
 
   .builder-hex-grid {
-    --hex-w: min(40px, calc((100% - 12px) / 7.6));
+    --hex-w: min(38px, calc((100vw - 36px) / 8.2));
     --hex-h: calc(var(--hex-w) * 1.14);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    padding-bottom: calc(var(--hex-h) * 0.2);
+    width: max-content;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+    padding-bottom: calc(var(--hex-h) * 0.15);
   }
 
   .builder-row {
@@ -218,13 +220,12 @@
     margin-top: 0;
   }
 
-  /* odd rows shift by half a hex — no transform (avoids overflow) */
+  /* odd rows: half-hex shift; fitBoard() scales whole grid to fit */
   .builder-row.offset {
     margin-inline-start: 0 !important;
     transform: none !important;
-    padding-inline-start: calc(var(--hex-w) * 0.52 + 1.5px);
-    padding-inline-end: 0;
-    box-sizing: border-box;
+    position: relative;
+    left: calc(var(--hex-w) * 0.5 + 1.5px);
   }
 
   .builder-hex {
@@ -292,7 +293,7 @@
 
 @media (max-width: 360px) {
   .builder-hex-grid {
-    --hex-w: min(34px, calc((100% - 8px) / 7.6));
+    --hex-w: min(32px, calc((100vw - 28px) / 8.2));
     --hex-h: calc(var(--hex-w) * 1.14);
   }
 }

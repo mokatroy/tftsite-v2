@@ -111,6 +111,30 @@ function applyLang(){
   renderPool();
 }
 
+
+function fitBoard(){
+  const el = document.getElementById('board');
+  const wrap = el && el.closest('.builder-board-wrap');
+  if(!el || !wrap) return;
+  // reset before measure
+  el.style.transform = 'none';
+  el.style.width = '';
+  el.style.marginBottom = '';
+  // only shrink on narrow screens
+  if(window.innerWidth > 900) return;
+  const avail = Math.max(0, wrap.clientWidth - 8);
+  const need = el.scrollWidth || el.getBoundingClientRect().width;
+  if(!need || avail <= 0) return;
+  const scale = Math.min(1, avail / need);
+  el.style.transformOrigin = 'top center';
+  el.style.transform = 'scale(' + scale + ')';
+  // collapse leftover layout height after scale
+  const h = el.getBoundingClientRect().height;
+  // getBoundingClientRect already reflects scale; scrollHeight does not
+  const full = el.scrollHeight;
+  if(full > h) el.style.marginBottom = (h - full) + 'px';
+}
+
 function renderBoard(){
   const el = document.getElementById('board');
   if(!el) return;
@@ -172,6 +196,8 @@ function renderBoard(){
       renderAll();
     });
   });
+
+  requestAnimationFrame(() => { fitBoard(); requestAnimationFrame(fitBoard); });
 }
 
 function renderTraits(){
@@ -290,3 +316,5 @@ loadChamps().then(list => {
   const pool = document.getElementById('pool-grid');
   if(pool) pool.innerHTML = '<p class="traits-empty">—</p>';
 });
+
+window.addEventListener('resize', () => requestAnimationFrame(fitBoard));
