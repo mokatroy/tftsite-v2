@@ -172,91 +172,102 @@
 
 
 
-/* —— Mobile builder: simple 7-col grid, always fits —— */
+
+/* —— Mobile builder: compact interlocking board —— */
 @media (max-width: 900px) {
   .builder-page {
     max-width: 100%;
-    padding: 0 12px 96px !important;
+    padding: 0 10px 96px !important;
     overflow-x: hidden;
   }
-  .builder-page .page-title { font-size: 22px !important; }
-  .builder-page .page-subtitle { font-size: 12px !important; }
+  .builder-page .page-title { font-size: 20px !important; margin: 4px 0 !important; }
+  .builder-page .page-subtitle { font-size: 11px !important; margin: 4px 0 8px !important; }
+  .builder-page .eyebrow { margin-bottom: 2px !important; }
 
   .builder-layout {
     grid-template-columns: 1fr !important;
-    gap: 12px;
+    gap: 10px;
+    margin-top: 8px;
   }
 
   .builder-board-wrap {
-    padding: 12px 10px 14px;
+    padding: 10px 6px 10px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
   }
+  .builder-toolbar { margin-bottom: 6px; padding: 0 4px; }
+  .builder-hint { margin: 8px 0 0; font-size: 11px; }
 
   .builder-hex-grid {
+    --hex-w: 34px;
+    --hex-h: 38px;
+    --hex-gap: 2px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    align-items: center;
+    gap: 0;
     width: 100%;
     max-width: 100%;
-    margin: 0;
-    padding: 0 !important;
+    margin: 0 auto;
+    padding: 0 0 4px !important;
     transform: none !important;
-    align-items: stretch;
+    overflow: visible;
   }
 
   .builder-row {
-    display: grid !important;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 4px;
-    width: 100% !important;
-    max-width: 100%;
+    display: flex !important;
+    justify-content: center;
+    gap: var(--hex-gap);
+    width: max-content;
+    max-width: none;
     margin: 0 !important;
-    margin-top: 0 !important;
+    /* pull rows together like real TFT hex grid */
+    margin-top: calc(var(--hex-h) * -0.28) !important;
     transform: none !important;
     left: auto !important;
-    position: static !important;
-    justify-content: stretch;
+    position: relative !important;
+    padding: 0 !important;
+  }
+  .builder-row:first-child {
+    margin-top: 0 !important;
   }
 
-  /* staggered look without overflowing: indent whole row slightly */
+  /* half-hex stagger — stays inside because hex size is computed for 7.5 cols */
   .builder-row.offset {
-    padding-inline-start: 6% !important;
-    padding-inline-end: 0 !important;
     margin-inline-start: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box;
+    left: calc(var(--hex-w) * 0.5 + var(--hex-gap) * 0.5) !important;
   }
 
   .builder-hex {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 1 / 1.1;
-    min-width: 0;
-    flex-shrink: 1;
+    width: var(--hex-w) !important;
+    height: var(--hex-h) !important;
+    flex-shrink: 0;
     position: relative;
+    aspect-ratio: auto !important;
   }
   .builder-hex-inner {
     position: absolute;
     inset: 0;
   }
   .builder-hex img {
-    width: 70%;
-    height: 70%;
+    width: 58%;
+    height: 58%;
   }
   .builder-hex .hex-x {
     display: flex !important;
-    width: 16px;
-    height: 16px;
-    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    font-size: 8px;
   }
 
-  .builder-traits { width: 100%; padding: 12px; }
-  .builder-pool { margin-top: 12px; }
+  .builder-traits { width: 100%; padding: 10px; }
+  .builder-pool { margin-top: 10px; }
   .pool-search { width: 100%; font-size: 16px; }
   .pool-grid {
-    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)) !important;
+    gap: 6px;
   }
+  .pool-champ img { width: 36px; height: 36px; }
 }

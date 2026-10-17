@@ -114,17 +114,31 @@ function applyLang(){
 
 function fitBoard(){
   const el = document.getElementById('board');
+  const wrap = el && el.closest('.builder-board-wrap');
   if(!el) return;
-  // Clear any previous JS sizing / scale — CSS grid handles mobile
   el.style.transform = '';
   el.style.marginBottom = '';
   el.style.width = '';
   el.style.paddingLeft = '';
   el.style.paddingRight = '';
-  el.style.removeProperty('--hex-w');
-  el.style.removeProperty('--hex-h');
-  el.style.removeProperty('--hex-gap');
+  if(!wrap || window.innerWidth > 900){
+    el.style.removeProperty('--hex-w');
+    el.style.removeProperty('--hex-h');
+    el.style.removeProperty('--hex-gap');
+    return;
+  }
+  const gap = 2;
+  const pad = 4;
+  const avail = Math.max(140, wrap.clientWidth - pad * 2);
+  // 7 hexes + half offset + 6 gaps must fit
+  let hexW = Math.floor((avail - 6 * gap) / 7.5);
+  hexW = Math.max(22, Math.min(hexW, 40));
+  const hexH = Math.round(hexW * 1.12);
+  el.style.setProperty('--hex-w', hexW + 'px');
+  el.style.setProperty('--hex-h', hexH + 'px');
+  el.style.setProperty('--hex-gap', gap + 'px');
 }
+
 
 
 
