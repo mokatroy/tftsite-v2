@@ -168,11 +168,12 @@
 }
 
 
-/* —— Mobile builder (fit screen + leave room for tab bar) —— */
+
+/* —— Mobile builder: proper interlocking hex grid —— */
 @media (max-width: 900px) {
   .builder-page {
     max-width: 100%;
-    padding: 0 12px 96px !important;
+    padding: 0 10px 96px !important;
     overflow-x: hidden;
   }
   .builder-page .page-title { font-size: 22px !important; }
@@ -185,7 +186,7 @@
   }
 
   .builder-board-wrap {
-    padding: 12px 8px 14px;
+    padding: 12px 6px 14px;
     border-radius: 14px;
     overflow: hidden;
     width: 100%;
@@ -193,35 +194,60 @@
   }
 
   .builder-hex-grid {
-    gap: 4px;
+    --hex-w: min(40px, calc((100% - 12px) / 7.6));
+    --hex-h: calc(var(--hex-w) * 1.14);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
+    padding-bottom: calc(var(--hex-h) * 0.2);
   }
 
   .builder-row {
-    gap: 3px;
+    display: flex;
     justify-content: center;
+    gap: 3px;
+    margin: 0;
+    /* interlock rows: pull each row up by ~25% of hex height */
+    margin-top: calc(var(--hex-h) * -0.26);
   }
+  .builder-row:first-child {
+    margin-top: 0;
+  }
+
+  /* odd rows shift by half a hex — no transform (avoids overflow) */
   .builder-row.offset {
     margin-inline-start: 0 !important;
-    /* slight shift without blowing width */
-    transform: translateX(10px);
+    transform: none !important;
+    padding-inline-start: calc(var(--hex-w) * 0.52 + 1.5px);
+    padding-inline-end: 0;
+    box-sizing: border-box;
   }
 
   .builder-hex {
-    width: clamp(32px, 11.5vw, 44px);
-    height: clamp(36px, 13vw, 50px);
+    width: var(--hex-w);
+    height: var(--hex-h);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .builder-hex-inner {
+    position: absolute;
+    inset: 0;
   }
   .builder-hex img {
-    width: clamp(20px, 7vw, 28px);
-    height: clamp(20px, 7vw, 28px);
+    width: calc(var(--hex-w) * 0.62);
+    height: calc(var(--hex-w) * 0.62);
   }
   .builder-hex .hex-x {
     display: flex !important;
     width: 14px;
     height: 14px;
     font-size: 9px;
+    top: 0;
+    right: 0;
   }
 
   .builder-traits {
@@ -241,7 +267,7 @@
   .pool-search {
     width: 100%;
     min-width: 0;
-    font-size: 16px; /* iOS no-zoom */
+    font-size: 16px;
   }
   .cost-tabs {
     flex-wrap: wrap;
@@ -264,16 +290,9 @@
   }
 }
 
-@media (max-width: 380px) {
-  .builder-hex {
-    width: 30px;
-    height: 34px;
-  }
-  .builder-hex img {
-    width: 18px;
-    height: 18px;
-  }
-  .builder-row.offset {
-    transform: translateX(8px);
+@media (max-width: 360px) {
+  .builder-hex-grid {
+    --hex-w: min(34px, calc((100% - 8px) / 7.6));
+    --hex-h: calc(var(--hex-w) * 1.14);
   }
 }
