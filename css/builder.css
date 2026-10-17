@@ -170,7 +170,8 @@
 
 
 
-/* —— Mobile builder: 7 hexes + half-hex offset fully inside card —— */
+
+/* —— Mobile builder: JS sets --hex-w/--hex-h to fit card —— */
 @media (max-width: 900px) {
   .builder-page {
     max-width: 100%;
@@ -187,31 +188,29 @@
   }
 
   .builder-board-wrap {
-    padding: 12px 8px 14px;
+    padding: 12px 10px 14px;
     border-radius: 14px;
-    overflow: hidden; /* clip nothing important; grid is sized to fit */
+    overflow: hidden;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
   }
 
   .builder-hex-grid {
-    /* half-hex padding on each side so offset rows stay inside */
     --hex-gap: 2px;
-    --hex-w: calc((100% - 6 * var(--hex-gap)) / 7);
-    --hex-h: calc(var(--hex-w) * 1.15);
+    --hex-w: 36px;
+    --hex-h: 41px;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 0;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding-inline: calc(var(--hex-w) * 0.5);
-    padding-bottom: calc(var(--hex-h) * 0.18);
     box-sizing: border-box;
     overflow: visible;
     transform: none !important;
+    padding-bottom: calc(var(--hex-h) * 0.2);
   }
 
   .builder-row {
@@ -221,7 +220,6 @@
     margin: 0;
     margin-top: calc(var(--hex-h) * -0.26);
     width: max-content;
-    max-width: 100%;
   }
   .builder-row:first-child { margin-top: 0; }
 
@@ -229,8 +227,8 @@
     margin-inline-start: calc(var(--hex-w) * 0.5 + var(--hex-gap) * 0.5) !important;
     padding-inline-start: 0 !important;
     left: auto !important;
-    transform: none !important;
     position: static !important;
+    transform: none !important;
   }
 
   .builder-hex {
